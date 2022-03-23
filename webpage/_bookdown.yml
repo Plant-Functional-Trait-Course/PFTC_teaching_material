@@ -1,0 +1,9 @@
+delete_merged_file: true
+new_session: true
+book_filename: "ClimEx Handbook"
+rmd_files:
+  - "index.Rmd"
+  - "1_study_system.Rmd"
+  - "2_theory.Rmd"
+  - "3_working_with_trait_data.Rmd"
+  - "4_group_projects.Rmd"
