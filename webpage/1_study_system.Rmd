@@ -1,0 +1,91 @@
+``` {r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# The study system
+
+## Alpine grasslands in Norway
+
+
+
+```{r grasslands, out.width='100%', fig.cap= "An alpine grasslands in Norway"}
+
+knitr::include_graphics('images/alpine_grassland.jpg')
+```
+
+
+
+## Three-D project - Global change impacts on biodiversity and ecosystem carbon fluxes
+
+### Research site
+
+The study is conducted in three semi-natural grassland sites in western Norway.
+The sites are location on calcareous soil (loamy sand) in Norway.
+The sites were chosen to fit within an elevational gradient with three temperature levels that differ in c. 400 m elevation, a temperature difference of approximately 3°C in summer temperature.
+The sites correspond to boreal, sub-alpine and alpine biogeographic zones in Norway. Other factors such as history, bedrock, vegetation type and structure, slope and exposure were kept as constant as possible among the selected sites within each country.
+
+The sites are grazed by sheep and goats.
+
+```{r exp-design, out.width='100%', fig.cap= "A) The experiment are set up along an elevational gradient that represents a productivity gradient. The experimental treatments are warming (brown), a grdient of nitrogen addition (grey to green) and their combination. These treatments are crossed with four grazing treatment: control (no clipping), intermediate and intensive clipping, and natural grazing outside the grazing exclosure. B) Example of a plot divided into non destructive (inner square) and and destructive sampling area (outer square)."}
+
+knitr::include_graphics('images/ExperimentalDesign.jpg')
+```
+
+We chose species rich grasslands, that were large enough to contain 80 50 x 50 cm plots and relatively flat to avoid contamination between the different nitrogen treatments and for convenience when measuring carbon fluxes.
+A second criteria, was to have a high enough elevational gradient, to get an equal distance of c. 400 m difference in elevation between each of the sites.
+The sites also needed to be relatively easy to access, because large vegetation turfs were transplanted.
+Finally, we wanted other environmental factors to be as similar as possible among the sites, within each of the countries (i.e. grazing regime and history, bedrock, vegetation type and structure, slope and exposure).
+
+### Experimental treatments
+
+**Warming treatment**
+
+The warming treatment was conducted at the end of the growing season in 2019, by transplanting entire plant communities to lower elevation (c. +3°C).
+The upslope left-hand corner of each turf was marked with a toothpick that the turfs could be placed in the similar position relative to the slope and block orientation at the destination site.
+We used a knife to cut the turfs to 50 x 50 cm and to a depth of c. 10 - 25 cm, unless the soil was shallower, as was the case for some of the alpine plots.
+After excavation, the turfs were packed into a cardboard box and transported to their respective target sites within one day. The control plots were not excavated or moved. 
+We did not have local transplants, to control for the transplanting effect, because this was tested in a previous project and the transplanting did not affect species composition in Norway [@Vandvik2020-hu] or China [@Yang2018-uq].
+
+The turfs were fitted into the gaps created by excavating turfs at the destination site, except for the low site, where gaps had to be made. Each block received one plot of each treatment.
+Turfs were placed in the block with the same numerical value (1 - 10) and nitrogen level in the destination site as they originated from in the origin site.
+Transplanted turfs were carefully planted into their destination plots (destinationPlotID) ensuring that the turf orientation was correct (using the toothpick marking the uphill left corner of each turf) and that the soil surface was in plane with the surrounding vegetation, and that the edges of the excavated plot was in good contact with the edges of the gap created when the original turf was excavated from the plot.
+If necessary, loose soil was carefully removed from the underside of the turf, or local soil was added to the gap or around the edges to achieve this.
+
+
+**Nitrogen addition**
+
+In each plot we added slow dissolving fertilizer as pellets (YaraBela OPTI-NS 27-0-0 (4S)).
+We used oxidised nitrogen (NO and N~2~O) formed mainly by combustion processes, which are the main sources of atmospheric nitrogen deposition in remote regions (i.e., away from intensive agriculture and other sources or reduced nitrogen).
+The fertilizer was added once at the start and once in the middle of the growing season from 2020 - 2021 (2022). 
+Each block received one of the seven nitrogen levels: 0, 0.5, 1, 5, 10, 50, 100, 150 kg N ha^−1^ yr^−1^.
+Three of the blocks were controls and received 0 kg N ha^−1^ yr^−1^.
+
+The natural nitrogen deposition differs in Norway (1.5-3.5 kg N ha^−1^ yr^−1^) and China (2-4 kg N ha^−1^ yr^−1^).
+The critical load for changing species composition in these alpine grasslands is approximately 5-10 and 15 kg N ha^−1^ yr^−1^ in Norway and China, respectively.
+We therefore wanted to have a range of nitrogen levels that were below and well above this critical load.
+Although the natural annual deposition differs between Norway and China, the Nitrogen addition was kept the same in both countries.
+
+In 2020, the nitrogen treatment was only applied once at Vikesland (lowest site in Norway) due to an accident, however this did not change the amount of nitrogen applied, only the timing.
+
+**Grazing treatment**
+
+The warming and nitrogen treatments were crossed with four grazing treatments.
+Grazing was simulated by clipping the vegetation manually with scissors 2-3 cm above the ground.
+The four grazing treatments were natural grazing (N; outside the fence), medium level of grazing (M; 2x clipp), intensive level of grazing (I; 4x clipp), and untreated control plots (C).
+The intermediate clipping level reflects the natural grazing level outside the exclosure and should control for differences between grazing and clipping (i.e. clipping is not selective and will not add faeces and urine).
+The medium and intensive plots were clipped 2 or 4 times during the growing season.
+The clipping treatment was conducted in 2020 - 2021 (2022).
+
+The realized cutting in 2020 is shown in the table below.
+In 2020, the intensive grazing level at the higest site in Norway (Liahovden) only received 3 cuts, because the growing season was short due to snow and a cold spring.
+The vegetation did not grow very much at the end of the season and an additional cut would not have removed anymore biomass.
+The intensive grazed plots received 4 cuts (1-4), except Lia (1,2,4), and the intermediate grazed plots received 2 cuts (1,4).
+Cut 3 for Lia does not exist in 2020.
+
+In 2021 (and 2022), we did not clip Carex species until the third cut, because they are difficult to identify and often the tips of the leaves are needed for identification.
+
+
+
+## INCLINE project - Climate change and novel interactions
+
+
