@@ -4,6 +4,6 @@ book_filename: "ClimEx Handbook"
 rmd_files:
   - "index.Rmd"
   - "1_study_system.Rmd"
-  - "2_theory.Rmd"
-  - "3_working_with_trait_data.Rmd"
+  - "2_course.Rmd"
+  - "3_resources.Rmd"
   - "4_group_projects.Rmd"
