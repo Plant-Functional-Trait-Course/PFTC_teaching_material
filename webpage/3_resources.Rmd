@@ -5,6 +5,15 @@ knitr::opts_chunk$set(echo = FALSE)
 # Resources
 
 
+## Working with trait data
+
+### Before you go to the field
+
+something...
+
+
+
+
 ## Data handling and analysis
 
 Getting started with R, working in R and ...
@@ -12,9 +21,6 @@ Getting started with R, working in R and ...
 [Biostats books](https://biostats-r.github.io/biostats/index.html)
 
 
-## Working with trait data
-
-Tutorials
 
 
 ## bootstrapping

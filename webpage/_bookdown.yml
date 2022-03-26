@@ -6,4 +6,5 @@ rmd_files:
   - "1_study_system.Rmd"
   - "2_course.Rmd"
   - "3_resources.Rmd"
+  - "3-2_measure_traits.Rmd"
   - "4_group_projects.Rmd"

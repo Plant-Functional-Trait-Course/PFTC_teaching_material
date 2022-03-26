@@ -4,28 +4,21 @@ knitr::opts_chunk$set(echo = FALSE)
 
 
 
-# Course
-
-
-## Assignments
-
+# PFTC 6 Course information
 
 
 ## Pre-course activities
 
-April 1st: Group leaders will contact you with a list of publications relevant to each project to read and review.
 
-Thursdays (May 5th, 12th, 19th) and (June 2nd): Online lectures and discussions over theoretical and empirical approaches to trait-based ecology, and the natural history of the study system and region. 
+| Data  | What  |
+|:---|:---|
+| April 1st  | Group leaders will contact you with a list of publications relevant to each project to read and review.  |
+| May  | Group leaders will schedule 2 sessions to discuss literature and project design and data documentation. |
+| May 12th  | Alpine ecosystems in Norway |
+| May 19th  | tba  |
+| June 2nd  | toa  |
+| May 5th  | Introduction to trait ecology and PFTC corses  |
 
-May: Group leaders will schedule at least 2 sessions to discuss literature, and at least 1 session to discuss project design and data documentation. These sessions will consist of a combination of student  submitted written summaries of specific themes or papers, and interactive commenting and sharing of ideas within the group via communication channels appropriate for interactive classrooms.
-
-April 15: Deadline 1 for paper review.
-
-May 5th: Deadline 2 for paper review.
-
-May 19th: Deadline for the first draft of the course data documentation files.
-
-June 8th: Deadline for the final course data documentation files.
 
 
 ## General reading lists

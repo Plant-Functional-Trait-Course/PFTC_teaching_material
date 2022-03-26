@@ -18,13 +18,18 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
-# The Plant Functional Trait Course {-}
+# PFTC Teaching material {-}
 
-Our International Plant Functional Traits Courses offer hands-on training in different applications of plant functional traits ecology within a real-life field research project setting. 
-Students plan a trait-based research project and field campaign; collect and document plant functional trait data in the field; and explore these data using trait-based approaches within climate change research and ecosystem ecology.
+This book provides the teaching material for the Plant Functional Trait Courses (PFTC).
 
-Trait-based ecology incorporates important methods and approaches that enable a powerful approach to predict how climate and biotic interactions shape plant community dynamics and ecosystem functioning. 
-This course will provide students with essential background knowledge and the practical field, lab, and computational skills needed for conducting their own research within trait-based ecology.
+The PFTC courses are an international course with hands-on training in trait-based ecology.
+Here we provide teaching material for data collection, curation, analysis, documentation, storage, and reuse.
+In addition, we show reproducible and transparent workflows to make research more open and available.
+We cover these topics within the fields of plant functional trait ecology, ecosystem ecology, plant physiology and remote sensing.
 
 
-This book provides the teaching material for the PFTC courses.
+```{r field, out.width='100%'}
+
+knitr::include_graphics("images/field.JPG")
+
+```
