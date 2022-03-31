@@ -6,5 +6,8 @@ rmd_files:
   - "1_study_system.Rmd"
   - "2_course.Rmd"
   - "3_resources.Rmd"
+  - "3-1_before_field.Rmd"
   - "3-2_measure_traits.Rmd"
+  - "3-3_biostats.Rmd"
+  - "3-4_bootstrapping.Rmd"
   - "4_group_projects.Rmd"
