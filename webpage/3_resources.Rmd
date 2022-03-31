@@ -4,28 +4,15 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Resources
 
+This page contains resources for:
 
-## Working with trait data
+- What to consider before going to the field
+- data collection
+- measurements
+- data curation
+- data analysis
 
-### Before you go to the field
-
-something...
-
-
-
-
-## Data handling and analysis
-
-Getting started with R, working in R and ...
-
-[Biostats books](https://biostats-r.github.io/biostats/index.html)
-
-
-
-
-## bootstrapping
-
-Traitstrap package vignette
+We provide protocols, important literature, tutorials, databases, and code.
 
 
 

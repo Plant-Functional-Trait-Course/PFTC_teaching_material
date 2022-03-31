@@ -3,13 +3,13 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
-## How to measure plant functional traits
+## How to measure plant functional traits?
 
-Based on Perez-Harguindeguy et al. 2013.
+This protocol is based on the trait handbook from Perez-Harguindeguy et al. [-@Perez-Harguindeguy2013-nv].
 
-These are instructions for how to measure leaf functional traits using the traits wheel^TW^ for PFTC courses.
+This protocol shows how to measure leaf functional traits and was adapted for the traits wheel^TW^ in the PFTC courses.
 
-```{r trait-wheel, out.width='100%'}
+```{r trait-wheel, out.width='100%', fig.cap="The different stages from collection, processing and curating data from the trait wheel."}
 
 knitr::include_graphics("images/trait_wheel/TraitWheel_small.png")
 
@@ -24,39 +24,68 @@ knitr::include_graphics("images/trait_wheel/Collect.png")
 
 **A Sampling individual plants in the field (Intraspecific group)**
 
+_This protocol needs to be checked by group 1_
+Are plants collected inside plots or not? Uprooted or not? How many leaves etc.
+
 Follow the species list for our group, starting with the highest priority species for each site.
 DO NOT collect plants from within the plots or the trampled zone around the plots.
-Find 10 individuals of each species, ideally each individual should have five leaves, but three leaves is a minimum. Each individual should be at least two meters away from each other, to avoid sampling individuals from the same genetic individual. Choose reproductively mature adults with fully expanded leaves (i.e. not seedlings). Choose individuals with healthy-looking leaves (i.e. not grazed, no signs of pathogen or herbivore attack, no discoloration).
-Before uprooting the individual, measure its height (see below). For very large individuals that are too large to uproot (e.g. ferns), collect 5 leaves from the individual, making sure to include the petiole.
+Find 10 individuals of each species, ideally each individual should have five leaves, but three leaves is a minimum. 
+Each individual should be at least two meters away from each other, to avoid sampling individuals from the same genetic individual. 
+Choose reproductively mature adults with fully expanded leaves (i.e. not seedlings). 
+Choose individuals with healthy-looking leaves (i.e. not grazed, no signs of pathogen or herbivore attack, no discoloration).
+Before uprooting the individual, measure its height (see below). 
+For very large individuals that are too large to uproot (e.g. ferns), collect 5 leaves from the individual, making sure to include the petiole.
 If you are uncertain whether something is a leaf vs. leaflet, ask your group leader.
-If you cannot find 10 individuals of each species, that is ok. After a reasonable search, move on.
+If you cannot find 10 individuals of each species, that is ok. 
+After a reasonable search, move on.
 
 
 **B Sampling individual plants in the field (Global change group):**
 
-You are provided with a species list for each plot. We sample species outside each plot; focus on sampling around one plot at a time. Minimize trampling as much as possible so as to not affect height measurements.
-The plots range from 1 (upslope) to 5 (downslope). They are marked with coloured flagging tape. 
-DO NOT collect plants from within the plots or the trampled zone around the plots.
-Sample leaves only from the area parallel to the plot (i.e. on the same part of hillslope) but within the flagging tape that marks the perimeter of the site (see Figure 1).
-Find 5 individuals of each species in the sampling zone around the plot. Choose reproductively mature adults with fully expanded leaves (i.e. not seedlings). Choose individuals with healthy-looking leaves (i.e. not grazed, no signs of pathogen or herbivore attack, no discoloration).
-Before uprooting the individual, measure its height (see below). For very large individuals that are too large to uproot (e.g. ferns), collect 5 leaves from the individual, making sure to include the petiole.
+Be careful at all time when working in the experiment, because there are plots everywhere and we want to avoid stepping on the plots.
+Go to your plot, collect your data and minimize trampling as much as possible.
+
+We will sample the most common species for each plot and you are provided with a species list for each plot.
+Each plot has a inner and outer zone (see Figure \@ref(fig:plot)).
+The inner zone should stay untouched if possible and the leaves should be collected from the outer zone.
+
+```{r plot, out.width='100%', fig.cap="Experimental design (left) and organization of the plot (right)."}
+
+knitr::include_graphics("images/sites/ExperimentalDesign.jpg")
+
+```
+
+Each plot is marked with metal tubes in each corner and a label on the top. 
+Find 3-5 individuals of each species per plot. 
+Choose reproductively mature adults with fully expanded leaves (i.e. not seedlings). 
+Choose individuals with healthy-looking leaves (i.e. not grazed, no signs of pathogen or herbivore attack, no discoloration).
+Measure the height of each individual (see below). 
+Collect up to 5 leaves from the individual, making sure to include the petiole see Figure \@ref(fig:petiol).
 If you are uncertain whether something is a leaf vs. leaflet, ask your group leader.
-If you cannot find 5 individuals of each species, that is ok. After a reasonable search, move on.
+If you cannot find 5 individuals of each species, that is ok. 
+After a reasonable search, move on.
 
-<!-- Add some figure showing how to measure height -->
-```{r heigh, out.width='100%', fig.cap="... "}
+```{r petiol, out.width="49%", out.height="20%", fig.show='hold',fig.align='center', fig.cap="Leaf anatomy"}
 
-#knitr::include_graphics("images/trait_wheel/...")
+knitr::include_graphics(c("images/trait_wheel/leaf_anatomy_1.png", "images/trait_wheel/leaf_anatomy_2.png"))
 
 ```
 
 
 **Measuring height of individual plants in the field:**
 
-Record the height of the individual plant before removing it from the ground. 
-Measure the tallest point of the individual plant, excluding fruits and flowers. Do not stretch the plant if it bends.
-Record this measurement legibly (see figure 1 for how to write numbers) on flagging tape
-Tie the flagging tape around the individual securely and place individual in bag with wet paper towels for transfer to lab
+Record the height of the individual plant. 
+Measure the tallest point of the individual plant, excluding fruits and flowers. 
+Do not stretch the plant if it bends (see Figure \@ref(fig:height).
+
+```{r height, out.width="49%", out.height="20%", fig.show='hold',fig.align='center', fig.cap="Leaf anatomy"}
+
+knitr::include_graphics(c("images/trait_wheel/height_1.png", "images/trait_wheel/height_2.png"))
+
+```
+
+Record this measurement legibly (see Figure \@ref(fig:numbers) for how to write numbers) on flagging tape.
+Tie the flagging tape around the individual securely and place individual in bag with wet paper towels for transfer to lab.
 
 
 ```{r numbers, out.width='100%', fig.cap="The one and only approved way to write numbers! "}
@@ -66,45 +95,62 @@ knitr::include_graphics("images/trait_wheel/numbers.png")
 ```
 
 
+```{r process, out.width='20%'}
+
+knitr::include_graphics("images/trait_wheel/Process.png")
+
+```
+
 **Preparing leaves for measuring traits in lab:**
 
-Select one (for the fire group) or five (for the intraspecific group) healthy, mature, undamaged, sun leaf per individual
-For analysing chemical traits such as percent P, C, N and isotopes, a certain amount of dry biomass is needed. Make sure that we are collecting 0.03 g  (30 mg) dried leaf material. Otherwise select several leaves until there is enough dry weight (bulk sample)
-If a species does not have leaves, e.g. Baccharis (wings), we will collect a certain length of the stem. Please note on the envelope how much leaf material that was selected (in cm).
-Include petiole and rachis (see figure 2)
-Pat dry if there is visible water on the surface
-Add a barcode and a sticker to the envelope. Attach the sticker with a stapler.
-Fill in all information between ‘collection day’ and ‘Bulk nr/length’, see figure 3 below. Check table below for options for the information.
-Place the leaf inside the envelope
-Put the envelope in a box for the next step. Make sure the envelopes are kept wet at all times.
+Select one (for the global change group) or five (for the intraspecific group) healthy, mature, undamaged, sun leaf/leaves per individual.
+For analysing chemical traits such as percent P, C, N and isotopes, a certain amount of dry biomass is needed. 
+Make sure that we are collecting 0.03 g  (30 mg) dried leaf material. 
+Otherwise select several leaves until there is enough dry weight (bulk sample).
 
-```{r label, out.width='100%', fig.cap="Sticker and barcode example"}
+Do we have special cases in Norway???
+If a species does not have leaves, e.g. Baccharis (wings), we will collect a certain length of the stem.Please note on the envelope how much leaf material that was selected (in cm).
+
+When collecting the leaf, include petiole and rachis (see Figure \@ref(fig:petiol)).
+Pat the leaf dry with a tissue if there is visible water on the surface.
+Add a barcode and a sticker to the envelope. 
+Attach the sticker with a stapler.
+Fill in all information between ‘collection day’ and ‘Bulk nr/length’, see Figure \@ref(fig:label) below. 
+Check table below for options for the information.
+Place the leaf inside the envelope
+Put the envelope in a box for the next step. 
+Make sure the envelopes are kept wet at all times.
+
+
+```{r label, out.width="49%", out.height="20%", fig.show='hold',fig.align='center', fig.cap="Sticker and barcode example"}
 
 knitr::include_graphics(c("images/trait_wheel/label.png", "images/trait_wheel/barcode.gif"))
 
 
 ```
 
-<!-- Adapt naming conventions! -->
 
 _What to write on the envelope_
 
-| Data or file  | Description of naming convention  |
+| Variable  | What to fill in  | |
 |:---|:---|
-| Data files  | Project_Experiment_Dataset_Year.extension  |
-| species  | Vascular plant taxon names follow for Norway Lid & Lid(Lid J & Lid, 2010) and for China e-flora of China? The full taxa is written using genus and species with a blank. |
-| Country  | Norway or China  |
-| warming  | ambient (A), warm (W)  |
-| Nlevel  | 1-10, where N1 is 0 kg ha^-1^ y^-1^ and N10 is 150 kg ha^-1^ y^-1^|
-| grazing  | Medium grazing (M), intensive grazing (I), natural grazing (N), control/no grazing (C)  |
-| origSiteID  | Name of the origin site; Norway: Joasete (Joa), Liahovden (Lia) |
-| destSiteID  | Name of the destination site; Norway: Vikesland (Vik), Joasete (Joa), Liahovden (Lia) |
-| origBlockID  | 1-10  |
-| destBlockID  | 1-10 (is always the same as origin block ID, because turfs are transplanted within block). |
-| origPlotID  | 1-160 (plots only in high and middle site) |
-| destPlotID  | 1-200 (plots all 3 sites) |
-| turfID | originPlotID-3 treatments (warming, nitrogen level, and grazing)-destPlotID e.g. 1-A5C-1 or 2-W5M-125|
+|  | Three-D | INCLINE |
+| Collection day  | add day, e.g. 24  | add day, e.g. 24 |
+| Site  | Vik, Joa, Lia | Ulv, Lav, Gud, Skj |
+| Elevation  | 469, 920, 1290 | x, x, x, x |
+| Genus  | Bistorta | |
+| Species | vivipara | |
+| Project | Trait = group 1 + 2, Sean = group 3, Drone = group 5 | |
+| Experiment | ambient, warm, N level, grazing | control or warm |
+| PlotID | turfID, e.g. 2 W5M 125 | ??? |
+| Individual Nr  | numeric value  | numeric value |
 
+
+```{r wet, out.width='15%'}
+
+knitr::include_graphics("images/trait_wheel/Wet.png")
+
+```
 
 **Wet mass**
 
@@ -112,152 +158,246 @@ Make sure the envelopes are still kept wet.
 Weigh each leaf and write the weight on envelope, including all digits.
 
 
-**Scanning**
+```{r scan, out.width='15%'}
 
-Connect your Laptop to PI
-Connect PI with ethernet cable to your laptop
-Connect scanner to the PI
-Connect barcode scanner to the PI
-Connect power cable to the PI
+knitr::include_graphics("images/trait_wheel/Scan.png")
+
+```
+
+**Measure leaf area using a scanner**
+
+_Start setup_
+
+Connect your Laptop to the Raspberry PI.
+Connect the PI with an ethernet cable to your laptop.
+Connect the scanner to the PI.
+Connect the barcode scanner to the PI.
+Connect the power cable to the PI.
 
 Wait for one minute.
 
-Open VNC Viewer and type in the correct IP address
-IP addresses:
+Open VNC Viewer and type in the IP address corresponding to your PI:
 
-IP addresses:
-obi wan 	169.254.109.180
-yoda 			169.254.160.193
-bb 8 			169.254.54.188
-3 cpo 		169.254.247.22
-darth vader 	169.254.178.187
-r2 d2 		169.254.231.2
-Deathstar 	169.254.152.80
-Mr. Spock		169.254.204.207
+| PI  | IP address |
+|:---|:---|
+| obi wan | 169.254.109.180 |
+| yoda | 169.254.160.193 |
+| bb 8 | 169.254.54.188 |
+| 3 cpo | 169.254.247.22 |
+| darth vader | 169.254.178.187 |
+| r2 d2 | 169.254.231.2 |
+| Deathstar | 169.254.152.80 |
+| Mr. Spock | 169.254.204.207 |
+|  |  |
+| connect with phone | 192.168.42.42 |
 
-Spare SD card	same as the pi it is in!
+Spare SD card has the same as the pi it is in! 
 
-
-
-(To connect with the phone: 192.168.42.42)
 
 
 You will be asked to type in a username and password:
+
 Username: pi
+
 Password: pftc
 
-Resize screen for convenience.
+Resize the screen for convenience.
 
 
 
-**Scanning**
+_Scan leaves_
 
 Make sure the envelopes are still kept wet.
-Check that the scanner is clean and free of debris. Clean if needed.
-Place wet leaf face-down on the scanner
-Make sure the leaf is not folded and that leaflets do not overlap. The leaf should not go all the way to the edge of the scanner, because each picture will be cropped.
-You can cut the leaf into several pieces if needed, but please make a remark if you do so (e.g. cut 3). You can tape the leaf to the scanner if it folds (e.g. grasses)
+Check that the scanner is clean and free of debris.
+Clean if needed.
+Place wet leaf face-down on the scanner.
+Make sure the leaf is not folded and that leaflets do not overlap. 
+The leaf should not go all the way to the edge of the scanner, because each picture will be cropped.
+You can cut the leaf into several pieces if needed, but please make a remark if you do so (e.g. cut 3). 
+You can tape the leaf to the scanner if it folds (e.g. grasses).
+
 For graminoids (grasses, sedges, rushes):
 Spread graminoid blades flat and tape to scanner if necessary to hold them in place
-Exclude the leaf sheath (see picture)
+
+Exclude the leaf sheath (see Figure \@ref(fig:leaf)).
+
+```{r leaf, out.width='40%', fig.cap="Leaf blade and sheats"}
+
+knitr::include_graphics("images/trait_wheel/leaf.jpeg")
+
+```
 
 
-Scan, save and check the leaf: 
-Click on the leaf icon (only needs to be done the first time). This will start the scanning program. If the scanner cannot be found, wait for a bit and try again.
-Check the settings of the scanner. These should be set as standard, so please don’t touch them if not needed. 
-The scan should be saved in Desktop/leaf_scans/
-Type: JPEG
-Colour
-Full colour range
-300dpi. 
-Press scan (at the bottom)
-Adjust the zoom (about 25%)
-Check scan (has the whole leaf been scanned, is the leaf not upside down, dirt on the scan, etc.). Repeat the scan if something is not ok.
-Click on the green save button to save the scan. Make sure the cursor marks the filename (should be default). Scan the barcode on the envelope. The filename should be something like: AAA4667
-When the scan is saved, the PI will check that the LeafID and that the scanning settings (dpi, etc.) are correct. If anything is wrong, it will open a window with an error message. Please read it!
+_Scan, save and check the leaf_
+
+Click on the leaf icon (only needs to be done the first time).
+This will start the scanning program.
+If the scanner cannot be found, wait for a bit and try again.
+Check the settings of the scanner.
+These should be set as standard, so please do not touch them if not needed.
+
+The scan should be:
+
+- saved in Desktop/leaf_scans/
+- Type: JPEG
+- Colour
+- Full colour range
+- 300dpi
+
+From here, do this for each leaf:
+
+Press scan (at the bottom of the window) and a couple of seconds wait until the scanning process is done.
+A new window will pop up.
+Adjust the zoom to see the full picture (about 25%).
+Check the quality of the scan (has the whole leaf been scanned, is the leaf not upside down, dirt on the scan, etc.). 
+If the scan is not ok, adjust the leaf and repeat the scan.
+Click on the green save button to save the scan. 
+Make sure the cursor marks the filename (should be default). 
+Scan the barcode on the envelope of the leaf that has been scanned with the barcode reader.
+The filename should be something like: AAA4667 (3 letters, 4 digits)
+When the scan is saved, the PI will check that the LeafID and that the scanning settings (dpi, etc.) are correct. 
+If anything is wrong, it will open a window with an error message see Figure \@ref(fig:error). 
+Please read it!
 
 
-```{r error, out.width='100%', fig.cap="Error message"}
+```{r error, out.width='50%', fig.cap="Error message."}
 
-#knitr::include_graphics()
-
+knitr::include_graphics("images/trait_wheel/error.png")
 
 ```
 
 Click anywhere in the window and it will disappear.
-Save the scan with the correct name or scan the leaf again if the settings are wrong. MAKE SURE TO DELETE THE SCAN WITH THE WRONG NAME OR SETTING!!!
+Save the scan with the correct name or scan the leaf again if the settings are wrong.
+MAKE SURE TO DELETE THE SCAN WITH THE WRONG NAME OR SETTING.
 Tick the box on the envelope that the leaf has been scanned.
+Make sure the scanned leaves are kept wet and move them to the next station.
 
-When you are finished with scanning click on the yoda icon. This will check the leafIDs. If anything is wrong it will open a window and indicate which scans are wrong.
+From time to time:
+
+When you are finished with scanning click on the yoda icon. 
+This will check the leafIDs.
+If anything is wrong it will open a window and indicate which scans are wrong.
 Make sure to fix all the wrong leafIDs and not to have duplicate scans before leaving the station.
-Copy all the scans onto a stick and deposit them on the PFTC5 hard drive.
-Shut down the pi. Wait 1 min to disconnect it from the power.
 
+Before leaving the station:
+
+Copy all the scans onto a stick and deposit them on the PFTC6 hard drive.
+Shut down the pi.
+Wait 1 min to disconnect it from the power.
+
+
+```{r thick, out.width='18%'}
+
+knitr::include_graphics("images/trait_wheel/Thickness.png")
+
+```
 
 **Leaf thickness**
 
 Make sure the envelopes are still kept wet.
-Thickness varies over the surface of the leaf; generally, the leaf is thickest at the midrib, primary veins, margins, and leaf base. Avoid the midrib when measuring leaf thickness, unless the leaf is too small. 
-Take three thickness measurements at several points on the lamina. From this, we will later calculate the average thickness. If the leaf is small, it may not be possible to take three unique measurements.
+Thickness varies over the surface of the leaf; generally, the leaf is thickest at the midrib, primary veins, margins, and leaf base. 
+Avoid the midrib when measuring leaf thickness, unless the leaf is too small. 
+Take three thickness measurements at several points on the lamina. 
+From this, we will later calculate the average thickness. 
+If the leaf is small, it may not be possible to take three unique measurements.
+
+```{r vein, out.width='40%'}
+
+knitr::include_graphics("images/trait_wheel/veins.jpg")
+
+```
+
 Ferns: Make sure you do not measure thickness on the spore-producing sori on the lower side of fern frond.
 
 
+```{r entry, out.width='15%'}
+
+knitr::include_graphics("images/trait_wheel/Data.png")
+
+```
+
 **Data entry**
 
-Ideally the envelope should still be kept wet until this point and then dried. In case any information is missing.
-Copy a template of the PFTC5_Peru_2020_LeafTraits.xlsx file onto your computer.
-Connect a barcode scanner to your computer
-Open the excel file
-Scan the barcode of an envelope. Make sure that your cursor is in the right cell (ID)
-Enter all the data that is on the envelope (for details see table below)
-If any of the information is missing, check if it has been forgotten. Has the leaf been scanned, one thickness measurement is missing, etc. If anything is missing bring the leaf back to the according station in the trait wheel.
+Ideally the envelope should still be kept wet until this point in case any information is missing.
+Open up the google sheet (link) onto your computer.
+Connect a barcode scanner to your computer.
+Scan the barcode of an envelope. 
+Make sure that your cursor is in the right cell (ID).
+Enter all the data that is on the envelope (for details see table below).
+If any of the information is missing, check if it has been forgotten. 
+Has the leaf been scanned, one thickness measurement is missing, etc. 
+If anything is missing bring the leaf back to the according station in the trait wheel.
 When finished, check the box on the envelope that the data has been entered.
 Take a picture of the envelope.
+Bring the envelop to the drying station.
 
 
-<!-- Adapt naming conventions! -->
+_What to write on the envelope_
 
-_Naming conventions used for the data_
-
-| Data or file  | Description of naming convention  |
+| Variable  | What to fill in  | |
 |:---|:---|
-| Data files  | Project_Experiment_Dataset_Year.extension  |
-| species  | Vascular plant taxon names follow for Norway Lid & Lid(Lid J & Lid, 2010) and for China e-flora of China? The full taxa is written using genus and species with a blank. |
-| Country  | Norway or China  |
-| warming  | ambient (A), warm (W)  |
-| Nlevel  | 1-10, where N1 is 0 kg ha^-1^ y^-1^ and N10 is 150 kg ha^-1^ y^-1^|
-| grazing  | Medium grazing (M), intensive grazing (I), natural grazing (N), control/no grazing (C)  |
-| origSiteID  | Name of the origin site; Norway: Joasete (Joa), Liahovden (Lia) |
-| destSiteID  | Name of the destination site; Norway: Vikesland (Vik), Joasete (Joa), Liahovden (Lia) |
-| origBlockID  | 1-10  |
-| destBlockID  | 1-10 (is always the same as origin block ID, because turfs are transplanted within block). |
-| origPlotID  | 1-160 (plots only in high and middle site) |
-| destPlotID  | 1-200 (plots all 3 sites) |
-| turfID | originPlotID-3 treatments (warming, nitrogen level, and grazing)-destPlotID e.g. 1-A5C-1 or 2-W5M-125|
+|  | Three-D | INCLINE |
+| Collection day  | add day, e.g. 24  | add day, e.g. 24 |
+| Site  | Vik, Joa, Lia | Ulv, Lav, Gud, Skj |
+| Elevation  | 469, 920, 1290 | x, x, x, x |
+| Genus  | Bistorta | |
+| Species | vivipara | |
+| Project | Trait = group 1 + 2, Sean = group 3, Drone = group 5 | |
+| Experiment | ambient, warm, N level, grazing | control or warm |
+| PlotID | turfID, e.g. 2 W5M 125 | ??? |
+| Individual Nr  | numeric value  | numeric value |
+
+
+
+```{r dry, out.width='10%'}
+
+knitr::include_graphics("images/trait_wheel/Dry.png")
+
+```
 
 **Dry mass**
  
 The leaves will be dried in the oven for 72 hours.
 
-The leaves will be dried and weighed again in Cusco after the course.
 
 
 
-### Data checking  
+```{r check, out.width='15%'}
 
-Check all the scanned leaves. Full scan on the image, nothing else scanned, dirty scan, number of leaves, has leaf been cut, is there a remark on this?
-Check valid leafID
+knitr::include_graphics("images/trait_wheel/Check.png")
+
+```
+
+**Data checking**
+
+Find the folder with the leave scans on google drive: link
+Open each scan and check the follwing criterias:
+
+- Is the whole leaf on the scan?
+- Has nothing else been scanned (cable, paper,...)?
+- Is there dirty the scan?
+- Has the leaf been cut? If yes, is it indicated on the envelope?
+- How many leaves are on the scan? If > 1 is there a remark on the envelope?
+
+
+Open RStudio project and the R script (...).
+Download the trait data from google sheet.
+Check if the leafID is valid.
 Check if the variables have valid entries. E.g. correct day, site name, elevations, etc.
-Check if missing values can be found on the envelope or retrieved from the data
-Check if traits have unrealistic values
-Plot data
+Check if missing values can be found on the envelope or retrieved from the data.
+Plot the data to check if traits have unrealistic values.
 
 
-### Data documentation 
+```{r datadoc, out.width='8%'}
+
+knitr::include_graphics("images/trait_wheel/DataDoc.png")
+
+```
+
+**Data documentation**
 
 Describing method
 Describing data
-Plot data
 
 
 

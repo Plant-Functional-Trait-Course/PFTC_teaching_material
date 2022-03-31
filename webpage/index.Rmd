@@ -10,6 +10,7 @@ output:
   bookdown::bs4_book:
     section_numbering: TRUE
     css: "css/style-chapters.css"
+bibliography: "bibliography.bib"
 ---
 
 ```{r, echo=FALSE}
