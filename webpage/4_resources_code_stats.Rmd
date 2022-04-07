@@ -1,0 +1,5 @@
+``` {r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Resources for field work and trait measurements
