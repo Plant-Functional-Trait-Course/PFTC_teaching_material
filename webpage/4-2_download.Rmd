@@ -1,0 +1,42 @@
+```{r, setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+```
+
+
+## Download PFTC data
+
+We have created a R package to download the data, called *dataDownloader*.
+If you are using the package for the first time you need to install the package using the  command below.
+If you have used it before, just run the second line of code to load the package.
+
+```{r, package, eval=FALSE}
+devtools::install_github("Between-the-Fjords/dataDownloader")
+library(dataDownloader)
+```
+
+Now you can download the all the files you need.
+Let's download the community data and the trait from the Svalbard course.
+
+```{r, download-svalbard, eval=FALSE}
+get_file(node = "smbqh",
+         file = "PFTC4_Svalbard_2018_Gradient_Traits.csv",
+         path = "webpage/data",
+         remote_path = "Traits")
+                       
+get_file(node = "smbqh",
+         file = "PFTC4_Svalbard_2018_Community_Gradient.csv",
+         path = "webpage/data",
+         remote_path = "Community")
+                       
+```
+
+
+### Exercise {- .exercise .toc-ignore}
+
+Now it is your turn.
+Copy the code into your console and download the data.
+

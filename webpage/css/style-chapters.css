@@ -135,6 +135,30 @@ blockquote {
 
 
 
+/*exercise box*/
+
+.exercise {
+  background-color: #6ADBD2;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.exercise p{
+  color: #fafafa;
+  padding: 5px 15px 0 0;
+}
+
+.exercise h1, .exercise h2, .exercise h3, .exercise h4, .exercise h5, .exercise h6{
+  color:#14686a;
+}
+
+.exercise code{
+  background-color: #cacaca;
+}
+
+
+
 /*facta box*/
 
 .facta {
