@@ -1,0 +1,388 @@
+```{r, setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+library(tidyverse)
+library(lubridate)
+library(tidylog)
+
+```
+
+
+## Data curation
+
+Data curation, transformation or cleaning is the first step after digitizing the data.
+Each dataset has to be checked for errors and corrected as best as possible.
+This tutorial shows how to check your dataset for errors and how to correct them.
+
+There are a couple of R packages that are useful for this work.
+
+If you have never used the packages you need to install them first using the function  `install.packages()`.
+Otherwise, you can just load the packages.
+
+```{r, load-packages, eval=FALSE}
+
+library(tidyverse)
+
+```
+
+
+For this tutorial we will be working with the trait dataset from Svalbard.
+See section \@ref(Working with PFTC data) for how to access the data and information about the study, experiment and datasets.
+
+
+### Import data
+
+The first step is to import the data to R.
+The data is stored as a _csv file_ and we can use the function `read_csv()` to import that data.
+If your data has another format or importing data is new to, you have a look at this [page](https://biostats-r.github.io/biostats/workingInR/importing-data-in-r.html).
+
+```{r, trait-import}
+
+raw_traits <- read_csv("data/PFTC4_Svalbard_2018_Gradient_Traits.csv")
+
+```
+
+Give the dataset a name that indicates that this is the raw data.
+
+
+Let us now shrink the dataset to make it easier to handle.
+In addition, we will introduce a couple of errors that we want to fix afterwards.
+
+The code to do this is hidden.
+But if you want to replicate the introduction to the errors you can find the code here.
+
+```{r, introduce-errors, echo=FALSE}
+
+raw_traits <- raw_traits |> 
+  # shrink dataset
+  filter(Functional_group == "vascular",
+         Site %in% c(1, 3, 5),
+         PlotID %in% c("A", "B", "C")) |> 
+  select(-Project, -Functional_group, -Year)
+
+raw_traits <- raw_traits |> 
+  #introduce errors
+  # wrong date
+  mutate(Date = as.character(Date),
+         Date = if_else(ID == "AMO3822", "18", Date),
+         # giant leaf
+         Value = if_else(ID == "ANH3472" & Trait == "Leaf_Area_cm2", 100, Value),
+         # diverse species names
+         Taxon = case_when(ID == "BON2388" ~ "oxiria digyna",
+                           ID == "ATX7216" ~ "oxyria digina",
+                           ID == "BSV7581" ~ "oxyra digyna",
+                           TRUE ~ Taxon),
+         # introduce NAs
+         Value = if_else(ID %in% c("BLQ1061", "AZO1656", "AMV4451") & Trait == "LDMC", NA_real_, Value))
+  
+# add duplicate row
+duplicate <- raw_traits |> 
+  slice(378)
+
+# introduce dry weight measurements with wrong unit (mg instead of g)
+wrong_decimal <- raw_traits |> 
+  filter(Trait == "Dry_Mass_g") |> 
+  sample_n(size = 50, replace = FALSE) |> 
+  mutate(Value2 = Value / 1000)
+
+raw_traits <- raw_traits |> 
+  left_join(wrong_decimal) |> 
+  mutate(Value = if_else(!is.na(Value2), Value2, Value)) |> 
+  select(-Value2) |> 
+  bind_rows(duplicate)
+
+```
+
+
+### First check of the dataset
+
+By typing `raw_traits` in the console it will display the first rows and columns of the dataset.
+
+```{r, display-table}
+
+raw_traits
+
+```
+
+This will allow you to git the dataset a first rough check.
+The dataset has `r dim(raw_traits)[1]` observations and `r length(raw_traits)` columns.
+These numbers give you a first impression if you have imported the right file, and if all your observations and columns are there.
+
+
+### Check the data type/class
+
+The next thing to check is if the variables have the right data type/class.
+For each variable you can see what type of formate it has, _dbl_ (numeric or integer), _chr_ (character), or _date_ (date) are the most common data types.
+
+If you want to know more about data types see [here](https://biostats-r.github.io/biostats/workingInR/first-steps-in-r.html#data-types-and-objects).
+
+Now check if the variables are in the right format?
+We see that the first variable *Date* is a character, which is not the right format.
+This probably means that one of the dates is not a date.
+Let us check all the different dates in the variable *Date*.
+For this we can use the function `distinct()` on the variable *Date*.
+
+```{r, distinct}
+
+raw_traits |> 
+  distinct(Date)
+
+```
+
+We can now see that there are 6 distinct dates in the dataset.
+And one of the dates is "18", which is what caused the problem to not recognize this variable as a date.
+
+The next step is to check which observation was the problem or if there are several.
+For this we can use the function `filter()` to extract all observations with a date 18.
+We can use `as.data.frame()` to display the whole table.
+
+```{r, filter}
+
+raw_traits |> 
+  filter(Date == "18") |> 
+  as.data.frame()
+
+```
+
+We can see that it is a single observation that has the wrong date.
+The next step is to check the raw data, notes, photos, etc. to find the correct date for this observations.
+It is important to keep the raw data sheets, or take a photo of them to be able to check these problems afterwards.
+
+Since the value for date is 18, we will assume now that this was a typo and that the correct date is 2018-07-18.
+Let's replace this value and give the variable the right class.
+
+For this we will use the function `mutate()` which can be used to manipulate a column.
+Inside the mutate we will use the `if_else()` function to replace the date for a specific ID.
+To give the variable the correct class, we use the `ymd()` function from the lubridate package.
+Note that we now have to assign the table to a new or the same name to make the change permanent.
+
+```{r, replace-date}
+
+raw_traits <- raw_traits |> 
+  mutate(Date = if_else(ID == "AMO3822", "2018-07-18", Date),
+         Date = ymd(Date))
+
+```
+
+
+An important step when cleaning data is to check that you have done the right thing.
+One way to do this here is to look at the specific leaf (ID == "AMO3822") and see if the date is now corrected.
+Another way would be to run the `distinct(Date)` function again. 
+
+```{r, chacke-date}
+
+raw_traits |> 
+  filter(ID == "AMO3822") |> 
+  as.data.frame()
+
+```
+
+We can see that the date has been fixed.
+
+### Exercise {- .exercise .toc-ignore}
+
+Now it is your turn.
+Check if the data type for the variable *Date* is now correct.
+
+<details>
+  <summary>Hint</summary>
+- type `raw_traits` to look at the whole dataset where the datatype of each variable is indicated
+- use `class(raw_traits)` which will tell you directly what type of class the variable has
+</details>
+
+
+### Check for duplicates
+
+Another common problem is duplicate observations.
+This can happen when data is entered twice.
+The why to find duplicates is to check that the combination of variables are unique.
+In our dataset, we expect that *Date*, *Gradient*, *Site*, *PlotID*, *Individual_nr*, *ID*, *Taxon* and *Trait* should be unique, and only occurring once.
+
+To check this, we can `group_by()` these variables and `filter()` for observations that occur more than once.
+
+```{r, checke-duplicates}
+
+raw_traits |> 
+  group_by(Date, Gradient, Site, PlotID, Individual_nr, ID, Taxon, Trait) |> 
+  filter(n() > 1)
+
+```
+
+We can see that there is one duplicate entry which is exactly the same.
+Note that *Value* was not included in the `group_by()`.
+This was done intentionally, because a common mistake is to have a duplicate, but with a different value.
+This is either because one of the variables is wrong, e.g. it has the wrong Site and therefore appears to be a duplicate.
+Alternatively, the leaf could have been measured twice by accident, which would likely give two slightly different values.
+When getting a duplicate, these different options for why there is a duplicate have to be considered and carefully checked with the raw data.
+
+In this case, we will assume that the leaf has only been measured once, but the data has been entered twice.
+Thus, the two entries are exact duplicates.
+
+We can use a similar way to fix the problem.
+We group again by the variables we expect to be unique.
+Then we create a new variable that counts the number of time a unique combination occurs.
+And then we filter away the duplicates.
+At the end, we remove the new variable and ungroup the data.
+
+```{r, remove-duplicates}
+
+raw_traits2 <- raw_traits |> 
+  group_by(Date, Gradient, Site, PlotID, Individual_nr, ID, Taxon, Trait) |> 
+  mutate(n = 1:n()) |> 
+  filter(n == 1) |> 
+  select(-n) |> 
+  ungroup()
+
+```
+
+We should now check again if this code has changed the data in the correct way.
+One way to check this, would be to run the code from above that checks for duplicates again.
+An alternative is to use the **tidylog package**.
+
+
+### Check data cleaning using tidylog
+
+Tidylog packages is built on the **dplyr** and **tidyr** packages and provides useful information about the functions used.
+
+Tidylog will for example tell you how many rows have been removed and are remaining when using the `filter()` function or how many rows match when using a join function.
+This additional information is very useful, because mistakes can easily happen when transforming and cleaning data.
+
+Let's install and load the *tidylog package*.
+
+```{r, load-tidylog, eval=FALSE}
+
+install.packages("tidylog")
+library(tidylog)
+
+```
+
+Now we can remove the duplicates again, but this time using the tidylog version of the dyplr functions.
+For clarity, the code indicates that the tidylog version is used with the following notation: `tidylog::`.
+However, this notation is not necessary, because once the *tidylog package* is loaded it will automatically prioritize the tidylog function and you actively have to choose if you do not want to use it.
+
+```{r, remove-duplicates-tidylog}
+
+raw_traits <- raw_traits |> 
+  tidylog::group_by(Date, Gradient, Site, PlotID, Individual_nr, ID, Taxon, Trait) |> 
+  tidylog::mutate(n = 1:n()) |> 
+  tidylog::filter(n == 1) |> 
+  tidylog::select(-n) |> 
+  tidylog::ungroup()
+
+```
+
+The additional information about the operations is displayed below the code in the console.
+There are 8 grouping variables, and `mutate()` creates a new variable with 2 unique values. As expected, one row is filtered away, which is the duplicated row.
+Then one column is removed and the dataset ungrouped.
+
+The information is always indicated in absolute numbers and percentage which can be very useful.
+
+
+### Check for missing data
+
+A common problem in a dataset are missing values.
+
+How to detect missing values...
+
+Once the missing values are detected one has to decide if the missing data can be recovered, or if the missing values should be removed from the dataset.
+
+
+```{r, remove-na}
+
+raw_traits <- raw_traits |> 
+  filter(!is.na(Value))
+
+```
+
+This operation has removed 3 rows, which is the number of NA's in the dataset.
+
+
+### Check values whing variables
+
+```{r, unique-names}
+
+raw_traits |> 
+  distinct(Taxon) |> 
+  arrange(Taxon) |> 
+  print(n = Inf)
+
+```
+
+4 different versions of *oxyra digyna*!
+rename
+alternative would be to use a dictionnary.
+
+```{r, fix-oxyra}
+
+raw_traits <- raw_traits |> 
+  mutate(Taxon = if_else(Taxon %in% c("oxiria digyna", "oxyria digina", "oxyra digyna"), "oxyria digyna", Taxon))
+
+```
+
+
+### Visualise data
+
+Some errors and problems in the data are difficult to detect.
+Checking if the measurements are realistic is nearly impossible by looking at a dataframe.
+For this, visualising the data is much more effective.
+
+Make histograms, this shows the range of the values
+
+```{r, hist}
+raw_traits |> 
+  ggplot(aes(x = Value, fill = Gradient)) +
+  geom_density(alpha = 0.7) +
+  scale_fill_manual(values = c("green4", "grey")) +
+  facet_wrap(~ Trait, scales = "free")
+
+```
+
+
+Log transform growth variables:
+
+```{r, log-transform}
+
+raw_traits <- raw_traits |> 
+  mutate(Value = if_else(Trait %in% c(
+    "Plant_Height_cm",
+    "Wet_Mass_g",
+    "Dry_Mass_g",
+    "Leaf_Area_cm2",
+    "Leaf_Thickness_mm"), log(Value), Value),
+    Trait = recode(Trait,
+                   "Plant_Height_cm" = "Plant_Height_cm_log",
+                   "Wet_Mass_g" = "Wet_Mass_g_log",
+                   "Dry_Mass_g" = "Dry_Mass_g_log",
+                   "Leaf_Area_cm2" = "Leaf_Area_cm2_log",
+                   "Leaf_Thickness_mm" = "Thickness_mm_log"))
+
+```
+
+Make plot again.
+
+```{r, hist-log}
+raw_traits |> 
+  ggplot(aes(x = Value, fill = Gradient)) +
+  geom_density(alpha = 0.7) +
+  scale_fill_manual(values = c("green4", "grey")) +
+  facet_wrap(~ Trait, scales = "free")
+
+```
+
+
+Another way to check the data is to plot correlated values against each other.
+In this dataset, we can plot dry mass against leaf area. We would expect a positive correlation between the two variables, where large leaves have a higher dry mass.
+
+```{r, plot}
+raw_traits |> 
+  pivot_wider(names_from = Trait, values_from = Value) |> 
+  ggplot(aes(x = Dry_Mass_g_log, y = Leaf_Area_cm2_log)) +
+  geom_point()
+
+```
+
+Ops chicken foot! What happened here?
+
