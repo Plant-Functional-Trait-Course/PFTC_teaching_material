@@ -6,7 +6,6 @@ knitr::opts_chunk$set(
 
 library(tidyverse)
 library(lubridate)
-library(tidylog)
 
 ```
 
@@ -47,29 +46,30 @@ raw_traits <- read_csv("data/PFTC4_Svalbard_2018_Gradient_Traits.csv")
 
 Give the dataset a name that indicates that this is the raw data.
 
+The dataset contains measurements of 14 traits from two elevational gradients on Svalbard.
+The traits were measured on individual plants from 21 different graminoid and forb species.
+For more information about the sites, traits and measurements see [here](https://github.com/Plant-Functional-Trait-Course/PFTC_4_Svalbard).
 
-Let us now shrink the dataset to make it easier to handle.
-In addition, we will introduce a couple of errors that we want to fix afterwards.
+
+**Some manipulation**
+
+Let us introduce some errors that we want to find and fix.
 
 The code to do this is hidden.
-But if you want to replicate the introduction to the errors you can find the code here.
+But if you want to replicate the introduction to the errors you can find the code here (add link!!!).
+
 
 ```{r, introduce-errors, echo=FALSE}
 
 raw_traits <- raw_traits |> 
-  # shrink dataset
-  filter(Functional_group == "vascular",
-         Site %in% c(1, 3, 5),
-         PlotID %in% c("A", "B", "C")) |> 
-  select(-Project, -Functional_group, -Year)
-
-raw_traits <- raw_traits |> 
+  # simplify
+  select(-Project, -Functional_group, -Year) |> 
   #introduce errors
   # wrong date
   mutate(Date = as.character(Date),
          Date = if_else(ID == "AMO3822", "18", Date),
          # giant leaf
-         Value = if_else(ID == "ANH3472" & Trait == "Leaf_Area_cm2", 100, Value),
+         Value = if_else(ID == "ANH3472" & Trait == "Leaf_Area_cm2", 17965, Value),
          # diverse species names
          Taxon = case_when(ID == "BON2388" ~ "oxiria digyna",
                            ID == "ATX7216" ~ "oxyria digina",
@@ -89,7 +89,7 @@ wrong_decimal <- raw_traits |>
   mutate(Value2 = Value / 1000)
 
 raw_traits <- raw_traits |> 
-  left_join(wrong_decimal) |> 
+  left_join(wrong_decimal, by = c("Date", "Gradient", "Site", "PlotID", "Individual_nr", "ID", "Taxon", "Trait", "Value", "Elevation_m", "Latitude_N", "Longitude_E")) |> 
   mutate(Value = if_else(!is.na(Value2), Value2, Value)) |> 
   select(-Value2) |> 
   bind_rows(duplicate)
@@ -107,22 +107,21 @@ raw_traits
 
 ```
 
-This will allow you to git the dataset a first rough check.
-The dataset has `r dim(raw_traits)[1]` observations and `r length(raw_traits)` columns.
+At the top you can see that the dataset has `r dim(raw_traits)[1]` observations and `r length(raw_traits)` columns.
 These numbers give you a first impression if you have imported the right file, and if all your observations and columns are there.
 
 
-### Check the data type/class
+### Check the data type
 
-The next thing to check is if the variables have the right data type/class.
-For each variable you can see what type of formate it has, _dbl_ (numeric or integer), _chr_ (character), or _date_ (date) are the most common data types.
+The next thing to check is if the variables have the right data type (or class in R terminology).
+For each variable the output indicates the data type. The most common types are _dbl_ (numeric or integer), _chr_ (character), or _date_ (date).
 
 If you want to know more about data types see [here](https://biostats-r.github.io/biostats/workingInR/first-steps-in-r.html#data-types-and-objects).
 
-Now check if the variables are in the right format?
-We see that the first variable *Date* is a character, which is not the right format.
-This probably means that one of the dates is not a date.
-Let us check all the different dates in the variable *Date*.
+Now we want to check if the variables have the right data type.
+The first variable *Date* is a character, which is not correct.
+This probably means that one or several observations have a wrong date.
+Let us check all different values for the variable *Date*.
 For this we can use the function `distinct()` on the variable *Date*.
 
 ```{r, distinct}
@@ -132,11 +131,11 @@ raw_traits |>
 
 ```
 
-We can now see that there are 6 distinct dates in the dataset.
-And one of the dates is "18", which is what caused the problem to not recognize this variable as a date.
+We can see that there are 6 distinct dates in this variable.
+One of the dates is "18", which is not a correct date format and turned the variable into a character.
 
-The next step is to check which observation was the problem or if there are several.
-For this we can use the function `filter()` to extract all observations with a date 18.
+The next step is to check where the problem occurred.
+For this we can use the function `filter()` to extract all observations with the date 18.
 We can use `as.data.frame()` to display the whole table.
 
 ```{r, filter}
@@ -147,14 +146,16 @@ raw_traits |>
 
 ```
 
-We can see that it is a single observation that has the wrong date.
+We see that it is a single observation (with multiple traits) that has the wrong date.
 The next step is to check the raw data, notes, photos, etc. to find the correct date for this observations.
-It is important to keep the raw data sheets, or take a photo of them to be able to check these problems afterwards.
+It is important to keep the data entry sheets, take a photo of them and keep the field notes to be able to fix such problems.
+
+<!-- Add picture of the envelope!!! -->
 
 Since the value for date is 18, we will assume now that this was a typo and that the correct date is 2018-07-18.
 Let's replace this value and give the variable the right class.
 
-For this we will use the function `mutate()` which can be used to manipulate a column.
+For this we will use the function `mutate()` which adds or manipulates a column.
 Inside the mutate we will use the `if_else()` function to replace the date for a specific ID.
 To give the variable the correct class, we use the `ymd()` function from the lubridate package.
 Note that we now have to assign the table to a new or the same name to make the change permanent.
@@ -211,12 +212,13 @@ raw_traits |>
 
 ```
 
-We can see that there is one duplicate entry which is exactly the same.
+There is one duplicate entry.
+
 Note that *Value* was not included in the `group_by()`.
 This was done intentionally, because a common mistake is to have a duplicate, but with a different value.
 This is either because one of the variables is wrong, e.g. it has the wrong Site and therefore appears to be a duplicate.
 Alternatively, the leaf could have been measured twice by accident, which would likely give two slightly different values.
-When getting a duplicate, these different options for why there is a duplicate have to be considered and carefully checked with the raw data.
+When getting a duplicate, these different options for why there is a duplicate have to be considered and carefully checked in the raw data.
 
 In this case, we will assume that the leaf has only been measured once, but the data has been entered twice.
 Thus, the two entries are exact duplicates.
@@ -252,9 +254,15 @@ This additional information is very useful, because mistakes can easily happen w
 
 Let's install and load the *tidylog package*.
 
-```{r, load-tidylog, eval=FALSE}
+```{r, install-tidylog, eval=FALSE}
 
 install.packages("tidylog")
+
+```
+
+
+```{r, load-tidylog}
+
 library(tidylog)
 
 ```
@@ -341,7 +349,14 @@ raw_traits |>
 ```
 
 
-Log transform growth variables:
+Note that the size traits (height, mass, area and thickness) have very long tails.
+It is common to log transform such variables to better see the full range of the variables.
+
+Leaf area has a huge tail and goes up to almost 20'000 cm^2^.
+This would be a leaf of almost 2 m^2^, which is nearly impossible.
+This value needs to be checked, it could be a typo.
+
+Let's log transform the size traits.
 
 ```{r, log-transform}
 
@@ -361,7 +376,7 @@ raw_traits <- raw_traits |>
 
 ```
 
-Make plot again.
+And make plot again.
 
 ```{r, hist-log}
 raw_traits |> 
@@ -372,6 +387,7 @@ raw_traits |>
 
 ```
 
+The size traits are now easier to read.
 
 Another way to check the data is to plot correlated values against each other.
 In this dataset, we can plot dry mass against leaf area. We would expect a positive correlation between the two variables, where large leaves have a higher dry mass.
@@ -384,5 +400,10 @@ raw_traits |>
 
 ```
 
-Ops chicken foot! What happened here?
+We can clearly see the outlier that has a 2 m^2^ leaf.
+We can also see that there is a cloud of points that is separate from the rest of the data.
+These data have a sensible leaf area but the dry weight is too small.
+It is possible that they were measured in the wrong unit.
+
+<!-- Add lines to the plot! -->
 

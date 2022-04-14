@@ -2,7 +2,7 @@
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-# The study system
+# The PFTC6 study system
 
 ## Alpine ecosystems in Western Norway
 

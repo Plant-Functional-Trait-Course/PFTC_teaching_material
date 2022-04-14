@@ -2,7 +2,7 @@
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-# Resources for field work and trait measurements
+# Trait data collection and measurements
 
 This page contains resources for:
 
