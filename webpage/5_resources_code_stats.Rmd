@@ -2,4 +2,4 @@
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-# Trait data curation and analysis
+# Data curation and analysis

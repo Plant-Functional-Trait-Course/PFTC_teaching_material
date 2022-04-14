@@ -30,8 +30,8 @@ Some information can also be found on the GitHub readme file.
 | Course  | Country  | Data paper/documentation  |
 |:---|:---|:---|
 | PFTC1 and 2  | China  | [Data paper](https://www.nature.com/articles/s41597-020-0529-0) |
-| PFTC3 and 5  | Peru  | [GitHub repo](https://github.com/Plant-Functional-Trait-Course/pftc3_punaproject_pftc5) |
-| PFTC4  | Svalbard  | [GitHub repo](https://github.com/Plant-Functional-Trait-Course/PFTC_4_Svalbard) |
+| PFTC3 and 5  | Peru  | [GitHub readme](https://github.com/Plant-Functional-Trait-Course/pftc3_punaproject_pftc5) |
+| PFTC4  | Svalbard  | [GitHub readme](https://github.com/Plant-Functional-Trait-Course/PFTC_4_Svalbard) |
 
 Read the papers and documentation carefully before using the data.
 
