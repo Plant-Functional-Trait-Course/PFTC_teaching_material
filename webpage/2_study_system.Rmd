@@ -8,6 +8,11 @@ knitr::opts_chunk$set(echo = FALSE)
 
 The PFTC6 will be held in Aurland in the fjords of Western Norway.
 
+```{r map, out.width='100%', fig.cap= "Map of the study area and sites in Aurland, Norway."}
+
+knitr::include_graphics('images/sites/map.png')
+```
+
 ```{r map-aurland, out.width='100%', fig.cap= "The fjords in Aurland in Western Norway."}
 
 knitr::include_graphics('images/sites/aurland.jpg')
