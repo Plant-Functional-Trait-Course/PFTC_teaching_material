@@ -44,7 +44,7 @@
 <li><a class="" href="pftc-6-course-information.html"><span class="header-section-number">1</span> PFTC 6 Course information</a></li>
 <li><a class="" href="the-pftc6-study-system.html"><span class="header-section-number">2</span> The PFTC6 study system</a></li>
 <li><a class="" href="trait-data-collection-and-measurements.html"><span class="header-section-number">3</span> Trait data collection and measurements</a></li>
-<li><a class="" href="using-pftc-data.html"><span class="header-section-number">4</span> Using PFTC data</a></li>
+<li><a class="" href="working-with-pftc-data.html"><span class="header-section-number">4</span> Working with PFTC data</a></li>
 <li><a class="active" href="data-curation-and-analysis.html"><span class="header-section-number">5</span> Data curation and analysis</a></li>
 </ul>
 
@@ -73,22 +73,38 @@
 <p>Data curation, transformation or cleaning is the first step after digitizing the data.
 Each dataset has to be checked for errors and corrected as best as possible.
 This tutorial shows how to check your dataset for errors and how to correct them.</p>
-<p>There are a couple of R packages that are useful for this work.</p>
-<p>If you have never used the packages you need to install them first using the function <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code>.
+<p>For this tutorial we will be working with the trait dataset from Svalbard.
+See section <a href="working-with-pftc-data.html#working-with-pftc-data">4</a> for how to access the data and information about the study, experiment and datasets.</p>
+<div id="useful-packages" class="section level3" number="5.2.1">
+<h3>
+<span class="header-section-number">5.2.1</span> Useful packages<a class="anchor" aria-label="anchor" href="#useful-packages"><i class="fas fa-link"></i></a>
+</h3>
+<p>There are a couple of R packages that are useful for this work.
+First, <strong>tidyverse</strong> is a collection of R packages used for basic data manipulation and analysis.</p>
+<p>If you have never used the packages you need to install it first using the function <code>install.packages("tidyverse")</code>.
 Otherwise, you can just load the packages.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></code></pre></div>
-<p>For this tutorial we will be working with the trait dataset from Svalbard.
-See section @ref(Working with PFTC data) for how to access the data and information about the study, experiment and datasets.</p>
-<div id="import-data" class="section level3" number="5.2.1">
+<p>Second, another useful package for data curation is <strong>tidylog</strong>, which is built on the <strong>dplyr</strong> and <strong>tidyr</strong> packages and provides useful information about the functions used.</p>
+<p>Tidylog will for example tell you how many rows have been removed and are remaining when using the <code><a href="https://rdrr.io/pkg/tidylog/man/filter.html">filter()</a></code> function or how many rows match when using a join function.
+The information is always indicated in absolute numbers and percentage.
+The additional information is very useful to check if the right observations have been removed or manipulated, because mistakes are easily done.</p>
+<p>Let’s install and/or load <strong>tidylog</strong>.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/elbersb/tidylog/">tidylog</a></span><span class="op">)</span></code></pre></div>
+<p>Note, that once <strong>tidylog</strong> is loaded it will automatically prioritize the tidylog function before the dplyr and tidyr functions.
+You actively have to choose if you do not want to use the tidylog version by using this notation: <code><a href="https://dplyr.tidyverse.org/reference/filter.html">dplyr::filter()</a></code>.</p>
+</div>
+<div id="import-data" class="section level3" number="5.2.2">
 <h3>
-<span class="header-section-number">5.2.1</span> Import data<a class="anchor" aria-label="anchor" href="#import-data"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.2.2</span> Import data<a class="anchor" aria-label="anchor" href="#import-data"><i class="fas fa-link"></i></a>
 </h3>
 <p>The first step is to import the data to R.
 The data is stored as a <em>csv file</em> and we can use the function <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> to import that data.
 If your data has another format or importing data is new to, you have a look at this <a href="https://biostats-r.github.io/biostats/workingInR/importing-data-in-r.html">page</a>.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="va">raw_traits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"data/PFTC4_Svalbard_2018_Gradient_Traits.csv"</span><span class="op">)</span>
 <span class="co">#&gt; Rows: 11345 Columns: 15</span>
@@ -105,16 +121,16 @@ If your data has another format or importing data is new to, you have a look at 
 The traits were measured on individual plants from 21 different graminoid and forb species.
 For more information about the sites, traits and measurements see <a href="https://github.com/Plant-Functional-Trait-Course/PFTC_4_Svalbard">here</a>.</p>
 <p><strong>Some manipulation</strong></p>
-<p>Let us introduce some errors that we want to find and fix.</p>
+<p>Let us introduce some errors to the dataset.</p>
 <p>The code to do this is hidden.
-But if you want to replicate the introduction to the errors you can find the code here (add link!!!).</p>
+But if you want to replicate the code to introduce errors you can find the code here (add link!!!).</p>
 </div>
-<div id="first-check-of-the-dataset" class="section level3" number="5.2.2">
+<div id="first-check-of-the-dataset" class="section level3" number="5.2.3">
 <h3>
-<span class="header-section-number">5.2.2</span> First check of the dataset<a class="anchor" aria-label="anchor" href="#first-check-of-the-dataset"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.2.3</span> First check of the dataset<a class="anchor" aria-label="anchor" href="#first-check-of-the-dataset"><i class="fas fa-link"></i></a>
 </h3>
 <p>By typing <code>raw_traits</code> in the console it will display the first rows and columns of the dataset.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="va">raw_traits</span>
 <span class="co">#&gt; # A tibble: 11,346 × 12</span>
@@ -135,9 +151,9 @@ But if you want to replicate the introduction to the errors you can find the cod
 <p>At the top you can see that the dataset has 11346 observations and 12 columns.
 These numbers give you a first impression if you have imported the right file, and if all your observations and columns are there.</p>
 </div>
-<div id="check-the-data-type" class="section level3" number="5.2.3">
+<div id="check-the-data-type" class="section level3" number="5.2.4">
 <h3>
-<span class="header-section-number">5.2.3</span> Check the data type<a class="anchor" aria-label="anchor" href="#check-the-data-type"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.2.4</span> Check the data type<a class="anchor" aria-label="anchor" href="#check-the-data-type"><i class="fas fa-link"></i></a>
 </h3>
 <p>The next thing to check is if the variables have the right data type (or class in R terminology).
 For each variable the output indicates the data type. The most common types are <em>dbl</em> (numeric or integer), <em>chr</em> (character), or <em>date</em> (date).</p>
@@ -147,10 +163,11 @@ The first variable <em>Date</em> is a character, which is not correct.
 This probably means that one or several observations have a wrong date.
 Let us check all different values for the variable <em>Date</em>.
 For this we can use the function <code><a href="https://rdrr.io/pkg/tidylog/man/distinct.html">distinct()</a></code> on the variable <em>Date</em>.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="va">raw_traits</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span><span class="op">(</span><span class="va">Date</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tidylog/man/distinct.html">distinct</a></span><span class="op">(</span><span class="va">Date</span><span class="op">)</span>
+<span class="co">#&gt; distinct: removed 11,338 rows (&gt;99%), 8 rows remaining</span>
 <span class="co">#&gt; # A tibble: 8 × 1</span>
 <span class="co">#&gt;   Date      </span>
 <span class="co">#&gt;   &lt;chr&gt;     </span>
@@ -163,31 +180,30 @@ For this we can use the function <code><a href="https://rdrr.io/pkg/tidylog/man/
 <span class="co">#&gt; 7 18        </span>
 <span class="co">#&gt; 8 &lt;NA&gt;</span></code></pre></div>
 <p>We can see that there are 6 distinct dates in this variable.
-One of the dates is “18”, which is not a correct date format and turned the variable into a character.</p>
+One of the dates is “18”, which is not a correct date format and turned the variable into a character.
+Note that the additional information from the tidylog package about the <code><a href="https://rdrr.io/pkg/tidylog/man/distinct.html">distinct()</a></code> function.
+It shows the number of rows removed and remaining.</p>
 <p>The next step is to check where the problem occurred.
 For this we can use the function <code><a href="https://rdrr.io/pkg/tidylog/man/filter.html">filter()</a></code> to extract all observations with the date 18.
 We can use <code><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame()</a></code> to display the whole table.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="va">raw_traits</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Date</span> <span class="op">==</span> <span class="st">"18"</span><span class="op">)</span> |&gt; 
-  <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt;   Date Gradient Site PlotID Individual_nr      ID         Taxon</span>
-<span class="co">#&gt; 1   18        C    1      A             3 AMO3822 salix polaris</span>
-<span class="co">#&gt; 2   18        C    1      A             3 AMO3822 salix polaris</span>
-<span class="co">#&gt; 3   18        C    1      A             3 AMO3822 salix polaris</span>
-<span class="co">#&gt; 4   18        C    1      A             3 AMO3822 salix polaris</span>
-<span class="co">#&gt; 5   18        C    1      A             3 AMO3822 salix polaris</span>
-<span class="co">#&gt; 6   18        C    1      A             3 AMO3822 salix polaris</span>
-<span class="co">#&gt; 7   18        C    1      A             3 AMO3822 salix polaris</span>
-<span class="co">#&gt;               Trait       Value Elevation_m Latitude_N Longitude_E</span>
-<span class="co">#&gt; 1   Plant_Height_cm   1.1000000    9.916197   78.21307    15.71207</span>
-<span class="co">#&gt; 2        Wet_Mass_g   0.0057600    9.916197   78.21307    15.71207</span>
-<span class="co">#&gt; 3        Dry_Mass_g   0.0020000    9.916197   78.21307    15.71207</span>
-<span class="co">#&gt; 4 Leaf_Thickness_mm   0.1880000    9.916197   78.21307    15.71207</span>
-<span class="co">#&gt; 5     Leaf_Area_cm2   0.2840000    9.916197   78.21307    15.71207</span>
-<span class="co">#&gt; 6         SLA_cm2_g 142.0000000    9.916197   78.21307    15.71207</span>
-<span class="co">#&gt; 7              LDMC   0.3472222    9.916197   78.21307    15.71207</span></code></pre></div>
+  <span class="fu"><a href="https://rdrr.io/pkg/tidylog/man/filter.html">filter</a></span><span class="op">(</span><span class="va">Date</span> <span class="op">==</span> <span class="st">"18"</span><span class="op">)</span> |&gt; 
+  <span class="fu"><a href="https://rdrr.io/r/utils/View.html">View</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<pre><code>#&gt; filter: removed 11,339 rows (&gt;99%), 7 rows remaining
+#&gt; # A tibble: 7 × 12
+#&gt;   Date  Gradient  Site PlotID Individual_nr ID      Taxon         Trait    Value
+#&gt;   &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;         &lt;chr&gt;    &lt;dbl&gt;
+#&gt; 1 18    C            1 A                  3 AMO3822 salix polaris Plant… 1.1 e+0
+#&gt; 2 18    C            1 A                  3 AMO3822 salix polaris Wet_M… 5.76e-3
+#&gt; 3 18    C            1 A                  3 AMO3822 salix polaris Dry_M… 2   e-3
+#&gt; 4 18    C            1 A                  3 AMO3822 salix polaris Leaf_… 1.88e-1
+#&gt; 5 18    C            1 A                  3 AMO3822 salix polaris Leaf_… 2.84e-1
+#&gt; 6 18    C            1 A                  3 AMO3822 salix polaris SLA_c… 1.42e+2
+#&gt; 7 18    C            1 A                  3 AMO3822 salix polaris LDMC   3.47e-1
+#&gt; # … with 3 more variables: Elevation_m &lt;dbl&gt;, Latitude_N &lt;dbl&gt;,
+#&gt; #   Longitude_E &lt;dbl&gt;</code></pre>
 <p>We see that it is a single observation (with multiple traits) that has the wrong date.
 The next step is to check the raw data, notes, photos, etc. to find the correct date for this observations.
 It is important to keep the data entry sheets, take a photo of them and keep the field notes to be able to fix such problems.</p>
@@ -195,39 +211,41 @@ It is important to keep the data entry sheets, take a photo of them and keep the
 <p>Since the value for date is 18, we will assume now that this was a typo and that the correct date is 2018-07-18.
 Let’s replace this value and give the variable the right class.</p>
 <p>For this we will use the function <code><a href="https://rdrr.io/pkg/tidylog/man/mutate.html">mutate()</a></code> which adds or manipulates a column.
-Inside the mutate we will use the <code><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else()</a></code> function to replace the date for a specific ID.
+Inside the mutate we will use the <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code> function to replace the date for a specific ID.
+We are using the function with a single statement, however this is a powerful function that allow for multiple statements (many if else conditions).
 To give the variable the correct class, we use the <code>ymd()</code> function from the lubridate package.
 Note that we now have to assign the table to a new or the same name to make the change permanent.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="va">raw_traits</span> <span class="op">&lt;-</span> <span class="va">raw_traits</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Date <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">ID</span> <span class="op">==</span> <span class="st">"AMO3822"</span>, <span class="st">"2018-07-18"</span>, <span class="va">Date</span><span class="op">)</span>,
-         Date <span class="op">=</span> <span class="fu">ymd</span><span class="op">(</span><span class="va">Date</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+  <span class="fu"><a href="https://rdrr.io/pkg/tidylog/man/mutate.html">mutate</a></span><span class="op">(</span>Date <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span><span class="va">ID</span> <span class="op">==</span> <span class="st">"AMO3822"</span> <span class="op">~</span> <span class="st">"2018-07-18"</span>,
+                          <span class="cn">TRUE</span> <span class="op">~</span> <span class="va">Date</span><span class="op">)</span><span class="op">)</span> |&gt; 
+  <span class="fu"><a href="https://rdrr.io/pkg/tidylog/man/mutate.html">mutate</a></span><span class="op">(</span> Date <span class="op">=</span> <span class="fu">ymd</span><span class="op">(</span><span class="va">Date</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; mutate: changed 7 values (&lt;1%) of 'Date' (0 new NA)</span>
+<span class="co">#&gt; mutate: converted 'Date' from character to Date (0 new NA)</span></code></pre></div>
 <p>An important step when cleaning data is to check that you have done the right thing.
-One way to do this here is to look at the specific leaf (ID == “AMO3822”) and see if the date is now corrected.
+The <strong>tidylog</strong> functions show that for 7 observation Date has been changed.
+This matches with the number of observations that had a wrong date.</p>
+<p>To be sure we can look at the specific leaf (ID == “AMO3822”) and see if the date is now corrected.
 Another way would be to run the <code>distinct(Date)</code> function again.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="va">raw_traits</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">ID</span> <span class="op">==</span> <span class="st">"AMO3822"</span><span class="op">)</span> |&gt; 
-  <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt;         Date Gradient Site PlotID Individual_nr      ID         Taxon</span>
-<span class="co">#&gt; 1 2018-07-18        C    1      A             3 AMO3822 salix polaris</span>
-<span class="co">#&gt; 2 2018-07-18        C    1      A             3 AMO3822 salix polaris</span>
-<span class="co">#&gt; 3 2018-07-18        C    1      A             3 AMO3822 salix polaris</span>
-<span class="co">#&gt; 4 2018-07-18        C    1      A             3 AMO3822 salix polaris</span>
-<span class="co">#&gt; 5 2018-07-18        C    1      A             3 AMO3822 salix polaris</span>
-<span class="co">#&gt; 6 2018-07-18        C    1      A             3 AMO3822 salix polaris</span>
-<span class="co">#&gt; 7 2018-07-18        C    1      A             3 AMO3822 salix polaris</span>
-<span class="co">#&gt;               Trait       Value Elevation_m Latitude_N Longitude_E</span>
-<span class="co">#&gt; 1   Plant_Height_cm   1.1000000    9.916197   78.21307    15.71207</span>
-<span class="co">#&gt; 2        Wet_Mass_g   0.0057600    9.916197   78.21307    15.71207</span>
-<span class="co">#&gt; 3        Dry_Mass_g   0.0020000    9.916197   78.21307    15.71207</span>
-<span class="co">#&gt; 4 Leaf_Thickness_mm   0.1880000    9.916197   78.21307    15.71207</span>
-<span class="co">#&gt; 5     Leaf_Area_cm2   0.2840000    9.916197   78.21307    15.71207</span>
-<span class="co">#&gt; 6         SLA_cm2_g 142.0000000    9.916197   78.21307    15.71207</span>
-<span class="co">#&gt; 7              LDMC   0.3472222    9.916197   78.21307    15.71207</span></code></pre></div>
-<p>We can see that the date has been fixed.</p>
+  <span class="fu"><a href="https://rdrr.io/pkg/tidylog/man/filter.html">filter</a></span><span class="op">(</span><span class="va">ID</span> <span class="op">==</span> <span class="st">"AMO3822"</span><span class="op">)</span> |&gt; 
+  <span class="fu"><a href="https://rdrr.io/pkg/tidylog/man/select.html">select</a></span><span class="op">(</span><span class="va">Date</span><span class="op">)</span>
+<span class="co">#&gt; filter: removed 11,339 rows (&gt;99%), 7 rows remaining</span>
+<span class="co">#&gt; select: dropped 11 variables (Gradient, Site, PlotID, Individual_nr, ID, …)</span>
+<span class="co">#&gt; # A tibble: 7 × 1</span>
+<span class="co">#&gt;   Date      </span>
+<span class="co">#&gt;   &lt;date&gt;    </span>
+<span class="co">#&gt; 1 2018-07-18</span>
+<span class="co">#&gt; 2 2018-07-18</span>
+<span class="co">#&gt; 3 2018-07-18</span>
+<span class="co">#&gt; 4 2018-07-18</span>
+<span class="co">#&gt; 5 2018-07-18</span>
+<span class="co">#&gt; 6 2018-07-18</span>
+<span class="co">#&gt; 7 2018-07-18</span></code></pre></div>
+<p>The date has been fixed.</p>
 </div>
 <div id="exercise-1" class="section level3 unnumbered exercise toc-ignore">
 <h3>Exercise<a class="anchor" aria-label="anchor" href="#exercise-1"><i class="fas fa-link"></i></a>
@@ -238,23 +256,26 @@ Check if the data type for the variable <em>Date</em> is now correct.</p>
 Hint
 </summary><ul>
 <li>type <code>raw_traits</code> to look at the whole dataset where the datatype of each variable is indicated</li>
-<li>use <code>class(raw_traits)</code> which will tell you directly what type of class the variable has</li>
+<li>use <code>class(raw_traits$Date)</code> which will tell you directly what type of class the variable has</li>
+<li>use <code>map(raw_traits, class)</code> to get the class of all variable in the dataframe</li>
 </ul></details>
 </div>
-<div id="check-for-duplicates" class="section level3" number="5.2.4">
+<div id="check-for-duplicates" class="section level3" number="5.2.5">
 <h3>
-<span class="header-section-number">5.2.4</span> Check for duplicates<a class="anchor" aria-label="anchor" href="#check-for-duplicates"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.2.5</span> Check for duplicates<a class="anchor" aria-label="anchor" href="#check-for-duplicates"><i class="fas fa-link"></i></a>
 </h3>
 <p>Another common problem is duplicate observations.
 This can happen when data is entered twice.
 The why to find duplicates is to check that the combination of variables are unique.
 In our dataset, we expect that <em>Date</em>, <em>Gradient</em>, <em>Site</em>, <em>PlotID</em>, <em>Individual_nr</em>, <em>ID</em>, <em>Taxon</em> and <em>Trait</em> should be unique, and only occurring once.</p>
 <p>To check this, we can <code><a href="https://rdrr.io/pkg/tidylog/man/group_by.html">group_by()</a></code> these variables and <code><a href="https://rdrr.io/pkg/tidylog/man/filter.html">filter()</a></code> for observations that occur more than once.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="va">raw_traits</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Date</span>, <span class="va">Gradient</span>, <span class="va">Site</span>, <span class="va">PlotID</span>, <span class="va">Individual_nr</span>, <span class="va">ID</span>, <span class="va">Taxon</span>, <span class="va">Trait</span><span class="op">)</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">1</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/tidylog/man/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Date</span>, <span class="va">Gradient</span>, <span class="va">Site</span>, <span class="va">PlotID</span>, <span class="va">Individual_nr</span>, <span class="va">ID</span>, <span class="va">Taxon</span>, <span class="va">Trait</span><span class="op">)</span> |&gt; 
+  <span class="fu"><a href="https://rdrr.io/pkg/tidylog/man/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">1</span><span class="op">)</span>
+<span class="co">#&gt; group_by: 8 grouping variables (Date, Gradient, Site, PlotID, Individual_nr, …)</span>
+<span class="co">#&gt; filter (grouped): removed 11,344 rows (&gt;99%), 2 rows remaining</span>
 <span class="co">#&gt; # A tibble: 2 × 12</span>
 <span class="co">#&gt; # Groups:   Date, Gradient, Site, PlotID, Individual_nr, ID, Taxon, Trait [1]</span>
 <span class="co">#&gt;   Date       Gradient  Site PlotID Individual_nr ID      Taxon     Trait   Value</span>
@@ -271,79 +292,18 @@ Alternatively, the leaf could have been measured twice by accident, which would 
 When getting a duplicate, these different options for why there is a duplicate have to be considered and carefully checked in the raw data.</p>
 <p>In this case, we will assume that the leaf has only been measured once, but the data has been entered twice.
 Thus, the two entries are exact duplicates.</p>
-<p>We can use a similar way to fix the problem.
-We group again by the variables we expect to be unique.
-Then we create a new variable that counts the number of time a unique combination occurs.
-And then we filter away the duplicates.
-At the end, we remove the new variable and ungroup the data.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="va">raw_traits2</span> <span class="op">&lt;-</span> <span class="va">raw_traits</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Date</span>, <span class="va">Gradient</span>, <span class="va">Site</span>, <span class="va">PlotID</span>, <span class="va">Individual_nr</span>, <span class="va">ID</span>, <span class="va">Taxon</span>, <span class="va">Trait</span><span class="op">)</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">n</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">n</span><span class="op">)</span> |&gt; 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<p>We should now check again if this code has changed the data in the correct way.
-One way to check this, would be to run the code from above that checks for duplicates again.
-An alternative is to use the <strong>tidylog package</strong>.</p>
-</div>
-<div id="check-data-cleaning-using-tidylog" class="section level3" number="5.2.5">
-<h3>
-<span class="header-section-number">5.2.5</span> Check data cleaning using tidylog<a class="anchor" aria-label="anchor" href="#check-data-cleaning-using-tidylog"><i class="fas fa-link"></i></a>
-</h3>
-<p>Tidylog packages is built on the <strong>dplyr</strong> and <strong>tidyr</strong> packages and provides useful information about the functions used.</p>
-<p>Tidylog will for example tell you how many rows have been removed and are remaining when using the <code><a href="https://rdrr.io/pkg/tidylog/man/filter.html">filter()</a></code> function or how many rows match when using a join function.
-This additional information is very useful, because mistakes can easily happen when transforming and cleaning data.</p>
-<p>Let’s install and load the <em>tidylog package</em>.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"tidylog"</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/elbersb/tidylog/">tidylog</a></span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Attaching package: 'tidylog'</span>
-<span class="co">#&gt; The following objects are masked from 'package:dplyr':</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     add_count, add_tally, anti_join, count, distinct, distinct_all,</span>
-<span class="co">#&gt;     distinct_at, distinct_if, filter, filter_all, filter_at, filter_if,</span>
-<span class="co">#&gt;     full_join, group_by, group_by_all, group_by_at, group_by_if,</span>
-<span class="co">#&gt;     inner_join, left_join, mutate, mutate_all, mutate_at, mutate_if,</span>
-<span class="co">#&gt;     relocate, rename, rename_all, rename_at, rename_if, rename_with,</span>
-<span class="co">#&gt;     right_join, sample_frac, sample_n, select, select_all, select_at,</span>
-<span class="co">#&gt;     select_if, semi_join, slice, slice_head, slice_max, slice_min,</span>
-<span class="co">#&gt;     slice_sample, slice_tail, summarise, summarise_all, summarise_at,</span>
-<span class="co">#&gt;     summarise_if, summarize, summarize_all, summarize_at, summarize_if,</span>
-<span class="co">#&gt;     tally, top_frac, top_n, transmute, transmute_all, transmute_at,</span>
-<span class="co">#&gt;     transmute_if, ungroup</span>
-<span class="co">#&gt; The following objects are masked from 'package:tidyr':</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     drop_na, fill, gather, pivot_longer, pivot_wider, replace_na,</span>
-<span class="co">#&gt;     spread, uncount</span>
-<span class="co">#&gt; The following object is masked from 'package:stats':</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     filter</span></code></pre></div>
-<p>Now we can remove the duplicates again, but this time using the tidylog version of the dyplr functions.
-For clarity, the code indicates that the tidylog version is used with the following notation: <code>tidylog::</code>.
-However, this notation is not necessary, because once the <em>tidylog package</em> is loaded it will automatically prioritize the tidylog function and you actively have to choose if you do not want to use it.</p>
+<p>To fix the duplicate problem, we group by the variables we expect to be unique.
+Then we use <code><a href="https://rdrr.io/pkg/tidylog/man/distinct.html">distinct()</a></code> with the argument <em>.keep_all = TRUE</em> to remove the duplicates.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
-<span class="va">raw_traits</span> <span class="op">&lt;-</span> <span class="va">raw_traits</span> |&gt; 
-  <span class="fu">tidylog</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tidylog/man/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Date</span>, <span class="va">Gradient</span>, <span class="va">Site</span>, <span class="va">PlotID</span>, <span class="va">Individual_nr</span>, <span class="va">ID</span>, <span class="va">Taxon</span>, <span class="va">Trait</span><span class="op">)</span> |&gt; 
-  <span class="fu">tidylog</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tidylog/man/mutate.html">mutate</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> |&gt; 
-  <span class="fu">tidylog</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tidylog/man/filter.html">filter</a></span><span class="op">(</span><span class="va">n</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> |&gt; 
-  <span class="fu">tidylog</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tidylog/man/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">n</span><span class="op">)</span> |&gt; 
-  <span class="fu">tidylog</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tidylog/man/ungroup.html">ungroup</a></span><span class="op">(</span><span class="op">)</span>
+<span class="va">raw_traits2</span> <span class="op">&lt;-</span> <span class="va">raw_traits</span> |&gt; 
+  <span class="fu"><a href="https://rdrr.io/pkg/tidylog/man/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Date</span>, <span class="va">Gradient</span>, <span class="va">Site</span>, <span class="va">PlotID</span>, <span class="va">Individual_nr</span>, <span class="va">ID</span>, <span class="va">Taxon</span>, <span class="va">Trait</span><span class="op">)</span> |&gt; 
+  <span class="fu"><a href="https://rdrr.io/pkg/tidylog/man/distinct.html">distinct</a></span><span class="op">(</span>.keep_all <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co">#&gt; group_by: 8 grouping variables (Date, Gradient, Site, PlotID, Individual_nr, …)</span>
-<span class="co">#&gt; mutate (grouped): new variable 'n' (integer) with 2 unique values and 0% NA</span>
-<span class="co">#&gt; filter (grouped): removed one row (&lt;1%), 11,345 rows remaining</span>
-<span class="co">#&gt; select: dropped one variable (n)</span>
-<span class="co">#&gt; ungroup: no grouping variables</span></code></pre></div>
-<p>The additional information about the operations is displayed below the code in the console.
-There are 8 grouping variables, and <code><a href="https://rdrr.io/pkg/tidylog/man/mutate.html">mutate()</a></code> creates a new variable with 2 unique values. As expected, one row is filtered away, which is the duplicated row.
-Then one column is removed and the dataset ungrouped.</p>
-<p>The information is always indicated in absolute numbers and percentage which can be very useful.</p>
+<span class="co">#&gt; distinct (grouped): removed one row (&lt;1%), 11,345 rows remaining</span></code></pre></div>
+<p>Tidylog allows us to see what happens and how many rows have been removed.
+There are 8 grouping variables and as expected, one row is filtered away, which is the duplicated row.</p>
+<p>We can also run the code from above again to check if the duplicate is gone.</p>
 </div>
 <div id="check-for-missing-data" class="section level3" number="5.2.6">
 <h3>
@@ -355,13 +315,13 @@ Then one column is removed and the dataset ungrouped.</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="va">raw_traits</span> <span class="op">&lt;-</span> <span class="va">raw_traits</span> |&gt; 
-  <span class="fu"><a href="https://rdrr.io/pkg/tidylog/man/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">Value</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; filter: removed 3 rows (&lt;1%), 11,342 rows remaining</span></code></pre></div>
+  <span class="fu"><a href="https://rdrr.io/pkg/tidylog/man/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">Value</span><span class="op">)</span>
+<span class="co">#&gt; drop_na: removed 3 rows (&lt;1%), 11,343 rows remaining</span></code></pre></div>
 <p>This operation has removed 3 rows, which is the number of NA’s in the dataset.</p>
 </div>
-<div id="check-values-whing-variables" class="section level3" number="5.2.7">
+<div id="check-values-within-variables" class="section level3" number="5.2.7">
 <h3>
-<span class="header-section-number">5.2.7</span> Check values whing variables<a class="anchor" aria-label="anchor" href="#check-values-whing-variables"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.2.7</span> Check values within variables<a class="anchor" aria-label="anchor" href="#check-values-within-variables"><i class="fas fa-link"></i></a>
 </h3>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
@@ -369,7 +329,7 @@ Then one column is removed and the dataset ungrouped.</p>
   <span class="fu"><a href="https://rdrr.io/pkg/tidylog/man/distinct.html">distinct</a></span><span class="op">(</span><span class="va">Taxon</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">Taxon</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span>n <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span>
-<span class="co">#&gt; distinct: removed 11,298 rows (&gt;99%), 44 rows remaining</span>
+<span class="co">#&gt; distinct: removed 11,299 rows (&gt;99%), 44 rows remaining</span>
 <span class="co">#&gt; # A tibble: 44 × 1</span>
 <span class="co">#&gt;    Taxon                   </span>
 <span class="co">#&gt;    &lt;chr&gt;                   </span>
@@ -419,7 +379,7 @@ Then one column is removed and the dataset ungrouped.</p>
 <span class="co">#&gt; 44 trisetum spicatum</span></code></pre></div>
 <p>4 different versions of <em>oxyra digyna</em>!
 rename
-alternative would be to use a dictionnary.</p>
+alternative would be to use a dictionary.</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="va">raw_traits</span> <span class="op">&lt;-</span> <span class="va">raw_traits</span> |&gt; 
@@ -463,8 +423,8 @@ This value needs to be checked, it could be a typo.</p>
                    <span class="st">"Leaf_Area_cm2"</span> <span class="op">=</span> <span class="st">"Leaf_Area_cm2_log"</span>,
                    <span class="st">"Leaf_Thickness_mm"</span> <span class="op">=</span> <span class="st">"Thickness_mm_log"</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; Warning in log(Value): NaNs produced</span>
-<span class="co">#&gt; mutate: changed 5,427 values (48%) of 'Trait' (0 new NA)</span>
-<span class="co">#&gt;         changed 5,427 values (48%) of 'Value' (0 new NA)</span></code></pre></div>
+<span class="co">#&gt; mutate: changed 5,428 values (48%) of 'Trait' (0 new NA)</span>
+<span class="co">#&gt;         changed 5,428 values (48%) of 'Value' (0 new NA)</span></code></pre></div>
 <p>And make plot again.</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">raw_traits</span> |&gt; 
@@ -480,10 +440,7 @@ In this dataset, we can plot dry mass against leaf area. We would expect a posit
 <code class="sourceCode R"><span class="va">raw_traits</span> |&gt; 
   <span class="fu"><a href="https://rdrr.io/pkg/tidylog/man/pivot_wider.html">pivot_wider</a></span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">Trait</span>, values_from <span class="op">=</span> <span class="va">Value</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Dry_Mass_g_log</span>, y <span class="op">=</span> <span class="va">Leaf_Area_cm2_log</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; pivot_wider: reorganized (Trait, Value) into (Plant_Height_cm_log, Wet_Mass_g_log, Dry_Mass_g_log, Thickness_mm_log, Leaf_Area_cm2_log, …) [was 11342x12, now 1181x29]</span>
-<span class="co">#&gt; Warning: Removed 146 rows containing missing values (geom_point).</span></code></pre></div>
-<div class="inline-figure"><img src="5-2_data_curation_files/figure-html/plot-1.png" width="672"></div>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>We can clearly see the outlier that has a 2 m<sup>2</sup> leaf.
 We can also see that there is a cloud of points that is separate from the rest of the data.
 These data have a sensible leaf area but the dry weight is too small.
@@ -1631,16 +1588,16 @@ If the raw data is extracted, <code>nrep</code> is forced to 1 to avoid memory i
 <span class="co">#&gt; # Groups:   global, Site, PlotID [14]</span>
 <span class="co">#&gt;    n     global Site  PlotID Trait             mean   variance skewness kurtosis</span>
 <span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;            &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;</span>
-<span class="co">#&gt;  1 1     global 1     A      Plant_Height_cm 1.89    2.93         2.33     5.73 </span>
-<span class="co">#&gt;  2 1     global 1     A      Wet_Mass_g      0.0122  0.0000530    1.00     1.83 </span>
-<span class="co">#&gt;  3 1     global 1     B      Plant_Height_cm 1.73    2.79         2.50     6.89 </span>
-<span class="co">#&gt;  4 1     global 1     B      Wet_Mass_g      0.0148  0.0000706    0.956    1.40 </span>
-<span class="co">#&gt;  5 1     global 1     C      Plant_Height_cm 1.77    2.15         2.42     6.23 </span>
-<span class="co">#&gt;  6 1     global 1     C      Wet_Mass_g      0.0147  0.000208     6.23    49.7  </span>
-<span class="co">#&gt;  7 1     global 1     D      Plant_Height_cm 2.13    5.91         2.34     6.31 </span>
-<span class="co">#&gt;  8 1     global 1     D      Wet_Mass_g      0.0114  0.0000360    0.750    0.400</span>
-<span class="co">#&gt;  9 1     global 1     E      Plant_Height_cm 7.05   19.3          0.303   -0.666</span>
-<span class="co">#&gt; 10 1     global 1     E      Wet_Mass_g      0.0179  0.000382     2.28     3.88 </span>
+<span class="co">#&gt;  1 1     global 1     A      Plant_Height_cm 1.62    1.94         2.64     8.79 </span>
+<span class="co">#&gt;  2 1     global 1     A      Wet_Mass_g      0.0126  0.0000684    1.22     2.42 </span>
+<span class="co">#&gt;  3 1     global 1     B      Plant_Height_cm 1.67    2.48         2.50     7.04 </span>
+<span class="co">#&gt;  4 1     global 1     B      Wet_Mass_g      0.0134  0.0000688    1.11     1.55 </span>
+<span class="co">#&gt;  5 1     global 1     C      Plant_Height_cm 1.69    1.40         2.62     8.84 </span>
+<span class="co">#&gt;  6 1     global 1     C      Wet_Mass_g      0.0151  0.000183     5.82    50.0  </span>
+<span class="co">#&gt;  7 1     global 1     D      Plant_Height_cm 1.75    4.30         2.52     6.04 </span>
+<span class="co">#&gt;  8 1     global 1     D      Wet_Mass_g      0.0112  0.0000392    2.94    20.6  </span>
+<span class="co">#&gt;  9 1     global 1     E      Plant_Height_cm 7.20   18.0          0.153   -0.703</span>
+<span class="co">#&gt; 10 1     global 1     E      Wet_Mass_g      0.0170  0.000317     2.55     5.47 </span>
 <span class="co">#&gt; # … with 5,590 more rows</span></code></pre></div>
 <p>One advantage of using a bootstrapping approach, is that we get much more than a mean trait value.
 We can also estimate the variance and other moments of these trait distributions.
@@ -1659,16 +1616,16 @@ For the nonparametric approach the default is a 0.95 confidence level.</p>
 <span class="co">#&gt; # Groups:   global, Site, PlotID [14]</span>
 <span class="co">#&gt;    global Site  PlotID Trait           n   mean ci_low_mean ci_high_mean     var</span>
 <span class="co">#&gt;    &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;       &lt;int&gt;  &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;   &lt;dbl&gt;</span>
-<span class="co">#&gt;  1 global 1     A      Plant_Heig…   200 1.73        1.62         1.84   2.69e+0</span>
-<span class="co">#&gt;  2 global 1     A      Wet_Mass_g    200 0.0121      0.0116       0.0126 6.56e-5</span>
-<span class="co">#&gt;  3 global 1     B      Plant_Heig…   200 1.76        1.64         1.88   2.68e+0</span>
-<span class="co">#&gt;  4 global 1     B      Wet_Mass_g    200 0.0136      0.0130       0.0142 6.82e-5</span>
-<span class="co">#&gt;  5 global 1     C      Plant_Heig…   200 1.72        1.62         1.81   1.85e+0</span>
-<span class="co">#&gt;  6 global 1     C      Wet_Mass_g    200 0.0149      0.0141       0.0158 1.26e-4</span>
-<span class="co">#&gt;  7 global 1     D      Plant_Heig…   200 1.86        1.71         2.02   4.65e+0</span>
-<span class="co">#&gt;  8 global 1     D      Wet_Mass_g    200 0.0117      0.0112       0.0123 4.75e-5</span>
-<span class="co">#&gt;  9 global 1     E      Plant_Heig…   200 7.06        6.77         7.36   1.69e+1</span>
-<span class="co">#&gt; 10 global 1     E      Wet_Mass_g    200 0.0161      0.0149       0.0173 2.72e-4</span>
+<span class="co">#&gt;  1 global 1     A      Plant_Heig…   200 1.72        1.60         1.83   2.60e+0</span>
+<span class="co">#&gt;  2 global 1     A      Wet_Mass_g    200 0.0120      0.0114       0.0126 6.49e-5</span>
+<span class="co">#&gt;  3 global 1     B      Plant_Heig…   200 1.74        1.63         1.85   2.57e+0</span>
+<span class="co">#&gt;  4 global 1     B      Wet_Mass_g    200 0.0137      0.0131       0.0142 6.96e-5</span>
+<span class="co">#&gt;  5 global 1     C      Plant_Heig…   200 1.72        1.63         1.82   1.88e+0</span>
+<span class="co">#&gt;  6 global 1     C      Wet_Mass_g    200 0.0149      0.0142       0.0157 1.27e-4</span>
+<span class="co">#&gt;  7 global 1     D      Plant_Heig…   200 1.85        1.72         1.98   4.51e+0</span>
+<span class="co">#&gt;  8 global 1     D      Wet_Mass_g    200 0.0118      0.0113       0.0123 4.87e-5</span>
+<span class="co">#&gt;  9 global 1     E      Plant_Heig…   200 7.06        6.79         7.33   1.71e+1</span>
+<span class="co">#&gt; 10 global 1     E      Wet_Mass_g    200 0.0161      0.0150       0.0172 2.75e-4</span>
 <span class="co">#&gt; # … with 18 more rows, and 8 more variables: ci_low_var &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   ci_high_var &lt;dbl&gt;, skew &lt;dbl&gt;, ci_low_skew &lt;dbl&gt;, ci_high_skew &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   kurt &lt;dbl&gt;, ci_low_kurt &lt;dbl&gt;, ci_high_kurt &lt;dbl&gt;</span></code></pre></div>
@@ -1734,16 +1691,16 @@ The argument <code>raw</code> allows to extract raw distributions (see above).</
 <span class="co">#&gt; # Groups:   global, Site, PlotID, Trait [28]</span>
 <span class="co">#&gt;    n     global Site  PlotID Trait             mean   variance skewness kurtosis</span>
 <span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;            &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;</span>
-<span class="co">#&gt;  1 1     global 1     A      Plant_Height_cm 1.57    1.78         2.17    7.01  </span>
-<span class="co">#&gt;  2 1     global 1     A      Wet_Mass_g      0.0134  0.000117     3.75   21.8   </span>
-<span class="co">#&gt;  3 1     global 1     B      Plant_Height_cm 1.78    2.37         1.48    1.90  </span>
-<span class="co">#&gt;  4 1     global 1     B      Wet_Mass_g      0.0134  0.0000725    1.91    5.00  </span>
-<span class="co">#&gt;  5 1     global 1     C      Plant_Height_cm 1.69    1.36         2.15    5.07  </span>
-<span class="co">#&gt;  6 1     global 1     C      Wet_Mass_g      0.0167  0.000476     6.83   55.5   </span>
-<span class="co">#&gt;  7 1     global 1     D      Plant_Height_cm 1.96    4.13         2.08    5.76  </span>
-<span class="co">#&gt;  8 1     global 1     D      Wet_Mass_g      0.0113  0.0000394    2.07    7.43  </span>
-<span class="co">#&gt;  9 1     global 1     E      Plant_Height_cm 7.18   19.3          0.459   0.0743</span>
-<span class="co">#&gt; 10 1     global 1     E      Wet_Mass_g      0.0216  0.00106      5.67   42.5   </span>
+<span class="co">#&gt;  1 1     global 1     A      Plant_Height_cm 1.77    2.36         1.65     2.49 </span>
+<span class="co">#&gt;  2 1     global 1     A      Wet_Mass_g      0.0124  0.0000659    1.68     3.61 </span>
+<span class="co">#&gt;  3 1     global 1     B      Plant_Height_cm 1.80    2.26         1.33     1.21 </span>
+<span class="co">#&gt;  4 1     global 1     B      Wet_Mass_g      0.0141  0.0000655    1.81     5.62 </span>
+<span class="co">#&gt;  5 1     global 1     C      Plant_Height_cm 1.81    1.92         2.09     4.04 </span>
+<span class="co">#&gt;  6 1     global 1     C      Wet_Mass_g      0.0140  0.000114     4.93    39.6  </span>
+<span class="co">#&gt;  7 1     global 1     D      Plant_Height_cm 1.91    6.34         3.23    13.2  </span>
+<span class="co">#&gt;  8 1     global 1     D      Wet_Mass_g      0.0119  0.0000569    3.71    25.7  </span>
+<span class="co">#&gt;  9 1     global 1     E      Plant_Height_cm 7.01   15.2          0.177   -0.128</span>
+<span class="co">#&gt; 10 1     global 1     E      Wet_Mass_g      0.0176  0.000223     1.97     4.03 </span>
 <span class="co">#&gt; # … with 5,590 more rows</span></code></pre></div>
 <p>The output of trait_parametric_bootstrap can be summarized using <code>trait_summarize_boot_moments</code> (see above).</p>
 </div>
@@ -1763,16 +1720,16 @@ The argument <code>raw</code> allows to extract raw distributions (see above).</
 <span class="co">#&gt; # Groups:   global, Site, PlotID, Trait [28]</span>
 <span class="co">#&gt;    n     Taxon    Cover Site  PlotID global sum_abun Trait Value n_sample weight</span>
 <span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;    &lt;int&gt;  &lt;dbl&gt;</span>
-<span class="co">#&gt;  1 1     salix p…    20 1     A      global     38.2 Plan…   0.4       44  0.455</span>
-<span class="co">#&gt;  2 1     salix p…    20 1     A      global     38.2 Plan…   0.6       44  0.455</span>
-<span class="co">#&gt;  3 1     bistort…    10 1     A      global     38.2 Plan…   1.2       28  0.357</span>
-<span class="co">#&gt;  4 1     saxifra…     2 1     A      global     38.2 Plan…   2          2  1    </span>
-<span class="co">#&gt;  5 1     salix p…    20 1     A      global     38.2 Plan…   0.3       44  0.455</span>
+<span class="co">#&gt;  1 1     salix p…    20 1     A      global     38.2 Plan…   2         44  0.455</span>
+<span class="co">#&gt;  2 1     salix p…    20 1     A      global     38.2 Plan…   0.8       44  0.455</span>
+<span class="co">#&gt;  3 1     bistort…    10 1     A      global     38.2 Plan…   1.1       28  0.357</span>
+<span class="co">#&gt;  4 1     salix p…    20 1     A      global     38.2 Plan…   1.5       44  0.455</span>
+<span class="co">#&gt;  5 1     salix p…    20 1     A      global     38.2 Plan…   1.1       44  0.455</span>
 <span class="co">#&gt;  6 1     bistort…    10 1     A      global     38.2 Plan…   0.8       28  0.357</span>
-<span class="co">#&gt;  7 1     salix p…    20 1     A      global     38.2 Plan…   0.7       44  0.455</span>
+<span class="co">#&gt;  7 1     salix p…    20 1     A      global     38.2 Plan…   1.1       44  0.455</span>
 <span class="co">#&gt;  8 1     salix p…    20 1     A      global     38.2 Plan…   1         44  0.455</span>
-<span class="co">#&gt;  9 1     bistort…    10 1     A      global     38.2 Plan…   1.3       28  0.357</span>
-<span class="co">#&gt; 10 1     luzula …     1 1     A      global     38.2 Plan…   3         20  0.05 </span>
+<span class="co">#&gt;  9 1     salix p…    20 1     A      global     38.2 Plan…   1.6       44  0.455</span>
+<span class="co">#&gt; 10 1     luzula …     1 1     A      global     38.2 Plan…   1.5       20  0.05 </span>
 <span class="co">#&gt; # … with 5,590 more rows, and 2 more variables: level &lt;ord&gt;,</span>
 <span class="co">#&gt; #   max_n_in_sample &lt;int&gt;</span></code></pre></div>
 <p>The raw data can be useful for visualizing the trait distributions.</p>
@@ -1846,7 +1803,7 @@ Yang, Yan, Aud Helen Halbritter, Kari Klanderud, Richard J Telford, Genxu Wang, 
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="using-pftc-data.html"><span class="header-section-number">4</span> Using PFTC data</a></div>
+<div class="prev"><a href="working-with-pftc-data.html"><span class="header-section-number">4</span> Working with PFTC data</a></div>
 <div class="empty"></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
@@ -1855,14 +1812,14 @@ Yang, Yan, Aud Helen Halbritter, Kari Klanderud, Richard J Telford, Genxu Wang, 
 <li><a class="nav-link" href="#introduction-to-rrstudio-data-analysis-and-more"><span class="header-section-number">5.1</span> Introduction to R/RStudio, data analysis and more</a></li>
 <li>
 <a class="nav-link" href="#data-curation"><span class="header-section-number">5.2</span> Data curation</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#import-data"><span class="header-section-number">5.2.1</span> Import data</a></li>
-<li><a class="nav-link" href="#first-check-of-the-dataset"><span class="header-section-number">5.2.2</span> First check of the dataset</a></li>
-<li><a class="nav-link" href="#check-the-data-type"><span class="header-section-number">5.2.3</span> Check the data type</a></li>
+<li><a class="nav-link" href="#useful-packages"><span class="header-section-number">5.2.1</span> Useful packages</a></li>
+<li><a class="nav-link" href="#import-data"><span class="header-section-number">5.2.2</span> Import data</a></li>
+<li><a class="nav-link" href="#first-check-of-the-dataset"><span class="header-section-number">5.2.3</span> First check of the dataset</a></li>
+<li><a class="nav-link" href="#check-the-data-type"><span class="header-section-number">5.2.4</span> Check the data type</a></li>
 <li><a class="nav-link" href="#exercise-1">Exercise</a></li>
-<li><a class="nav-link" href="#check-for-duplicates"><span class="header-section-number">5.2.4</span> Check for duplicates</a></li>
-<li><a class="nav-link" href="#check-data-cleaning-using-tidylog"><span class="header-section-number">5.2.5</span> Check data cleaning using tidylog</a></li>
+<li><a class="nav-link" href="#check-for-duplicates"><span class="header-section-number">5.2.5</span> Check for duplicates</a></li>
 <li><a class="nav-link" href="#check-for-missing-data"><span class="header-section-number">5.2.6</span> Check for missing data</a></li>
-<li><a class="nav-link" href="#check-values-whing-variables"><span class="header-section-number">5.2.7</span> Check values whing variables</a></li>
+<li><a class="nav-link" href="#check-values-within-variables"><span class="header-section-number">5.2.7</span> Check values within variables</a></li>
 <li><a class="nav-link" href="#visualise-data"><span class="header-section-number">5.2.8</span> Visualise data</a></li>
 </ul>
 </li>
@@ -1900,7 +1857,7 @@ Yang, Yan, Aud Helen Halbritter, Kari Klanderud, Richard J Telford, Genxu Wang, 
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>PFTC Teaching Material</strong>" was written by Aud Halbritter. It was last built on 2022-04-14.</p>
+    <p>"<strong>PFTC Teaching Material</strong>" was written by Aud Halbritter. It was last built on 2022-05-06.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

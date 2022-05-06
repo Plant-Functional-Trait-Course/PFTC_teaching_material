@@ -16,9 +16,16 @@ Data curation, transformation or cleaning is the first step after digitizing the
 Each dataset has to be checked for errors and corrected as best as possible.
 This tutorial shows how to check your dataset for errors and how to correct them.
 
-There are a couple of R packages that are useful for this work.
+For this tutorial we will be working with the trait dataset from Svalbard.
+See section \@ref(working-with-pftc-data) for how to access the data and information about the study, experiment and datasets.
 
-If you have never used the packages you need to install them first using the function  `install.packages()`.
+
+### Useful packages
+
+There are a couple of R packages that are useful for this work. 
+First, **tidyverse** is a collection of R packages used for basic data manipulation and analysis.
+
+If you have never used the packages you need to install it first using the function  `install.packages("tidyverse")`.
 Otherwise, you can just load the packages.
 
 ```{r, load-packages, eval=FALSE}
@@ -27,9 +34,23 @@ library(tidyverse)
 
 ```
 
+Second, another useful package for data curation is **tidylog**, which is built on the **dplyr** and **tidyr** packages and provides useful information about the functions used.
 
-For this tutorial we will be working with the trait dataset from Svalbard.
-See section \@ref(Working with PFTC data) for how to access the data and information about the study, experiment and datasets.
+Tidylog will for example tell you how many rows have been removed and are remaining when using the `filter()` function or how many rows match when using a join function.
+The information is always indicated in absolute numbers and percentage.
+The additional information is very useful to check if the right observations have been removed or manipulated, because mistakes are easily done.
+
+Let's install and/or load **tidylog**.
+
+```{r, load-tidylog, message=FALSE}
+
+library(tidylog)
+
+```
+
+
+Note, that once **tidylog** is loaded it will automatically prioritize the tidylog function before the dplyr and tidyr functions.
+You actively have to choose if you do not want to use the tidylog version by using this notation: `dplyr::filter()`.
 
 
 ### Import data
@@ -53,13 +74,13 @@ For more information about the sites, traits and measurements see [here](https:/
 
 **Some manipulation**
 
-Let us introduce some errors that we want to find and fix.
+Let us introduce some errors to the dataset.
 
 The code to do this is hidden.
-But if you want to replicate the introduction to the errors you can find the code here (add link!!!).
+But if you want to replicate the code to introduce errors you can find the code here (add link!!!).
 
 
-```{r, introduce-errors, echo=FALSE}
+```{r, introduce-errors, echo=FALSE, message=FALSE}
 
 raw_traits <- raw_traits |> 
   # simplify
@@ -133,18 +154,31 @@ raw_traits |>
 
 We can see that there are 6 distinct dates in this variable.
 One of the dates is "18", which is not a correct date format and turned the variable into a character.
+Note that the additional information from the tidylog package about the `distinct()` function.
+It shows the number of rows removed and remaining.
 
 The next step is to check where the problem occurred.
 For this we can use the function `filter()` to extract all observations with the date 18.
 We can use `as.data.frame()` to display the whole table.
 
-```{r, filter}
+```{r, filter, eval=FALSE}
 
 raw_traits |> 
   filter(Date == "18") |> 
-  as.data.frame()
+  View()
 
 ```
+
+
+```{r, filter-print, echo=FALSE}
+
+raw_traits |> 
+  filter(Date == "18") |> 
+  print()
+
+
+```
+
 
 We see that it is a single observation (with multiple traits) that has the wrong date.
 The next step is to check the raw data, notes, photos, etc. to find the correct date for this observations.
@@ -156,32 +190,38 @@ Since the value for date is 18, we will assume now that this was a typo and that
 Let's replace this value and give the variable the right class.
 
 For this we will use the function `mutate()` which adds or manipulates a column.
-Inside the mutate we will use the `if_else()` function to replace the date for a specific ID.
+Inside the mutate we will use the `case_when()` function to replace the date for a specific ID.
+We are using the function with a single statement, however this is a powerful function that allow for multiple statements (many if else conditions).
 To give the variable the correct class, we use the `ymd()` function from the lubridate package.
 Note that we now have to assign the table to a new or the same name to make the change permanent.
 
 ```{r, replace-date}
 
 raw_traits <- raw_traits |> 
-  mutate(Date = if_else(ID == "AMO3822", "2018-07-18", Date),
-         Date = ymd(Date))
+  mutate(Date = case_when(ID == "AMO3822" ~ "2018-07-18",
+                          TRUE ~ Date)) |> 
+  mutate( Date = ymd(Date))
+        
 
 ```
 
 
 An important step when cleaning data is to check that you have done the right thing.
-One way to do this here is to look at the specific leaf (ID == "AMO3822") and see if the date is now corrected.
+The **tidylog** functions show that for 7 observation Date has been changed.
+This matches with the number of observations that had a wrong date.
+
+To be sure we can look at the specific leaf (ID == "AMO3822") and see if the date is now corrected.
 Another way would be to run the `distinct(Date)` function again. 
 
 ```{r, chacke-date}
 
 raw_traits |> 
   filter(ID == "AMO3822") |> 
-  as.data.frame()
+  select(Date)
 
 ```
 
-We can see that the date has been fixed.
+The date has been fixed.
 
 ### Exercise {- .exercise .toc-ignore}
 
@@ -191,7 +231,8 @@ Check if the data type for the variable *Date* is now correct.
 <details>
   <summary>Hint</summary>
 - type `raw_traits` to look at the whole dataset where the datatype of each variable is indicated
-- use `class(raw_traits)` which will tell you directly what type of class the variable has
+- use `class(raw_traits$Date)` which will tell you directly what type of class the variable has
+- use `map(raw_traits, class)` to get the class of all variable in the dataframe
 </details>
 
 
@@ -204,7 +245,7 @@ In our dataset, we expect that *Date*, *Gradient*, *Site*, *PlotID*, *Individual
 
 To check this, we can `group_by()` these variables and `filter()` for observations that occur more than once.
 
-```{r, checke-duplicates}
+```{r, check-duplicates}
 
 raw_traits |> 
   group_by(Date, Gradient, Site, PlotID, Individual_nr, ID, Taxon, Trait) |> 
@@ -223,70 +264,22 @@ When getting a duplicate, these different options for why there is a duplicate h
 In this case, we will assume that the leaf has only been measured once, but the data has been entered twice.
 Thus, the two entries are exact duplicates.
 
-We can use a similar way to fix the problem.
-We group again by the variables we expect to be unique.
-Then we create a new variable that counts the number of time a unique combination occurs.
-And then we filter away the duplicates.
-At the end, we remove the new variable and ungroup the data.
+To fix the duplicate problem, we group by the variables we expect to be unique.
+Then we use `distinct()` with the argument *.keep_all = TRUE* to remove the duplicates.
+
 
 ```{r, remove-duplicates}
 
 raw_traits2 <- raw_traits |> 
   group_by(Date, Gradient, Site, PlotID, Individual_nr, ID, Taxon, Trait) |> 
-  mutate(n = 1:n()) |> 
-  filter(n == 1) |> 
-  select(-n) |> 
-  ungroup()
+  distinct(.keep_all = TRUE)
 
 ```
 
-We should now check again if this code has changed the data in the correct way.
-One way to check this, would be to run the code from above that checks for duplicates again.
-An alternative is to use the **tidylog package**.
+Tidylog allows us to see what happens and how many rows have been removed.
+There are 8 grouping variables and as expected, one row is filtered away, which is the duplicated row.
 
-
-### Check data cleaning using tidylog
-
-Tidylog packages is built on the **dplyr** and **tidyr** packages and provides useful information about the functions used.
-
-Tidylog will for example tell you how many rows have been removed and are remaining when using the `filter()` function or how many rows match when using a join function.
-This additional information is very useful, because mistakes can easily happen when transforming and cleaning data.
-
-Let's install and load the *tidylog package*.
-
-```{r, install-tidylog, eval=FALSE}
-
-install.packages("tidylog")
-
-```
-
-
-```{r, load-tidylog}
-
-library(tidylog)
-
-```
-
-Now we can remove the duplicates again, but this time using the tidylog version of the dyplr functions.
-For clarity, the code indicates that the tidylog version is used with the following notation: `tidylog::`.
-However, this notation is not necessary, because once the *tidylog package* is loaded it will automatically prioritize the tidylog function and you actively have to choose if you do not want to use it.
-
-```{r, remove-duplicates-tidylog}
-
-raw_traits <- raw_traits |> 
-  tidylog::group_by(Date, Gradient, Site, PlotID, Individual_nr, ID, Taxon, Trait) |> 
-  tidylog::mutate(n = 1:n()) |> 
-  tidylog::filter(n == 1) |> 
-  tidylog::select(-n) |> 
-  tidylog::ungroup()
-
-```
-
-The additional information about the operations is displayed below the code in the console.
-There are 8 grouping variables, and `mutate()` creates a new variable with 2 unique values. As expected, one row is filtered away, which is the duplicated row.
-Then one column is removed and the dataset ungrouped.
-
-The information is always indicated in absolute numbers and percentage which can be very useful.
+We can also run the code from above again to check if the duplicate is gone.
 
 
 ### Check for missing data
@@ -301,14 +294,14 @@ Once the missing values are detected one has to decide if the missing data can b
 ```{r, remove-na}
 
 raw_traits <- raw_traits |> 
-  filter(!is.na(Value))
+  drop_na(Value)
 
 ```
 
 This operation has removed 3 rows, which is the number of NA's in the dataset.
 
 
-### Check values whing variables
+### Check values within variables
 
 ```{r, unique-names}
 
@@ -321,7 +314,7 @@ raw_traits |>
 
 4 different versions of *oxyra digyna*!
 rename
-alternative would be to use a dictionnary.
+alternative would be to use a dictionary.
 
 ```{r, fix-oxyra}
 
@@ -392,7 +385,7 @@ The size traits are now easier to read.
 Another way to check the data is to plot correlated values against each other.
 In this dataset, we can plot dry mass against leaf area. We would expect a positive correlation between the two variables, where large leaves have a higher dry mass.
 
-```{r, plot}
+```{r, plot, eval=FALSE}
 raw_traits |> 
   pivot_wider(names_from = Trait, values_from = Value) |> 
   ggplot(aes(x = Dry_Mass_g_log, y = Leaf_Area_cm2_log)) +
