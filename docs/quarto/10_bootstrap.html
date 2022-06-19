@@ -482,16 +482,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span class="co">#&gt; # Groups:   global, Site, PlotID [14]</span>
 <span class="co">#&gt;    n     global Site  PlotID Trait             mean   variance skewness kurtosis</span>
 <span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;            &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;</span>
-<span class="co">#&gt;  1 1     global 1     A      Plant_Height_cm 1.51    1.77         2.62     7.20 </span>
-<span class="co">#&gt;  2 1     global 1     A      Wet_Mass_g      0.0116  0.0000579    0.920    1.41 </span>
-<span class="co">#&gt;  3 1     global 1     B      Plant_Height_cm 1.77    2.53         2.81     9.99 </span>
-<span class="co">#&gt;  4 1     global 1     B      Wet_Mass_g      0.0153  0.0000850    1.31     1.97 </span>
-<span class="co">#&gt;  5 1     global 1     C      Plant_Height_cm 1.86    2.48         2.42     6.29 </span>
-<span class="co">#&gt;  6 1     global 1     C      Wet_Mass_g      0.0158  0.000156     5.94    53.8  </span>
-<span class="co">#&gt;  7 1     global 1     D      Plant_Height_cm 1.80    3.77         2.59     7.20 </span>
-<span class="co">#&gt;  8 1     global 1     D      Wet_Mass_g      0.0121  0.0000385    0.946    1.00 </span>
-<span class="co">#&gt;  9 1     global 1     E      Plant_Height_cm 6.69   18.0          0.252   -0.643</span>
-<span class="co">#&gt; 10 1     global 1     E      Wet_Mass_g      0.0165  0.000281     2.73     6.72 </span>
+<span class="co">#&gt;  1 1     global 1     A      Plant_Height_cm 1.72    2.79         2.76     8.23 </span>
+<span class="co">#&gt;  2 1     global 1     A      Wet_Mass_g      0.0124  0.0000764    1.20     1.76 </span>
+<span class="co">#&gt;  3 1     global 1     B      Plant_Height_cm 1.76    2.77         2.44     6.85 </span>
+<span class="co">#&gt;  4 1     global 1     B      Wet_Mass_g      0.0126  0.0000627    1.09     1.47 </span>
+<span class="co">#&gt;  5 1     global 1     C      Plant_Height_cm 1.72    2.11         2.59     7.15 </span>
+<span class="co">#&gt;  6 1     global 1     C      Wet_Mass_g      0.0147  0.000100     3.43    20.4  </span>
+<span class="co">#&gt;  7 1     global 1     D      Plant_Height_cm 1.82    4.58         2.45     5.44 </span>
+<span class="co">#&gt;  8 1     global 1     D      Wet_Mass_g      0.0110  0.0000336    0.856    0.550</span>
+<span class="co">#&gt;  9 1     global 1     E      Plant_Height_cm 7.35   19.1          0.255   -0.544</span>
+<span class="co">#&gt; 10 1     global 1     E      Wet_Mass_g      0.0154  0.000252     2.94     8.25 </span>
 <span class="co">#&gt; # … with 5,590 more rows</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>One advantage of using a bootstrapping approach, is that we get much more than a mean trait value. We can also estimate the variance and other moments of these trait distributions. In traitstrap happy moments can be summarized and the confidence intervals calculated using the <code>trait_summarise_boot_moments</code> function. The input variable for this function is the output from the nonparametric bootstrapping function (or the parametric bootstrapping function, see below).</p>
@@ -506,16 +506,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span class="co">#&gt; # Groups:   global, Site, PlotID [14]</span>
 <span class="co">#&gt;    global Site  PlotID Trait           n   mean ci_low_mean ci_high_mean     var</span>
 <span class="co">#&gt;    &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;       &lt;int&gt;  &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;   &lt;dbl&gt;</span>
-<span class="co">#&gt;  1 global 1     A      Plant_Heig…   200 1.72        1.60         1.84   2.69e+0</span>
-<span class="co">#&gt;  2 global 1     A      Wet_Mass_g    200 0.0120      0.0115       0.0126 6.58e-5</span>
-<span class="co">#&gt;  3 global 1     B      Plant_Heig…   200 1.77        1.65         1.89   2.67e+0</span>
-<span class="co">#&gt;  4 global 1     B      Wet_Mass_g    200 0.0135      0.0129       0.0142 6.87e-5</span>
-<span class="co">#&gt;  5 global 1     C      Plant_Heig…   200 1.72        1.62         1.82   1.87e+0</span>
-<span class="co">#&gt;  6 global 1     C      Wet_Mass_g    200 0.0149      0.0141       0.0157 1.30e-4</span>
-<span class="co">#&gt;  7 global 1     D      Plant_Heig…   200 1.84        1.68         2.01   4.57e+0</span>
-<span class="co">#&gt;  8 global 1     D      Wet_Mass_g    200 0.0117      0.0112       0.0122 5.00e-5</span>
-<span class="co">#&gt;  9 global 1     E      Plant_Heig…   200 7.14        6.84         7.44   1.70e+1</span>
-<span class="co">#&gt; 10 global 1     E      Wet_Mass_g    200 0.0161      0.0149       0.0172 2.73e-4</span>
+<span class="co">#&gt;  1 global 1     A      Plant_Heig…   200 1.71        1.59         1.83   2.62e+0</span>
+<span class="co">#&gt;  2 global 1     A      Wet_Mass_g    200 0.0121      0.0116       0.0127 6.60e-5</span>
+<span class="co">#&gt;  3 global 1     B      Plant_Heig…   200 1.74        1.64         1.85   2.58e+0</span>
+<span class="co">#&gt;  4 global 1     B      Wet_Mass_g    200 0.0137      0.0131       0.0143 6.91e-5</span>
+<span class="co">#&gt;  5 global 1     C      Plant_Heig…   200 1.71        1.62         1.81   1.84e+0</span>
+<span class="co">#&gt;  6 global 1     C      Wet_Mass_g    200 0.0148      0.0142       0.0155 1.27e-4</span>
+<span class="co">#&gt;  7 global 1     D      Plant_Heig…   200 1.84        1.69         2.00   4.47e+0</span>
+<span class="co">#&gt;  8 global 1     D      Wet_Mass_g    200 0.0117      0.0112       0.0123 5.03e-5</span>
+<span class="co">#&gt;  9 global 1     E      Plant_Heig…   200 7.10        6.80         7.40   1.70e+1</span>
+<span class="co">#&gt; 10 global 1     E      Wet_Mass_g    200 0.0161      0.0149       0.0173 2.75e-4</span>
 <span class="co">#&gt; # … with 18 more rows, and 8 more variables: ci_low_var &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   ci_high_var &lt;dbl&gt;, skew &lt;dbl&gt;, ci_low_skew &lt;dbl&gt;, ci_high_skew &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   kurt &lt;dbl&gt;, ci_low_kurt &lt;dbl&gt;, ci_high_kurt &lt;dbl&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -578,16 +578,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span class="co">#&gt; # Groups:   global, Site, PlotID, Trait [28]</span>
 <span class="co">#&gt;    n     global Site  PlotID Trait             mean   variance skewness kurtosis</span>
 <span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;            &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;</span>
-<span class="co">#&gt;  1 1     global 1     A      Plant_Height_cm 1.79    2.40         2.64     11.4 </span>
-<span class="co">#&gt;  2 1     global 1     A      Wet_Mass_g      0.0121  0.0000426    0.962     2.10</span>
-<span class="co">#&gt;  3 1     global 1     B      Plant_Height_cm 1.65    1.88         1.58      2.30</span>
-<span class="co">#&gt;  4 1     global 1     B      Wet_Mass_g      0.0137  0.0000613    1.28      1.47</span>
-<span class="co">#&gt;  5 1     global 1     C      Plant_Height_cm 1.87    1.82         2.05      4.18</span>
-<span class="co">#&gt;  6 1     global 1     C      Wet_Mass_g      0.0146  0.0000656    1.57      2.68</span>
-<span class="co">#&gt;  7 1     global 1     D      Plant_Height_cm 1.63    2.73         2.03      4.92</span>
-<span class="co">#&gt;  8 1     global 1     D      Wet_Mass_g      0.0113  0.0000434    2.07      6.63</span>
-<span class="co">#&gt;  9 1     global 1     E      Plant_Height_cm 7.47   23.5          1.06      2.36</span>
-<span class="co">#&gt; 10 1     global 1     E      Wet_Mass_g      0.0150  0.000236     4.00     25.5 </span>
+<span class="co">#&gt;  1 1     global 1     A      Plant_Height_cm 1.70    3.15         3.00    12.2  </span>
+<span class="co">#&gt;  2 1     global 1     A      Wet_Mass_g      0.0124  0.0000831    1.67     4.18 </span>
+<span class="co">#&gt;  3 1     global 1     B      Plant_Height_cm 1.59    2.45         2.08     4.09 </span>
+<span class="co">#&gt;  4 1     global 1     B      Wet_Mass_g      0.0128  0.0000608    1.23     1.91 </span>
+<span class="co">#&gt;  5 1     global 1     C      Plant_Height_cm 1.81    2.44         2.84     9.52 </span>
+<span class="co">#&gt;  6 1     global 1     C      Wet_Mass_g      0.0160  0.000175     5.63    44.7  </span>
+<span class="co">#&gt;  7 1     global 1     D      Plant_Height_cm 1.90    4.79         2.15     4.97 </span>
+<span class="co">#&gt;  8 1     global 1     D      Wet_Mass_g      0.0123  0.0000489    1.81     5.56 </span>
+<span class="co">#&gt;  9 1     global 1     E      Plant_Height_cm 7.03   15.1          0.220    0.322</span>
+<span class="co">#&gt; 10 1     global 1     E      Wet_Mass_g      0.0174  0.000437     4.55    30.8  </span>
 <span class="co">#&gt; # … with 5,590 more rows</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The output of trait_parametric_bootstrap can be summarized using <code>trait_summarize_boot_moments</code> (see above).</p>
@@ -605,16 +605,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span class="co">#&gt; # Groups:   global, Site, PlotID, Trait [28]</span>
 <span class="co">#&gt;    n     Taxon    Cover Site  PlotID global sum_abun Trait Value n_sample weight</span>
 <span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;    &lt;int&gt;  &lt;dbl&gt;</span>
-<span class="co">#&gt;  1 1     bistort…    10 1     A      global     38.2 Plan…   0.4       28  0.357</span>
-<span class="co">#&gt;  2 1     salix p…    20 1     A      global     38.2 Plan…   0.7       44  0.455</span>
-<span class="co">#&gt;  3 1     salix p…    20 1     A      global     38.2 Plan…   1         44  0.455</span>
-<span class="co">#&gt;  4 1     salix p…    20 1     A      global     38.2 Plan…   0.3       44  0.455</span>
-<span class="co">#&gt;  5 1     saxifra…     2 1     A      global     38.2 Plan…   5          6  0.333</span>
-<span class="co">#&gt;  6 1     bistort…    10 1     A      global     38.2 Plan…   2         28  0.357</span>
-<span class="co">#&gt;  7 1     salix p…    20 1     A      global     38.2 Plan…   0.6       44  0.455</span>
-<span class="co">#&gt;  8 1     salix p…    20 1     A      global     38.2 Plan…   0.6       44  0.455</span>
-<span class="co">#&gt;  9 1     salix p…    20 1     A      global     38.2 Plan…   0.3       44  0.455</span>
-<span class="co">#&gt; 10 1     salix p…    20 1     A      global     38.2 Plan…   1.1       44  0.455</span>
+<span class="co">#&gt;  1 1     salix p…    20 1     A      global     38.2 Plan…   0.8       44  0.455</span>
+<span class="co">#&gt;  2 1     salix p…    20 1     A      global     38.2 Plan…   1.1       44  0.455</span>
+<span class="co">#&gt;  3 1     saxifra…     2 1     A      global     38.2 Plan…   5.6        6  0.333</span>
+<span class="co">#&gt;  4 1     bistort…    10 1     A      global     38.2 Plan…   1.5       28  0.357</span>
+<span class="co">#&gt;  5 1     saxifra…     2 1     A      global     38.2 Plan…   2          2  1    </span>
+<span class="co">#&gt;  6 1     salix p…    20 1     A      global     38.2 Plan…   0.9       44  0.455</span>
+<span class="co">#&gt;  7 1     salix p…    20 1     A      global     38.2 Plan…   0.4       44  0.455</span>
+<span class="co">#&gt;  8 1     bistort…    10 1     A      global     38.2 Plan…   1         28  0.357</span>
+<span class="co">#&gt;  9 1     salix p…    20 1     A      global     38.2 Plan…   0.7       44  0.455</span>
+<span class="co">#&gt; 10 1     salix p…    20 1     A      global     38.2 Plan…   1         44  0.455</span>
 <span class="co">#&gt; # … with 5,590 more rows, and 2 more variables: level &lt;ord&gt;,</span>
 <span class="co">#&gt; #   max_n_in_sample &lt;int&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
