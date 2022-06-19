@@ -1,0 +1,82 @@
+---
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
+# Working with PFTC data {#sec-pftc-data}
+
+
+## PFTC data repositories
+
+The cleaned datasets from the PFTC courses are stored on an OSF repository (short repo).
+Each course has it's own data repo.
+The following table shows the link to each of the repos.
+
+| Course  | Country  | Data repo  |
+|:---|:---|:---|
+| PFTC1 and 2  | China  | [China repo](https://osf.io/f3knq/) |
+| PFTC3 and 5  | Peru  | [Peru repo](https://osf.io/gs8u6/) |
+| PFTC4  | Svalbard  | [Svalbard repo](https://osf.io/smbqh/) |
+| PFTC6  | Norway  | [3D repo](https://osf.io/pk4bg/) |
+|  |   | [Incline repo](to be added) |
+
+
+## Data paper and data documentation
+
+The site, experiment, data collection methods and data dictionaries for each course are described in data papers.
+Some information can also be found on the GitHub readme file.
+
+| Course  | Country  | Data paper/documentation  |
+|:---|:---|:---|
+| PFTC1 and 2  | China  | [Data paper](https://www.nature.com/articles/s41597-020-0529-0) |
+| PFTC3 and 5  | Peru  | [GitHub readme](https://github.com/Plant-Functional-Trait-Course/pftc3_punaproject_pftc5) |
+| PFTC4  | Svalbard  | [GitHub readme](https://github.com/Plant-Functional-Trait-Course/PFTC_4_Svalbard) |
+| PFTC6  | Norway  | [3D: GitHub readme](https://github.com/audhalbritter/Three-D) |
+| PFTC6  | Norway  | [Incline: GitHub readme](to be added) |
+
+Read the papers and documentation carefully before using the data.
+
+
+## Data usage and citation
+
+The data are available for use and teaching purposes under a CC-BY licence.
+We suggest to cite the data paper if available, or alternatively the OSF repo.
+We appreciate being contacted for advice or collaboration, if relevant, by users of these data.
+In cases where our data make up >10% of the data used in a downstream publication, we suggest contacting us for our contribution and collaboration. 
+
+
+
+## Download PFTC data
+
+We have created a R package to download the data, called *dataDownloader*.
+If you are using the package for the first time you need to install the package using the  command below.
+If you have used it before, just run the second line of code to load the package.
+
+```{r, package, eval=FALSE}
+devtools::install_github("Between-the-Fjords/dataDownloader")
+library(dataDownloader)
+```
+
+Now you can download the all the files you need.
+Let's download the community data and the trait from the Svalbard course.
+
+```{r, download-svalbard, eval=FALSE}
+get_file(node = "smbqh",
+         file = "PFTC4_Svalbard_2018_Gradient_Traits.csv",
+         path = "webpage/data",
+         remote_path = "Traits")
+                       
+get_file(node = "smbqh",
+         file = "PFTC4_Svalbard_2018_Community_Gradient.csv",
+         path = "webpage/data",
+         remote_path = "Community")
+                       
+```
+
+
+### Exercise {- .exercise .toc-ignore}
+
+Now it is your turn.
+Copy the code into your console and download the data.
+

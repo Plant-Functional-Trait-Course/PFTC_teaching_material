@@ -1,0 +1,56 @@
+---
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
+``` {r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Alpine ecosystems
+
+The PFTC courses study trait-based approaches in alpine grassland ecosystems around the world. 
+We have chosen this ecosystem because they are impacted more strongly by climate change which cause important issues of great societal consequence, and because we have research backgrounds in this general field and system.
+By focusing on the same ecosystem in all courses, enables comparative approaches by combining data from the different PFTC courses.
+And also, everyone knows grasses are the coolest plants.
+
+
+## Alpine ecosystems in Western Norway (PFTC6)
+
+The PFTC6 will be held in Aurland in the fjords of Western Norway (see @fig-map).
+We will be working on an elevational gradient that ranges between 500 and 1300 m a.s.l.
+
+
+```{r, echo=FALSE}
+#| label: fig-map
+#| fig-cap: "Map of the study area and sites in Aurland, Norway."
+#| fig-alt: "Map of the study area and the sites in Aurland, Norway."
+
+knitr::include_graphics('images/sites/map.png')
+
+```
+
+```{r}
+#| label: fig-aurland
+#| fig-cap: "The fjords in Aurland in Western Norway."
+#| fig-alt: "A photo of the fjord in Aurland in Western Norway."
+
+knitr::include_graphics('images/sites/aurland.jpg')
+```
+
+
+The dominant vegetation types in this area are grasslands, pine and birch forests with bilberry understory, and heathland.
+The main land use in this area is grazing by sheep and goats.
+
+During the course, we will mainly focus on grassland ecosystems (see @fig-alpine-grassland and @fig-lowland-grassland).
+
+::: {#fig-grasslands layout-ncol=2}
+
+![Alpine grassland](images/sites/alpine_grassland.jpg){#fig-alpine-grassland}
+
+![Lowland pasture](images/sites/alpine2.jpg){#fig-lowland-grassland}
+
+A typical alpine grasslands and one at lower elevation.
+:::
+

@@ -1,0 +1,25 @@
+```{r setup, include=FALSE}
+library(tidyverse)
+```
+
+
+# Introduction {-}
+
+This book provides the teaching material for the Plant Functional Trait Courses (PFTC).
+
+The PFTC courses are an international course with hands-on training in trait-based ecology.
+For more information about the courses see our course [webpage](https://plantfunctionaltraitscourses.w.uib.no/).
+
+Here we provide teaching material for data collection, curation, analysis, documentation, storage, and reuse.
+In addition, we show reproducible and transparent workflows to make research more open and available.
+We cover these topics within the fields of plant functional trait ecology, ecosystem ecology, plant physiology and remote sensing.
+
+
+```{r, echo=FALSE}
+#| label: fig-field
+#| fig-cap: "Trait data collection during PFTC4 on Svalbard."
+#| fig-alt: "Studens collecting trait data during PFTC4 on Svalbard."
+
+knitr::include_graphics("images/field.JPG")
+
+```
