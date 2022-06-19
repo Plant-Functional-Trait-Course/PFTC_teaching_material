@@ -1,0 +1,269 @@
+---
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
+```{r, setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+library(tidyverse)
+library(vegan)
+library(ggvegan)
+library(broom)
+library(kableExtra)
+library(performance)
+
+puna_colour = tribble(~site, ~treatment, ~colour,
+                      "WAY", "C", "#E54D00",
+                      "WAY", "B", "#650505",
+                      "ACJ", "C", "#E58900",
+                      "ACJ", "B", "#7F2929",
+                      "ACJ", "NB", "#420426",
+                      "PIL", "C", "#F4B462",
+                      "PIL", "B", "#C06733",
+                      "PIL", "BB", "#005385", #bonus colour - pick your own
+                      "TRE", "C", "#7AAB76",
+                      "TRE", "NB", "#841457",
+                      "QUE", "C", "#2C9160", #added to get complete elvation gradient
+                      "QUE", "B", "#DAC2A4",
+                      "QUE", "NB", "#D15E7F",
+                      "OCC", "C", "#033311")
+
+puna_treatment_colour = puna_colour %>%
+  filter(site == "ACJ" |
+         treatment == "BB") %>%
+  select(-site)
+
+puna_site_colour = puna_colour %>%
+  filter(treatment == "C") %>%
+  select(-treatment)
+```
+
+
+## Plant community composition data
+
+For this tutorial you will need the *tidyverse*, *vegan*, *ggvegan* and *broom* package.
+
+We will use the data from PFTC3 and 5 from Peru.
+
+**Download data**
+
+```{r, download-peru-data, eval=FALSE}
+
+library(dataDownloader)
+
+get_file(node = "gs8u6",
+         file = "PFTC3-Puna-PFTC5_Peru_2018-2020_CommunityCover_clean.csv",
+         path = "clean_data",
+         remote_path = "community")
+
+```
+
+
+This dataset contains percentage cover for 143 species along an elevational gradients in Peru.
+Three different treatments related to fire history: control (C), burnt (B) and newly burnt (NB)).
+For more information about the sites and measurements see [here](https://github.com/Plant-Functional-Trait-Course/pftc3_punaproject_pftc5).
+
+
+To read in the data use the code below.
+Note that we remove the treatment *BB* which has only a few observation from one site.
+
+```{r, import-peru-comm}
+
+comm <- read_csv("data/PFTC3-Puna-PFTC5_Peru_2018-2020_CommunityCover_clean.csv") |> 
+  filter(treatment != "BB")
+
+```
+
+
+### Diversity indices
+
+One way to quantify the number of species species is to calculate diversity indices.
+Some common indices are species *richness*, *diversity* and *evenness*.
+
+To calculate these indices we are using the *vegan package*.
+
+
+```{r, diversity}
+
+## Calculate responses
+diversity_index <- comm  |> 
+  group_by(year, month, site, elevation, treatment, plot_id)  |> 
+  summarise(richness = n(),
+            diversity = diversity(cover),
+            evenness = diversity/log(richness))  |> 
+  # make long dataframe
+  pivot_longer(cols = c(richness:evenness), names_to = "index", values_to = "value") |> 
+  mutate(index = factor(index, levels = c("richness", "diversity", "evenness")))
+
+
+```
+
+We can now test if these diversity indices are different between the sites along the elevational gradient and the treatments.
+We will use a simple linear model with diversity index as response and the interaction of elevation and treatment as predictor.
+
+
+```{r, test-diversity}
+
+diversity_result <- diversity_index  |> 
+  filter(treatment %in% c("C", "B", "NB"))  |> 
+  mutate(treatment = factor(treatment, levels = c("C", "B", "NB")))  |> 
+  group_by(index)  |> 
+  nest(data = -c(index))  |> 
+  mutate(model = map(data, ~lm(value ~ elevation * treatment, data = .x)),
+         result = map(model, tidy))  |> 
+  unnest(result)
+
+diversity_result |> 
+  select(index, term:p.value) |> 
+  kbl(digits = 2)
+        
+
+```
+
+Species richness and diversity increase for the NB treatment, but not for the other treatments.
+
+
+**Check model assumptions**
+
+To check if the model assumptions are met, we will use the *performance package*.
+
+
+
+```{r, test-model-assumption, eval=FALSE}
+
+richness <- diversity_index |> 
+  filter(index == "richness")
+
+fit <- lm(value ~ elevation * treatment, data = richness)
+
+plot <- check_model(fit)
+
+plot
+
+```
+
+
+**Diversity change with elevation**
+
+We can plot the diversity indices across elevation.
+
+
+```{r, plot-diversity}
+
+diversity_index %>%
+  ggplot(aes(x = elevation, y = value, colour = treatment, fill = treatment)) +
+  geom_point(alpha = 0.4) +
+  geom_smooth(method = "lm", formula = "y ~ x", alpha = 0.2) +
+  scale_colour_manual("Treatment", values = puna_treatment_colour$colour[1:3]) +
+  scale_fill_manual("Treatment", values = puna_treatment_colour$colour[1:3]) +
+  labs(x = "Elevation m a.s.l", y = "") +
+  guides(linetype = FALSE,
+         fill = FALSE,
+         colour = guide_legend(override.aes = list(fill = NA))) +
+  facet_wrap( ~ index, scales = "free_y")
+
+```
+
+Discuss restuls...
+
+
+### Multivariate analysis - NMDS ordination
+
+In addition to univariate descriptor of communities such as diversity indices, we might be interested in the species composition along the elevational gradient.
+
+A common method is non-metric multidimensional scaling (NMDS).
+A NMDS collapses information from multiple dimensions to a few dimensions.
+This allows to visualise the data more easily.
+
+An NMDS can be done using the `metaMDS()` function form the *vegan package*.
+
+```{r, nmds}
+
+cover_fat <- comm %>%
+  select(-family, -functional_group, -c(burn_year:course)) %>%
+  arrange(year, season, month) %>%
+  pivot_wider(names_from = "taxon", values_from = "cover", values_fill = 0) %>%
+  ungroup()
+
+cover_fat_spp <- cover_fat %>% select(-(year:plot_id))
+
+set.seed(32)
+NMDS <- metaMDS(cover_fat_spp,
+                noshare = TRUE,
+                try = 30,
+                trace = 0)
+
+fNMDS <- fortify(NMDS) %>%
+  filter(Score == "sites") %>%
+  bind_cols(cover_fat %>% select(year:plot_id))
+
+```
+
+
+Check stress... (explain what it is and why it is done)
+
+
+```{r, stressplot-code, eval=FALSE}
+
+  NMDS_1 <-  metaMDS(cover_fat_spp, noshare = TRUE, try = 30, k = 1)
+  NMDS_2 <-  metaMDS(cover_fat_spp, noshare = TRUE, try = 30, k = 2)
+  NMDS_3 <-  metaMDS(cover_fat_spp, noshare = TRUE, try = 30, k = 3)
+  NMDS_4 <-  metaMDS(cover_fat_spp, noshare = TRUE, try = 30, k = 4)
+  NMDS_5 <-  metaMDS(cover_fat_spp, noshare = TRUE, try = 30, k = 5)
+  NMDS_6 <-  metaMDS(cover_fat_spp, noshare = TRUE, try = 30, k = 6)
+
+tibble(
+    stress = c(NMDS_1$stress, NMDS_2$stress, NMDS_3$stress, NMDS_4$stress, NMDS_5$stress, NMDS_6$stress),
+    dimensions = c(1:6)) %>%
+    ggplot(aes(x = dimensions, y = stress)) +
+    geom_point()
+```
+
+
+```{r, stressplot-calc, echo=FALSE}
+
+  NMDS_1 <-  metaMDS(cover_fat_spp, noshare = TRUE, try = 30, k = 1)
+  NMDS_2 <-  metaMDS(cover_fat_spp, noshare = TRUE, try = 30, k = 2)
+  NMDS_3 <-  metaMDS(cover_fat_spp, noshare = TRUE, try = 30, k = 3)
+  NMDS_4 <-  metaMDS(cover_fat_spp, noshare = TRUE, try = 30, k = 4)
+  NMDS_5 <-  metaMDS(cover_fat_spp, noshare = TRUE, try = 30, k = 5)
+  NMDS_6 <-  metaMDS(cover_fat_spp, noshare = TRUE, try = 30, k = 6)
+
+tibble(
+    stress = c(NMDS_1$stress, NMDS_2$stress, NMDS_3$stress, NMDS_4$stress, NMDS_5$stress, NMDS_6$stress),
+    dimensions = c(1:6)) %>%
+    ggplot(aes(x = dimensions, y = stress)) +
+    geom_point()
+```
+
+Discuss the results of the stress plot and what desicion is taken. How many dimesions are chosen.
+
+
+**Visualise**
+
+The output of an ordination can be visualised.
+
+```{r, plot-nmds}
+
+fNMDS %>%
+  as_tibble() %>%
+  mutate(treatment = factor(treatment, levels = c("C", "B", "NB")),
+         site = factor(site, levels = c("WAY", "ACJ", "PIL", "TRE", "QUE", "OCC")),
+         season = if_else(season == "dry_season",
+                          "Dry season",
+                          "Wet season")) %>%
+  ggplot(aes(x = NMDS1, y = NMDS2, colour = site, shape = treatment)) +
+  geom_point() +
+  scale_colour_manual("Site", values = puna_site_colour$colour) +
+  scale_shape_manual("Treatment", values=c(16, 5, 6)) +
+  facet_wrap(~ season)
+
+```
+
+
+Discuss results.

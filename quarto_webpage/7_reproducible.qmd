@@ -1,0 +1,19 @@
+---
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
+``` {r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Reproducible workflows
+
+Reproduciblitiy ...
+
+
+```{r icons, out.width='100%'}
+knitr::include_graphics("images/resources/rep_workflow_FunCaB.png")
+```
+

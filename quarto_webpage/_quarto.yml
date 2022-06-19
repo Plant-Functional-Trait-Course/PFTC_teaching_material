@@ -1,0 +1,44 @@
+project:
+  type: book
+  output-dir: ../docs/quarto
+
+
+book:
+  title: "PFTC Teaching Material"
+  author: "Aud Halbritter"
+  date: today
+  search: true
+  repo-url: https://github.com/Plant-Functional-Trait-Course/PFTC_teaching_material/
+  repo-actions: [source]
+  sharing: [twitter, facebook]
+  chapters:
+    - index.qmd
+    - part: "PFTC courses"
+      chapters:
+      - 1_courses.qmd
+    - part: "The study system"
+      chapters:
+      - 2_study_system.qmd
+      - 3_three_d.qmd
+    - part: "Trait data collection"
+      chapters:
+      - 4_trait_collection.qmd
+    - part: "PFTC data"
+      chapters:
+      - 5_pftc_data.qmd
+    - part: "Data science"
+      chapters:
+      - 6_biostats.qmd
+      - 7_reproducible.qmd
+      - 8_data_curation.qmd
+      - 9_community.qmd
+      - 10_bootstrap.qmd
+
+bibliography: bibliography.bib
+#suppress-bibliography: true
+
+format:
+  html:
+    theme: cosmo
+    code-link: true
+    css: "css/style-chapters.css"

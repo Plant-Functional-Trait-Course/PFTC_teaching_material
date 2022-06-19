@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.592">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>PFTC Teaching Material - 3&nbsp; Three-D project</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./4_trait_collection.html" rel="next">
+<link href="./2_study_system.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script><link rel="stylesheet" href="css/style-chapters.css">
+</head>
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">
+<span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Three-D project</span>
+</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">PFTC Teaching Material</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/Plant-Functional-Trait-Course/PFTC_teaching_material/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+<li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=%7Curl%7C">
+            <i class="bi bi-bi-twitter pe-1"></i>
+          Twitter
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=%7Curl%7C">
+            <i class="bi bi-bi-facebook pe-1"></i>
+          Facebook
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Introduction</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">PFTC courses</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1_courses.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">PFTC Course information</span></a>
+  </div>
+</li>
+    </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">The study system</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2_study_system.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Alpine ecosystems</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3_three_d.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Three-D project</span></a>
+  </div>
+</li>
+    </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Trait data collection</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./4_trait_collection.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The trait wheel</span></a>
+  </div>
+</li>
+    </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">PFTC data</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5_pftc_data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Working with PFTC data</span></a>
+  </div>
+</li>
+    </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">Data science</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6_biostats.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduction to R, RStudio and GitHub</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./7_reproducible.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Reproducible workflows</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./8_data_curation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data curation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./9_community.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Plant community composition data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10_bootstrap.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Bootstrapping method</span></a>
+  </div>
+</li>
+    </ul>
+</li>
+    </ul>
+</div>
+</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li><a href="#study-sites" id="toc-study-sites" class="nav-link active" data-scroll-target="#study-sites"> <span class="header-section-number">3.1</span> Study sites</a></li>
+  <li>
+<a href="#experimental-treatments" id="toc-experimental-treatments" class="nav-link" data-scroll-target="#experimental-treatments"> <span class="header-section-number">3.2</span> Experimental treatments</a>
+  <ul class="collapse">
+<li><a href="#warming-treatment" id="toc-warming-treatment" class="nav-link" data-scroll-target="#warming-treatment"> <span class="header-section-number">3.2.1</span> Warming treatment</a></li>
+  <li><a href="#nitrogen-addition" id="toc-nitrogen-addition" class="nav-link" data-scroll-target="#nitrogen-addition"> <span class="header-section-number">3.2.2</span> Nitrogen addition</a></li>
+  <li><a href="#grazing-treatment" id="toc-grazing-treatment" class="nav-link" data-scroll-target="#grazing-treatment"> <span class="header-section-number">3.2.3</span> Grazing treatment</a></li>
+  </ul>
+</li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"> <span class="header-section-number">3.3</span> References</a></li>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Plant-Functional-Trait-Course/PFTC_teaching_material/blob/main/3_three_d.qmd" class="toc-action">View source</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title d-none d-lg-block">
+<span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Three-D project</span>
+</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header><p>The aim of the ThreeD project is to study global change impacts on biodiversity and ecosystem carbon fluxes. For a complete description of the experiment see <a href="https://github.com/audhalbritter/Three-D">here</a>.</p>
+<section id="study-sites" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="study-sites">
+<span class="header-section-number">3.1</span> Study sites</h2>
+<p>The study is conducted in three semi-natural grassland sites in western Norway. The sites are location on calcareous soil (loamy sand). The sites were chosen to fit within an elevational gradient with three temperature levels that differ in c.&nbsp;400 m elevation, a temperature difference of approximately 3°C in summer temperature (<a href="#fig-exp-design">Figure&nbsp;<span>3.1</span></a>). The sites correspond to boreal, sub-alpine and alpine biogeographic zones. Other factors such as history, bedrock, vegetation type and structure, slope and exposure were kept as constant as possible among the selected sites within each country. The sites are grazed by sheep and goats.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-exp-design" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="images/sites/ExperimentalDesign.jpg" class="img-fluid figure-img" alt="A conceptual figure showing the experimental design and plot set up." width="1031"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Figure 3.1: A) The experiment are set up along an elevational gradient that represents a productivity gradient. The experimental treatments are warming (brown), a grdient of nitrogen addition (grey to green) and their combination. These treatments are crossed with four grazing treatment: control (no clipping), intermediate and intensive clipping, and natural grazing outside the grazing exclosure. B) Example of a plot divided into non destructive (inner square) and and destructive sampling area (outer square).</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The lowest site <strong>Vikesland</strong> is locate at 469 m a.s.l. (60.9°N, 7.2°E; <a href="#fig-vikesland">Figure&nbsp;<span>3.2</span></a>). It is located near a farm, with 200 goats. In summer, these goats are moving up and down the mountains each day, to graze at higher elevation and being milked at the farm in the valley. The vegetation is dominated by <em>Agrostis capillaris</em>, <em>Anthoxantum odoratum</em>, <em>Achillea millefolium</em>, <em>Ranunculus acris</em>, and <em>Rumex acetosa</em>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-vikesland" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="images/sites/Vikesland.png" class="img-fluid figure-img" alt="A photo showing the lowest site located at the farm Vikesland." width="341"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Figure 3.2: The lowest site at the farm Vikesland.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The middle site <strong>Joasete</strong> is a summer farm and located at 920 m a.s.l (<a href="#fig-joasete">Figure&nbsp;<span>3.3</span></a>). The area around the summer farm is mostly grazed by sheep and sometimes goats. The vegetation at Joasete is well adapted to the grazing pressure and nutrient input by the animals. The dominant plant species are <em>Agrostis capillaris</em>, <em>Deschampsia cespitosa</em>, <em>Achillea millefolium</em>, <em>Ranunculus acris</em>, <em>Ranunculus repens</em>, and <em>Rumex acetosa</em>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-joasete" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="images/sites/Joasete.jpg" class="img-fluid figure-img" alt="A photo showing the middle site located at the summer farm Joasete." width="1500"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Figure 3.3: The middle site at the summer farm Joasete.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The highest site <strong>Liahovden</strong> is located at 1290 m a.s.l (<a href="#fig-liadhovden">Figure&nbsp;<span>3.4</span></a>). It is grazing moderately by sheep, deer and reindeer. The vegetation is a species rich grassland, typical for nutrient soils in Norwegian alpine vegetation with <em>Achillea millefolium</em>, <em>Antennaria dioica</em>, <em>Bistorta vivipara</em>, <em>Leontodon autumnalis</em>, <em>Silene acaulis</em>, and <em>Thalictrum alpinum</em>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-liadhovden" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="images/sites/Liahovden.jpg" class="img-fluid figure-img" alt="A photo showing the highest site located at Liahovden." width="1632"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Figure 3.4: The higsest site at Liahovden.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="experimental-treatments" class="level2" data-number="3.2"><h2 data-number="3.2" class="anchored" data-anchor-id="experimental-treatments">
+<span class="header-section-number">3.2</span> Experimental treatments</h2>
+<p>At each site, ten blocks, with 8 plots (50 x 50 cm) were marked in each corner. Six plots were chosen relatively close to each other (inside the fence) and two plots were chosen further away (outside fence). Each plot was given a unique originPlotID starting at the upper left corner in block 1 and the highest site. The numbering was continued to 160. After transplanting, each turf also received a unique destinationPlotID (a number from 1-200; see <a href="#fig-exp-design">Figure&nbsp;<span>3.1</span></a> and below). Each plot received a combination of each treatment randomly (warming, nitrogen addition and grazing, see below). The randomization of the treatments was done in two steps. First, the 10 nitrogen levels were assigned randomly per block (i.e.&nbsp;block 1 received the same nitrogen level in each site). We chose to randomize the nitrogen treatment at the block level to avoid nitrogen contamination between the plots within the blocks. Second, the warming and grazing treatments were randomized within block. The six plots within each block (inside the fence) were randomly assigned a warming and grazing treatment. The two plots per block located outside the fence, were randomly assigned a warming treatment.</p>
+<section id="warming-treatment" class="level3" data-number="3.2.1"><h3 data-number="3.2.1" class="anchored" data-anchor-id="warming-treatment">
+<span class="header-section-number">3.2.1</span> Warming treatment</h3>
+<p>The warming treatment was conducted at the end of the growing season in 2019, by transplanting entire plant communities to lower elevation (c.&nbsp;+3°C; <a href="#fig-exp-design">Figure&nbsp;<span>3.1</span></a>). The upslope left-hand corner of each turf was marked with a toothpick that the turfs could be placed in the similar position relative to the slope and block orientation at the destination site. We used a knife to cut the turfs to 50 x 50 cm and to a depth of c.&nbsp;10 - 25 cm (<a href="#fig-transplant">Figure&nbsp;<span>3.5</span></a>), unless the soil was shallower, as was the case for some of the alpine plots. After excavation, the turfs were packed into a cardboard box and transported to their respective target sites within one day. The control plots were not excavated or moved. We did not have local transplants, to control for the transplanting effect, because this was tested in a previous project and the transplanting did not affect species composition in Norway <span class="citation" data-cites="Vandvik2020-hu">(<a href="#ref-Vandvik2020-hu" role="doc-biblioref">Vandvik et al. 2020</a>)</span> or China <span class="citation" data-cites="Yang2018-uq">(<a href="#ref-Yang2018-uq" role="doc-biblioref">Yang et al. 2018</a>)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-transplant" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="images/sites/transplant.jpg" class="img-fluid figure-img" alt="A photo showing a turf that is being transplanted." width="1250"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Figure 3.5: A turf that is being transplanted.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The turfs were fitted into the gaps created by excavating turfs at the destination site, except for the low site, where gaps had to be made. Each block received one plot of each treatment. Turfs were placed in the block with the same numerical value (1 - 10) and nitrogen level in the destination site as they originated from in the origin site. Transplanted turfs were carefully planted into their destination plots (destinationPlotID) ensuring that the turf orientation was correct (using the toothpick marking the uphill left corner of each turf) and that the soil surface was in plane with the surrounding vegetation, and that the edges of the excavated plot was in good contact with the edges of the gap created when the original turf was excavated from the plot (<a href="#fig-transplant2">Figure&nbsp;<span>3.6</span></a>). If necessary, loose soil was carefully removed from the underside of the turf, or local soil was added to the gap or around the edges to achieve this.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-transplant2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="images/sites/transplant2.jpg" class="img-fluid figure-img" alt="A photo showing turfs that have been transplanted from Liahovden to lower elevation at Joasete." width="1500"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Figure 3.6: Turfs that have been transplanted from Liahovden to lower elevation at Joasete.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="nitrogen-addition" class="level3" data-number="3.2.2"><h3 data-number="3.2.2" class="anchored" data-anchor-id="nitrogen-addition">
+<span class="header-section-number">3.2.2</span> Nitrogen addition</h3>
+<p>In each plot we added slow dissolving fertilizer as pellets (YaraBela OPTI-NS 27-0-0 (4S)). We used oxidised nitrogen (NO and N<sub>2</sub>O) formed mainly by combustion processes, which are the main sources of atmospheric nitrogen deposition in remote regions (i.e., away from intensive agriculture and other sources or reduced nitrogen). The fertilizer was added once at the start and once in the middle of the growing season from 2020 - 2022. Each block received one of the seven nitrogen levels: 0, 0.5, 1, 5, 10, 50, 100, 150 kg N ha<sup>−1</sup> yr<sup>−1</sup>. Three of the blocks were controls and received 0 kg N ha<sup>−1</sup> yr<sup>−1</sup>.</p>
+<p>The natural nitrogen deposition in Norway is 1.5-3.5 kg N ha<sup>−1</sup> yr<sup>−1</sup>. The critical load for changing species composition in these alpine grasslands is approximately 5-10 kg N ha<sup>−1</sup> yr<sup>−1</sup> in Norway. We therefore wanted to have a range of nitrogen levels that were below and well above this critical load.</p>
+</section><section id="grazing-treatment" class="level3" data-number="3.2.3"><h3 data-number="3.2.3" class="anchored" data-anchor-id="grazing-treatment">
+<span class="header-section-number">3.2.3</span> Grazing treatment</h3>
+<p>The warming and nitrogen treatments were crossed with four grazing treatments. Grazing was simulated by clipping the vegetation manually with scissors 2-3 cm above the ground (<a href="#fig-clipping">Figure&nbsp;<span>3.7</span></a>). The four grazing treatments were natural grazing (N; outside the fence), medium level of grazing (M; 2x clipp), intensive level of grazing (I; 4x clipp), and untreated control plots (C). The intermediate clipping level reflects the natural grazing level outside the exclosure and should control for differences between grazing and clipping (i.e.&nbsp;clipping is not selective and will not add faeces and urine). The medium and intensive plots were clipped 2 or 4 times during the growing season. The clipping treatment was conducted in 2020 - 2022.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-clipping" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="images/sites/clipping.jpg" class="img-fluid figure-img" alt="A photo showing a plot that has been clipped and the biomass sorted to functional groups." width="2016"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Figure 3.7: A plot that has been clipped and the biomass sorted to functional groups.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section></section><section id="references" class="level2" data-number="3.3"><h2 data-number="3.3" class="anchored" data-anchor-id="references">
+<span class="header-section-number">3.3</span> References</h2>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-Vandvik2020-hu" class="csl-entry" role="doc-biblioentry">
+Vandvik, Vigdis, Olav Skarpaas, Kari Klanderud, Richard J Telford, Aud H Halbritter, and Deborah E Goldberg. 2020. <span>“Biotic Rescaling Reveals Importance of Species Interactions for Variation in Biodiversity Responses to Climate Change.”</span> <em>Proc. Natl. Acad. Sci. U. S. A.</em> 117 (37): 22858–65.
+</div>
+<div id="ref-Yang2018-uq" class="csl-entry" role="doc-biblioentry">
+Yang, Yan, Aud Helen Halbritter, Kari Klanderud, Richard J Telford, Genxu Wang, and Vigdis Vandvik. 2018. <span>“Transplants, Open Top Chambers (<span>OTCs</span>) and Gradient Studies Ask Different Questions in Climate Change Effects Studies.”</span> <em>Front. Plant Sci.</em> 9: 1574.
+</div>
+</div>
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./2_study_system.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Alpine ecosystems</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./4_trait_collection.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The trait wheel</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
