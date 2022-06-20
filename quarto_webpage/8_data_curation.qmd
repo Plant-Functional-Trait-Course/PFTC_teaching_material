@@ -101,6 +101,7 @@ raw_traits <- raw_traits |>
          Taxon = case_when(ID == "BON2388" ~ "oxiria digyna",
                            ID == "ATX7216" ~ "oxyria digina",
                            ID == "BSV7581" ~ "oxyra digyna",
+                           ID == "BUF9439" ~ "calalmagrostis neglecta",
                            TRUE ~ Taxon),
          # introduce NAs
          Value = if_else(ID %in% c("BLQ1061", "AZO1656", "AMV4451") & Trait == "LDMC", NA_real_, Value))
@@ -190,33 +191,34 @@ We see that it is a single observation (with multiple traits) that has the wrong
 The next step is to check the raw data, notes, photos, etc. to find the correct date for this observations.
 It is important to keep the data entry sheets, take a photo of them and keep the field notes to be able to fix such problems.
 
+Luckily, we took pictures from all envelopes, and can have a look.
+It seems to be a typo, because the data should be 18. July 2018 (@fig-envelope).
+
 ```{r}
 #| label: fig-envelope
 #| fig-cap: "The envelope with the leaf that has the wrong date."
 #| fig-alt: "A photo showing the envelope with the leaf that has the wrong date."
 
-#knitr::include_graphics("images/resource/...")
+knitr::include_graphics("images/resources/envelope.png")
 
 ```
 
-<!-- Change this sentence once the photo is in! -->
-Since the value for date is 18, we will assume now that this was a typo and that the correct date is 2018-07-18.
+
 Let's replace this value and give the variable the right class.
 
 For this we will use the function `mutate()` which adds or manipulates a column.
-Inside the mutate we will use the `case_when()` function to replace the date for a specific ID.
-We are using the function with a single statement, however this is a powerful function that allow for multiple statements (many if else conditions).
+Inside the mutate we will use the `if_else()` function to replace the date for a specific ID.
+This function is useful for a single condition.
+However for multiple statements (many if else conditions), we recommend to use the `case_when()` function (see below).
 To give the variable the correct class, we use the `ymd()` function from the lubridate package.
 Note that we now have to assign the table to a new or the same name to make the change permanent.
 
 ```{r, replace-date}
 
 raw_traits <- raw_traits |> 
-  mutate(Date = case_when(ID == "AMO3822" ~ "2018-07-18",
-                          TRUE ~ Date)) |> 
+  mutate(Date = if_else(ID == "AMO3822", "2018-07-18", Date)) |> 
   mutate( Date = ymd(Date))
         
-
 ```
 
 
@@ -299,8 +301,19 @@ We can also run the code from above again to check if the duplicate is gone.
 ## Check for missing data
 
 A common problem in a dataset are missing values.
+Let's find out if we have any NAs in the dataset and if yes how many.
 
-How to detect missing values...
+A quick way to get an overview of all NAs in the dataset is to use the following code:
+
+```{r}
+
+raw_traits %>% 
+  select_if(function(x) any(is.na(x))) %>% 
+  summarise_each(list(~sum(is.na(.))))
+```
+
+We can see that three variables, Date, PlotID and Value have NAs.
+Let's focus on the missing values in Value.
 
 Once the missing values are detected one has to decide if the missing data can be recovered, or if the missing values should be removed from the dataset.
 
@@ -317,6 +330,12 @@ This operation has removed 3 rows, which is the number of NA's in the dataset.
 
 ### Check values within variables
 
+A common problem is inconsistencies within variables.
+For example one of the variables in this dataset is `Taxon`.
+It is very common to write latin species names wrong if they are not carefully checked or to make typos when entering the data.
+
+Let's look at all unique species names using `distinct()` and sort them by Taxon using `arrange()`.
+
 ```{r, unique-names}
 
 raw_traits |> 
@@ -326,27 +345,48 @@ raw_traits |>
 
 ```
 
-4 different versions of *oxyra digyna*!
-rename
-alternative would be to use a dictionary.
+There are four different versions for *oxyra digyna* and two for *calamagrostis neglecta*.
+Obviously, some typos where made when entering the data.
+
+Because we have to change multiple species names, we will use `case_when()`.
 
 ```{r, fix-oxyra}
 
 raw_traits <- raw_traits |> 
-  mutate(Taxon = if_else(Taxon %in% c("oxiria digyna", "oxyria digina", "oxyra digyna"), "oxyria digyna", Taxon))
+  mutate(Taxon = case_when(Taxon %in% c("oxiria digyna", "oxyria digina", "oxyra digyna") ~ "oxyria digyna",
+                           Taxon == "calalmagrostis neglecta" ~ "calamagrostis neglecta",
+                           TRUE ~ Taxon))
 
 ```
+
+An alternative to using `case_when()` to fix the problem, would be to create a dictionary with wrong and valid species names, which could be used to replace bad names.
+This would be the better approach if many species names have to be changed.
+
+
+## Checking Taxon using TNRS 
+
+TNRS is a Taxonomic Name Resolution Service.
+
+Maitner please add an example using TNRS.
+
 
 
 ## Visualise data
 
-Some errors and problems in the data are difficult to detect.
-Checking if the measurements are realistic is nearly impossible by looking at a dataframe.
+Some errors and problems in the data are difficult to detect by looking at the dataset.
+For example checking if the measurements are realistic is nearly impossible by going through a table with numbers.
 For this, visualising the data is much more effective.
 
-Make histograms, this shows the range of the values
+
+### Histogram or density plot
+
+Using histograms or denisty plots shows you the range of values a variable has.
 
 ```{r, hist}
+#| label: fig-hist
+#| fig-cap: "Density distributions of all measured traits."
+#| fig-alt: "A plto showing the density distributions of all measured traits."
+#| 
 raw_traits |> 
   ggplot(aes(x = Value, fill = Gradient)) +
   geom_density(alpha = 0.7) +
@@ -356,11 +396,11 @@ raw_traits |>
 ```
 
 
-Note that the size traits (height, mass, area and thickness) have very long tails.
-It is common to log transform such variables to better see the full range of the variables.
+Note that the size traits (plant height, leaf mass, area and thickness) have distributions with very long tails.
+This is common for size related variables and usually log transformation is a way to see the full range of these variables.
 
 Leaf area has a huge tail and goes up to almost 20'000 cm^2^.
-This would be a leaf of almost 2 m^2^, which is nearly impossible.
+This is a leaf of almost 2 m^2^, which is impossible for a plant from Svalbard.
 This value needs to be checked, it could be a typo.
 
 Let's log transform the size traits.
@@ -368,7 +408,7 @@ Let's log transform the size traits.
 ```{r, log-transform}
 
 raw_traits <- raw_traits |> 
-  mutate(Value = if_else(Trait %in% c(
+  mutate(Value_log = if_else(Trait %in% c(
     "Plant_Height_cm",
     "Wet_Mass_g",
     "Dry_Mass_g",
@@ -383,25 +423,55 @@ raw_traits <- raw_traits |>
 
 ```
 
-And make plot again.
+And replot the density plot.
 
 ```{r, hist-log}
+#| label: fig-hist-log
+#| fig-cap: "Density distributions of all measured traits."
+#| fig-alt: "A plto showing the density distributions of all measured traits."
+#| 
 raw_traits |> 
-  ggplot(aes(x = Value, fill = Gradient)) +
+  ggplot(aes(x = Value_log, fill = Gradient)) +
   geom_density(alpha = 0.7) +
   scale_fill_manual(values = c("green4", "grey")) +
   facet_wrap(~ Trait, scales = "free")
 
 ```
 
-The size traits are now easier to read.
+We can now better see the full range of the size traits.
 
-Another way to check the data is to plot correlated values against each other.
-In this dataset, we can plot dry mass against leaf area. We would expect a positive correlation between the two variables, where large leaves have a higher dry mass.
+We should now have a look at the giant leaf.
 
-```{r, plot, eval=FALSE}
+```{r, giant-leaf}
 raw_traits |> 
-  pivot_wider(names_from = Trait, values_from = Value) |> 
+  filter(Trait == "Leaf_Area_cm2_log",
+         Value > 10)
+
+```
+
+One leaf is huge and 
+
+```{r, fix-giant-leaf}
+raw_traits <- raw_traits |> 
+  mutate(Value = if_else(ID == "ANH3472" & Trait == "Leaf_Area_cm2_log", 1.7965, Value),
+         Value_log = if_else(ID == "ANH3472" & Trait == "Leaf_Area_cm2_log", 0.5858403, Value_log))
+
+```
+
+
+### Correlations
+
+Another way to check the data is to plot variables against each other that should be correlated.
+In this dataset, we can plot dry mass against leaf area.
+We would expect a positive correlation between the two variables, where large leaves have a higher dry mass.
+
+```{r}
+#| label: fig-correlation
+#| fig-cap: "Correlation between leaf area and dry mass."
+#| fig-alt: "A plto showing the correlation between leaf area and dry mass.."
+#| 
+raw_traits |> 
+  pivot_wider(names_from = Trait, values_from = Value_log) |> 
   ggplot(aes(x = Dry_Mass_g_log, y = Leaf_Area_cm2_log)) +
   geom_point()
 
