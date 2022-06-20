@@ -136,7 +136,7 @@ The clipping treatment was conducted in 2020 - 2022.
 #| label: fig-clipping
 #| fig-cap: "A plot that has been clipped and the biomass sorted to functional groups."
 #| fig-alt: "A photo showing a plot that has been clipped and the biomass sorted to functional groups."
-#| #| fig-width: 20
+#| out-width: 50%
 
 knitr::include_graphics('images/sites/clipping.jpg')
 ```
