@@ -362,6 +362,7 @@ If the leaf is small, it may not be possible to take three unique measurements.
 #| label: fig-vein
 #| fig-cap: "Showing where leaf thickness can be measured and where not, e.g. the midrib."
 #| fig-alt: "A photo of a leaf showing valind an not valid points such as the midrib to measure leaf thickness."
+#| #| out-width: 70%
 
 knitr::include_graphics("images/trait_wheel/veins.jpg")
 

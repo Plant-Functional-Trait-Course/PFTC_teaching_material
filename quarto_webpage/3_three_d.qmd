@@ -38,7 +38,7 @@ The vegetation is dominated by _Agrostis capillaris_, _Anthoxantum odoratum_, _A
 #| label: fig-vikesland
 #| fig-cap: "The lowest site at the farm Vikesland."
 #| fig-alt: "A photo showing the lowest site located at the farm Vikesland."
-#| fig-width: 100
+#| out-width: 100%
 
 knitr::include_graphics('images/sites/Vikesland.png')
 ```
