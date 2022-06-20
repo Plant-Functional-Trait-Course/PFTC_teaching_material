@@ -28,7 +28,7 @@ knitr::include_graphics("images/trait_wheel/Collect.png")
 
 ```
 
-### Collecting leaves in the field
+## Collecting leaves in the field
 
 Be careful at all time when working in the experiment and avoid stepping on the experimental plots.
 Make yourself familiar with the experimental design (check the site maps), and how plot, blocks and sites are marked.
@@ -130,7 +130,7 @@ knitr::include_graphics("images/trait_wheel/Process.png")
 
 ```
 
-### Preparing leaves for measuring traits in lab
+## Preparing leaves for measuring traits in lab
 
 Select one (for the global change group) or five (for the intraspecific group) leaf/leaves per individual.
 For analysing chemical traits such as percent P, C, N and isotopes, a certain amount of dry biomass is needed.
@@ -191,7 +191,7 @@ Carefully check the rules for how to measure special plant species plants.
 -   *Festuca sp* have tightly rolled leaves and they should not be unfolded for the scanning.
 :::
 
-### Wet mass
+## Wet mass
 
 Make sure the envelopes are still kept wet.
 Weigh each leaf and write the weight on the envelope, including all digits.
@@ -202,7 +202,7 @@ knitr::include_graphics("images/trait_wheel/Scan.png")
 
 ```
 
-### Measure leaf area using a scanner
+## Measure leaf area using a scanner
 
 For scanning the leaves we are using a Rasperry Pi setup.
 The Pis control the scanners, ensuring consistency, and validate file names. 
@@ -266,6 +266,7 @@ Exclude the leaf sheath (@fig-leaf).
 #| label: fig-leaf
 #| fig-cap: "Leaf blade and sheats for a graminoid"
 #| fig-alt: "Illustrations of a leaf blade and sheet from a graminoid."
+#| out-width: 50%
 
 knitr::include_graphics("images/trait_wheel/leaf.jpeg")
 
@@ -348,7 +349,7 @@ knitr::include_graphics("images/trait_wheel/Thickness.png")
 
 ```
 
-### Leaf thickness
+## Leaf thickness
 
 Make sure the envelopes are still kept wet.
 Thickness varies over the surface of the leaf; generally, the leaf is thickest at the midrib, primary veins, margins, and leaf base.
@@ -374,7 +375,7 @@ knitr::include_graphics("images/trait_wheel/Data.png")
 
 ```
 
-### Data entry
+## Data entry
 
 Ideally the envelope should still be kept wet until this point in case any information is missing.
 Go to this [google sheet](https://docs.google.com/spreadsheets/d/1ncqbniu0NUzCfcNe2fOl6M2Yj-BeOEXcYlPZHwNiIbk/edit?usp=sharing).
@@ -396,7 +397,7 @@ knitr::include_graphics("images/trait_wheel/Dry.png")
 
 ```
 
-### Dry mass
+## Dry mass
 
 The leaves will be dried in the oven for 72 hours at 65°C.
 
@@ -406,7 +407,7 @@ knitr::include_graphics("images/trait_wheel/Check.png")
 
 ```
 
-### Data checking
+## Data checking
 
 *Check scans* Find the folder with the leave scans on google drive: link Open each scan and check the follwing criterias:
 
@@ -431,7 +432,7 @@ knitr::include_graphics("images/trait_wheel/DataDoc.png")
 
 ```
 
-### Data documentation
+## Data documentation
 
 - description of the method of data collection
 - data dictionary for each data set
