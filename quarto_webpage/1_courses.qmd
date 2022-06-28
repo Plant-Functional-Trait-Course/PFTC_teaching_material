@@ -17,6 +17,15 @@ If you arrive via Oslo or elsewhere, transport to Aurland (by train or bus) need
 All flights to Bergen should be scheduled to arrive at the latest on 22nd of July and depart at the earliest on 6th of August from Bergen (other travel needs to arrive in Aurland on the 23rd at the latest, and depart on the 5th at the latest).
 
 
+```{r}
+#| label: fig-pftc6
+#| fig-cap: "The fjords in Aurland in Western Norway."
+#| fig-alt: "A photo of the fjord in Aurland in Western Norway."
+
+knitr::include_graphics('images/sites/aurland.jpg')
+```
+
+
 ## Previouse courses
 
 Previously, we have held [courses](https://plantfunctionaltraitscourses.w.uib.no/courses/) in China (PFTC1 and 2), Peru (PFTC3 and 5) as well as on Svalbard (PFTC4).

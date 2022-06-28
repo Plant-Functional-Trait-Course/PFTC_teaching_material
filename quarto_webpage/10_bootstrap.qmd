@@ -15,10 +15,14 @@ library(ggplot2)
 theme_set(theme_minimal(base_size = 12))
 ```
 
-## Bootstrapping method
+# Bootstrapping trait data
 
 <!-- fig.align = 'right',  -->
-```{r hex, echo=FALSE, out.width='15%', out.extra='style="float:right; padding:8px"'}
+```{r, echo=FALSE, out.extra='style="float:right; padding:8px"'}
+#| label: fig-hex
+#| fig-alt: "Traitstarp hex"
+#| out-width: 15%
+
 knitr::include_graphics("images/resources/Traitstrap_hex.png")
 ```
 
@@ -28,7 +32,7 @@ For more details on the methods see Maitner et al.
 First of all, relax and turn on some music. We have prepared the [traitstrap playlist](https://tinyurl.com/traitstrap) for you!
 
 
-### The aim of traitstrap
+## The aim of traitstrap
 
 Trait distributions can be used to infer the importance of community assembly processes and the role of climate drivers in shaping species and community responses to climate change.
 Community ecology has typically focused on the **mean**, however the **higher moments** (variance, skewness, and kurtosis) of trait distributions can reveal information about the various processes shaping species diversity.
@@ -69,7 +73,7 @@ The package has three **main functions**:
 Note that for this tutorial we are calling the mean and the higher moments the happy moments :-)
 
 
-### The data
+## The data
 
 For this vignette we will use part of a vascular plant dataset from two sites near Longyearbyen on Svalbard. 
 The data was collected during the Plant Functional Trait Course in 2018 and contains data on the plant community composition and functional traits.
@@ -99,7 +103,7 @@ trait <- trait %>%
 ```
 
 
-### Organize your data
+## Organize your data
 
 To run traitstrap two datasets are required: 
 
@@ -131,7 +135,7 @@ trait
 ```
 
 
-### Trait imputation
+## Trait imputation
 
 The `trait_impute` function uses a hierarchical sampling design, which allows to account for incomplete trait collections, traits from different spatial or temporal levels (i.e. local traits vs. databases), different taxonomic resolution and/or experimental design. 
 
@@ -223,7 +227,7 @@ trait_imputation2 <- trait_impute(
 
 
 
-### Nonparametric bootstrapping
+## Nonparametric bootstrapping
 
 The output of the trait imputation function is then used to do a **nonparametric bootstrapping** using the `trait_np_bootstrap` function.
 
@@ -268,7 +272,7 @@ sum_boot_moment
 ```
 
 
-### Parametric bootstrapping
+## Parametric bootstrapping
 
 Traitstrap also offers the option to run a **parametric bootstrapping**.
 
@@ -323,7 +327,7 @@ p_bootstrapped_moments
 The output of trait_parametric_bootstrap can be summarized using `trait_summarize_boot_moments` (see above).
 
 
-### Extracting raw distributions
+## Extracting raw distributions
 
 In traitstrap both the parametric and nonparametric bootstrapping functions allow returning raw trait distributions.
 
@@ -349,7 +353,7 @@ ggplot(raw_dist_np, aes(x = log(Value), fill = Site)) +
   facet_wrap( ~ Trait, scales = "free")
 ```
 
-### Check your data
+## Check your data
 
 Traitstrap has a couple of functions to check the data.
 

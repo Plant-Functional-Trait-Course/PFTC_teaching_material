@@ -6,6 +6,9 @@ editor_options:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+
+library(tidyverse)
+library(kableExtra)
 ```
 
 # The trait wheel
@@ -22,19 +25,58 @@ knitr::include_graphics("images/trait_wheel/TraitWheel_small.png")
 
 ```
 
-```{r collect, out.width='10%'}
-
+```{r, out.width='10%'}
+#| label: collect
 knitr::include_graphics("images/trait_wheel/Collect.png")
 
 ```
 
-### Collecting leaves in the field
+## Collecting leaves in the field
 
 Be careful at all time when working in the experiment and avoid stepping on the experimental plots.
 Make yourself familiar with the experimental design (check the site maps), and how plot, blocks and sites are marked.
 
 To collect plants, go to your plot and use a sitting mat to sit next to the plot.
 Collect the leaves and minimize disturbing the surroundings as much as possible.
+
+We will collect traits in three different locations/experiments:
+
+- At four sites along an elevational gradient (500 - 1300 m a.s.l.), with and without grazing
+- Incline project: four sites with ambient and warming using OTCs
+- ThreeD project: two sites with different global change treatments including ambient/warming using transplants, nitrogen addition and grazing
+
+The specific sampling and number of species will vary between the different projects, but we will focus on the following alpine and general species:
+
+```{r}
+#| label: sp-list
+#| echo: false
+tibble(Taxon = c(# Incline wishlist (alpine)
+                        "Sibbaldia procumbens",
+                        "Veronica alpina",
+                        "Bistorta vivipara",
+                        "Salix herbacea",
+                        "Alchemilla alpina",
+                        "Agrostis capillaris",
+                        "Anthoxanthum odoratum",
+                        "Carex bigelowii",
+                        "Poa alpina",
+                        "Thalictrum alpinum",
+                        "Festuca rubra",
+
+                        # other alpines
+                        "Saussurea alpina",
+
+                        # expanded sampling (whole elev gradient)
+                        "Achillea millefolium",
+                        "Agrostis capillaris",
+                        "Campanula rotundifolia",
+                        "Carex vaginata",
+                        "Leontodon autumnalis"
+                        ),
+       Type = c(rep("alpine", 12),
+                rep("general", 5))) |> kbl()
+```
+
 
 **Intraspecific group**
 
@@ -52,11 +94,22 @@ If you are uncertain whether something is a leaf vs. leaflet, ask your group lea
 If you cannot find 10 individuals of each species, that is ok.
 After a reasonable search, move on.
 
-**Global change group**
+**Global change group and elevational gradient**
+
+For the **ThreeD project** we will collect the following treatments:
+- 3 ambient controls
+- 3 warm controls
+- ambient natural grazing
+- ambient and warm N levels: 5, 10, 50 and 150
 
 Each plot is 50 x 50 cm large and has an inner and outer part (see @fig-exp-design2).
 The plots are marked with metal tubes in each corner and a label on the top.
 The leaves should be collected from the outer part (destructive part) and if possible the inner part should stay untouched.
+
+For the **elevational gradient**, we will in addition collect leaves at Høgsete and Vikelsand inside and outside the fence.
+For this, we will collect species according to the seedclim controls.
+The plants will not be collected from the plots, but from within the blocks, and from outside the fence.
+
 
 ```{r}
 #| label: fig-exp-design2
@@ -86,7 +139,7 @@ cover |>
 For each plot and species find 5 individuals that are spread across the plot to avoid sampling clones.
 Choose reproductively mature adults with fully expanded leaves (i.e. not seedlings) and healthy-looking leaves (i.e. not grazed, no signs of pathogen or herbivore attack, no discoloration).
 
-For the grazing/clipping treatments, try to find mature and fully grown leaves if possible.
+For the grazing treatments, try to find mature and fully grown leaves if possible.
 
 Measure the height of each individual plant and note down the height on the zip-loc bag (see below).
 
@@ -106,11 +159,25 @@ Leaf atanomy
 
 **Measuring vegetative height of individual plants in the field**
 
-Measure the vegetative height of the individual plant in the field (gfig-height).
+Measure the vegetative height of the individual plant in the field (@fig-height).
 Vegetative height is the shortest distance between the main photosynthetic tissue on the plant and the ground, excluding any reproductive structure (e.g. buds, flowers or fruits).
 Leave the plant in it's natural form and do not stretch the plant if it bends.
 
-For how to measure height on different plants, see the document [here](https://docs.google.com/document/d/1TvKhBrzHRqCDKWaBSYRqQD94D11DakmYY8lFMVpIYtE/edit).
+Different plants will require different measures of height.
+@fig-height shows a couple of typical examples.
+For cushion plants (A), stick a the ruler into the cusion all the way to the ground.
+For forbs and graminoids (B, D, E) measure the main stem leaves, and do not stretch the leaves (D, F, G ).
+
+
+```{r}
+#| label: fig-height
+#| fig-cap: "Different plant types and how to measure height."
+#| fig-alt: "Different plant types and how to measure height."
+
+knitr::include_graphics("images/trait_wheel/height.png")
+
+```
+
 
 Record this measurement using legibly numbers (@fig-numbers) on the zip-loc bag.
 Place the leaf/leaves for each individual in a bag with wet paper towels for transfer to lab.
@@ -130,7 +197,7 @@ knitr::include_graphics("images/trait_wheel/Process.png")
 
 ```
 
-### Preparing leaves for measuring traits in lab
+## Preparing leaves for measuring traits in lab
 
 Select one (for the global change group) or five (for the intraspecific group) leaf/leaves per individual.
 For analysing chemical traits such as percent P, C, N and isotopes, a certain amount of dry biomass is needed.
@@ -188,10 +255,11 @@ knitr::include_graphics("images/trait_wheel/Wet.png")
 
 Carefully check the rules for how to measure special plant species plants.
 
--   *Festuca sp* have tightly rolled leaves and they should not be unfolded for the scanning.
+- *Festuca sp* have tightly rolled leaves and they should not be unfolded for the scanning.
+- *Hyperzia sp* and *Lycopodium sp* have tiny leaves. Choose a 10cm piece of stem and scrape of all the leaves from this part for scanning. Make sure the leaves do not overlap
 :::
 
-### Wet mass
+## Wet mass
 
 Make sure the envelopes are still kept wet.
 Weigh each leaf and write the weight on the envelope, including all digits.
@@ -202,7 +270,7 @@ knitr::include_graphics("images/trait_wheel/Scan.png")
 
 ```
 
-### Measure leaf area using a scanner
+## Measure leaf area using a scanner
 
 For scanning the leaves we are using a Rasperry Pi setup.
 The Pis control the scanners, ensuring consistency, and validate file names. 
@@ -266,6 +334,7 @@ Exclude the leaf sheath (@fig-leaf).
 #| label: fig-leaf
 #| fig-cap: "Leaf blade and sheats for a graminoid"
 #| fig-alt: "Illustrations of a leaf blade and sheet from a graminoid."
+#| out-width: 50%
 
 knitr::include_graphics("images/trait_wheel/leaf.jpeg")
 
@@ -348,7 +417,7 @@ knitr::include_graphics("images/trait_wheel/Thickness.png")
 
 ```
 
-### Leaf thickness
+## Leaf thickness
 
 Make sure the envelopes are still kept wet.
 Thickness varies over the surface of the leaf; generally, the leaf is thickest at the midrib, primary veins, margins, and leaf base.
@@ -361,6 +430,7 @@ If the leaf is small, it may not be possible to take three unique measurements.
 #| label: fig-vein
 #| fig-cap: "Showing where leaf thickness can be measured and where not, e.g. the midrib."
 #| fig-alt: "A photo of a leaf showing valind an not valid points such as the midrib to measure leaf thickness."
+#| #| out-width: 70%
 
 knitr::include_graphics("images/trait_wheel/veins.jpg")
 
@@ -374,7 +444,7 @@ knitr::include_graphics("images/trait_wheel/Data.png")
 
 ```
 
-### Data entry
+## Data entry
 
 Ideally the envelope should still be kept wet until this point in case any information is missing.
 Go to this [google sheet](https://docs.google.com/spreadsheets/d/1ncqbniu0NUzCfcNe2fOl6M2Yj-BeOEXcYlPZHwNiIbk/edit?usp=sharing).
@@ -396,7 +466,7 @@ knitr::include_graphics("images/trait_wheel/Dry.png")
 
 ```
 
-### Dry mass
+## Dry mass
 
 The leaves will be dried in the oven for 72 hours at 65°C.
 
@@ -406,7 +476,7 @@ knitr::include_graphics("images/trait_wheel/Check.png")
 
 ```
 
-### Data checking
+## Data checking
 
 *Check scans* Find the folder with the leave scans on google drive: link Open each scan and check the follwing criterias:
 
@@ -431,7 +501,7 @@ knitr::include_graphics("images/trait_wheel/DataDoc.png")
 
 ```
 
-### Data documentation
+## Data documentation
 
 - description of the method of data collection
 - data dictionary for each data set

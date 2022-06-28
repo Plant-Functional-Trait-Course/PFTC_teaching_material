@@ -38,7 +38,7 @@ The vegetation is dominated by _Agrostis capillaris_, _Anthoxantum odoratum_, _A
 #| label: fig-vikesland
 #| fig-cap: "The lowest site at the farm Vikesland."
 #| fig-alt: "A photo showing the lowest site located at the farm Vikesland."
-#| fig-width: 100
+#| out-width: 100%
 
 knitr::include_graphics('images/sites/Vikesland.png')
 ```
@@ -136,7 +136,7 @@ The clipping treatment was conducted in 2020 - 2022.
 #| label: fig-clipping
 #| fig-cap: "A plot that has been clipped and the biomass sorted to functional groups."
 #| fig-alt: "A photo showing a plot that has been clipped and the biomass sorted to functional groups."
-#| #| fig-width: 20
+#| out-width: 50%
 
 knitr::include_graphics('images/sites/clipping.jpg')
 ```

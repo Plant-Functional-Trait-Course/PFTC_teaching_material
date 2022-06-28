@@ -33,6 +33,7 @@ book:
       - 8_data_curation.qmd
       - 9_community.qmd
       - 10_bootstrap.qmd
+      #- 11_traits.qmd
 
 bibliography: bibliography.bib
 #suppress-bibliography: true
