@@ -287,6 +287,11 @@ div.tocify {
 }
 
 
+.callout[theme=💻] {
+  --emoji: unset;
+  --icon: "\f083"; /* copied front FontAwesome */
+  --icon-color: #c50a50;
+}
 
 
 

@@ -258,7 +258,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10_bootstrap.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Bootstrapping method</span></a>
+  <a href="./10_bootstrap.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Bootstrapping trait data</span></a>
   </div>
 </li>
     </ul>
@@ -269,8 +269,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <nav id="TOC" role="doc-toc"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#diversity-indices" id="toc-diversity-indices" class="nav-link active" data-scroll-target="#diversity-indices"> <span class="header-section-number">9.0.1</span> Diversity indices</a></li>
-  <li><a href="#multivariate-analysis---nmds-ordination" id="toc-multivariate-analysis---nmds-ordination" class="nav-link" data-scroll-target="#multivariate-analysis---nmds-ordination"> <span class="header-section-number">9.0.2</span> Multivariate analysis - NMDS ordination</a></li>
+<li><a href="#the-data" id="toc-the-data" class="nav-link active" data-scroll-target="#the-data"> <span class="header-section-number">9.1</span> The data</a></li>
+  <li><a href="#diversity-indices" id="toc-diversity-indices" class="nav-link" data-scroll-target="#diversity-indices"> <span class="header-section-number">9.2</span> Diversity indices</a></li>
+  <li><a href="#multivariate-analysis---nmds-ordination" id="toc-multivariate-analysis---nmds-ordination" class="nav-link" data-scroll-target="#multivariate-analysis---nmds-ordination"> <span class="header-section-number">9.3</span> Multivariate analysis - NMDS ordination</a></li>
   </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Plant-Functional-Trait-Course/PFTC_teaching_material/blob/main/9_community.qmd" class="toc-action">View source</a></p></div></div></nav>
     </div>
 <!-- main -->
@@ -289,9 +290,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
   
 
-</header><p>For this tutorial you will need the <em>tidyverse</em>, <em>vegan</em>, <em>ggvegan</em> and <em>broom</em> package.</p>
+</header><p>For this tutorial we will use the follwoing packages: <em>tidyverse</em>, <em>vegan</em>, <em>ggvegan</em> and <em>broom</em>.</p>
+<section id="the-data" class="level2" data-number="9.1"><h2 data-number="9.1" class="anchored" data-anchor-id="the-data">
+<span class="header-section-number">9.1</span> The data</h2>
 <p>We will use the data from PFTC3 and 5 from Peru.</p>
-<p><strong>Download data</strong></p>
+<p>To download the data use this code:</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R">
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Between-the-Fjords/dataDownloader">dataDownloader</a></span><span class="op">)</span>
@@ -316,8 +319,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span>
 <span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="diversity-indices" class="level3" data-number="9.0.1"><h3 data-number="9.0.1" class="anchored" data-anchor-id="diversity-indices">
-<span class="header-section-number">9.0.1</span> Diversity indices</h3>
+</section><section id="diversity-indices" class="level2" data-number="9.2"><h2 data-number="9.2" class="anchored" data-anchor-id="diversity-indices">
+<span class="header-section-number">9.2</span> Diversity indices</h2>
 <p>One way to quantify the number of species species is to calculate diversity indices. Some common indices are species <em>richness</em>, <em>diversity</em> and <em>evenness</em>.</p>
 <p>To calculate these indices we are using the <em>vegan package</em>.</p>
 <div class="cell">
@@ -534,19 +537,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <span class="fu">scale_colour_manual</span><span class="op">(</span><span class="st">"Treatment"</span>, values <span class="op">=</span> <span class="va">puna_treatment_colour</span><span class="op">$</span><span class="va">colour</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">scale_fill_manual</span><span class="op">(</span><span class="st">"Treatment"</span>, values <span class="op">=</span> <span class="va">puna_treatment_colour</span><span class="op">$</span><span class="va">colour</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Elevation m a.s.l"</span>, y <span class="op">=</span> <span class="st">""</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">guides</span><span class="op">(</span>linetype <span class="op">=</span> <span class="cn">FALSE</span>,
-         fill <span class="op">=</span> <span class="cn">FALSE</span>,
+  <span class="fu">guides</span><span class="op">(</span>linetype <span class="op">=</span> <span class="st">"none"</span>,
+         fill <span class="op">=</span> <span class="st">"none"</span>,
          colour <span class="op">=</span> <span class="fu">guide_legend</span><span class="op">(</span>override.aes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">facet_wrap</span><span class="op">(</span> <span class="op">~</span> <span class="va">index</span>, scales <span class="op">=</span> <span class="st">"free_y"</span><span class="op">)</span>
-<span class="co">#&gt; Warning: `guides(&lt;scale&gt; = FALSE)` is deprecated. Please use `guides(&lt;scale&gt; =</span>
-<span class="co">#&gt; "none")` instead.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+  <span class="fu">facet_wrap</span><span class="op">(</span> <span class="op">~</span> <span class="va">index</span>, scales <span class="op">=</span> <span class="st">"free_y"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="9_community_files/figure-html/plot-diversity-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Discuss restuls…</p>
-</section><section id="multivariate-analysis---nmds-ordination" class="level3" data-number="9.0.2"><h3 data-number="9.0.2" class="anchored" data-anchor-id="multivariate-analysis---nmds-ordination">
-<span class="header-section-number">9.0.2</span> Multivariate analysis - NMDS ordination</h3>
+</section><section id="multivariate-analysis---nmds-ordination" class="level2" data-number="9.3"><h2 data-number="9.3" class="anchored" data-anchor-id="multivariate-analysis---nmds-ordination">
+<span class="header-section-number">9.3</span> Multivariate analysis - NMDS ordination</h2>
 <p>In addition to univariate descriptor of communities such as diversity indices, we might be interested in the species composition along the elevational gradient.</p>
 <p>A common method is non-metric multidimensional scaling (NMDS). A NMDS collapses information from multiple dimensions to a few dimensions. This allows to visualise the data more easily.</p>
 <p>An NMDS can be done using the <code>metaMDS()</code> function form the <em>vegan package</em>.</p>
@@ -586,401 +587,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">dimensions</span>, y <span class="op">=</span> <span class="va">stress</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
     <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
-<pre><code>#&gt; Square root transformation
-#&gt; Wisconsin double standardization
-#&gt; Using step-across dissimilarities:
-#&gt; Too long or NA distances: 708 out of 21945 (3.2%)
-#&gt; Stepping across 21945 dissimilarities...
-#&gt; Connectivity of distance matrix with threshold dissimilarity 1 
-#&gt; Data are connected
-#&gt; Run 0 stress 0.3669738 
-#&gt; Run 1 stress 0.3966017 
-#&gt; Run 2 stress 0.5190487 
-#&gt; Run 3 stress 0.5744689 
-#&gt; Run 4 stress 0.4411074 
-#&gt; Run 5 stress 0.574498 
-#&gt; Run 6 stress 0.5139886 
-#&gt; Run 7 stress 0.5745687 
-#&gt; Run 8 stress 0.4332597 
-#&gt; Run 9 stress 0.5172638 
-#&gt; Run 10 stress 0.5745844 
-#&gt; Run 11 stress 0.4944197 
-#&gt; Run 12 stress 0.417065 
-#&gt; Run 13 stress 0.5063905 
-#&gt; Run 14 stress 0.4471289 
-#&gt; Run 15 stress 0.5745715 
-#&gt; Run 16 stress 0.574576 
-#&gt; Run 17 stress 0.4223127 
-#&gt; Run 18 stress 0.5186829 
-#&gt; Run 19 stress 0.5078911 
-#&gt; Run 20 stress 0.5160806 
-#&gt; Run 21 stress 0.4569249 
-#&gt; Run 22 stress 0.4483193 
-#&gt; Run 23 stress 0.4329702 
-#&gt; Run 24 stress 0.5744662 
-#&gt; Run 25 stress 0.5744928 
-#&gt; Run 26 stress 0.5124116 
-#&gt; Run 27 stress 0.5167869 
-#&gt; Run 28 stress 0.5030833 
-#&gt; Run 29 stress 0.4654018 
-#&gt; Run 30 stress 0.511481 
-#&gt; *** No convergence -- monoMDS stopping criteria:
-#&gt;     11: stress ratio &gt; sratmax
-#&gt;     19: scale factor of the gradient &lt; sfgrmin
-#&gt; Square root transformation
-#&gt; Wisconsin double standardization
-#&gt; Using step-across dissimilarities:
-#&gt; Too long or NA distances: 708 out of 21945 (3.2%)
-#&gt; Stepping across 21945 dissimilarities...
-#&gt; Connectivity of distance matrix with threshold dissimilarity 1 
-#&gt; Data are connected
-#&gt; Run 0 stress 0.20073 
-#&gt; Run 1 stress 0.2182501 
-#&gt; Run 2 stress 0.2083237 
-#&gt; Run 3 stress 0.2005945 
-#&gt; ... New best solution
-#&gt; ... Procrustes: rmse 0.006078256  max resid 0.06685748 
-#&gt; Run 4 stress 0.2007521 
-#&gt; ... Procrustes: rmse 0.006366959  max resid 0.06729406 
-#&gt; Run 5 stress 0.2355802 
-#&gt; Run 6 stress 0.2225095 
-#&gt; Run 7 stress 0.2011206 
-#&gt; Run 8 stress 0.214649 
-#&gt; Run 9 stress 0.2086967 
-#&gt; Run 10 stress 0.2082084 
-#&gt; Run 11 stress 0.2004971 
-#&gt; ... New best solution
-#&gt; ... Procrustes: rmse 0.00217813  max resid 0.02930483 
-#&gt; Run 12 stress 0.2448126 
-#&gt; Run 13 stress 0.2004924 
-#&gt; ... New best solution
-#&gt; ... Procrustes: rmse 0.0009213377  max resid 0.01260201 
-#&gt; Run 14 stress 0.2366596 
-#&gt; Run 15 stress 0.2219288 
-#&gt; Run 16 stress 0.2007299 
-#&gt; ... Procrustes: rmse 0.005094979  max resid 0.06565216 
-#&gt; Run 17 stress 0.2007521 
-#&gt; ... Procrustes: rmse 0.005304626  max resid 0.06601554 
-#&gt; Run 18 stress 0.2200119 
-#&gt; Run 19 stress 0.2465379 
-#&gt; Run 20 stress 0.201122 
-#&gt; Run 21 stress 0.212618 
-#&gt; Run 22 stress 0.2490223 
-#&gt; Run 23 stress 0.2456565 
-#&gt; Run 24 stress 0.2351948 
-#&gt; Run 25 stress 0.2011839 
-#&gt; Run 26 stress 0.2005931 
-#&gt; ... Procrustes: rmse 0.002075318  max resid 0.02814701 
-#&gt; Run 27 stress 0.2007299 
-#&gt; ... Procrustes: rmse 0.00506658  max resid 0.06559041 
-#&gt; Run 28 stress 0.2110259 
-#&gt; Run 29 stress 0.2136821 
-#&gt; Run 30 stress 0.2004925 
-#&gt; ... Procrustes: rmse 7.2719e-05  max resid 0.0005361616 
-#&gt; ... Similar to previous best
-#&gt; *** Solution reached
-#&gt; Square root transformation
-#&gt; Wisconsin double standardization
-#&gt; Using step-across dissimilarities:
-#&gt; Too long or NA distances: 708 out of 21945 (3.2%)
-#&gt; Stepping across 21945 dissimilarities...
-#&gt; Connectivity of distance matrix with threshold dissimilarity 1 
-#&gt; Data are connected
-#&gt; Run 0 stress 0.1496032 
-#&gt; Run 1 stress 0.1496028 
-#&gt; ... New best solution
-#&gt; ... Procrustes: rmse 0.0004109622  max resid 0.004798846 
-#&gt; ... Similar to previous best
-#&gt; Run 2 stress 0.1496028 
-#&gt; ... New best solution
-#&gt; ... Procrustes: rmse 3.385516e-05  max resid 0.0001892113 
-#&gt; ... Similar to previous best
-#&gt; Run 3 stress 0.1496029 
-#&gt; ... Procrustes: rmse 8.602209e-05  max resid 0.0004481636 
-#&gt; ... Similar to previous best
-#&gt; Run 4 stress 0.1496026 
-#&gt; ... New best solution
-#&gt; ... Procrustes: rmse 0.0001241784  max resid 0.001492955 
-#&gt; ... Similar to previous best
-#&gt; Run 5 stress 0.1496034 
-#&gt; ... Procrustes: rmse 0.0003495415  max resid 0.003669896 
-#&gt; ... Similar to previous best
-#&gt; Run 6 stress 0.1496046 
-#&gt; ... Procrustes: rmse 0.002793576  max resid 0.03467881 
-#&gt; Run 7 stress 0.1496048 
-#&gt; ... Procrustes: rmse 0.002795569  max resid 0.03469251 
-#&gt; Run 8 stress 0.1496043 
-#&gt; ... Procrustes: rmse 0.002785784  max resid 0.03460863 
-#&gt; Run 9 stress 0.1496042 
-#&gt; ... Procrustes: rmse 0.002779486  max resid 0.03453958 
-#&gt; Run 10 stress 0.149612 
-#&gt; ... Procrustes: rmse 0.002905389  max resid 0.03510331 
-#&gt; Run 11 stress 0.1496031 
-#&gt; ... Procrustes: rmse 0.0002450591  max resid 0.002602491 
-#&gt; ... Similar to previous best
-#&gt; Run 12 stress 0.1496045 
-#&gt; ... Procrustes: rmse 0.002794077  max resid 0.0346816 
-#&gt; Run 13 stress 0.1496031 
-#&gt; ... Procrustes: rmse 0.0001597965  max resid 0.001086928 
-#&gt; ... Similar to previous best
-#&gt; Run 14 stress 0.1496047 
-#&gt; ... Procrustes: rmse 0.002796931  max resid 0.03470258 
-#&gt; Run 15 stress 0.1496029 
-#&gt; ... Procrustes: rmse 0.0001716801  max resid 0.001949172 
-#&gt; ... Similar to previous best
-#&gt; Run 16 stress 0.1496081 
-#&gt; ... Procrustes: rmse 0.0007773416  max resid 0.006660007 
-#&gt; ... Similar to previous best
-#&gt; Run 17 stress 0.1496036 
-#&gt; ... Procrustes: rmse 0.0003405729  max resid 0.003538791 
-#&gt; ... Similar to previous best
-#&gt; Run 18 stress 0.1496049 
-#&gt; ... Procrustes: rmse 0.002655481  max resid 0.03292451 
-#&gt; Run 19 stress 0.1496044 
-#&gt; ... Procrustes: rmse 0.002672476  max resid 0.03315833 
-#&gt; Run 20 stress 0.1496044 
-#&gt; ... Procrustes: rmse 0.002830271  max resid 0.03504831 
-#&gt; Run 21 stress 0.149603 
-#&gt; ... Procrustes: rmse 0.000143452  max resid 0.0013587 
-#&gt; ... Similar to previous best
-#&gt; Run 22 stress 0.1496151 
-#&gt; ... Procrustes: rmse 0.002946852  max resid 0.03519211 
-#&gt; Run 23 stress 0.1496042 
-#&gt; ... Procrustes: rmse 0.0004387517  max resid 0.004368286 
-#&gt; ... Similar to previous best
-#&gt; Run 24 stress 0.1496047 
-#&gt; ... Procrustes: rmse 0.002792242  max resid 0.03466513 
-#&gt; Run 25 stress 0.1496095 
-#&gt; ... Procrustes: rmse 0.002869195  max resid 0.03500028 
-#&gt; Run 26 stress 0.1496031 
-#&gt; ... Procrustes: rmse 0.000161386  max resid 0.001007451 
-#&gt; ... Similar to previous best
-#&gt; Run 27 stress 0.149604 
-#&gt; ... Procrustes: rmse 0.0003265561  max resid 0.003195434 
-#&gt; ... Similar to previous best
-#&gt; Run 28 stress 0.1496034 
-#&gt; ... Procrustes: rmse 0.0003205402  max resid 0.003133215 
-#&gt; ... Similar to previous best
-#&gt; Run 29 stress 0.1496043 
-#&gt; ... Procrustes: rmse 0.002784911  max resid 0.03460711 
-#&gt; Run 30 stress 0.1496035 
-#&gt; ... Procrustes: rmse 0.0003698297  max resid 0.003956172 
-#&gt; ... Similar to previous best
-#&gt; *** Solution reached
-#&gt; Square root transformation
-#&gt; Wisconsin double standardization
-#&gt; Using step-across dissimilarities:
-#&gt; Too long or NA distances: 708 out of 21945 (3.2%)
-#&gt; Stepping across 21945 dissimilarities...
-#&gt; Connectivity of distance matrix with threshold dissimilarity 1 
-#&gt; Data are connected
-#&gt; Run 0 stress 0.1236357 
-#&gt; Run 1 stress 0.1240154 
-#&gt; ... Procrustes: rmse 0.03150932  max resid 0.09941104 
-#&gt; Run 2 stress 0.1241406 
-#&gt; Run 3 stress 0.1240211 
-#&gt; ... Procrustes: rmse 0.03230265  max resid 0.09941862 
-#&gt; Run 4 stress 0.1236349 
-#&gt; ... New best solution
-#&gt; ... Procrustes: rmse 0.0001169962  max resid 0.0006613207 
-#&gt; ... Similar to previous best
-#&gt; Run 5 stress 0.1240922 
-#&gt; ... Procrustes: rmse 0.008361968  max resid 0.09420276 
-#&gt; Run 6 stress 0.1238104 
-#&gt; ... Procrustes: rmse 0.02818918  max resid 0.1205201 
-#&gt; Run 7 stress 0.1240505 
-#&gt; ... Procrustes: rmse 0.0306759  max resid 0.1001498 
-#&gt; Run 8 stress 0.1245961 
-#&gt; Run 9 stress 0.1240572 
-#&gt; ... Procrustes: rmse 0.0290986  max resid 0.1001645 
-#&gt; Run 10 stress 0.1236349 
-#&gt; ... Procrustes: rmse 0.00089162  max resid 0.007473249 
-#&gt; ... Similar to previous best
-#&gt; Run 11 stress 0.1238541 
-#&gt; ... Procrustes: rmse 0.02383616  max resid 0.1284415 
-#&gt; Run 12 stress 0.1238256 
-#&gt; ... Procrustes: rmse 0.02317068  max resid 0.1002362 
-#&gt; Run 13 stress 0.1240649 
-#&gt; ... Procrustes: rmse 0.03346715  max resid 0.1028719 
-#&gt; Run 14 stress 0.1240161 
-#&gt; ... Procrustes: rmse 0.0118338  max resid 0.09619942 
-#&gt; Run 15 stress 0.1237134 
-#&gt; ... Procrustes: rmse 0.02723612  max resid 0.09894111 
-#&gt; Run 16 stress 0.1236339 
-#&gt; ... New best solution
-#&gt; ... Procrustes: rmse 0.0006986775  max resid 0.004219814 
-#&gt; ... Similar to previous best
-#&gt; Run 17 stress 0.1237204 
-#&gt; ... Procrustes: rmse 0.02645367  max resid 0.09898438 
-#&gt; Run 18 stress 0.1239427 
-#&gt; ... Procrustes: rmse 0.02043016  max resid 0.100191 
-#&gt; Run 19 stress 0.1229504 
-#&gt; ... New best solution
-#&gt; ... Procrustes: rmse 0.02501793  max resid 0.1597669 
-#&gt; Run 20 stress 0.1240791 
-#&gt; Run 21 stress 0.1229588 
-#&gt; ... Procrustes: rmse 0.001804713  max resid 0.01919788 
-#&gt; Run 22 stress 0.1236982 
-#&gt; Run 23 stress 0.1239967 
-#&gt; Run 24 stress 0.1240594 
-#&gt; Run 25 stress 0.1236348 
-#&gt; Run 26 stress 0.1237123 
-#&gt; Run 27 stress 0.1240147 
-#&gt; Run 28 stress 0.1240213 
-#&gt; Run 29 stress 0.12396 
-#&gt; Run 30 stress 0.1240317 
-#&gt; *** No convergence -- monoMDS stopping criteria:
-#&gt;     23: no. of iterations &gt;= maxit
-#&gt;      7: stress ratio &gt; sratmax
-#&gt; Square root transformation
-#&gt; Wisconsin double standardization
-#&gt; Using step-across dissimilarities:
-#&gt; Too long or NA distances: 708 out of 21945 (3.2%)
-#&gt; Stepping across 21945 dissimilarities...
-#&gt; Connectivity of distance matrix with threshold dissimilarity 1 
-#&gt; Data are connected
-#&gt; Run 0 stress 0.1014859 
-#&gt; Run 1 stress 0.1014859 
-#&gt; ... New best solution
-#&gt; ... Procrustes: rmse 0.001496211  max resid 0.01341869 
-#&gt; Run 2 stress 0.1014882 
-#&gt; ... Procrustes: rmse 0.0003613118  max resid 0.0030562 
-#&gt; ... Similar to previous best
-#&gt; Run 3 stress 0.1019811 
-#&gt; ... Procrustes: rmse 0.01013506  max resid 0.05227495 
-#&gt; Run 4 stress 0.1015739 
-#&gt; ... Procrustes: rmse 0.003590735  max resid 0.02819999 
-#&gt; Run 5 stress 0.1015006 
-#&gt; ... Procrustes: rmse 0.001874394  max resid 0.01532635 
-#&gt; Run 6 stress 0.1018107 
-#&gt; ... Procrustes: rmse 0.008071745  max resid 0.04308882 
-#&gt; Run 7 stress 0.1014854 
-#&gt; ... New best solution
-#&gt; ... Procrustes: rmse 0.001301816  max resid 0.01229766 
-#&gt; Run 8 stress 0.1016368 
-#&gt; ... Procrustes: rmse 0.00415404  max resid 0.04176875 
-#&gt; Run 9 stress 0.101771 
-#&gt; ... Procrustes: rmse 0.005992127  max resid 0.05172668 
-#&gt; Run 10 stress 0.101486 
-#&gt; ... Procrustes: rmse 0.001163481  max resid 0.009342148 
-#&gt; ... Similar to previous best
-#&gt; Run 11 stress 0.1014844 
-#&gt; ... New best solution
-#&gt; ... Procrustes: rmse 0.0005162083  max resid 0.003108608 
-#&gt; ... Similar to previous best
-#&gt; Run 12 stress 0.1020294 
-#&gt; Run 13 stress 0.1015629 
-#&gt; ... Procrustes: rmse 0.003142189  max resid 0.01789825 
-#&gt; Run 14 stress 0.1014907 
-#&gt; ... Procrustes: rmse 0.000584355  max resid 0.005003165 
-#&gt; ... Similar to previous best
-#&gt; Run 15 stress 0.1014848 
-#&gt; ... Procrustes: rmse 0.0008144449  max resid 0.007596159 
-#&gt; ... Similar to previous best
-#&gt; Run 16 stress 0.1014845 
-#&gt; ... Procrustes: rmse 0.0004405542  max resid 0.004920053 
-#&gt; ... Similar to previous best
-#&gt; Run 17 stress 0.1012551 
-#&gt; ... New best solution
-#&gt; ... Procrustes: rmse 0.02773564  max resid 0.1657609 
-#&gt; Run 18 stress 0.1021218 
-#&gt; Run 19 stress 0.1018503 
-#&gt; Run 20 stress 0.1014859 
-#&gt; ... Procrustes: rmse 0.02767256  max resid 0.1646763 
-#&gt; Run 21 stress 0.101487 
-#&gt; ... Procrustes: rmse 0.02771247  max resid 0.1652471 
-#&gt; Run 22 stress 0.1018845 
-#&gt; Run 23 stress 0.1023329 
-#&gt; Run 24 stress 0.1014867 
-#&gt; ... Procrustes: rmse 0.02778127  max resid 0.1637971 
-#&gt; Run 25 stress 0.1013431 
-#&gt; ... Procrustes: rmse 0.009275203  max resid 0.05384371 
-#&gt; Run 26 stress 0.1012622 
-#&gt; ... Procrustes: rmse 0.006106135  max resid 0.04427436 
-#&gt; Run 27 stress 0.1015213 
-#&gt; ... Procrustes: rmse 0.02779551  max resid 0.1627817 
-#&gt; Run 28 stress 0.1016594 
-#&gt; ... Procrustes: rmse 0.02781834  max resid 0.1594333 
-#&gt; Run 29 stress 0.1015512 
-#&gt; ... Procrustes: rmse 0.02786594  max resid 0.1633327 
-#&gt; Run 30 stress 0.1015087 
-#&gt; ... Procrustes: rmse 0.0277089  max resid 0.1632642 
-#&gt; *** No convergence -- monoMDS stopping criteria:
-#&gt;     23: no. of iterations &gt;= maxit
-#&gt;      7: stress ratio &gt; sratmax
-#&gt; Square root transformation
-#&gt; Wisconsin double standardization
-#&gt; Using step-across dissimilarities:
-#&gt; Too long or NA distances: 708 out of 21945 (3.2%)
-#&gt; Stepping across 21945 dissimilarities...
-#&gt; Connectivity of distance matrix with threshold dissimilarity 1 
-#&gt; Data are connected
-#&gt; Run 0 stress 0.0871146 
-#&gt; Run 1 stress 0.08846572 
-#&gt; Run 2 stress 0.08713978 
-#&gt; ... Procrustes: rmse 0.003713778  max resid 0.02036551 
-#&gt; Run 3 stress 0.08878503 
-#&gt; Run 4 stress 0.08735978 
-#&gt; ... Procrustes: rmse 0.005332886  max resid 0.0277197 
-#&gt; Run 5 stress 0.08943071 
-#&gt; Run 6 stress 0.08942787 
-#&gt; Run 7 stress 0.08719705 
-#&gt; ... Procrustes: rmse 0.003194158  max resid 0.01283403 
-#&gt; Run 8 stress 0.08757549 
-#&gt; ... Procrustes: rmse 0.01025835  max resid 0.04840186 
-#&gt; Run 9 stress 0.08980633 
-#&gt; Run 10 stress 0.08778312 
-#&gt; Run 11 stress 0.08898063 
-#&gt; Run 12 stress 0.08979292 
-#&gt; Run 13 stress 0.08716465 
-#&gt; ... Procrustes: rmse 0.002855812  max resid 0.01809449 
-#&gt; Run 14 stress 0.08880298 
-#&gt; Run 15 stress 0.08992085 
-#&gt; Run 16 stress 0.08726124 
-#&gt; ... Procrustes: rmse 0.006536252  max resid 0.03952786 
-#&gt; Run 17 stress 0.08927162 
-#&gt; Run 18 stress 0.08747088 
-#&gt; ... Procrustes: rmse 0.009478915  max resid 0.04331799 
-#&gt; Run 19 stress 0.08725912 
-#&gt; ... Procrustes: rmse 0.006182781  max resid 0.04046836 
-#&gt; Run 20 stress 0.08713052 
-#&gt; ... Procrustes: rmse 0.00294201  max resid 0.01589794 
-#&gt; Run 21 stress 0.08711406 
-#&gt; ... New best solution
-#&gt; ... Procrustes: rmse 0.003584975  max resid 0.02486928 
-#&gt; Run 22 stress 0.08744816 
-#&gt; ... Procrustes: rmse 0.008395644  max resid 0.04549463 
-#&gt; Run 23 stress 0.08718053 
-#&gt; ... Procrustes: rmse 0.005427267  max resid 0.03738844 
-#&gt; Run 24 stress 0.08721509 
-#&gt; ... Procrustes: rmse 0.006264433  max resid 0.03730534 
-#&gt; Run 25 stress 0.08721308 
-#&gt; ... Procrustes: rmse 0.00452053  max resid 0.01489785 
-#&gt; Run 26 stress 0.08719441 
-#&gt; ... Procrustes: rmse 0.005963353  max resid 0.02706668 
-#&gt; Run 27 stress 0.08711333 
-#&gt; ... New best solution
-#&gt; ... Procrustes: rmse 0.002752416  max resid 0.01551721 
-#&gt; Run 28 stress 0.08715922 
-#&gt; ... Procrustes: rmse 0.003436136  max resid 0.02777786 
-#&gt; Run 29 stress 0.08712261 
-#&gt; ... Procrustes: rmse 0.002925042  max resid 0.02545719 
-#&gt; Run 30 stress 0.08713603 
-#&gt; ... Procrustes: rmse 0.00156582  max resid 0.007586865 
-#&gt; ... Similar to previous best
-#&gt; *** Solution reached</code></pre>
-<div class="cell-output-display">
-<p><img src="9_community_files/figure-html/stressplot-calc-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
 <p>Discuss the results of the stress plot and what desicion is taken. How many dimesions are chosen.</p>
 <p><strong>Visualise</strong></p>
 <p>The output of an ordination can be visualised.</p>
 <div class="cell">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R">
-<span class="va">fNMDS</span> <span class="op">%&gt;%</span>
-  <span class="fu">as_tibble</span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R">
+<span class="fu">fortify</span><span class="op">(</span><span class="va">fNMDS</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu">mutate</span><span class="op">(</span>treatment <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">treatment</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="st">"B"</span>, <span class="st">"NB"</span><span class="op">)</span><span class="op">)</span>,
          site <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">site</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"WAY"</span>, <span class="st">"ACJ"</span>, <span class="st">"PIL"</span>, <span class="st">"TRE"</span>, <span class="st">"QUE"</span>, <span class="st">"OCC"</span><span class="op">)</span><span class="op">)</span>,
          season <span class="op">=</span> <span class="fu">if_else</span><span class="op">(</span><span class="va">season</span> <span class="op">==</span> <span class="st">"dry_season"</span>,
@@ -990,6 +602,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">scale_colour_manual</span><span class="op">(</span><span class="st">"Site"</span>, values <span class="op">=</span> <span class="va">puna_site_colour</span><span class="op">$</span><span class="va">colour</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">scale_shape_manual</span><span class="op">(</span><span class="st">"Treatment"</span>, values<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">16</span>, <span class="fl">5</span>, <span class="fl">6</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">coord_equal</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">facet_wrap</span><span class="op">(</span><span class="op">~</span> <span class="va">season</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="9_community_files/figure-html/plot-nmds-1.png" class="img-fluid" width="672"></p>
@@ -1083,7 +696,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./10_bootstrap.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Bootstrapping method</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Bootstrapping trait data</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
