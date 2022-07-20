@@ -20,20 +20,21 @@ book:
       chapters:
       - 2_study_system.qmd
       - 3_three_d.qmd
+      - 4_incline.qmd
     - part: "Trait data collection"
       chapters:
-      - 4_trait_collection.qmd
+      - 5_trait_collection.qmd
     - part: "PFTC data"
       chapters:
-      - 5_pftc_data.qmd
+      - 6_pftc_data.qmd
     - part: "Data science"
       chapters:
-      - 6_biostats.qmd
-      - 7_reproducible.qmd
-      - 8_data_curation.qmd
-      - 9_community.qmd
-      - 10_bootstrap.qmd
-      #- 11_traits.qmd
+      - 7_biostats.qmd
+      - 8_reproducible.qmd
+      - 9_data_curation.qmd
+      - 10_community.qmd
+      - 11_bootstrap.qmd
+      #- 12_traits.qmd
 
 bibliography: bibliography.bib
 #suppress-bibliography: true

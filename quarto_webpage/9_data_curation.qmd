@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 library(tidyverse)
 library(lubridate)
 library(tidylog)
-library(assertr)
+library(validate)
 
 ```
 
@@ -67,15 +67,16 @@ library(tidylog)
 Note, that once **tidylog** is loaded it will automatically prioritize the tidylog function before the dplyr and tidyr functions.
 You actively have to choose if you do not want to use the tidylog version by using this notation: `dplyr::filter()`.
 
-And for doing automated checks, we will use the `assertr` package.
+Some data checking has to be done by hand and detecitve work, other things can be done more automatically.
+There are a few packages that can help with some of this work and for this tutorial we will use the `validate` package.
 
 ```{r}
-#| label: load-assertr
+#| label: load-validate
 #| echo: true
 #| eval: false
 
-#install.packages("assertr")
-library(assertr)
+#install.packages("validate")
+library(validate)
 
 ```
 
@@ -149,90 +150,10 @@ raw_traits <- raw_traits |>
 
 ```
 
-## Automated checks (not finished!!!)
 
-To get the unique leaf IDs, we can use the `get_PFTC_envelope_codes` function from the PFTCFunctions package.
+## View dataset
 
-```{r}
-#| label: make-ids
-#| echo: true
-
-#remotes::install_github("Plant-Functional-Trait-Course/PFTCFunctions")
-
-library("PFTCFunctions")
-
-leaf_ID <- get_PFTC_envelope_codes(seed = 32)
-
-```
-
-First, we make a list of expected values for each variable.
-For simplicity, we will only check a few variables.
-
-```{r}
-#| label: make-lists
-#| echo: true
-
-# make lists with variables
-nr_cols <- 10
-
-# check variable types
-characters <- c("Gradient", "PlotID", "ID", "Taxon", "Trait")
-numerics <- c("Site", "Individual_nr", "Value", "Elevation_m")
-
-#make own list of valid values
-gradients <- c("B", "C")
-sites <- c(1:7)
-
-# use an existing list for validation
-unique_ID <- leaf_ID$hashcode
-
-
-```
-
-Now you can write the rules and checks that you want to do.
-You can check these things one at a time or make a chain with checks.
-
-Here are a few checks that you can make: - nr of columns - nr of characters in a variable - if variables are character or numeric - list of valid values - duplicates
-
-```{r}
-#| label: assertr-function
-#| echo: true
-#| eval: false
-
-raw_traits %>%
-  chain_start %>%
-  
-  # check number of columns
-  verify(ncol(.) == nr_cols, error_fun = error_append) %>% 
-    
-    # check length of ID
-    assert(function(x) nchar(x)==7, ID, error_fun = error_append) %>%
-    # check if ID is valid
-    assert(in_set(unique_ID), ID, error_fun = error_append) %>% 
-
-    # is a character/numeric
-    assert(is.character, characters, error_fun = error_append) %>%  
-    assert(is.numeric, numerics, error_fun = error_append) %>% 
-
-    # Check if Variables only contain elements from lists defined above
-    assert(in_set(gradients), Gradient, error_fun = error_append) %>%
-    assert(in_set(sites), Site, error_fun = error_append) %>%
- 
-    # Observation unique
-    group_by(ID) %>%
-    mutate(n = n()) %>%
-    ungroup() %>%
-    assert(in_set(1), n, error_fun = error_append) %>%
-  
-    chain_end
-  
-```
-
-## Manual checks
-
-Some errors have to be checked manually.
-This is an alternative and/or addition to using the assertr package for data cutation.
-
+First, we want to have a look at the dataset.
 By typing `raw_traits` in the console it will display the first rows and columns of the dataset.
 Note that the last column and many rows are not shown.
 
@@ -246,9 +167,10 @@ raw_traits
 At the top you can see that the dataset has `r dim(raw_traits)[1]` observations and `r length(raw_traits)` columns.
 These numbers give you a first indication if you have imported the right dataset, and if all observations and columns are there.
 
-### Check the data type
 
-Next, we will check if all variables (columns) have the right data type (or class in R terminology).
+## Check variable type
+
+One of the things we want to do is checking if all the variables in the dataset have the right type.
 For each variable the output above indicates the data type just below the variable name.
 The most common types are *dbl* (numeric or integer), *chr* (character), or *date* (date).
 
@@ -258,6 +180,7 @@ The first variable *Date* is a character, which does not seem to be correct.
 This means that one or several observations in this column are not dates.
 Since we do not expect to have very many dates (the data was collected during a few days), we can check all the different values in *Date*.
 For this we use the function `distinct()` on the variable *Date*.
+
 
 ```{r}
 #| label: distinct
@@ -353,6 +276,7 @@ raw_traits |>
 
 The date has been fixed.
 
+
 ::: {.callout-warning icon="false"}
 ## Exercise 1
 Now it is your turn.
@@ -375,6 +299,53 @@ Hint
 :::
 
 
+Using the `validate` package, we can check all the variables at once.
+The validate package is based on making some rules that need checking and then applying those rules to a dataset.
+The rules can be reused and applied to any dataset.
+
+Let's make some rules about data types using the `validator()` function:
+
+```{r}
+#| label: make-rules
+#| echo: true
+
+# rules
+rules <- validator(
+  
+  # check variable types
+  is.character(Gradient),
+  is.character(PlotID),
+  is.character(ID),
+  is.character(Taxon),
+  is.character(Trait),
+
+  is.numeric(Site),
+  is.numeric(Individual_nr),
+  is.numeric(Value),
+  is.numeric(Elevation_m),
+  
+  is.Date(Date))
+
+
+```
+
+Now the rules can be applied to the dataset using the `confront()` function.
+
+
+```{r}
+#| label: confront
+#| echo: true
+#| eval: false
+
+out <- confront(raw_traits, rules)
+summary(out)
+  
+```
+
+The summary function gives an overview of each rule and how many passes and fails there are.
+It looks like all the rules are passed.
+
+
 ## Check for duplicates
 
 Another common problem is duplicate observations.
@@ -382,27 +353,54 @@ This can happen when data is entered twice.
 The why to find duplicates is to check that the combination of variables are unique.
 In our dataset, we expect that *Date*, *Gradient*, *Site*, *PlotID*, *Individual_nr*, *ID*, *Taxon* and *Trait* should be unique, and only occurring once.
 
-To check this, we can `group_by()` these variables and `filter()` for observations that occur more than once.
+To check this, we can use the rule `is_unique()`.
 
-```{r}
-#| label: check-duplicates
-#| echo: true
-raw_traits |> 
-  group_by(Date, Gradient, Site, PlotID, Individual_nr, ID, Taxon, Trait) |> 
-  filter(n() > 1)
-
-```
-
-There is one duplicate.
-
-Note that *Value* was not included in the `group_by()`.
+Note that *Value* was not included in the `is_unique()`.
 This was done intentionally, because a common mistake is to have a duplicate, but with a different value.
 This is either because one of the variables is wrong, e.g. it has the wrong Site and therefore appears to be a duplicate.
 Alternatively, the leaf could have been measured twice by accident, which would likely give two slightly different values.
 When getting a duplicate, these different options for why there is a duplicate have to be considered and carefully checked in the raw data.
 
-In this case, we assume that the leaf has only been measured once, but the data has been entered twice because the *Value* is the same in both cases.
-Thus, the two entries are exact duplicates.
+```{r}
+#| label: check-duplicates
+#| echo: true
+
+rules <- validator(
+  
+  # check variable types
+  is_unique(Date, Gradient, Site, PlotID, Individual_nr, ID, Taxon, Trait))
+
+out <- confront(raw_traits, rules)
+summary(out)
+
+```
+
+Two observations fail the rules and are not unique.
+
+The violate package can visualise the number of passes and fails, which can be useful.
+For this, use the plot function.
+
+```{r}
+#| label: visualise-duplicates
+#| echo: true
+
+plot(out)
+
+```
+
+To fix the problem, we need to know which observation is a duplicate.
+Here, we can use the function `violating()` for the data and the results and it will show the duplicate rows.
+
+```{r}
+#| label: show-duplicates
+#| echo: true
+
+violating(raw_traits, out)
+
+```
+
+We get two exact duplicates, where even *Value* is the same.
+We can therefore assume that the leaf has only been measured once, but the data has been entered twice.
 
 To fix the problem, we want to remove one of the duplicates.
 We group by the variables we expect to be unique and use `distinct()` with the argument *.keep_all = TRUE* to remove the duplicates.
@@ -458,6 +456,28 @@ raw_traits <- raw_traits |>
 ```
 
 This operation has removed 3 rows, which is the number of NA's in this variable.
+
+
+Missing data can also be found with the `validator` package, but it's a bit tedious to write one rule (`is.na()` or `!is.na()`) for each variable.
+In some cases it might be useful to use, because it let's you use functions like any() or all() to 
+
+
+## Check specific values
+
+One of the things we want to check is if the unique leaf IDs are valid.
+For this, we need to get a list of these IDs, using the `get_PFTC_envelope_codes` function from the PFTCFunctions package.
+
+```{r}
+#| label: make-ids
+#| echo: true
+
+#remotes::install_github("Plant-Functional-Trait-Course/PFTCFunctions")
+
+library("PFTCFunctions")
+
+leaf_ID <- get_PFTC_envelope_codes(seed = 32)
+
+```
 
 
 ## Check taxonomy
