@@ -130,7 +130,9 @@ raw_traits <- raw_traits |>
                            ID == "BUF9439" ~ "calalmagrostis neglecta",
                            TRUE ~ Taxon),
          # introduce NAs
-         Value = if_else(ID %in% c("BLQ1061", "AZO1656", "AMV4451") & Trait == "LDMC", NA_real_, Value))
+         Value = if_else(ID %in% c("BLQ1061", "AZO1656", "AMV4451") & Trait == "LDMC", NA_real_, Value),
+         # make wrong ID
+         ID = if_else(ID == "BGP8422", "BGB8422", ID))
   
 # add duplicate row
 duplicate <- raw_traits |> 
@@ -382,6 +384,7 @@ For this, use the plot function.
 
 ```{r}
 #| label: visualise-duplicates
+#| fig-cap: A plot showing the fails and passes. Note that there are very few fails compared to passes and the red bar is not visible on the plot.
 #| echo: true
 
 plot(out)
@@ -436,7 +439,7 @@ raw_traits %>%
   summarise(across(everything(), ~sum(is.na(.))))
 ```
 
-We can see that *Date* and *Value* have NAs.
+The variables *Date* and *Value* have NAs.
 It is not always a problem to have missing data.
 In this case, Date is not a crucial variable, and we know the data was collected during a few days in July 2018.
 We could just impute one of these dates.
@@ -458,14 +461,20 @@ raw_traits <- raw_traits |>
 This operation has removed 3 rows, which is the number of NA's in this variable.
 
 
-Missing data can also be found with the `validator` package, but it's a bit tedious to write one rule (`is.na()` or `!is.na()`) for each variable.
-In some cases it might be useful to use, because it let's you use functions like any() or all() to 
+Missing data can also be detected using the `validator` package.
+It is however more tedious to write one rule (`is.na()` or `!is.na()`) for each variable.
+But it can also be useful, because the `is.na()` function can be combined with `any()` or `all()`, defining to include/exclude some or all NAs in a variable.
 
 
-## Check specific values
+## Check range of values
 
-One of the things we want to check is if the unique leaf IDs are valid.
-For this, we need to get a list of these IDs, using the `get_PFTC_envelope_codes` function from the PFTCFunctions package.
+Some variables might have specific values we want to check.
+For categorical variables there is usually a list of specific values to test, while for numeric variables, it is more common to have a range of values or upper/lower limits.
+
+### Categorical variables
+
+Let's look at the variable leaf ID, where we have a list of valid values.
+For this, we need to get a list of valid IDs, using the `get_PFTC_envelope_codes` function from the PFTCFunctions package.
 
 ```{r}
 #| label: make-ids
@@ -478,6 +487,118 @@ library("PFTCFunctions")
 leaf_ID <- get_PFTC_envelope_codes(seed = 32)
 
 ```
+
+
+Let's make some rules to check the variables Gradient, Site and leaf_ID.
+
+```{r}
+#| label: code-lists
+#| echo: true
+
+# rules
+rules <- validator(
+  Gradient %in% c("B", "C"),
+  Site %in% c(1:7),
+  ID %in% c(leaf_ID$hashcode))
+
+```
+
+And then check the rules in the dataset.
+
+
+```{r}
+#| label: confront-code-lists
+#| echo: true
+
+out <- confront(raw_traits, rules)
+summary(out)
+  
+```
+
+There are 14 rows with a wrong leaf ID.
+
+
+```{r}
+#| label: violate-code-lists
+#| echo: true
+
+violating(raw_traits, out)
+  
+```
+
+The ID BGB8422 does not exist in the list of valid leaf IDs.
+There might be a typo in this ID.
+One thing is to search for the letter or number combinations and see if we can figure out where the mistake happened.
+For this we will use the `stringr` package, which is part of tidyverse.
+
+With the function `str_detect()` we can search for specific strings like "BGB" or "8422" in the variable hashcode.
+
+```{r}
+#| label: find-wrong-ID
+#| echo: true
+
+leaf_ID |> 
+  filter(str_detect(hashcode, "8422"))
+  
+```
+
+When searching for the combinations of numbers, we find a ID that is very similar but a B is replaced by the P.
+This seems like a mistake that could be easily made.
+The envelope of this sample should also be checked before fixing the error.
+
+
+::: {.callout-warning icon="false"}
+## Exercise 2
+Let's fix the wrong leaf ID, by replacing BGB8422 with BGP8422.
+
+<details>
+
+<summary>
+
+Hint
+
+</summary>
+
+-   use `if_else()`
+
+</details>
+
+:::
+
+
+### Numeric variables
+
+For numeric variables we could use another set of rules.
+For example the variable LDMC (Leaf dry matter content) is the dry mass divided by the wet mass.
+If LDMC is larger than 1 it means that the dry leaf was heavier than the wet leaf, which does not make sense.
+So, a simple rule to test is that LDMC is between 0 and 1.
+
+For this you could just use `Value <= 1`.
+But because we have different traits, we need to use a conditional rule:
+
+```{r}
+#| label: check-ldmc
+#| echo: true
+
+# rules
+rules <- validator(
+  if (Trait == "LDMC") Value <= 1)
+
+```
+
+And then check the rules in the dataset.
+
+
+```{r}
+#| label: confront-ldmc
+#| echo: true
+
+out <- confront(raw_traits, rules)
+summary(out)
+  
+```
+
+None of the values is violating the rules, so all is good.
 
 
 ## Check taxonomy
@@ -674,11 +795,11 @@ We would expect a positive correlation between the two variables, where large le
 ```{r}
 #| label: fig-correlation
 #| fig-cap: "Correlation between leaf area and dry mass."
-#| fig-alt: "A plto showing the correlation between leaf area and dry mass.."
+#| fig-alt: "A plot showing the correlation between leaf area and dry mass. The two variables are positively correlated, but there is a separate point cloud with lower dry mass and area."
 
 raw_traits |>
-  select(-Value) |> 
-  pivot_wider(names_from = Trait, values_from = Value_log) |>
+  dplyr::select(-Value) |> 
+  tidyr::pivot_wider(names_from = Trait, values_from = Value_log) |>
   ggplot(aes(x = Dry_Mass_g_log, y = Leaf_Area_cm2_log)) +
   geom_point()
 
@@ -686,10 +807,11 @@ raw_traits |>
 
 We see a good correlation between leaf area and dry mass.
 However, there is a cloud with observations that separate from the main data cloud.
+These leaves have a lower dry mass and area.
 
 
 ::: {.callout-warning icon="false"}
-## Exercise 2
+## Exercise 3
 What could the problem be?
 
 <details>
@@ -700,10 +822,36 @@ Hint
 
 </summary>
 
--   Use `filter(` to look at the observations that have a higher leaf area and mass and compare them to the rest of the data.
+-   Use `filter()` to look at the observations that have a higher leaf area and mass and compare them to the rest of the data.
 -   Units
 
 </details>
 
 :::
+
+The problem with the separate data points is the unit.
+They were measured in mg instead of g and are 3 digits off.
+This can easily be seen, when adding the regression lines for each data cloud, and two lines in between with the same slope but the intercept being 10 times smaller.
+
+
+```{r}
+#| label: fig-correlation-lines
+#| fig-cap: "Correlation between leaf area and dry mass."
+#| fig-alt: "A plot showing the correlation between leaf area and dry mass."
+#| echo: false
+
+raw_traits |>
+  dplyr::select(-Value) |> 
+  tidyr::pivot_wider(names_from = Trait, values_from = Value_log) |>
+  ggplot(aes(x = Dry_Mass_g_log, y = Leaf_Area_cm2_log)) +
+  geom_point() +
+  geom_abline(intercept = 4.6612, slope = 0.9158, colour = "red") +
+  geom_abline(intercept = 6.6612, slope = 0.9158, colour = "red") +
+  geom_abline(intercept = 8.6612, slope = 0.9158, colour = "red") +
+  geom_abline(intercept = 10.6612, slope = 0.9158, colour = "red")
+  
+  
+
+```
+
 
