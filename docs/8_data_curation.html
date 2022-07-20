@@ -270,7 +270,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul>
 <li><a href="#useful-packages" id="toc-useful-packages" class="nav-link active" data-scroll-target="#useful-packages"> <span class="header-section-number">8.1</span> Useful packages</a></li>
   <li><a href="#import-data" id="toc-import-data" class="nav-link" data-scroll-target="#import-data"> <span class="header-section-number">8.2</span> Import data</a></li>
-  <li><a href="#automated-checks-not-finished" id="toc-automated-checks-not-finished" class="nav-link" data-scroll-target="#automated-checks-not-finished"> <span class="header-section-number">8.3</span> Automated checks (not finished!!!)</a></li>
+  <li><a href="#automated-checks" id="toc-automated-checks" class="nav-link" data-scroll-target="#automated-checks"> <span class="header-section-number">8.3</span> Automated checks</a></li>
   <li>
 <a href="#manual-checks" id="toc-manual-checks" class="nav-link" data-scroll-target="#manual-checks"> <span class="header-section-number">8.4</span> Manual checks</a>
   <ul class="collapse">
@@ -329,10 +329,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/elbersb/tidylog/">tidylog</a></span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Note, that once <strong>tidylog</strong> is loaded it will automatically prioritize the tidylog function before the dplyr and tidyr functions. You actively have to choose if you do not want to use the tidylog version by using this notation: <code><a href="https://dplyr.tidyverse.org/reference/filter.html">dplyr::filter()</a></code>.</p>
-<p>And for doing automated checks, we will use the <code>assertr</code> package.</p>
+<p>And for validating data automatically, we will use the <code>validate</code> package.</p>
 <div class="cell">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co">#install.packages("assertr")</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/assertr/">assertr</a></span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/data-cleaning/validate">validate</a></span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="import-data" class="level2" data-number="8.2"><h2 data-number="8.2" class="anchored" data-anchor-id="import-data">
 <span class="header-section-number">8.2</span> Import data</h2>
@@ -357,8 +357,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 
 </div>
-</section><section id="automated-checks-not-finished" class="level2" data-number="8.3"><h2 data-number="8.3" class="anchored" data-anchor-id="automated-checks-not-finished">
-<span class="header-section-number">8.3</span> Automated checks (not finished!!!)</h2>
+</section><section id="automated-checks" class="level2" data-number="8.3"><h2 data-number="8.3" class="anchored" data-anchor-id="automated-checks">
+<span class="header-section-number">8.3</span> Automated checks</h2>
 <p>To get the unique leaf IDs, we can use the <code>get_PFTC_envelope_codes</code> function from the PFTCFunctions package.</p>
 <div class="cell">
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co">#remotes::install_github("Plant-Functional-Trait-Course/PFTCFunctions")</span>
@@ -367,51 +367,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <span class="va">leaf_ID</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/PFTCFunctions/man/get_PFTC_envelope_codes.html">get_PFTC_envelope_codes</a></span><span class="op">(</span>seed <span class="op">=</span> <span class="fl">32</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>First, we make a list of expected values for each variable. For simplicity, we will only check a few variables.</p>
+<p>First, we make a set of rules.</p>
 <div class="cell">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># make lists with variables</span>
-<span class="va">nr_cols</span> <span class="op">&lt;-</span> <span class="fl">10</span>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># rules</span>
+<span class="va">rules</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/validate/man/validator.html">validator</a></span><span class="op">(</span>
+  
+  <span class="co"># check variable types</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/character.html">is.character</a></span><span class="op">(</span><span class="va">Gradient</span><span class="op">)</span>,
+  <span class="fu"><a href="https://rdrr.io/r/base/character.html">is.character</a></span><span class="op">(</span><span class="va">PlotID</span><span class="op">)</span>,
+  <span class="fu"><a href="https://rdrr.io/r/base/character.html">is.character</a></span><span class="op">(</span><span class="va">ID</span><span class="op">)</span>,
+  <span class="fu"><a href="https://rdrr.io/r/base/character.html">is.character</a></span><span class="op">(</span><span class="va">Taxon</span><span class="op">)</span>,
+  <span class="fu"><a href="https://rdrr.io/r/base/character.html">is.character</a></span><span class="op">(</span><span class="va">Trait</span><span class="op">)</span>,
 
-<span class="co"># check variable types</span>
-<span class="va">characters</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Gradient"</span>, <span class="st">"PlotID"</span>, <span class="st">"ID"</span>, <span class="st">"Taxon"</span>, <span class="st">"Trait"</span><span class="op">)</span>
-<span class="va">numerics</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Site"</span>, <span class="st">"Individual_nr"</span>, <span class="st">"Value"</span>, <span class="st">"Elevation_m"</span><span class="op">)</span>
-
-<span class="co">#make own list of valid values</span>
-<span class="va">gradients</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"B"</span>, <span class="st">"C"</span><span class="op">)</span>
-<span class="va">sites</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">7</span><span class="op">)</span>
-
-<span class="co"># use an existing list for validation</span>
-<span class="va">unique_ID</span> <span class="op">&lt;-</span> <span class="va">leaf_ID</span><span class="op">$</span><span class="va">hashcode</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+  <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">is.numeric</a></span><span class="op">(</span><span class="va">Site</span><span class="op">)</span>,
+  <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">is.numeric</a></span><span class="op">(</span><span class="va">Individual_nr</span><span class="op">)</span>,
+  <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">is.numeric</a></span><span class="op">(</span><span class="va">Value</span><span class="op">)</span>,
+  <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">is.numeric</a></span><span class="op">(</span><span class="va">Elevation_m</span><span class="op">)</span>,
+  
+  <span class="fu"><a href="https://lubridate.tidyverse.org/reference/date_utils.html">is.Date</a></span><span class="op">(</span><span class="va">Date</span><span class="op">)</span>,
+  
+  <span class="co"># matching lists</span>
+  <span class="va">Gradient</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"B"</span>, <span class="st">"C"</span><span class="op">)</span>,
+  <span class="va">Site</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">7</span><span class="op">)</span>,
+  <span class="va">ID</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">leaf_ID</span><span class="op">$</span><span class="va">hashcode</span><span class="op">)</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now you can write the rules and checks that you want to do. You can check these things one at a time or make a chain with checks.</p>
 <p>Here are a few checks that you can make: - nr of columns - nr of characters in a variable - if variables are character or numeric - list of valid values - duplicates</p>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">raw_traits</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="va">chain_start</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  
-  <span class="co"># check number of columns</span>
-  <span class="fu"><a href="https://docs.ropensci.org/assertr/reference/verify.html">verify</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span> <span class="op">==</span> <span class="va">nr_cols</span>, error_fun <span class="op">=</span> <span class="va">error_append</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-    
-    <span class="co"># check length of ID</span>
-    <span class="fu"><a href="https://docs.ropensci.org/assertr/reference/assert.html">assert</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">==</span><span class="fl">7</span>, <span class="va">ID</span>, error_fun <span class="op">=</span> <span class="va">error_append</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-    <span class="co"># check if ID is valid</span>
-    <span class="fu"><a href="https://docs.ropensci.org/assertr/reference/assert.html">assert</a></span><span class="op">(</span><span class="fu"><a href="https://docs.ropensci.org/assertr/reference/in_set.html">in_set</a></span><span class="op">(</span><span class="va">unique_ID</span><span class="op">)</span>, <span class="va">ID</span>, error_fun <span class="op">=</span> <span class="va">error_append</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-
-    <span class="co"># is a character/numeric</span>
-    <span class="fu"><a href="https://docs.ropensci.org/assertr/reference/assert.html">assert</a></span><span class="op">(</span><span class="va">is.character</span>, <span class="va">characters</span>, error_fun <span class="op">=</span> <span class="va">error_append</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>  
-    <span class="fu"><a href="https://docs.ropensci.org/assertr/reference/assert.html">assert</a></span><span class="op">(</span><span class="va">is.numeric</span>, <span class="va">numerics</span>, error_fun <span class="op">=</span> <span class="va">error_append</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-
-    <span class="co"># Check if Variables only contain elements from lists defined above</span>
-    <span class="fu"><a href="https://docs.ropensci.org/assertr/reference/assert.html">assert</a></span><span class="op">(</span><span class="fu"><a href="https://docs.ropensci.org/assertr/reference/in_set.html">in_set</a></span><span class="op">(</span><span class="va">gradients</span><span class="op">)</span>, <span class="va">Gradient</span>, error_fun <span class="op">=</span> <span class="va">error_append</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-    <span class="fu"><a href="https://docs.ropensci.org/assertr/reference/assert.html">assert</a></span><span class="op">(</span><span class="fu"><a href="https://docs.ropensci.org/assertr/reference/in_set.html">in_set</a></span><span class="op">(</span><span class="va">sites</span><span class="op">)</span>, <span class="va">Site</span>, error_fun <span class="op">=</span> <span class="va">error_append</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
- 
-    <span class="co"># Observation unique</span>
-    <span class="fu"><a href="https://rdrr.io/pkg/tidylog/man/group_by.html">group_by</a></span><span class="op">(</span><span class="va">ID</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-    <span class="fu"><a href="https://rdrr.io/pkg/tidylog/man/mutate.html">mutate</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-    <span class="fu"><a href="https://rdrr.io/pkg/tidylog/man/ungroup.html">ungroup</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-    <span class="fu"><a href="https://docs.ropensci.org/assertr/reference/assert.html">assert</a></span><span class="op">(</span><span class="fu"><a href="https://docs.ropensci.org/assertr/reference/in_set.html">in_set</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>, <span class="va">n</span>, error_fun <span class="op">=</span> <span class="va">error_append</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  
-    <span class="va">chain_end</span>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/validate/man/confront.html">confront</a></span><span class="op">(</span><span class="va">raw_traits</span>, <span class="va">rules</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/validate/man/validate-summary.html">summary</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span>
   </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="manual-checks" class="level2" data-number="8.4"><h2 data-number="8.4" class="anchored" data-anchor-id="manual-checks">
@@ -425,7 +409,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span class="co">#&gt;    &lt;chr&gt;      &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;   &lt;dbl&gt;</span>
 <span class="co">#&gt;  1 2018-07-20 B            5 D                  1 AIB1395 saxifra… Plan… 6.5 e+0</span>
 <span class="co">#&gt;  2 2018-07-20 B            5 D                  1 AIB1395 saxifra… Wet_… 2.92e-2</span>
-<span class="co">#&gt;  3 2018-07-20 B            5 D                  1 AIB1395 saxifra… Dry_… 4   e-3</span>
+<span class="co">#&gt;  3 2018-07-20 B            5 D                  1 AIB1395 saxifra… Dry_… 4   e-6</span>
 <span class="co">#&gt;  4 2018-07-20 B            5 D                  1 AIB1395 saxifra… Leaf… 5.66e-1</span>
 <span class="co">#&gt;  5 2018-07-20 B            5 D                  1 AIB1395 saxifra… Leaf… 6.75e-1</span>
 <span class="co">#&gt;  6 2018-07-20 B            5 D                  1 AIB1395 saxifra… SLA_… 1.69e+2</span>
@@ -719,7 +703,7 @@ Exercise 1
                    <span class="st">"Leaf_Thickness_mm"</span> <span class="op">=</span> <span class="st">"Thickness_mm_log"</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; Warning in log(Value): NaNs produced</span>
 <span class="co">#&gt; mutate: changed 5,214 values (51%) of 'Trait' (0 new NA)</span>
-<span class="co">#&gt;         new variable 'Value_log' (double) with 7,985 unique values and 0% NA</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span class="co">#&gt;         new variable 'Value_log' (double) with 7,989 unique values and 0% NA</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>And remake the density plot using the log-transformed values.</p>
 <div class="cell">
