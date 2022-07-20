@@ -1,0 +1,33 @@
+---
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
+``` {r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# INCLINE project
+
+The aim of the INCLINE project is to ...
+
+## Study sites
+
+
+
+```{r}
+#| label: fig-incline-sites
+#| fig-cap: "The experiment is set up along a precipitation gradient in South Western Norway, from the driest site Ulvehaugen, in the east, to the wettest site Skjellingahaugen in the west. At each site, an experimental warming treatment has been imposed on alpine grassland vegetation using Open Top Chambers (OTCs), and paired control plots. There are seven sets of OTCs and control plots at each site."
+
+knitr::include_graphics('images/sites/PFTC6 INCLINE Sampling Regime Overview Short.jpg')
+```
+
+
+
+## Experimental treatments
+
+
+
+
+## References
