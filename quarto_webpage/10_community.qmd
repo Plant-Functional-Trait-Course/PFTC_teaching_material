@@ -5,6 +5,7 @@ editor_options:
 ---
 
 ```{r, setup, include = FALSE}
+
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -33,13 +34,13 @@ puna_colour = tribble(~site, ~treatment, ~colour,
                       "QUE", "NB", "#D15E7F",
                       "OCC", "C", "#033311")
 
-puna_treatment_colour = puna_colour %>%
+puna_treatment_colour = puna_colour  |> 
   filter(site == "ACJ" |
-         treatment == "BB") %>%
+         treatment %in% c("BB", "NB"))  |> 
   select(-site)
 
-puna_site_colour = puna_colour %>%
-  filter(treatment == "C") %>%
+puna_site_colour = puna_colour  |> 
+  filter(treatment == "C")  |> 
   select(-treatment)
 ```
 
@@ -55,7 +56,9 @@ We will use the data from PFTC3 and 5 from Peru.
 
 To download the data use this code:
 
-```{r, download-peru-data, eval=FALSE}
+```{r}
+#| label: download-peru-data
+#| eval: false
 
 library(dataDownloader)
 
@@ -68,56 +71,106 @@ get_file(node = "gs8u6",
 
 
 This dataset contains percentage cover for 143 species along an elevational gradients in Peru.
-Three different treatments related to fire history: control (C), burnt (B) and newly burnt (NB)).
+Three different treatments related to fire history: control (C) and burnt (B) plots.
 For more information about the sites and measurements see [here](https://github.com/Plant-Functional-Trait-Course/pftc3_punaproject_pftc5).
 
 
 To read in the data use the code below.
-Note that we remove the treatment *BB* which has only a few observation from one site.
+Note that we remove the treatments *BB* and *NB* to simplify.
 
-```{r, import-peru-comm}
+```{r}
+#| label: import-peru-comm
 
 comm <- read_csv("data/PFTC3-Puna-PFTC5_Peru_2018-2020_CommunityCover_clean.csv") |> 
-  filter(treatment != "BB")
+  dplyr::filter(!treatment %in% c("BB", "NB"))
 
 ```
 
 
 ## Diversity indices
 
-One way to quantify the number of species species is to calculate diversity indices.
+One way to quantify biodiversity in a community is to calculate diversity indices.
 Some common indices are species *richness*, *diversity* and *evenness*.
+Species richness is the number of species in a dataset.
+Species diversity (there are many different indices) is a measure of species richness including the abundance of species.
+And evenness is quantifying how equal in terms of numbers communities are.
 
 To calculate these indices we are using the *vegan package*.
+First we group the data by year, month, site, treatment and plot and calculate the indices for each plot.
 
 
-```{r, diversity}
+```{r}
+#| label: diversity
 
 ## Calculate responses
 diversity_index <- comm  |> 
-  group_by(year, month, site, elevation, treatment, plot_id)  |> 
-  summarise(richness = n(),
+  dplyr::group_by(year, month, site, elevation, treatment, plot_id)  |> 
+  dplyr::summarise(richness = n(),
             diversity = diversity(cover),
-            evenness = diversity/log(richness))  |> 
-  # make long dataframe
-  pivot_longer(cols = c(richness:evenness), names_to = "index", values_to = "value") |> 
-  mutate(index = factor(index, levels = c("richness", "diversity", "evenness")))
-
+            evenness = diversity/log(richness)) |> 
+    mutate(treatment = factor(treatment, levels = c("C", "B"))) 
 
 ```
 
 We can now test if these diversity indices are different between the sites along the elevational gradient and the treatments.
-We will use a simple linear model with diversity index as response and the interaction of elevation and treatment as predictor.
+We will use a simple linear regression with diversity index as response and the interaction of elevation and treatment as predictor.
+Let's start with species richness:
+
+```{r}
+#| label: test-richness
+
+fit <- lm(richness ~ elevation * treatment, data = diversity_index)
+summary(fit)
+
+```
+
+The summary output of the regression model shows that there is a significant interaction of elevation and treatment.
+Species richness increases with elevation and is overall higher in the control treatment, however species richness increases more with elevation in the burnt treatment.
+
+**Check model assumptions**
+
+Importantly, we have to to check if the model assumptions are met (e.g. normality of residuals, linear relationship, homogeneity of variance, multicollinearity).
+For this we will use the *performance package*.
 
 
-```{r, test-diversity}
+```{r}
+#| label: test-model-assumption
 
+check_model(fit)
+
+```
+
+The `check.model()` function visualises nicely these assumptions and explains the pattern that is expected if the assumptions are met.
+The plots look good, and we can assume the assumptions are met.
+
+
+### Run multiple regression models
+
+If we want to do the same regression for the other indices, we might want to transform the dataset into a long table and then run multiple regressions at the same time.
+
+
+```{r}
+#| label: long-table
+
+diversity_index <- diversity_index  |> 
+  tidyr::pivot_longer(cols = c(richness:evenness), names_to = "index", values_to = "value") |> 
+  dplyr::mutate(index = factor(index, levels = c("richness", "diversity", "evenness")))
+
+```
+
+We can then test run the same test again for all indices at the same time.
+For this we will `nest()` the data by index, and use a `map()` function to run the model for each index.
+
+To get a useful model summary, we use the `tidy()` function from the broom pacakge.
+
+
+```{r}
+#| label: test-diversity
+#| 
 diversity_result <- diversity_index  |> 
-  filter(treatment %in% c("C", "B", "NB"))  |> 
-  mutate(treatment = factor(treatment, levels = c("C", "B", "NB")))  |> 
-  group_by(index)  |> 
+  dplyr::group_by(index)  |> 
   nest(data = -c(index))  |> 
-  mutate(model = map(data, ~lm(value ~ elevation * treatment, data = .x)),
+  dplyr::mutate(model = map(data, ~lm(value ~ elevation * treatment, data = .x)),
          result = map(model, tidy))  |> 
   unnest(result)
 
@@ -128,51 +181,35 @@ diversity_result |>
 
 ```
 
-Species richness and diversity increase for the NB treatment, but not for the other treatments.
+There is no difference in species diversity and evenness with elevation or the treatments.
 
-
-**Check model assumptions**
-
-To check if the model assumptions are met, we will use the *performance package*.
-
-
-
-```{r, test-model-assumption, eval=FALSE}
-
-richness <- diversity_index |> 
-  filter(index == "richness")
-
-fit <- lm(value ~ elevation * treatment, data = richness)
-
-plot <- check_model(fit)
-
-plot
-
-```
-
-
-**Diversity change with elevation**
 
 We can plot the diversity indices across elevation.
 
 
-```{r, plot-diversity}
+```{r}
+#| label: plot-diversity
 
-diversity_index %>%
+diversity_index  |> 
   ggplot(aes(x = elevation, y = value, colour = treatment, fill = treatment)) +
   geom_point(alpha = 0.4) +
   geom_smooth(method = "lm", formula = "y ~ x", alpha = 0.2) +
-  scale_colour_manual("Treatment", values = puna_treatment_colour$colour[1:3]) +
-  scale_fill_manual("Treatment", values = puna_treatment_colour$colour[1:3]) +
+  scale_colour_manual(name = "Treatment", 
+                      labels = c("Control", "Burn"), 
+                      values = puna_treatment_colour$colour[1:3]) +
+  scale_fill_manual(name = "Treatment", 
+                    values = puna_treatment_colour$colour[1:3]) +
   labs(x = "Elevation m a.s.l", y = "") +
   guides(linetype = "none",
          fill = "none",
          colour = guide_legend(override.aes = list(fill = NA))) +
-  facet_wrap( ~ index, scales = "free_y")
+  facet_wrap( ~ index, scales = "free_y") +
+  theme_bw()
 
 ```
 
-Discuss restuls...
+Species richness increases with elevation, and more so in the burnt plots.
+However, there is no change in species diversity or evenness with elevation or treatment.
 
 
 ## Multivariate analysis - NMDS ordination
@@ -184,16 +221,20 @@ A NMDS collapses information from multiple dimensions to a few dimensions.
 This allows to visualise the data more easily.
 
 An NMDS can be done using the `metaMDS()` function form the *vegan package*.
+First, we make the dataframe wide using `pivot_wider()` and use the argument `values_fill = 0`, because there cannot be NAs in the data.
+For the NMDS we will only need the species table, but not other variables like year, site etc. so we only select the species.
 
-```{r, nmds}
+Then we run the NMDS.
 
-cover_fat <- comm %>%
-  select(-family, -functional_group, -c(burn_year:course)) %>%
-  arrange(year, season, month) %>%
-  pivot_wider(names_from = "taxon", values_from = "cover", values_fill = 0) %>%
-  ungroup()
+```{r}
+#| label: nmds
 
-cover_fat_spp <- cover_fat %>% select(-(year:plot_id))
+cover_fat <- comm  |> 
+  dplyr::select(-family, -functional_group, -c(burn_year:course))  |> 
+  tidyr::pivot_wider(names_from = "taxon", values_from = "cover", values_fill = 0)
+
+cover_fat_spp <- cover_fat  |>
+  dplyr::select(-(year:plot_id))
 
 set.seed(32)
 NMDS <- metaMDS(cover_fat_spp,
@@ -201,52 +242,33 @@ NMDS <- metaMDS(cover_fat_spp,
                 try = 30,
                 trace = 0)
 
-fNMDS <- fortify(NMDS) %>%
-  filter(Score == "sites") %>%
-  bind_cols(cover_fat %>% select(year:plot_id))
+fNMDS <- fortify(NMDS)  |> 
+  dplyr::filter(Score == "sites")  |> 
+  dplyr::bind_cols(cover_fat  |>  
+              dplyr::select(year:plot_id))
 
 ```
 
 
-Check stress... (explain what it is and why it is done)
+When doing an NMDS one has to choose the number of dimensions to show.
+This can be done by running the NMDS with different dimensions and then plotting this against the stress.
+A stress values around 0.1 are considered good.
 
+In this case the stress with 2 dimensions is still a bit high, but on the other hand showing 3 dimensions of an NMDS is usually not very useful.
 
-```{r, stressplot-code, eval=FALSE}
+```{r}
+#| label: stressplot-code
+#| eval: false
 
-  NMDS_1 <-  metaMDS(cover_fat_spp, noshare = TRUE, try = 30, k = 1)
-  NMDS_2 <-  metaMDS(cover_fat_spp, noshare = TRUE, try = 30, k = 2)
-  NMDS_3 <-  metaMDS(cover_fat_spp, noshare = TRUE, try = 30, k = 3)
-  NMDS_4 <-  metaMDS(cover_fat_spp, noshare = TRUE, try = 30, k = 4)
-  NMDS_5 <-  metaMDS(cover_fat_spp, noshare = TRUE, try = 30, k = 5)
-  NMDS_6 <-  metaMDS(cover_fat_spp, noshare = TRUE, try = 30, k = 6)
+stress <- map(.x = 1:5, ~metaMDS(cover_fat_spp, k = .x)) |> 
+  map_dbl("stress")
 
 tibble(
-    stress = c(NMDS_1$stress, NMDS_2$stress, NMDS_3$stress, NMDS_4$stress, NMDS_5$stress, NMDS_6$stress),
-    dimensions = c(1:6)) %>%
+    stress = stress,
+    dimensions = c(1:5))  |> 
     ggplot(aes(x = dimensions, y = stress)) +
     geom_point()
 ```
-
-
-```{r, stressplot-calc, include=FALSE}
-
-  NMDS_1 <-  metaMDS(cover_fat_spp, noshare = TRUE, try = 30, k = 1)
-  NMDS_2 <-  metaMDS(cover_fat_spp, noshare = TRUE, try = 30, k = 2)
-  NMDS_3 <-  metaMDS(cover_fat_spp, noshare = TRUE, try = 30, k = 3)
-  NMDS_4 <-  metaMDS(cover_fat_spp, noshare = TRUE, try = 30, k = 4)
-  NMDS_5 <-  metaMDS(cover_fat_spp, noshare = TRUE, try = 30, k = 5)
-  NMDS_6 <-  metaMDS(cover_fat_spp, noshare = TRUE, try = 30, k = 6)
-
-tibble(
-    stress = c(NMDS_1$stress, NMDS_2$stress, NMDS_3$stress, NMDS_4$stress, NMDS_5$stress, NMDS_6$stress),
-    dimensions = c(1:6)) %>%
-    ggplot(aes(x = dimensions, y = stress)) +
-    geom_point() +
-    ylim(0, NA)
-```
-
-Discuss the results of the stress plot and what desicion is taken. How many dimesions are chosen.
-
 
 **Visualise**
 
@@ -254,20 +276,21 @@ The output of an ordination can be visualised.
 
 ```{r, plot-nmds}
 
-fortify(fNMDS) %>%
-  mutate(treatment = factor(treatment, levels = c("C", "B", "NB")),
+fortify(fNMDS)  |> 
+  mutate(treatment = factor(treatment, levels = c("C", "B")),
          site = factor(site, levels = c("WAY", "ACJ", "PIL", "TRE", "QUE", "OCC")),
          season = if_else(season == "dry_season",
                           "Dry season",
-                          "Wet season")) %>%
+                          "Wet season"))  |> 
   ggplot(aes(x = NMDS1, y = NMDS2, colour = site, shape = treatment)) +
   geom_point() +
   scale_colour_manual("Site", values = puna_site_colour$colour) +
-  scale_shape_manual("Treatment", values=c(16, 5, 6)) +
+  scale_shape_manual("Treatment", values=c(16, 5)) +
   coord_equal() +
   facet_wrap(~ season)
 
 ```
 
 
-Discuss results.
+The NMDS shows that the species plant composition differs among the sites, meaning that there is species turnover along the elevaitonal gradient.
+However, there seems not to be much difference between the treatments or the season.
