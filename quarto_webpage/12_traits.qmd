@@ -1,0 +1,240 @@
+---
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
+
+```{r, setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+library(tidyverse)
+library(traitstrap)
+library(vegan)
+library(vegan)
+library(ggvegan)
+library(broom)
+library(glue)
+library(patchwork)
+library(kableExtra)
+
+```
+
+
+# Plant functional trait data
+
+For this tutorial we will use the follwoing packages: *tidyverse*, *vegan*, *ggvegan* and *broom*, *traitstrap*, *patchwork* and *glue*.
+
+
+## The data and import
+
+We will use the data from PFTC4 from Svalbard.
+For more information about the data see @sec-data-cutation for more information.
+
+We will need to import the trait and community data.
+
+```{r}
+#| label: import-data
+#| echo: true
+#| eval: false
+
+community <- read_csv("data/PFTC4_Svalbard_2018_Community_Gradient.csv")
+raw_traits <- read_csv("data/PFTC4_Svalbard_2018_Gradient_Traits.csv")
+
+```
+
+```{r}
+#| label: import-data-real
+#| echo: false
+
+community <- read_csv("data/PFTC4_Svalbard_2018_Community_Gradient.csv") |> 
+  distinct()
+  
+raw_traits <- read_csv("data/PFTC4_Svalbard_2018_Gradient_Traits.csv") |> 
+  # remove bryo
+  filter(Project != "Bryophytes") |> 
+  # remove some traits
+  filter(!Trait %in% c("Wet_Mass_g", "Dry_Mass_g", "Leaf_Area_cm2", "CN_ratio", "P_percent", "NP_ratio", "dC13_permil", "dN15_permil"))
+  
+
+```
+
+The dataset has 11345 rows and 15 columns and a number of numeric, character and date variables.
+It contains measurements of 14 traits from two elevational gradients on Svalbard.
+The traits were measured on individual plants from 21 different graminoid and forb species.
+For more information about the sites, traits and measurements see [here](https://github.com/Plant-Functional-Trait-Course/PFTC_4_Svalbard).
+
+
+## Prepare data
+
+For the trait data we need to do some preparation.
+We want to log transform all the size traits and rename them.
+And we want to order the traits, for later when visualising.
+Note that some traits where removed.
+
+```{r}
+#| label: prep-data
+#| echo: true
+
+traits <- raw_traits |> 
+  mutate(Value_log = if_else(Trait %in% c(
+    "Plant_Height_cm",
+    "Leaf_Thickness_mm"), log(Value), Value),
+    Trait = recode(Trait,
+                   "Plant_Height_cm" = "Plant_Height_cm_log",
+                   "Leaf_Thickness_mm" = "Thickness_mm_log")) |> 
+      # order traits
+      mutate(Trait = factor(Trait, levels = c("Plant_Height_cm_log", "Thickness_mm_log", "LDMC", "SLA_cm2_g", "C_percent", "N_percent")))
+
+```
+
+
+## Bootstrapping
+
+Then we do the bootstrapping, see @sec-bootstrap for details.
+
+
+```{r}
+#| label: bootstrap
+#| echo: true
+
+trait_imp <- trait_impute(comm = community,
+                            traits = traits,
+                            scale_hierarchy = c("Gradient", "Site", "Elevation_m", "PlotID"),
+                            global = F,
+                            taxon_col = "Taxon",
+                            trait_col = "Trait",
+                            value_col = "Value",
+                            abundance_col = "Cover",
+                            min_n_in_sample = 2)
+
+CWM <- trait_np_bootstrap(trait_imp, nrep = 100, sample_size = 200)
+
+CWM_moments <- trait_summarise_boot_moments(CWM)
+CWM_moments
+
+```
+
+
+## Trait values along elevation
+
+Let's plot the boostraped mean trait values for each gradient (nutrient and control).
+
+```{r}
+
+CWM_moments |> 
+  ggplot(aes(x = Elevation_m, y = mean, colour = Gradient, fill = Gradient)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  scale_colour_manual(values = c("green4", "grey"),
+                      labels = c("Nutrients", "Control")) +
+    scale_fill_manual(values = c("green4", "grey"),
+                      labels = c("Nutrients", "Control")) +
+  facet_wrap(~ Trait, scales = "free") +
+  theme_bw()
+
+
+```
+
+There are some differences in traits along the two gradients, with taller, thicker leaves and higher N values at the bird cliff gradient (nutrient input by sea birds).
+
+Let's test if this is the case.
+
+
+```{r}
+#| label: test-traits
+#| 
+trait_result <- CWM_moments  |> 
+  dplyr::mutate(Gradient = factor(Gradient, levels = c("C", "B"))) |> 
+  dplyr::group_by(Trait)  |> 
+  nest(data = -c(Trait))  |> 
+  dplyr::mutate(model = map(data, ~lm(mean ~ Elevation_m * Gradient, data = .x)),
+         result = map(model, tidy))  |> 
+  unnest(result)
+
+trait_result |> 
+  select(Trait, term:p.value) |> 
+  kbl(digits = 2)
+        
+
+```
+
+Plant height and leaf thickness increase with elevation, but only in the bird cliff.
+LDMC decreases with elevation, but more along the bird cliff gradient.
+SLA increases with elevation and also more along the bird cliff.
+Leaf carbon decreases with elevation but does not differ between the gradients.
+And finally, leaf nitrogen does not change with elevation, but is higher at the bird cliff.
+
+
+
+## Trait ordination (PCA)
+
+We can also look at the traits in a multivariate space, for example by doing a principle component analysis (PCA).
+
+
+```{r}
+#| label: trait pca
+
+
+# make wide trait table
+  cwm_fat <- CWM_moments %>%
+    group_by(Site) %>%
+    mutate(Mean_elevation = mean(Elevation_m),
+           GS = paste0(Gradient, Site)) %>%
+    select(Gradient:mean, Mean_elevation, GS) %>%
+    pivot_wider(names_from = "Trait", values_from = "mean") %>%
+    ungroup()
+
+  pca_output <- cwm_fat %>%
+    select(-(Gradient:GS)) %>%
+    rda(scale = TRUE)
+
+  pca_sites <- bind_cols(
+    cwm_fat %>%
+      select(Gradient:GS),
+    fortify(pca_output, display = "sites")
+  )
+
+  pca_traits <- fortify(pca_output, display = "species") %>%
+    mutate(Trait = Label)
+    
+```
+
+
+    
+    
+```{r}
+#| label: trait-pca
+#| fig-cap: Functional community composition for vascular plants based on PCA-analysis for the bird cliff with nutrient input and control. Traits loadings were plotted as vectors (arrows). Trait vectors moving in a similar plane indicate trait correlations (same direction) and trade-offs (opposite direction), while perpendicular vectors indicate that traits are uncorrelated.
+
+
+# get eigenvalues
+e_B <- eigenvals(pca_output)/sum(eigenvals(pca_output))
+
+pca_sites |> 
+  ggplot(aes(x = PC1, y = PC2, 
+             colour = Mean_elevation, linetype = Gradient, shape = Gradient, group = GS)) +
+    geom_point(size = 2) +
+    geom_segment(data = pca_traits,
+               aes(x = 0, y = 0, xend = PC1, yend = PC2),
+               arrow = arrow(length = unit(0.2, "cm")),
+               colour = "grey50",
+               inherit.aes = FALSE) +
+    geom_text(data = pca_traits,
+              aes(x = PC1 * 1.1,y = PC2 * 1.1, label = Trait),
+              size = 2.5,
+              inherit.aes = FALSE, colour = "black") +
+    coord_equal() +
+    stat_ellipse(aes(colour = Mean_elevation)) +
+    scale_colour_viridis_c(end = 0.8, option = "inferno", direction = -1, name = "Elevation m a.s.l.") +
+  scale_shape_manual(values = c(16, 1)) +
+    labs(x = glue("PCA1 ({round(e_B[1] * 100, 1)}%)"),
+         y = glue("PCA1 ({round(e_B[2] * 100, 1)}%)")) +
+  facet_grid(~ Gradient) +
+    theme_bw()
+
+  
+```
+    

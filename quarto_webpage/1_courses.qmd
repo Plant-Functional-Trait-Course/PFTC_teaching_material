@@ -21,6 +21,7 @@ All flights to Bergen should be scheduled to arrive at the latest on 22nd of Jul
 #| label: fig-pftc6
 #| fig-cap: "The fjords in Aurland in Western Norway."
 #| fig-alt: "A photo of the fjord in Aurland in Western Norway."
+#| echo: false
 
 knitr::include_graphics('images/sites/aurland.jpg')
 ```
