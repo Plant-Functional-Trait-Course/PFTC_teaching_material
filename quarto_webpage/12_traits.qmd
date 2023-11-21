@@ -100,7 +100,7 @@ Then we do the bootstrapping, see @sec-bootstrap for details.
 #| label: bootstrap
 #| echo: true
 
-trait_imp <- trait_impute(comm = community,
+trait_imp <- trait_fill(comm = community,
                             traits = traits,
                             scale_hierarchy = c("Gradient", "Site", "Elevation_m", "PlotID"),
                             global = F,
@@ -198,7 +198,7 @@ We can also look at the traits in a multivariate space, for example by doing a p
   )
 
   pca_traits <- fortify(pca_output, display = "species") %>%
-    mutate(Trait = Label)
+    mutate(Trait = label)
     
 ```
 

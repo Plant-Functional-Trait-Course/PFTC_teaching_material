@@ -137,7 +137,7 @@ trait
 
 ## Trait imputation
 
-The `trait_impute` function uses a hierarchical sampling design, which allows to account for incomplete trait collections, traits from different spatial or temporal levels (i.e. local traits vs. databases), different taxonomic resolution and/or experimental design. 
+The `trait_fill` function uses a hierarchical sampling design, which allows to account for incomplete trait collections, traits from different spatial or temporal levels (i.e. local traits vs. databases), different taxonomic resolution and/or experimental design. 
 
 The first two mandatory arguments in the function are the two datasets:
 `comm` and `traits`
@@ -154,7 +154,7 @@ All the other arguments are not mandatory.
 With `scale_hierarchy` you can define the levels at which the traits have been collected and the order of trait imputation starting with the highest level (e.g. global database, regional, site, plot).
 In the example below we have the levels **Site** and **PlotID**, starting with the highest level.
 
-The `trait_impute` function will choose if available a trait value from the lowest level, i.e. species X from plot A in site 1.
+The `trait_fill` function will choose if available a trait value from the lowest level, i.e. species X from plot A in site 1.
 If no trait value is available from that level (plot A, site 1), it will other groups in the same level and choose a trait value from species X from plot B or C at site 1.
 If there is no trait available, it will move up the hierarchy to the next level and choose trait values from species X from other sites (site 2, 3, etc.).
 
@@ -166,7 +166,7 @@ In the `other_col` argument other grouping variables in the community dataset ca
 
 
 ```{r trait-impute, echo=TRUE, eval=TRUE}
-trait_imputation <- trait_impute(
+trait_imputation <- trait_fill(
     # input data (mandatory)
     comm = community,
     traits = trait,
@@ -203,7 +203,7 @@ Depending on the experimental design it might make sense to impute traits at a c
 Here is an example how to include taxonomy and experimental design in the trait imputation function (code not run).
 
 ```{r trait-impute2, echo=TRUE, eval=FALSE}
-trait_imputation2 <- trait_impute(
+trait_imputation2 <- trait_fill(
     comm = community,
     traits = trait,
     
@@ -279,7 +279,7 @@ Traitstrap also offers the option to run a **parametric bootstrapping**.
 The `trait_fit_distributions` function fits parametric distributions for each species-by-trait combination at the finest scale of the user-supplied hierarchy. 
 This function takes as input:
 
-* an object of class imputed traits (as produced by the function `trait_impute`), and 
+* an object of class imputed traits (as produced by the function `trait_fill`), and 
 * the type of distribution to be fitted.
 
 Either a single distribution type can be used for all traits, or traits can be assigned specific distributions types by supplying the function with a named list of traits (e.g. `list(height = "normal", mass = "lognormal")`).
