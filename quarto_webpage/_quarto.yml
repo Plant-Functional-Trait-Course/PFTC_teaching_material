@@ -16,11 +16,11 @@ book:
     - part: "PFTC courses"
       chapters:
       - 1_courses.qmd
-    - part: "The study system"
-      chapters:
-      - 2_study_system.qmd
-      - 3_three_d.qmd
-      - 4_incline.qmd
+    # - part: "The study system"
+    #   chapters:
+    #   - 2_study_system.qmd
+    #   - 3_three_d.qmd
+    #   - 4_incline.qmd
     - part: "Trait data collection"
       chapters:
       - 5_trait_collection.qmd
@@ -33,7 +33,7 @@ book:
       - 8_reproducible.qmd
       - 9_data_curation.qmd
       - 10_community.qmd
-      - 11_bootstrap.qmd
+      #- 11_bootstrap.qmd
       - 12_traits.qmd
 
 bibliography: bibliography.bib
