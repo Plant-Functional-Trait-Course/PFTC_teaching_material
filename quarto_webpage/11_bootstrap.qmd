@@ -90,7 +90,8 @@ community <- community %>%
                            Taxon == "oxyria digyna" ~ "oxyria tanyna",
                            Taxon == "silene acaulis" ~ "silene acaudis",
                            TRUE ~ Taxon
-                           ))
+                           )) |> 
+  mutate(Site = as.character(Site))
 trait <- trait %>% 
   mutate(Taxon = case_when(Taxon == "equisetum scirpoides" ~ "enquistetum scirpoides",
                            Taxon == "micranthes hieracifolia" ~ "maitneranthes hieracifolia",
@@ -291,7 +292,7 @@ The function returns a dataframe containing fitted distribution parameters.
 ```{r fit-dist, echo=TRUE, eval=TRUE}
 # fit distributions
 fitted_distributions <- trait_fit_distributions(
-  imputed_traits = trait_imputation,
+  filled_traits = trait_imputation,
   distribution_type = "lognormal"
   )
 fitted_distributions
@@ -301,7 +302,7 @@ fitted_distributions
 ```{r fit-dist2, echo=TRUE, eval=FALSE}
 # fit several types of distributions
 fitted_distributions <- trait_fit_distributions(
-  imputed_traits = trait_imputation,
+  filled_traits = trait_imputation,
   distribution_type = list(Plant_Height_cm = "normal", Wet_Mass_g = "lognormal")
   )
 fitted_distributions
@@ -378,7 +379,7 @@ Traitstrap has a function `trait_missing` which gives you a table with all missi
 
 ```{r missing-traits, echo=TRUE, eval=TRUE}
 # list missing traits
-trait_missing(imputed_trait = trait_imputation,
+trait_missing(filled_trait = trait_imputation,
               comm = community)
 ```
 
