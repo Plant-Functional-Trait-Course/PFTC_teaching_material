@@ -7,22 +7,22 @@
 <path d="M 500.00 500.00 m -452.00 0 a 452.00 452.00 0 1 0 904.00 0 a 452.00 452.00 0 1 0 -904.00 0 M 500.00 500.00 m -404.00 0 a 404.00 404.00 0 1 1 808.00 0 a 404.00 404.00 0 1 1 -808.00 0 Z" fill="#d4cdc2" fill-rule="evenodd"/>
 <circle cx="500.00" cy="500.00" r="452.00" fill="none" stroke="#b7ad9f" stroke-width="1.15"/>
 <circle cx="500.00" cy="500.00" r="404.00" fill="none" stroke="#f3eee6" stroke-width="2.2"/>
-<a class="dlc-course" href="#ecology-field-courses" aria-label="Ecology &amp; Field Courses"><title>Ecology &amp; Field Courses</title>
+<a class="dlc-course" href="1_courses.html" aria-label="Ecology &amp; Field Courses"><title>Ecology &amp; Field Courses</title>
 <path d="M 383.01 63.40 A 452.00 452.00 0 0 1 819.61 180.39 L 785.67 214.33 A 404.00 404.00 0 0 0 395.44 109.77 Z" fill="#2C5A4C" pointer-events="none"/>
 <path class="dlc-hit" d="M 383.01 63.40 A 452.00 452.00 0 0 1 819.61 180.39 L 785.67 214.33 A 404.00 404.00 0 0 0 395.44 109.77 Z"/>
 <path id="dlc-course-path-ecology" d="M 390.72 92.15 A 422.24 422.24 0 0 1 798.57 201.43" fill="none" stroke="none"/><text font-size="16" font-weight="600" fill="#f6f1e6" letter-spacing="0.6" text-anchor="middle"><textPath xlink:href="#dlc-course-path-ecology" href="#dlc-course-path-ecology" startOffset="50%">Ecology &amp; Field Courses</textPath></text>
 </a>
-<a class="dlc-course" href="#stats-courses" aria-label="Stats Courses"><title>Stats Courses</title>
+<a class="dlc-course" href="7_biostats.html" aria-label="Stats Courses"><title>Stats Courses</title>
 <path d="M 616.99 936.60 A 452.00 452.00 0 0 1 383.01 936.60 L 395.44 890.23 A 404.00 404.00 0 0 0 604.56 890.23 Z" fill="#865E27" pointer-events="none"/>
 <path class="dlc-hit" d="M 616.99 936.60 A 452.00 452.00 0 0 1 383.01 936.60 L 395.44 890.23 A 404.00 404.00 0 0 0 604.56 890.23 Z"/>
 <path id="dlc-course-path-stats" d="M 387.73 918.98 A 433.76 433.76 0 0 0 612.27 918.98" fill="none" stroke="none"/><text font-size="16" font-weight="600" fill="#f6f1e6" letter-spacing="0.6" text-anchor="middle"><textPath xlink:href="#dlc-course-path-stats" href="#dlc-course-path-stats" startOffset="50%">Stats Courses</textPath></text>
 </a>
-<a class="dlc-course" href="#reports-stats" aria-label="Reports, Stats"><title>Reports, Stats</title>
+<a class="dlc-course" href="8_reproducible.html" aria-label="Reports, Stats"><title>Reports, Stats</title>
 <path d="M 180.39 819.61 A 452.00 452.00 0 0 1 63.40 616.99 L 109.77 604.56 A 404.00 404.00 0 0 0 214.33 785.67 Z" fill="#7E545B" pointer-events="none"/>
 <path class="dlc-hit" d="M 180.39 819.61 A 452.00 452.00 0 0 1 63.40 616.99 L 109.77 604.56 A 404.00 404.00 0 0 0 214.33 785.67 Z"/>
 <path id="dlc-course-path-reports" d="M 81.02 612.27 A 433.76 433.76 0 0 0 193.29 806.71" fill="none" stroke="none"/><text font-size="16" font-weight="600" fill="#f6f1e6" letter-spacing="0.6" text-anchor="middle"><textPath xlink:href="#dlc-course-path-reports" href="#dlc-course-path-reports" startOffset="50%">Reports, Stats</textPath></text>
 </a>
-<a class="dlc-phase" href="#process" aria-label="PROCESS"><title>PROCESS</title>
+<a class="dlc-phase" href="9_data_curation.html" aria-label="PROCESS"><title>PROCESS</title>
 <path d="M 775.24 220.89 A 392.00 392.00 0 0 1 793.82 240.51 L 673.89 346.42 A 232.00 232.00 0 0 0 662.90 334.81 Z" fill="#719158" stroke="#719158" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"/>
 <path d="M 788.78 234.92 A 392.00 392.00 0 0 1 807.00 256.24 L 681.69 355.74 A 232.00 232.00 0 0 0 670.91 343.11 Z" fill="#759257" stroke="#759257" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"/>
 <path d="M 802.26 250.39 A 392.00 392.00 0 0 1 819.33 272.64 L 688.99 365.44 A 232.00 232.00 0 0 0 678.89 352.27 Z" fill="#789455" stroke="#789455" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"/>
@@ -78,7 +78,7 @@
 <path class="dlc-hit" d="M 659.53 357.36 A 214.00 214.00 0 0 1 456.24 709.48 L 464.42 670.32 A 174.00 174.00 0 0 0 629.71 384.02 Z"/>
 <path id="dlc-phase-path-process-1" d="M 458.71 697.65 A 201.92 201.92 0 0 0 650.53 365.41" fill="none" stroke="none"/><text font-size="22" font-weight="600" fill="#f6f1e6" letter-spacing="2.2" text-anchor="middle"><textPath xlink:href="#dlc-phase-path-process-1" href="#dlc-phase-path-process-1" startOffset="50%">PROCESS</textPath></text>
 </a>
-<a class="dlc-phase" href="#share" aria-label="SHARE"><title>SHARE</title>
+<a class="dlc-phase" href="8_reproducible.html" aria-label="SHARE"><title>SHARE</title>
 <path d="M 401.19 879.34 A 392.00 392.00 0 0 1 375.29 871.63 L 426.19 719.95 A 232.00 232.00 0 0 0 441.52 724.51 Z" fill="#B9774E" stroke="#B9774E" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"/>
 <path d="M 382.45 873.96 A 392.00 392.00 0 0 1 356.01 864.60 L 414.78 715.78 A 232.00 232.00 0 0 0 430.43 721.32 Z" fill="#B87556" stroke="#B87556" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"/>
 <path d="M 363.04 867.30 A 392.00 392.00 0 0 1 337.13 856.56 L 403.61 711.03 A 232.00 232.00 0 0 0 418.94 717.38 Z" fill="#B6745E" stroke="#B6745E" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"/>
@@ -114,7 +114,7 @@
 <path class="dlc-hit" d="M 433.16 703.29 A 214.00 214.00 0 0 1 290.52 456.24 L 329.68 464.42 A 174.00 174.00 0 0 0 445.65 665.30 Z"/>
 <path id="dlc-phase-path-share-2" d="M 302.35 458.71 A 201.92 201.92 0 0 0 436.93 691.82" fill="none" stroke="none"/><text font-size="22" font-weight="600" fill="#f6f1e6" letter-spacing="2.2" text-anchor="middle"><textPath xlink:href="#dlc-phase-path-share-2" href="#dlc-phase-path-share-2" startOffset="50%">SHARE</textPath></text>
 </a>
-<a class="dlc-phase" href="#reuse" aria-label="RE-USE"><title>RE-USE</title>
+<a class="dlc-phase" href="6_pftc_data.html" aria-label="RE-USE"><title>RE-USE</title>
 <path d="M 120.66 401.19 A 392.00 392.00 0 0 1 128.37 375.29 L 280.05 426.19 A 232.00 232.00 0 0 0 275.49 441.52 Z" fill="#60617A" stroke="#60617A" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"/>
 <path d="M 126.04 382.45 A 392.00 392.00 0 0 1 135.40 356.01 L 284.22 414.78 A 232.00 232.00 0 0 0 278.68 430.43 Z" fill="#59627B" stroke="#59627B" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"/>
 <path d="M 132.70 363.04 A 392.00 392.00 0 0 1 143.44 337.13 L 288.97 403.61 A 232.00 232.00 0 0 0 282.62 418.94 Z" fill="#52647C" stroke="#52647C" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"/>
@@ -130,7 +130,7 @@
 <path class="dlc-hit" d="M 296.71 433.16 A 214.00 214.00 0 0 1 340.47 357.36 L 370.29 384.02 A 174.00 174.00 0 0 0 334.70 445.65 Z"/>
 <path id="dlc-phase-path-reuse-3" d="M 321.86 441.43 A 187.52 187.52 0 0 1 360.21 375.01" fill="none" stroke="none"/><text font-size="18" font-weight="600" fill="#f6f1e6" letter-spacing="0.5" text-anchor="middle"><textPath xlink:href="#dlc-phase-path-reuse-3" href="#dlc-phase-path-reuse-3" startOffset="50%">RE-USE</textPath></text>
 </a>
-<a class="dlc-phase" href="#create" aria-label="CREATE"><title>CREATE</title>
+<a class="dlc-phase" href="5_trait_collection.html" aria-label="CREATE"><title>CREATE</title>
 <path d="M 220.89 224.76 A 392.00 392.00 0 0 1 240.51 206.18 L 346.42 326.11 A 232.00 232.00 0 0 0 334.81 337.10 Z" fill="#3E6E6F" stroke="#3E6E6F" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"/>
 <path d="M 234.92 211.22 A 392.00 392.00 0 0 1 256.24 193.00 L 355.74 318.31 A 232.00 232.00 0 0 0 343.11 329.09 Z" fill="#3E6F6C" stroke="#3E6F6C" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"/>
 <path d="M 250.39 197.74 A 392.00 392.00 0 0 1 272.64 180.67 L 365.44 311.01 A 232.00 232.00 0 0 0 352.27 321.11 Z" fill="#3E716A" stroke="#3E716A" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"/>
@@ -178,84 +178,84 @@
 <g pointer-events="none"><path d="M 193.82 440.02 A 312.00 312.00 0 0 1 199.23 417.06" fill="none" stroke="#847C73" stroke-width="6.0" stroke-linecap="round" stroke-opacity="0.35"/><path d="M 193.82 440.02 A 312.00 312.00 0 0 1 199.23 417.06" fill="none" stroke="#f6f1e6" stroke-width="3.6" stroke-linecap="round"/><path d="M 204.85 398.85 L 190.36 414.61 L 208.10 419.51 Z" fill="#f6f1e6" stroke="#847C73" stroke-width="0.7" stroke-linejoin="round"/></g>
 <g pointer-events="none"><path d="M 264.83 294.97 A 312.00 312.00 0 0 1 280.99 277.78" fill="none" stroke="#847C73" stroke-width="6.0" stroke-linecap="round" stroke-opacity="0.35"/><path d="M 264.83 294.97 A 312.00 312.00 0 0 1 280.99 277.78" fill="none" stroke="#f6f1e6" stroke-width="3.6" stroke-linecap="round"/><path d="M 294.97 264.83 L 274.53 271.23 L 287.45 284.34 Z" fill="#f6f1e6" stroke="#847C73" stroke-width="0.7" stroke-linejoin="round"/></g>
 <g pointer-events="none"><path d="M 398.85 204.85 A 312.00 312.00 0 0 1 421.44 198.05" fill="none" stroke="#847C73" stroke-width="6.0" stroke-linecap="round" stroke-opacity="0.35"/><path d="M 398.85 204.85 A 312.00 312.00 0 0 1 421.44 198.05" fill="none" stroke="#f6f1e6" stroke-width="3.6" stroke-linecap="round"/><path d="M 440.02 193.82 L 419.12 189.15 L 423.76 206.96 Z" fill="#f6f1e6" stroke="#847C73" stroke-width="0.7" stroke-linejoin="round"/></g>
-<a class="dlc-stage" href="#plan" aria-label="Plan"><title>Plan</title>
+<a class="dlc-stage" href="1_courses.html" aria-label="Plan"><title>Plan</title>
 <g transform="translate(344.00 229.80)">
 <circle class="dlc-bubble" r="52.00" fill="#fbf7f1" stroke="#7d6a5c" stroke-width="2.15" filter="url(#dlc-shadow)"/>
 <circle class="dlc-keyline" r="46.50" fill="none" stroke="#7d6a5c" stroke-width="0.9" pointer-events="none"/>
 <g transform="translate(-17.28 -31.28) scale(1.080)" pointer-events="none"><g fill="none" stroke="#4a4038" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="7" width="14" height="19" rx="2"/><path d="M13 7.2 v-1.2 a2 2 0 0 1 2 -2 h2 a2 2 0 0 1 2 2 v1.2"/><path d="M13 14 h6 M13 18 h6 M13 22 h4"/></g></g>
 <text y="20" text-anchor="middle" font-size="15" font-weight="500" letter-spacing="0.2" fill="#3e342c">Plan</text>
 </g></a>
-<a class="dlc-stage" href="#design" aria-label="Design"><title>Design</title>
+<a class="dlc-stage" href="5_trait_collection.html" aria-label="Design"><title>Design</title>
 <g transform="translate(500.00 188.00)">
 <circle class="dlc-bubble" r="52.00" fill="#fbf7f1" stroke="#7d6a5c" stroke-width="2.15" filter="url(#dlc-shadow)"/>
 <circle class="dlc-keyline" r="46.50" fill="none" stroke="#7d6a5c" stroke-width="0.9" pointer-events="none"/>
 <g transform="translate(-17.28 -31.28) scale(1.080)" pointer-events="none"><g fill="none" stroke="#4a4038" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><path d="M7 9 h9 v15 h-9 z"/><path d="M16 7 l7 7 -8 8 h-4 v-4 z"/><path d="M18.2 9.2 l4.6 4.6"/></g></g>
 <text y="20" text-anchor="middle" font-size="15" font-weight="500" letter-spacing="0.2" fill="#3e342c">Design</text>
 </g></a>
-<a class="dlc-stage" href="#collect" aria-label="Collect"><title>Collect</title>
+<a class="dlc-stage" href="5_trait_collection.html#collecting-leaves-in-the-field" aria-label="Collect"><title>Collect</title>
 <g transform="translate(656.00 229.80)">
 <circle class="dlc-bubble" r="52.00" fill="#fbf7f1" stroke="#7d6a5c" stroke-width="2.15" filter="url(#dlc-shadow)"/>
 <circle class="dlc-keyline" r="46.50" fill="none" stroke="#7d6a5c" stroke-width="0.9" pointer-events="none"/>
 <g transform="translate(-17.28 -31.28) scale(1.080)" pointer-events="none"><g fill="none" stroke="#4a4038" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="5" width="16" height="22" rx="2"/><path d="M13 5 v22"/><path d="M16.5 11 h5 M16.5 15 h5 M16.5 19 h4"/></g></g>
 <text y="20" text-anchor="middle" font-size="15" font-weight="500" letter-spacing="0.2" fill="#3e342c">Collect</text>
 </g></a>
-<a class="dlc-stage" href="#digitize" aria-label="Digitize"><title>Digitize</title>
+<a class="dlc-stage" href="5_trait_collection.html#data-entry" aria-label="Digitize"><title>Digitize</title>
 <g transform="translate(770.20 344.00)">
 <circle class="dlc-bubble" r="52.00" fill="#fbf7f1" stroke="#7d6a5c" stroke-width="2.15" filter="url(#dlc-shadow)"/>
 <circle class="dlc-keyline" r="46.50" fill="none" stroke="#7d6a5c" stroke-width="0.9" pointer-events="none"/>
 <g transform="translate(-17.28 -31.28) scale(1.080)" pointer-events="none"><g fill="none" stroke="#4a4038" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20 h20 v5 a2 2 0 0 1 -2 2 h-16 a2 2 0 0 1 -2 -2 z"/><path d="M10 20 v-9 h12 v9"/><path d="M9 23.5 h14"/></g></g>
 <text y="20" text-anchor="middle" font-size="15" font-weight="500" letter-spacing="0.2" fill="#3e342c">Digitize</text>
 </g></a>
-<a class="dlc-stage" href="#import" aria-label="Import"><title>Import</title>
+<a class="dlc-stage" href="9_data_curation.html#import-data" aria-label="Import"><title>Import</title>
 <g transform="translate(812.00 500.00)">
 <circle class="dlc-bubble" r="52.00" fill="#fbf7f1" stroke="#7d6a5c" stroke-width="2.15" filter="url(#dlc-shadow)"/>
 <circle class="dlc-keyline" r="46.50" fill="none" stroke="#7d6a5c" stroke-width="0.9" pointer-events="none"/>
 <g transform="translate(-17.28 -31.28) scale(1.080)" pointer-events="none"><g fill="none" stroke="#4a4038" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 h8 l2 2 h14 v12 h-24 z"/><path d="M16 15 v8"/><path d="M12.8 19.5 l3.2 3.2 l3.2 -3.2"/></g></g>
 <text y="20" text-anchor="middle" font-size="15" font-weight="500" letter-spacing="0.2" fill="#3e342c">Import</text>
 </g></a>
-<a class="dlc-stage" href="#clean" aria-label="Clean"><title>Clean</title>
+<a class="dlc-stage" href="9_data_curation.html" aria-label="Clean"><title>Clean</title>
 <g transform="translate(770.20 656.00)">
 <circle class="dlc-bubble" r="52.00" fill="#fbf7f1" stroke="#7d6a5c" stroke-width="2.15" filter="url(#dlc-shadow)"/>
 <circle class="dlc-keyline" r="46.50" fill="none" stroke="#7d6a5c" stroke-width="0.9" pointer-events="none"/>
 <g transform="translate(-17.28 -31.28) scale(1.080)" pointer-events="none"><g fill="none" stroke="#4a4038" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4 L10.5 17"/><path d="M7 20 c2.2 -3.2 4.2 -4.2 6.2 -2.2 c1.6 1.6 4.2 1.2 6.6 -1.6"/><path d="M6.5 23.5 h15"/><path d="M9 19.5 v4 M12.2 18 v5.5 M15.4 17.8 v5.7 M18.4 18.8 v4.7"/></g></g>
 <text y="20" text-anchor="middle" font-size="15" font-weight="500" letter-spacing="0.2" fill="#3e342c">Clean</text>
 </g></a>
-<a class="dlc-stage" href="#processing" aria-label="Process"><title>Process</title>
+<a class="dlc-stage" href="12_traits.html#prepare-data" aria-label="Process"><title>Process</title>
 <g transform="translate(656.00 770.20)">
 <circle class="dlc-bubble" r="52.00" fill="#fbf7f1" stroke="#7d6a5c" stroke-width="2.15" filter="url(#dlc-shadow)"/>
 <circle class="dlc-keyline" r="46.50" fill="none" stroke="#7d6a5c" stroke-width="0.9" pointer-events="none"/>
 <g transform="translate(-17.28 -31.28) scale(1.080)" pointer-events="none"><g><line x1="12.00" y1="8.49" x2="12.00" y2="4.80" stroke="#4a4038" stroke-width="3.44" stroke-linecap="butt"/><line x1="15.19" y1="9.81" x2="17.80" y2="7.20" stroke="#4a4038" stroke-width="3.44" stroke-linecap="butt"/><line x1="16.51" y1="13.00" x2="20.20" y2="13.00" stroke="#4a4038" stroke-width="3.44" stroke-linecap="butt"/><line x1="15.19" y1="16.19" x2="17.80" y2="18.80" stroke="#4a4038" stroke-width="3.44" stroke-linecap="butt"/><line x1="12.00" y1="17.51" x2="12.00" y2="21.20" stroke="#4a4038" stroke-width="3.44" stroke-linecap="butt"/><line x1="8.81" y1="16.19" x2="6.20" y2="18.80" stroke="#4a4038" stroke-width="3.44" stroke-linecap="butt"/><line x1="7.49" y1="13.00" x2="3.80" y2="13.00" stroke="#4a4038" stroke-width="3.44" stroke-linecap="butt"/><line x1="8.81" y1="9.81" x2="6.20" y2="7.20" stroke="#4a4038" stroke-width="3.44" stroke-linecap="butt"/><circle cx="12.00" cy="13.00" r="4.76" fill="#4a4038"/><circle cx="12.00" cy="13.00" r="2.13" fill="#ffffff"/><line x1="22.50" y1="18.48" x2="22.50" y2="15.60" stroke="#4a4038" stroke-width="2.69" stroke-linecap="butt"/><line x1="24.99" y1="19.51" x2="27.03" y2="17.47" stroke="#4a4038" stroke-width="2.69" stroke-linecap="butt"/><line x1="26.02" y1="22.00" x2="28.90" y2="22.00" stroke="#4a4038" stroke-width="2.69" stroke-linecap="butt"/><line x1="24.99" y1="24.49" x2="27.03" y2="26.53" stroke="#4a4038" stroke-width="2.69" stroke-linecap="butt"/><line x1="22.50" y1="25.52" x2="22.50" y2="28.40" stroke="#4a4038" stroke-width="2.69" stroke-linecap="butt"/><line x1="20.01" y1="24.49" x2="17.97" y2="26.53" stroke="#4a4038" stroke-width="2.69" stroke-linecap="butt"/><line x1="18.98" y1="22.00" x2="16.10" y2="22.00" stroke="#4a4038" stroke-width="2.69" stroke-linecap="butt"/><line x1="20.01" y1="19.51" x2="17.97" y2="17.47" stroke="#4a4038" stroke-width="2.69" stroke-linecap="butt"/><circle cx="22.50" cy="22.00" r="3.71" fill="#4a4038"/><circle cx="22.50" cy="22.00" r="1.66" fill="#ffffff"/></g></g>
 <text y="20" text-anchor="middle" font-size="15" font-weight="500" letter-spacing="0.2" fill="#3e342c">Process</text>
 </g></a>
-<a class="dlc-stage" href="#analyse" aria-label="Analyse"><title>Analyse</title>
+<a class="dlc-stage" href="12_traits.html" aria-label="Analyse"><title>Analyse</title>
 <g transform="translate(500.00 812.00)">
 <circle class="dlc-bubble" r="52.00" fill="#fbf7f1" stroke="#7d6a5c" stroke-width="2.15" filter="url(#dlc-shadow)"/>
 <circle class="dlc-keyline" r="46.50" fill="none" stroke="#7d6a5c" stroke-width="0.9" pointer-events="none"/>
 <g transform="translate(-17.28 -31.28) scale(1.080)" pointer-events="none"><g fill="none" stroke="#4a4038" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><path d="M5 26 V13"/><path d="M5 26 H18"/><path d="M8 22 l4 -6 l3.2 2.4 l5 -7"/><circle cx="22.5" cy="11" r="5"/><path d="M26 14.6 L29.5 18.2"/></g></g>
 <text y="20" text-anchor="middle" font-size="15" font-weight="500" letter-spacing="0.2" fill="#3e342c">Analyse</text>
 </g></a>
-<a class="dlc-stage" href="#document" aria-label="Document"><title>Document</title>
+<a class="dlc-stage" href="5_trait_collection.html#data-documentation" aria-label="Document"><title>Document</title>
 <g transform="translate(344.00 770.20)">
 <circle class="dlc-bubble" r="52.00" fill="#fbf7f1" stroke="#7d6a5c" stroke-width="2.15" filter="url(#dlc-shadow)"/>
 <circle class="dlc-keyline" r="46.50" fill="none" stroke="#7d6a5c" stroke-width="0.9" pointer-events="none"/>
 <g transform="translate(-17.28 -31.28) scale(1.080)" pointer-events="none"><g fill="none" stroke="#4a4038" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 h9 l6 6 v16 a2 2 0 0 1 -2 2 h-13 a2 2 0 0 1 -2 -2 v-20 a2 2 0 0 1 2 -2 z"/><path d="M18 4 v6 h6"/><path d="M12 16 h8 M12 20 h8 M12 24 h5"/></g></g>
 <text y="20" text-anchor="middle" font-size="15" font-weight="500" letter-spacing="0.2" fill="#3e342c">Document</text>
 </g></a>
-<a class="dlc-stage" href="#communicate" aria-label="Communicate"><title>Communicate</title>
+<a class="dlc-stage" href="8_reproducible.html" aria-label="Communicate"><title>Communicate</title>
 <g transform="translate(229.80 656.00)">
 <circle class="dlc-bubble" r="52.00" fill="#fbf7f1" stroke="#7d6a5c" stroke-width="2.15" filter="url(#dlc-shadow)"/>
 <circle class="dlc-keyline" r="46.50" fill="none" stroke="#7d6a5c" stroke-width="0.9" pointer-events="none"/>
 <g transform="translate(-17.28 -31.28) scale(1.080)" pointer-events="none"><g fill="none" stroke="#4a4038" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="16" r="3.1"/><circle cx="24" cy="8" r="3.1"/><circle cx="24" cy="24" r="3.1"/><path d="M10.8 14.6 L21.1 9.5"/><path d="M10.8 17.4 L21.1 22.5"/></g></g>
 <text y="20" text-anchor="middle" font-size="15" font-weight="500" letter-spacing="0.2" fill="#3e342c">Communicate</text>
 </g></a>
-<a class="dlc-stage" href="#archive" aria-label="Archive"><title>Archive</title>
+<a class="dlc-stage" href="6_pftc_data.html#pftc-data-repositories" aria-label="Archive"><title>Archive</title>
 <g transform="translate(188.00 500.00)">
 <circle class="dlc-bubble" r="52.00" fill="#fbf7f1" stroke="#7d6a5c" stroke-width="2.15" filter="url(#dlc-shadow)"/>
 <circle class="dlc-keyline" r="46.50" fill="none" stroke="#7d6a5c" stroke-width="0.9" pointer-events="none"/>
 <g transform="translate(-17.28 -31.28) scale(1.080)" pointer-events="none"><g fill="none" stroke="#4a4038" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13 h20 v12 a2 2 0 0 1 -2 2 h-16 a2 2 0 0 1 -2 -2 z"/><path d="M4 8 h24 v6 h-24 z"/><path d="M13 18 h6"/></g></g>
 <text y="20" text-anchor="middle" font-size="15" font-weight="500" letter-spacing="0.2" fill="#3e342c">Archive</text>
 </g></a>
-<a class="dlc-stage" href="#find-reuse" aria-label="Find &amp; Reuse"><title>Find &amp; Reuse</title>
+<a class="dlc-stage" href="6_pftc_data.html" aria-label="Find &amp; Reuse"><title>Find &amp; Reuse</title>
 <g transform="translate(229.80 344.00)">
 <circle class="dlc-bubble" r="52.00" fill="#fbf7f1" stroke="#7d6a5c" stroke-width="2.15" filter="url(#dlc-shadow)"/>
 <circle class="dlc-keyline" r="46.50" fill="none" stroke="#7d6a5c" stroke-width="0.9" pointer-events="none"/>

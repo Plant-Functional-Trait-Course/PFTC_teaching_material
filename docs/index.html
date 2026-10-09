@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.8.25">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
 <meta name="author" content="Aud Halbritter">
-<meta name="dcterms.date" content="2023-11-21">
+<meta name="dcterms.date" content="2026-10-09">
+
 <title>PFTC Teaching Material</title>
 <style>
 code{white-space: pre-wrap;}
@@ -21,6 +24,7 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 
+
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -29,21 +33,30 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./1_courses.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-27c261d06b905028a18691de25d09dde.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -52,50 +65,63 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><link rel="stylesheet" href="css/style-chapters.css">
+}</script>
+
+
+<link rel="stylesheet" href="css/style-chapters.css">
 </head>
-<body class="nav-sidebar floating">
+
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">PFTC Teaching Material</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/Plant-Functional-Trait-Course/PFTC_teaching_material/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/Plant-Functional-Trait-Course/PFTC_teaching_material/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
-      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-<li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=%7Curl%7C">
-              <i class="bi bi-bi-twitter pe-1"></i>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-twitter pe-1"></i>
             Twitter
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=%7Curl%7C">
-              <i class="bi bi-bi-facebook pe-1"></i>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-facebook pe-1"></i>
             Facebook
             </a>
           </li>
       </ul>
-</div>
+    </div>
 </div>
     </div>
       </div>
@@ -106,7 +132,7 @@ ul.task-list li input[type="checkbox"] {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Introduction</span></a>
@@ -114,65 +140,65 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">PFTC courses</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./1_courses.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">PFTC Course information</span></span></a>
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Trait data collection</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./5_trait_collection.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The trait wheel</span></span></a>
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">PFTC data</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./6_pftc_data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Working with PFTC data</span></span></a>
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text">Data science</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./7_biostats.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction to R, RStudio and GitHub</span></span></a>
@@ -203,20 +229,26 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-</li>
+  </li>
     </ul>
-</div>
-</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Plant-Functional-Trait-Course/PFTC_teaching_material/blob/main/index.qmd" class="toc-action">View source</a></p></div></div></nav>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/Plant-Functional-Trait-Course/PFTC_teaching_material/blob/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
 <h1 class="title">PFTC Teaching Material</h1>
 </div>
 
@@ -234,7 +266,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 21, 2023</p>
+      <p class="date">October 9, 2026</p>
     </div>
   </div>
   
@@ -242,58 +274,364 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
-</header><section id="introduction" class="level1 unnumbered"><h1 class="unnumbered">Introduction</h1>
+
+</header>
+
+
+<section id="introduction" class="level1 unnumbered">
+<h1 class="unnumbered">Introduction</h1>
 <p>This book provides the teaching material for the Plant Functional Trait Courses (PFTC).</p>
 <p>The PFTC courses are an international course with hands-on training in trait-based ecology. For more information about the courses see our course <a href="https://plantfunctionaltraitscourses.w.uib.no/">webpage</a>.</p>
 <p>Here we provide teaching material for data collection, curation, analysis, documentation, storage, and reuse. In addition, we show reproducible and transparent workflows to make research more open and available. We cover these topics within the fields of plant functional trait ecology, ecosystem ecology, plant physiology and remote sensing.</p>
+<p>The wheel follows that path. Choose a step, a part of the cycle, or a course band to open the matching chapter.</p>
+<div class="lifecycle">
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="dlc" viewbox="0 0 1000 1000" width="860" height="860" style="max-width:100%;height:auto" role="group" aria-label="Data life cycle" font-family="Avenir Next, Gill Sans, Gill Sans MT, Helvetica Neue, Arial, sans-serif">
+<!-- Generated by R/data_lifecycle_figure.R. Edit that script and re-run. -->
+<style>.dlc-stage,.dlc-phase,.dlc-course{cursor:pointer;text-decoration:none;}.dlc-stage:hover,.dlc-phase:hover,.dlc-course:hover,.dlc-stage:focus,.dlc-phase:focus,.dlc-course:focus{text-decoration:none;outline:none;}.dlc-hit{fill:transparent;}.dlc-phase:hover .dlc-hit,.dlc-phase:focus .dlc-hit,.dlc-course:hover .dlc-hit,.dlc-course:focus .dlc-hit{fill:rgba(255,248,236,0.22);}.dlc-stage:hover .dlc-bubble,.dlc-stage:focus .dlc-bubble,.dlc-stage:hover .dlc-keyline,.dlc-stage:focus .dlc-keyline{stroke:#3e342c;}</style>
+<defs><filter id="dlc-shadow" x="-55%" y="-55%" width="210%" height="210%" color-interpolation-filters="sRGB"><fedropshadow dx="0" dy="1.5" stddeviation="2.1" flood-color="#3a3028" flood-opacity="0.22"></fedropshadow></filter><filter id="dlc-grain" x="0" y="0" width="100%" height="100%"><feturbulence type="fractalNoise" basefrequency="0.85" numoctaves="2" seed="4" stitchtiles="stitch"></feturbulence><fecolormatrix type="matrix" values="0 0 0 0 0.30  0 0 0 0 0.26  0 0 0 0 0.20  0.16 0.16 0.16 0 -0.03"></fecolormatrix></filter></defs>
+<circle cx="500.00" cy="500.00" r="452.00" fill="#f3eee6"></circle>
+<path d="M 500.00 500.00 m -452.00 0 a 452.00 452.00 0 1 0 904.00 0 a 452.00 452.00 0 1 0 -904.00 0 M 500.00 500.00 m -404.00 0 a 404.00 404.00 0 1 1 808.00 0 a 404.00 404.00 0 1 1 -808.00 0 Z" fill="#d4cdc2" fill-rule="evenodd"></path>
+<circle cx="500.00" cy="500.00" r="452.00" fill="none" stroke="#b7ad9f" stroke-width="1.15"></circle>
+<circle cx="500.00" cy="500.00" r="404.00" fill="none" stroke="#f3eee6" stroke-width="2.2"></circle>
+<a class="dlc-course" href="1_courses.html" aria-label="Ecology &amp; Field Courses"><title>Ecology &amp; Field Courses</title>
+<path d="M 383.01 63.40 A 452.00 452.00 0 0 1 819.61 180.39 L 785.67 214.33 A 404.00 404.00 0 0 0 395.44 109.77 Z" fill="#2C5A4C" pointer-events="none"></path>
+<path class="dlc-hit" d="M 383.01 63.40 A 452.00 452.00 0 0 1 819.61 180.39 L 785.67 214.33 A 404.00 404.00 0 0 0 395.44 109.77 Z"></path>
+<path id="dlc-course-path-ecology" d="M 390.72 92.15 A 422.24 422.24 0 0 1 798.57 201.43" fill="none" stroke="none"></path><text font-size="16" font-weight="600" fill="#f6f1e6" letter-spacing="0.6" text-anchor="middle"><textpath href="#dlc-course-path-ecology" startoffset="50%">Ecology &amp; Field Courses</textpath></text>
+</a>
+<a class="dlc-course" href="7_biostats.html" aria-label="Stats Courses"><title>Stats Courses</title>
+<path d="M 616.99 936.60 A 452.00 452.00 0 0 1 383.01 936.60 L 395.44 890.23 A 404.00 404.00 0 0 0 604.56 890.23 Z" fill="#865E27" pointer-events="none"></path>
+<path class="dlc-hit" d="M 616.99 936.60 A 452.00 452.00 0 0 1 383.01 936.60 L 395.44 890.23 A 404.00 404.00 0 0 0 604.56 890.23 Z"></path>
+<path id="dlc-course-path-stats" d="M 387.73 918.98 A 433.76 433.76 0 0 0 612.27 918.98" fill="none" stroke="none"></path><text font-size="16" font-weight="600" fill="#f6f1e6" letter-spacing="0.6" text-anchor="middle"><textpath href="#dlc-course-path-stats" startoffset="50%">Stats Courses</textpath></text>
+</a>
+<a class="dlc-course" href="8_reproducible.html" aria-label="Reports, Stats"><title>Reports, Stats</title>
+<path d="M 180.39 819.61 A 452.00 452.00 0 0 1 63.40 616.99 L 109.77 604.56 A 404.00 404.00 0 0 0 214.33 785.67 Z" fill="#7E545B" pointer-events="none"></path>
+<path class="dlc-hit" d="M 180.39 819.61 A 452.00 452.00 0 0 1 63.40 616.99 L 109.77 604.56 A 404.00 404.00 0 0 0 214.33 785.67 Z"></path>
+<path id="dlc-course-path-reports" d="M 81.02 612.27 A 433.76 433.76 0 0 0 193.29 806.71" fill="none" stroke="none"></path><text font-size="16" font-weight="600" fill="#f6f1e6" letter-spacing="0.6" text-anchor="middle"><textpath href="#dlc-course-path-reports" startoffset="50%">Reports, Stats</textpath></text>
+</a>
+<a class="dlc-phase" href="9_data_curation.html" aria-label="PROCESS"><title>PROCESS</title>
+<path d="M 775.24 220.89 A 392.00 392.00 0 0 1 793.82 240.51 L 673.89 346.42 A 232.00 232.00 0 0 0 662.90 334.81 Z" fill="#719158" stroke="#719158" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 788.78 234.92 A 392.00 392.00 0 0 1 807.00 256.24 L 681.69 355.74 A 232.00 232.00 0 0 0 670.91 343.11 Z" fill="#759257" stroke="#759257" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 802.26 250.39 A 392.00 392.00 0 0 1 819.33 272.64 L 688.99 365.44 A 232.00 232.00 0 0 0 678.89 352.27 Z" fill="#789455" stroke="#789455" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 814.91 266.55 A 392.00 392.00 0 0 1 830.79 289.67 L 695.78 375.52 A 232.00 232.00 0 0 0 686.37 361.84 Z" fill="#7C9553" stroke="#7C9553" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 826.69 283.36 A 392.00 392.00 0 0 1 841.35 307.27 L 702.02 385.93 A 232.00 232.00 0 0 0 693.35 371.78 Z" fill="#7F9652" stroke="#7F9652" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 837.58 300.75 A 392.00 392.00 0 0 1 850.97 325.40 L 707.72 396.66 A 232.00 232.00 0 0 0 699.80 382.08 Z" fill="#829750" stroke="#829750" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 847.55 318.69 A 392.00 392.00 0 0 1 859.62 344.00 L 712.84 407.68 A 232.00 232.00 0 0 0 705.69 392.69 Z" fill="#84974F" stroke="#84974F" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 856.56 337.13 A 392.00 392.00 0 0 1 867.30 363.04 L 717.38 418.94 A 232.00 232.00 0 0 0 711.03 403.61 Z" fill="#87974E" stroke="#87974E" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 864.60 356.01 A 392.00 392.00 0 0 1 873.96 382.45 L 721.32 430.43 A 232.00 232.00 0 0 0 715.78 414.78 Z" fill="#89974C" stroke="#89974C" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 871.63 375.29 A 392.00 392.00 0 0 1 879.60 402.18 L 724.66 442.11 A 232.00 232.00 0 0 0 719.95 426.19 Z" fill="#8B974B" stroke="#8B974B" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 877.65 394.91 A 392.00 392.00 0 0 1 884.20 422.18 L 727.38 453.95 A 232.00 232.00 0 0 0 723.51 437.81 Z" fill="#8D9849" stroke="#8D9849" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 882.63 414.82 A 392.00 392.00 0 0 1 887.74 442.40 L 729.48 465.91 A 232.00 232.00 0 0 0 726.46 449.59 Z" fill="#8F9848" stroke="#8F9848" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 886.57 434.96 A 392.00 392.00 0 0 1 890.23 462.77 L 730.95 477.97 A 232.00 232.00 0 0 0 728.78 461.51 Z" fill="#929847" stroke="#929847" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 889.44 455.28 A 392.00 392.00 0 0 1 891.64 483.24 L 731.79 490.08 A 232.00 232.00 0 0 0 730.49 473.54 Z" fill="#949845" stroke="#949845" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 891.25 475.73 A 392.00 392.00 0 0 1 891.98 503.76 L 731.99 502.23 A 232.00 232.00 0 0 0 731.55 485.63 Z" fill="#969844" stroke="#969844" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 891.98 496.24 A 392.00 392.00 0 0 1 891.25 524.27 L 731.55 514.37 A 232.00 232.00 0 0 0 731.99 497.77 Z" fill="#989842" stroke="#989842" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 891.64 516.76 A 392.00 392.00 0 0 1 889.44 544.72 L 730.49 526.46 A 232.00 232.00 0 0 0 731.79 509.92 Z" fill="#9A9841" stroke="#9A9841" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 890.23 537.23 A 392.00 392.00 0 0 1 886.57 565.04 L 728.78 538.49 A 232.00 232.00 0 0 0 730.95 522.03 Z" fill="#9C9840" stroke="#9C9840" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 887.74 557.60 A 392.00 392.00 0 0 1 882.63 585.18 L 726.46 550.41 A 232.00 232.00 0 0 0 729.48 534.09 Z" fill="#9E983E" stroke="#9E983E" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 884.20 577.82 A 392.00 392.00 0 0 1 877.65 605.09 L 723.51 562.19 A 232.00 232.00 0 0 0 727.38 546.05 Z" fill="#A0983D" stroke="#A0983D" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 879.60 597.82 A 392.00 392.00 0 0 1 871.63 624.71 L 719.95 573.81 A 232.00 232.00 0 0 0 724.66 557.89 Z" fill="#A1983C" stroke="#A1983C" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 873.96 617.55 A 392.00 392.00 0 0 1 864.60 643.99 L 715.78 585.22 A 232.00 232.00 0 0 0 721.32 569.57 Z" fill="#A3983B" stroke="#A3983B" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 867.30 636.96 A 392.00 392.00 0 0 1 856.56 662.87 L 711.03 596.39 A 232.00 232.00 0 0 0 717.38 581.06 Z" fill="#A59839" stroke="#A59839" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 859.62 656.00 A 392.00 392.00 0 0 1 847.55 681.31 L 705.69 607.31 A 232.00 232.00 0 0 0 712.84 592.32 Z" fill="#A79838" stroke="#A79838" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 850.97 674.60 A 392.00 392.00 0 0 1 837.58 699.25 L 699.80 617.92 A 232.00 232.00 0 0 0 707.72 603.34 Z" fill="#A99837" stroke="#A99837" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 841.35 692.73 A 392.00 392.00 0 0 1 826.69 716.64 L 693.35 628.22 A 232.00 232.00 0 0 0 702.02 614.07 Z" fill="#AB9835" stroke="#AB9835" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 830.79 710.33 A 392.00 392.00 0 0 1 814.91 733.45 L 686.37 638.16 A 232.00 232.00 0 0 0 695.78 624.48 Z" fill="#AC9834" stroke="#AC9834" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 819.33 727.36 A 392.00 392.00 0 0 1 802.26 749.61 L 678.89 647.73 A 232.00 232.00 0 0 0 688.99 634.56 Z" fill="#AE9833" stroke="#AE9833" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 807.00 743.76 A 392.00 392.00 0 0 1 788.78 765.08 L 670.91 656.89 A 232.00 232.00 0 0 0 681.69 644.26 Z" fill="#B09832" stroke="#B09832" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 793.82 759.49 A 392.00 392.00 0 0 1 774.51 779.83 L 662.47 665.62 A 232.00 232.00 0 0 0 673.89 653.58 Z" fill="#B19831" stroke="#B19831" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 779.83 774.51 A 392.00 392.00 0 0 1 759.49 793.82 L 653.58 673.89 A 232.00 232.00 0 0 0 665.62 662.47 Z" fill="#B39930" stroke="#B39930" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 765.08 788.78 A 392.00 392.00 0 0 1 743.76 807.00 L 644.26 681.69 A 232.00 232.00 0 0 0 656.89 670.91 Z" fill="#B4992F" stroke="#B4992F" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 749.61 802.26 A 392.00 392.00 0 0 1 727.36 819.33 L 634.56 688.99 A 232.00 232.00 0 0 0 647.73 678.89 Z" fill="#B6992E" stroke="#B6992E" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 733.45 814.91 A 392.00 392.00 0 0 1 710.33 830.79 L 624.48 695.78 A 232.00 232.00 0 0 0 638.16 686.37 Z" fill="#B8992D" stroke="#B8992D" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 716.64 826.69 A 392.00 392.00 0 0 1 692.73 841.35 L 614.07 702.02 A 232.00 232.00 0 0 0 628.22 693.35 Z" fill="#B9992C" stroke="#B9992C" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 699.25 837.58 A 392.00 392.00 0 0 1 674.60 850.97 L 603.34 707.72 A 232.00 232.00 0 0 0 617.92 699.80 Z" fill="#BA982B" stroke="#BA982B" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 681.31 847.55 A 392.00 392.00 0 0 1 656.00 859.62 L 592.32 712.84 A 232.00 232.00 0 0 0 607.31 705.69 Z" fill="#BB952A" stroke="#BB952A" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 662.87 856.56 A 392.00 392.00 0 0 1 636.96 867.30 L 581.06 717.38 A 232.00 232.00 0 0 0 596.39 711.03 Z" fill="#BC9329" stroke="#BC9329" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 643.99 864.60 A 392.00 392.00 0 0 1 617.55 873.96 L 569.57 721.32 A 232.00 232.00 0 0 0 585.22 715.78 Z" fill="#BC9128" stroke="#BC9128" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 624.71 871.63 A 392.00 392.00 0 0 1 597.82 879.60 L 557.89 724.66 A 232.00 232.00 0 0 0 573.81 719.95 Z" fill="#BD8E27" stroke="#BD8E27" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 605.09 877.65 A 392.00 392.00 0 0 1 577.82 884.20 L 546.05 727.38 A 232.00 232.00 0 0 0 562.19 723.51 Z" fill="#BD8C26" stroke="#BD8C26" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 585.18 882.63 A 392.00 392.00 0 0 1 557.60 887.74 L 534.09 729.48 A 232.00 232.00 0 0 0 550.41 726.46 Z" fill="#BE8925" stroke="#BE8925" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 565.04 886.57 A 392.00 392.00 0 0 1 537.23 890.23 L 522.03 730.95 A 232.00 232.00 0 0 0 538.49 728.78 Z" fill="#BF8724" stroke="#BF8724" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 544.72 889.44 A 392.00 392.00 0 0 1 516.76 891.64 L 509.92 731.79 A 232.00 232.00 0 0 0 526.46 730.49 Z" fill="#BF8523" stroke="#BF8523" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 524.27 891.25 A 392.00 392.00 0 0 1 496.24 891.98 L 497.77 731.99 A 232.00 232.00 0 0 0 514.37 731.55 Z" fill="#C08222" stroke="#C08222" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 503.76 891.98 A 392.00 392.00 0 0 1 475.73 891.25 L 485.63 731.55 A 232.00 232.00 0 0 0 502.23 731.99 Z" fill="#BF8026" stroke="#BF8026" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 483.24 891.64 A 392.00 392.00 0 0 1 455.28 889.44 L 473.54 730.49 A 232.00 232.00 0 0 0 490.08 731.79 Z" fill="#BE7E2E" stroke="#BE7E2E" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 462.77 890.23 A 392.00 392.00 0 0 1 434.96 886.57 L 461.51 728.78 A 232.00 232.00 0 0 0 477.97 730.95 Z" fill="#BD7D36" stroke="#BD7D36" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 442.40 887.74 A 392.00 392.00 0 0 1 414.82 882.63 L 449.59 726.46 A 232.00 232.00 0 0 0 465.91 729.48 Z" fill="#BB7B3E" stroke="#BB7B3E" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 422.18 884.20 A 392.00 392.00 0 0 1 395.90 877.93 L 438.39 723.67 A 232.00 232.00 0 0 0 453.95 727.38 Z" fill="#BA7946" stroke="#BA7946" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 659.53 357.36 A 214.00 214.00 0 0 1 456.24 709.48 L 464.42 670.32 A 174.00 174.00 0 0 0 629.71 384.02 Z" fill="#AA9836" stroke="#8C7C33" stroke-width="1.15" stroke-linejoin="round" pointer-events="none"></path>
+<path class="dlc-hit" d="M 777.19 222.81 A 392.00 392.00 0 0 1 398.54 878.64 L 439.95 724.09 A 232.00 232.00 0 0 0 664.05 335.95 Z"></path>
+<path class="dlc-hit" d="M 659.53 357.36 A 214.00 214.00 0 0 1 456.24 709.48 L 464.42 670.32 A 174.00 174.00 0 0 0 629.71 384.02 Z"></path>
+<path id="dlc-phase-path-process-1" d="M 458.71 697.65 A 201.92 201.92 0 0 0 650.53 365.41" fill="none" stroke="none"></path><text font-size="22" font-weight="600" fill="#f6f1e6" letter-spacing="2.2" text-anchor="middle"><textpath href="#dlc-phase-path-process-1" startoffset="50%">PROCESS</textpath></text>
+</a>
+<a class="dlc-phase" href="8_reproducible.html" aria-label="SHARE"><title>SHARE</title>
+<path d="M 401.19 879.34 A 392.00 392.00 0 0 1 375.29 871.63 L 426.19 719.95 A 232.00 232.00 0 0 0 441.52 724.51 Z" fill="#B9774E" stroke="#B9774E" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 382.45 873.96 A 392.00 392.00 0 0 1 356.01 864.60 L 414.78 715.78 A 232.00 232.00 0 0 0 430.43 721.32 Z" fill="#B87556" stroke="#B87556" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 363.04 867.30 A 392.00 392.00 0 0 1 337.13 856.56 L 403.61 711.03 A 232.00 232.00 0 0 0 418.94 717.38 Z" fill="#B6745E" stroke="#B6745E" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 344.00 859.62 A 392.00 392.00 0 0 1 318.69 847.55 L 392.69 705.69 A 232.00 232.00 0 0 0 407.68 712.84 Z" fill="#B57266" stroke="#B57266" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 325.40 850.97 A 392.00 392.00 0 0 1 300.75 837.58 L 382.08 699.80 A 232.00 232.00 0 0 0 396.66 707.72 Z" fill="#B4706E" stroke="#B4706E" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 307.27 841.35 A 392.00 392.00 0 0 1 283.36 826.69 L 371.78 693.35 A 232.00 232.00 0 0 0 385.93 702.02 Z" fill="#B26F72" stroke="#B26F72" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 289.67 830.79 A 392.00 392.00 0 0 1 266.55 814.91 L 361.84 686.37 A 232.00 232.00 0 0 0 375.52 695.78 Z" fill="#B06E72" stroke="#B06E72" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 272.64 819.33 A 392.00 392.00 0 0 1 250.39 802.26 L 352.27 678.89 A 232.00 232.00 0 0 0 365.44 688.99 Z" fill="#AE6D73" stroke="#AE6D73" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 256.24 807.00 A 392.00 392.00 0 0 1 234.92 788.78 L 343.11 670.91 A 232.00 232.00 0 0 0 355.74 681.69 Z" fill="#AC6C73" stroke="#AC6C73" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 240.51 793.82 A 392.00 392.00 0 0 1 220.17 774.51 L 334.38 662.47 A 232.00 232.00 0 0 0 346.42 673.89 Z" fill="#AA6B73" stroke="#AA6B73" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 225.49 779.83 A 392.00 392.00 0 0 1 206.18 759.49 L 326.11 653.58 A 232.00 232.00 0 0 0 337.53 665.62 Z" fill="#A96A73" stroke="#A96A73" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 211.22 765.08 A 392.00 392.00 0 0 1 193.00 743.76 L 318.31 644.26 A 232.00 232.00 0 0 0 329.09 656.89 Z" fill="#A76973" stroke="#A76973" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 197.74 749.61 A 392.00 392.00 0 0 1 180.67 727.36 L 311.01 634.56 A 232.00 232.00 0 0 0 321.11 647.73 Z" fill="#A56874" stroke="#A56874" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 185.09 733.45 A 392.00 392.00 0 0 1 169.21 710.33 L 304.22 624.48 A 232.00 232.00 0 0 0 313.63 638.16 Z" fill="#A36774" stroke="#A36774" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 173.31 716.64 A 392.00 392.00 0 0 1 158.65 692.73 L 297.98 614.07 A 232.00 232.00 0 0 0 306.65 628.22 Z" fill="#A16674" stroke="#A16674" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 162.42 699.25 A 392.00 392.00 0 0 1 149.03 674.60 L 292.28 603.34 A 232.00 232.00 0 0 0 300.20 617.92 Z" fill="#9F6474" stroke="#9F6474" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 152.45 681.31 A 392.00 392.00 0 0 1 140.38 656.00 L 287.16 592.32 A 232.00 232.00 0 0 0 294.31 607.31 Z" fill="#9D6374" stroke="#9D6374" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 143.44 662.87 A 392.00 392.00 0 0 1 132.70 636.96 L 282.62 581.06 A 232.00 232.00 0 0 0 288.97 596.39 Z" fill="#9A6275" stroke="#9A6275" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 135.40 643.99 A 392.00 392.00 0 0 1 126.04 617.55 L 278.68 569.57 A 232.00 232.00 0 0 0 284.22 585.22 Z" fill="#986175" stroke="#986175" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 128.37 624.71 A 392.00 392.00 0 0 1 120.40 597.82 L 275.34 557.89 A 232.00 232.00 0 0 0 280.05 573.81 Z" fill="#966075" stroke="#966075" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 122.35 605.09 A 392.00 392.00 0 0 1 115.80 577.82 L 272.62 546.05 A 232.00 232.00 0 0 0 276.49 562.19 Z" fill="#935E76" stroke="#935E76" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 117.37 585.18 A 392.00 392.00 0 0 1 112.26 557.60 L 270.52 534.09 A 232.00 232.00 0 0 0 273.54 550.41 Z" fill="#915D76" stroke="#915D76" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 113.43 565.04 A 392.00 392.00 0 0 1 109.77 537.23 L 269.05 522.03 A 232.00 232.00 0 0 0 271.22 538.49 Z" fill="#8F5C76" stroke="#8F5C76" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 110.56 544.72 A 392.00 392.00 0 0 1 108.36 516.76 L 268.21 509.92 A 232.00 232.00 0 0 0 269.51 526.46 Z" fill="#8C5B77" stroke="#8C5B77" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 108.75 524.27 A 392.00 392.00 0 0 1 108.02 496.24 L 268.01 497.77 A 232.00 232.00 0 0 0 268.45 514.37 Z" fill="#8A5A77" stroke="#8A5A77" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 108.02 503.76 A 392.00 392.00 0 0 1 108.75 475.73 L 268.45 485.63 A 232.00 232.00 0 0 0 268.01 502.23 Z" fill="#855A77" stroke="#855A77" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 108.36 483.24 A 392.00 392.00 0 0 1 110.56 455.28 L 269.51 473.54 A 232.00 232.00 0 0 0 268.21 490.08 Z" fill="#7E5B78" stroke="#7E5B78" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 109.77 462.77 A 392.00 392.00 0 0 1 113.43 434.96 L 271.22 461.51 A 232.00 232.00 0 0 0 269.05 477.97 Z" fill="#775D79" stroke="#775D79" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 112.26 442.40 A 392.00 392.00 0 0 1 117.37 414.82 L 273.54 449.59 A 232.00 232.00 0 0 0 270.52 465.91 Z" fill="#6F5E79" stroke="#6F5E79" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 115.80 422.18 A 392.00 392.00 0 0 1 122.07 395.90 L 276.33 438.39 A 232.00 232.00 0 0 0 272.62 453.95 Z" fill="#685F7A" stroke="#685F7A" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 433.16 703.29 A 214.00 214.00 0 0 1 290.52 456.24 L 329.68 464.42 A 174.00 174.00 0 0 0 445.65 665.30 Z" fill="#A06574" stroke="#855760" stroke-width="1.15" stroke-linejoin="round" pointer-events="none"></path>
+<path class="dlc-hit" d="M 398.54 878.64 A 392.00 392.00 0 0 1 121.36 398.54 L 275.91 439.95 A 232.00 232.00 0 0 0 439.95 724.09 Z"></path>
+<path class="dlc-hit" d="M 433.16 703.29 A 214.00 214.00 0 0 1 290.52 456.24 L 329.68 464.42 A 174.00 174.00 0 0 0 445.65 665.30 Z"></path>
+<path id="dlc-phase-path-share-2" d="M 302.35 458.71 A 201.92 201.92 0 0 0 436.93 691.82" fill="none" stroke="none"></path><text font-size="22" font-weight="600" fill="#f6f1e6" letter-spacing="2.2" text-anchor="middle"><textpath href="#dlc-phase-path-share-2" startoffset="50%">SHARE</textpath></text>
+</a>
+<a class="dlc-phase" href="6_pftc_data.html" aria-label="RE-USE"><title>RE-USE</title>
+<path d="M 120.66 401.19 A 392.00 392.00 0 0 1 128.37 375.29 L 280.05 426.19 A 232.00 232.00 0 0 0 275.49 441.52 Z" fill="#60617A" stroke="#60617A" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 126.04 382.45 A 392.00 392.00 0 0 1 135.40 356.01 L 284.22 414.78 A 232.00 232.00 0 0 0 278.68 430.43 Z" fill="#59627B" stroke="#59627B" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 132.70 363.04 A 392.00 392.00 0 0 1 143.44 337.13 L 288.97 403.61 A 232.00 232.00 0 0 0 282.62 418.94 Z" fill="#52647C" stroke="#52647C" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 140.38 344.00 A 392.00 392.00 0 0 1 152.45 318.69 L 294.31 392.69 A 232.00 232.00 0 0 0 287.16 407.68 Z" fill="#4A657C" stroke="#4A657C" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 149.03 325.40 A 392.00 392.00 0 0 1 162.42 300.75 L 300.20 382.08 A 232.00 232.00 0 0 0 292.28 396.66 Z" fill="#43667D" stroke="#43667D" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 158.65 307.27 A 392.00 392.00 0 0 1 173.31 283.36 L 306.65 371.78 A 232.00 232.00 0 0 0 297.98 385.93 Z" fill="#3F687C" stroke="#3F687C" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 169.21 289.67 A 392.00 392.00 0 0 1 185.09 266.55 L 313.63 361.84 A 232.00 232.00 0 0 0 304.22 375.52 Z" fill="#3F6979" stroke="#3F6979" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 180.67 272.64 A 392.00 392.00 0 0 1 197.74 250.39 L 321.11 352.27 A 232.00 232.00 0 0 0 311.01 365.44 Z" fill="#3F6A77" stroke="#3F6A77" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 193.00 256.24 A 392.00 392.00 0 0 1 211.22 234.92 L 329.09 343.11 A 232.00 232.00 0 0 0 318.31 355.74 Z" fill="#3E6C74" stroke="#3E6C74" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 206.18 240.51 A 392.00 392.00 0 0 1 224.76 220.89 L 337.10 334.81 A 232.00 232.00 0 0 0 326.11 346.42 Z" fill="#3E6D71" stroke="#3E6D71" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 296.71 433.16 A 214.00 214.00 0 0 1 340.47 357.36 L 370.29 384.02 A 174.00 174.00 0 0 0 334.70 445.65 Z" fill="#3F677D" stroke="#3F5966" stroke-width="1.15" stroke-linejoin="round" pointer-events="none"></path>
+<path class="dlc-hit" d="M 121.36 398.54 A 392.00 392.00 0 0 1 222.81 222.81 L 335.95 335.95 A 232.00 232.00 0 0 0 275.91 439.95 Z"></path>
+<path class="dlc-hit" d="M 296.71 433.16 A 214.00 214.00 0 0 1 340.47 357.36 L 370.29 384.02 A 174.00 174.00 0 0 0 334.70 445.65 Z"></path>
+<path id="dlc-phase-path-reuse-3" d="M 321.86 441.43 A 187.52 187.52 0 0 1 360.21 375.01" fill="none" stroke="none"></path><text font-size="18" font-weight="600" fill="#f6f1e6" letter-spacing="0.5" text-anchor="middle"><textpath href="#dlc-phase-path-reuse-3" startoffset="50%">RE-USE</textpath></text>
+</a>
+<a class="dlc-phase" href="5_trait_collection.html" aria-label="CREATE"><title>CREATE</title>
+<path d="M 220.89 224.76 A 392.00 392.00 0 0 1 240.51 206.18 L 346.42 326.11 A 232.00 232.00 0 0 0 334.81 337.10 Z" fill="#3E6E6F" stroke="#3E6E6F" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 234.92 211.22 A 392.00 392.00 0 0 1 256.24 193.00 L 355.74 318.31 A 232.00 232.00 0 0 0 343.11 329.09 Z" fill="#3E6F6C" stroke="#3E6F6C" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 250.39 197.74 A 392.00 392.00 0 0 1 272.64 180.67 L 365.44 311.01 A 232.00 232.00 0 0 0 352.27 321.11 Z" fill="#3E716A" stroke="#3E716A" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 266.55 185.09 A 392.00 392.00 0 0 1 289.67 169.21 L 375.52 304.22 A 232.00 232.00 0 0 0 361.84 313.63 Z" fill="#3D7267" stroke="#3D7267" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 283.36 173.31 A 392.00 392.00 0 0 1 307.27 158.65 L 385.93 297.98 A 232.00 232.00 0 0 0 371.78 306.65 Z" fill="#3D7364" stroke="#3D7364" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 300.75 162.42 A 392.00 392.00 0 0 1 325.40 149.03 L 396.66 292.28 A 232.00 232.00 0 0 0 382.08 300.20 Z" fill="#3D7564" stroke="#3D7564" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 318.69 152.45 A 392.00 392.00 0 0 1 344.00 140.38 L 407.68 287.16 A 232.00 232.00 0 0 0 392.69 294.31 Z" fill="#3E7665" stroke="#3E7665" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 337.13 143.44 A 392.00 392.00 0 0 1 363.04 132.70 L 418.94 282.62 A 232.00 232.00 0 0 0 403.61 288.97 Z" fill="#3F7766" stroke="#3F7766" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 356.01 135.40 A 392.00 392.00 0 0 1 382.45 126.04 L 430.43 278.68 A 232.00 232.00 0 0 0 414.78 284.22 Z" fill="#407967" stroke="#407967" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 375.29 128.37 A 392.00 392.00 0 0 1 402.18 120.40 L 442.11 275.34 A 232.00 232.00 0 0 0 426.19 280.05 Z" fill="#417A68" stroke="#417A68" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 394.91 122.35 A 392.00 392.00 0 0 1 422.18 115.80 L 453.95 272.62 A 232.00 232.00 0 0 0 437.81 276.49 Z" fill="#417B69" stroke="#417B69" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 414.82 117.37 A 392.00 392.00 0 0 1 442.40 112.26 L 465.91 270.52 A 232.00 232.00 0 0 0 449.59 273.54 Z" fill="#427C6A" stroke="#427C6A" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 434.96 113.43 A 392.00 392.00 0 0 1 462.77 109.77 L 477.97 269.05 A 232.00 232.00 0 0 0 461.51 271.22 Z" fill="#437E6B" stroke="#437E6B" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 455.28 110.56 A 392.00 392.00 0 0 1 483.24 108.36 L 490.08 268.21 A 232.00 232.00 0 0 0 473.54 269.51 Z" fill="#447F6C" stroke="#447F6C" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 475.73 108.75 A 392.00 392.00 0 0 1 503.76 108.02 L 502.23 268.01 A 232.00 232.00 0 0 0 485.63 268.45 Z" fill="#45806D" stroke="#45806D" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 496.24 108.02 A 392.00 392.00 0 0 1 524.27 108.75 L 514.37 268.45 A 232.00 232.00 0 0 0 497.77 268.01 Z" fill="#46816C" stroke="#46816C" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 516.76 108.36 A 392.00 392.00 0 0 1 544.72 110.56 L 526.46 269.51 A 232.00 232.00 0 0 0 509.92 268.21 Z" fill="#49826B" stroke="#49826B" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 537.23 109.77 A 392.00 392.00 0 0 1 565.04 113.43 L 538.49 271.22 A 232.00 232.00 0 0 0 522.03 269.05 Z" fill="#4B836A" stroke="#4B836A" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 557.60 112.26 A 392.00 392.00 0 0 1 585.18 117.37 L 550.41 273.54 A 232.00 232.00 0 0 0 534.09 270.52 Z" fill="#4E8469" stroke="#4E8469" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 577.82 115.80 A 392.00 392.00 0 0 1 605.09 122.35 L 562.19 276.49 A 232.00 232.00 0 0 0 546.05 272.62 Z" fill="#508568" stroke="#508568" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 597.82 120.40 A 392.00 392.00 0 0 1 624.71 128.37 L 573.81 280.05 A 232.00 232.00 0 0 0 557.89 275.34 Z" fill="#538666" stroke="#538666" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 617.55 126.04 A 392.00 392.00 0 0 1 643.99 135.40 L 585.22 284.22 A 232.00 232.00 0 0 0 569.57 278.68 Z" fill="#558765" stroke="#558765" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 636.96 132.70 A 392.00 392.00 0 0 1 662.87 143.44 L 596.39 288.97 A 232.00 232.00 0 0 0 581.06 282.62 Z" fill="#588864" stroke="#588864" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 656.00 140.38 A 392.00 392.00 0 0 1 681.31 152.45 L 607.31 294.31 A 232.00 232.00 0 0 0 592.32 287.16 Z" fill="#5A8963" stroke="#5A8963" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 674.60 149.03 A 392.00 392.00 0 0 1 699.25 162.42 L 617.92 300.20 A 232.00 232.00 0 0 0 603.34 292.28 Z" fill="#5D8A62" stroke="#5D8A62" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 692.73 158.65 A 392.00 392.00 0 0 1 716.64 173.31 L 628.22 306.65 A 232.00 232.00 0 0 0 614.07 297.98 Z" fill="#608B60" stroke="#608B60" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 710.33 169.21 A 392.00 392.00 0 0 1 733.45 185.09 L 638.16 313.63 A 232.00 232.00 0 0 0 624.48 304.22 Z" fill="#638C5F" stroke="#638C5F" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 727.36 180.67 A 392.00 392.00 0 0 1 749.61 197.74 L 647.73 321.11 A 232.00 232.00 0 0 0 634.56 311.01 Z" fill="#678D5D" stroke="#678D5D" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 743.76 193.00 A 392.00 392.00 0 0 1 765.08 211.22 L 656.89 329.09 A 232.00 232.00 0 0 0 644.26 318.31 Z" fill="#6A8F5B" stroke="#6A8F5B" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 759.49 206.18 A 392.00 392.00 0 0 1 779.11 224.76 L 665.19 337.10 A 232.00 232.00 0 0 0 653.58 326.11 Z" fill="#6E905A" stroke="#6E905A" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"></path>
+<path d="M 357.36 340.47 A 214.00 214.00 0 0 1 642.64 340.47 L 615.98 370.29 A 174.00 174.00 0 0 0 384.02 370.29 Z" fill="#45816D" stroke="#436B5B" stroke-width="1.15" stroke-linejoin="round" pointer-events="none"></path>
+<path class="dlc-hit" d="M 222.81 222.81 A 392.00 392.00 0 0 1 777.19 222.81 L 664.05 335.95 A 232.00 232.00 0 0 0 335.95 335.95 Z"></path>
+<path class="dlc-hit" d="M 357.36 340.47 A 214.00 214.00 0 0 1 642.64 340.47 L 615.98 370.29 A 174.00 174.00 0 0 0 384.02 370.29 Z"></path>
+<path id="dlc-phase-path-create-4" d="M 375.97 361.28 A 186.08 186.08 0 0 1 624.03 361.28" fill="none" stroke="none"></path><text font-size="22" font-weight="600" fill="#f6f1e6" letter-spacing="2.2" text-anchor="middle"><textpath href="#dlc-phase-path-create-4" startoffset="50%">CREATE</textpath></text>
+</a>
+<g pointer-events="none"><path d="M 559.98 193.82 A 312.00 312.00 0 0 1 582.94 199.23" fill="none" stroke="#847C73" stroke-width="6.0" stroke-linecap="round" stroke-opacity="0.35"></path><path d="M 559.98 193.82 A 312.00 312.00 0 0 1 582.94 199.23" fill="none" stroke="#f6f1e6" stroke-width="3.6" stroke-linecap="round"></path><path d="M 601.15 204.85 L 585.39 190.36 L 580.49 208.10 Z" fill="#f6f1e6" stroke="#847C73" stroke-width="0.7" stroke-linejoin="round"></path></g>
+<g pointer-events="none"><path d="M 705.03 264.83 A 312.00 312.00 0 0 1 722.22 280.99" fill="none" stroke="#847C73" stroke-width="6.0" stroke-linecap="round" stroke-opacity="0.35"></path><path d="M 705.03 264.83 A 312.00 312.00 0 0 1 722.22 280.99" fill="none" stroke="#f6f1e6" stroke-width="3.6" stroke-linecap="round"></path><path d="M 735.17 294.97 L 728.77 274.53 L 715.66 287.45 Z" fill="#f6f1e6" stroke="#847C73" stroke-width="0.7" stroke-linejoin="round"></path></g>
+<g pointer-events="none"><path d="M 795.15 398.85 A 312.00 312.00 0 0 1 801.95 421.44" fill="none" stroke="#847C73" stroke-width="6.0" stroke-linecap="round" stroke-opacity="0.35"></path><path d="M 795.15 398.85 A 312.00 312.00 0 0 1 801.95 421.44" fill="none" stroke="#f6f1e6" stroke-width="3.6" stroke-linecap="round"></path><path d="M 806.18 440.02 L 810.85 419.12 L 793.04 423.76 Z" fill="#f6f1e6" stroke="#847C73" stroke-width="0.7" stroke-linejoin="round"></path></g>
+<g pointer-events="none"><path d="M 806.18 559.98 A 312.00 312.00 0 0 1 800.77 582.94" fill="none" stroke="#847C73" stroke-width="6.0" stroke-linecap="round" stroke-opacity="0.35"></path><path d="M 806.18 559.98 A 312.00 312.00 0 0 1 800.77 582.94" fill="none" stroke="#f6f1e6" stroke-width="3.6" stroke-linecap="round"></path><path d="M 795.15 601.15 L 809.64 585.39 L 791.90 580.49 Z" fill="#f6f1e6" stroke="#847C73" stroke-width="0.7" stroke-linejoin="round"></path></g>
+<g pointer-events="none"><path d="M 735.17 705.03 A 312.00 312.00 0 0 1 719.01 722.22" fill="none" stroke="#847C73" stroke-width="6.0" stroke-linecap="round" stroke-opacity="0.35"></path><path d="M 735.17 705.03 A 312.00 312.00 0 0 1 719.01 722.22" fill="none" stroke="#f6f1e6" stroke-width="3.6" stroke-linecap="round"></path><path d="M 705.03 735.17 L 725.47 728.77 L 712.55 715.66 Z" fill="#f6f1e6" stroke="#847C73" stroke-width="0.7" stroke-linejoin="round"></path></g>
+<g pointer-events="none"><path d="M 601.15 795.15 A 312.00 312.00 0 0 1 578.56 801.95" fill="none" stroke="#847C73" stroke-width="6.0" stroke-linecap="round" stroke-opacity="0.35"></path><path d="M 601.15 795.15 A 312.00 312.00 0 0 1 578.56 801.95" fill="none" stroke="#f6f1e6" stroke-width="3.6" stroke-linecap="round"></path><path d="M 559.98 806.18 L 580.88 810.85 L 576.24 793.04 Z" fill="#f6f1e6" stroke="#847C73" stroke-width="0.7" stroke-linejoin="round"></path></g>
+<g pointer-events="none"><path d="M 440.02 806.18 A 312.00 312.00 0 0 1 417.06 800.77" fill="none" stroke="#847C73" stroke-width="6.0" stroke-linecap="round" stroke-opacity="0.35"></path><path d="M 440.02 806.18 A 312.00 312.00 0 0 1 417.06 800.77" fill="none" stroke="#f6f1e6" stroke-width="3.6" stroke-linecap="round"></path><path d="M 398.85 795.15 L 414.61 809.64 L 419.51 791.90 Z" fill="#f6f1e6" stroke="#847C73" stroke-width="0.7" stroke-linejoin="round"></path></g>
+<g pointer-events="none"><path d="M 294.97 735.17 A 312.00 312.00 0 0 1 277.78 719.01" fill="none" stroke="#847C73" stroke-width="6.0" stroke-linecap="round" stroke-opacity="0.35"></path><path d="M 294.97 735.17 A 312.00 312.00 0 0 1 277.78 719.01" fill="none" stroke="#f6f1e6" stroke-width="3.6" stroke-linecap="round"></path><path d="M 264.83 705.03 L 271.23 725.47 L 284.34 712.55 Z" fill="#f6f1e6" stroke="#847C73" stroke-width="0.7" stroke-linejoin="round"></path></g>
+<g pointer-events="none"><path d="M 204.85 601.15 A 312.00 312.00 0 0 1 198.05 578.56" fill="none" stroke="#847C73" stroke-width="6.0" stroke-linecap="round" stroke-opacity="0.35"></path><path d="M 204.85 601.15 A 312.00 312.00 0 0 1 198.05 578.56" fill="none" stroke="#f6f1e6" stroke-width="3.6" stroke-linecap="round"></path><path d="M 193.82 559.98 L 189.15 580.88 L 206.96 576.24 Z" fill="#f6f1e6" stroke="#847C73" stroke-width="0.7" stroke-linejoin="round"></path></g>
+<g pointer-events="none"><path d="M 193.82 440.02 A 312.00 312.00 0 0 1 199.23 417.06" fill="none" stroke="#847C73" stroke-width="6.0" stroke-linecap="round" stroke-opacity="0.35"></path><path d="M 193.82 440.02 A 312.00 312.00 0 0 1 199.23 417.06" fill="none" stroke="#f6f1e6" stroke-width="3.6" stroke-linecap="round"></path><path d="M 204.85 398.85 L 190.36 414.61 L 208.10 419.51 Z" fill="#f6f1e6" stroke="#847C73" stroke-width="0.7" stroke-linejoin="round"></path></g>
+<g pointer-events="none"><path d="M 264.83 294.97 A 312.00 312.00 0 0 1 280.99 277.78" fill="none" stroke="#847C73" stroke-width="6.0" stroke-linecap="round" stroke-opacity="0.35"></path><path d="M 264.83 294.97 A 312.00 312.00 0 0 1 280.99 277.78" fill="none" stroke="#f6f1e6" stroke-width="3.6" stroke-linecap="round"></path><path d="M 294.97 264.83 L 274.53 271.23 L 287.45 284.34 Z" fill="#f6f1e6" stroke="#847C73" stroke-width="0.7" stroke-linejoin="round"></path></g>
+<g pointer-events="none"><path d="M 398.85 204.85 A 312.00 312.00 0 0 1 421.44 198.05" fill="none" stroke="#847C73" stroke-width="6.0" stroke-linecap="round" stroke-opacity="0.35"></path><path d="M 398.85 204.85 A 312.00 312.00 0 0 1 421.44 198.05" fill="none" stroke="#f6f1e6" stroke-width="3.6" stroke-linecap="round"></path><path d="M 440.02 193.82 L 419.12 189.15 L 423.76 206.96 Z" fill="#f6f1e6" stroke="#847C73" stroke-width="0.7" stroke-linejoin="round"></path></g>
+<a class="dlc-stage" href="1_courses.html" aria-label="Plan"><title>Plan</title>
+<g transform="translate(344.00 229.80)">
+<circle class="dlc-bubble" r="52.00" fill="#fbf7f1" stroke="#7d6a5c" stroke-width="2.15" filter="url(#dlc-shadow)"></circle>
+<circle class="dlc-keyline" r="46.50" fill="none" stroke="#7d6a5c" stroke-width="0.9" pointer-events="none"></circle>
+<g transform="translate(-17.28 -31.28) scale(1.080)" pointer-events="none"><g fill="none" stroke="#4a4038" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="7" width="14" height="19" rx="2"></rect><path d="M13 7.2 v-1.2 a2 2 0 0 1 2 -2 h2 a2 2 0 0 1 2 2 v1.2"></path><path d="M13 14 h6 M13 18 h6 M13 22 h4"></path></g></g>
+<text y="20" text-anchor="middle" font-size="15" font-weight="500" letter-spacing="0.2" fill="#3e342c">Plan</text>
+</g></a>
+<a class="dlc-stage" href="5_trait_collection.html" aria-label="Design"><title>Design</title>
+<g transform="translate(500.00 188.00)">
+<circle class="dlc-bubble" r="52.00" fill="#fbf7f1" stroke="#7d6a5c" stroke-width="2.15" filter="url(#dlc-shadow)"></circle>
+<circle class="dlc-keyline" r="46.50" fill="none" stroke="#7d6a5c" stroke-width="0.9" pointer-events="none"></circle>
+<g transform="translate(-17.28 -31.28) scale(1.080)" pointer-events="none"><g fill="none" stroke="#4a4038" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><path d="M7 9 h9 v15 h-9 z"></path><path d="M16 7 l7 7 -8 8 h-4 v-4 z"></path><path d="M18.2 9.2 l4.6 4.6"></path></g></g>
+<text y="20" text-anchor="middle" font-size="15" font-weight="500" letter-spacing="0.2" fill="#3e342c">Design</text>
+</g></a>
+<a class="dlc-stage" href="5_trait_collection.html#collecting-leaves-in-the-field" aria-label="Collect"><title>Collect</title>
+<g transform="translate(656.00 229.80)">
+<circle class="dlc-bubble" r="52.00" fill="#fbf7f1" stroke="#7d6a5c" stroke-width="2.15" filter="url(#dlc-shadow)"></circle>
+<circle class="dlc-keyline" r="46.50" fill="none" stroke="#7d6a5c" stroke-width="0.9" pointer-events="none"></circle>
+<g transform="translate(-17.28 -31.28) scale(1.080)" pointer-events="none"><g fill="none" stroke="#4a4038" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="5" width="16" height="22" rx="2"></rect><path d="M13 5 v22"></path><path d="M16.5 11 h5 M16.5 15 h5 M16.5 19 h4"></path></g></g>
+<text y="20" text-anchor="middle" font-size="15" font-weight="500" letter-spacing="0.2" fill="#3e342c">Collect</text>
+</g></a>
+<a class="dlc-stage" href="5_trait_collection.html#data-entry" aria-label="Digitize"><title>Digitize</title>
+<g transform="translate(770.20 344.00)">
+<circle class="dlc-bubble" r="52.00" fill="#fbf7f1" stroke="#7d6a5c" stroke-width="2.15" filter="url(#dlc-shadow)"></circle>
+<circle class="dlc-keyline" r="46.50" fill="none" stroke="#7d6a5c" stroke-width="0.9" pointer-events="none"></circle>
+<g transform="translate(-17.28 -31.28) scale(1.080)" pointer-events="none"><g fill="none" stroke="#4a4038" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20 h20 v5 a2 2 0 0 1 -2 2 h-16 a2 2 0 0 1 -2 -2 z"></path><path d="M10 20 v-9 h12 v9"></path><path d="M9 23.5 h14"></path></g></g>
+<text y="20" text-anchor="middle" font-size="15" font-weight="500" letter-spacing="0.2" fill="#3e342c">Digitize</text>
+</g></a>
+<a class="dlc-stage" href="9_data_curation.html#import-data" aria-label="Import"><title>Import</title>
+<g transform="translate(812.00 500.00)">
+<circle class="dlc-bubble" r="52.00" fill="#fbf7f1" stroke="#7d6a5c" stroke-width="2.15" filter="url(#dlc-shadow)"></circle>
+<circle class="dlc-keyline" r="46.50" fill="none" stroke="#7d6a5c" stroke-width="0.9" pointer-events="none"></circle>
+<g transform="translate(-17.28 -31.28) scale(1.080)" pointer-events="none"><g fill="none" stroke="#4a4038" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 h8 l2 2 h14 v12 h-24 z"></path><path d="M16 15 v8"></path><path d="M12.8 19.5 l3.2 3.2 l3.2 -3.2"></path></g></g>
+<text y="20" text-anchor="middle" font-size="15" font-weight="500" letter-spacing="0.2" fill="#3e342c">Import</text>
+</g></a>
+<a class="dlc-stage" href="9_data_curation.html" aria-label="Clean"><title>Clean</title>
+<g transform="translate(770.20 656.00)">
+<circle class="dlc-bubble" r="52.00" fill="#fbf7f1" stroke="#7d6a5c" stroke-width="2.15" filter="url(#dlc-shadow)"></circle>
+<circle class="dlc-keyline" r="46.50" fill="none" stroke="#7d6a5c" stroke-width="0.9" pointer-events="none"></circle>
+<g transform="translate(-17.28 -31.28) scale(1.080)" pointer-events="none"><g fill="none" stroke="#4a4038" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4 L10.5 17"></path><path d="M7 20 c2.2 -3.2 4.2 -4.2 6.2 -2.2 c1.6 1.6 4.2 1.2 6.6 -1.6"></path><path d="M6.5 23.5 h15"></path><path d="M9 19.5 v4 M12.2 18 v5.5 M15.4 17.8 v5.7 M18.4 18.8 v4.7"></path></g></g>
+<text y="20" text-anchor="middle" font-size="15" font-weight="500" letter-spacing="0.2" fill="#3e342c">Clean</text>
+</g></a>
+<a class="dlc-stage" href="12_traits.html#prepare-data" aria-label="Process"><title>Process</title>
+<g transform="translate(656.00 770.20)">
+<circle class="dlc-bubble" r="52.00" fill="#fbf7f1" stroke="#7d6a5c" stroke-width="2.15" filter="url(#dlc-shadow)"></circle>
+<circle class="dlc-keyline" r="46.50" fill="none" stroke="#7d6a5c" stroke-width="0.9" pointer-events="none"></circle>
+<g transform="translate(-17.28 -31.28) scale(1.080)" pointer-events="none"><g><line x1="12.00" y1="8.49" x2="12.00" y2="4.80" stroke="#4a4038" stroke-width="3.44" stroke-linecap="butt"></line><line x1="15.19" y1="9.81" x2="17.80" y2="7.20" stroke="#4a4038" stroke-width="3.44" stroke-linecap="butt"></line><line x1="16.51" y1="13.00" x2="20.20" y2="13.00" stroke="#4a4038" stroke-width="3.44" stroke-linecap="butt"></line><line x1="15.19" y1="16.19" x2="17.80" y2="18.80" stroke="#4a4038" stroke-width="3.44" stroke-linecap="butt"></line><line x1="12.00" y1="17.51" x2="12.00" y2="21.20" stroke="#4a4038" stroke-width="3.44" stroke-linecap="butt"></line><line x1="8.81" y1="16.19" x2="6.20" y2="18.80" stroke="#4a4038" stroke-width="3.44" stroke-linecap="butt"></line><line x1="7.49" y1="13.00" x2="3.80" y2="13.00" stroke="#4a4038" stroke-width="3.44" stroke-linecap="butt"></line><line x1="8.81" y1="9.81" x2="6.20" y2="7.20" stroke="#4a4038" stroke-width="3.44" stroke-linecap="butt"></line><circle cx="12.00" cy="13.00" r="4.76" fill="#4a4038"></circle><circle cx="12.00" cy="13.00" r="2.13" fill="#ffffff"></circle><line x1="22.50" y1="18.48" x2="22.50" y2="15.60" stroke="#4a4038" stroke-width="2.69" stroke-linecap="butt"></line><line x1="24.99" y1="19.51" x2="27.03" y2="17.47" stroke="#4a4038" stroke-width="2.69" stroke-linecap="butt"></line><line x1="26.02" y1="22.00" x2="28.90" y2="22.00" stroke="#4a4038" stroke-width="2.69" stroke-linecap="butt"></line><line x1="24.99" y1="24.49" x2="27.03" y2="26.53" stroke="#4a4038" stroke-width="2.69" stroke-linecap="butt"></line><line x1="22.50" y1="25.52" x2="22.50" y2="28.40" stroke="#4a4038" stroke-width="2.69" stroke-linecap="butt"></line><line x1="20.01" y1="24.49" x2="17.97" y2="26.53" stroke="#4a4038" stroke-width="2.69" stroke-linecap="butt"></line><line x1="18.98" y1="22.00" x2="16.10" y2="22.00" stroke="#4a4038" stroke-width="2.69" stroke-linecap="butt"></line><line x1="20.01" y1="19.51" x2="17.97" y2="17.47" stroke="#4a4038" stroke-width="2.69" stroke-linecap="butt"></line><circle cx="22.50" cy="22.00" r="3.71" fill="#4a4038"></circle><circle cx="22.50" cy="22.00" r="1.66" fill="#ffffff"></circle></g></g>
+<text y="20" text-anchor="middle" font-size="15" font-weight="500" letter-spacing="0.2" fill="#3e342c">Process</text>
+</g></a>
+<a class="dlc-stage" href="12_traits.html" aria-label="Analyse"><title>Analyse</title>
+<g transform="translate(500.00 812.00)">
+<circle class="dlc-bubble" r="52.00" fill="#fbf7f1" stroke="#7d6a5c" stroke-width="2.15" filter="url(#dlc-shadow)"></circle>
+<circle class="dlc-keyline" r="46.50" fill="none" stroke="#7d6a5c" stroke-width="0.9" pointer-events="none"></circle>
+<g transform="translate(-17.28 -31.28) scale(1.080)" pointer-events="none"><g fill="none" stroke="#4a4038" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><path d="M5 26 V13"></path><path d="M5 26 H18"></path><path d="M8 22 l4 -6 l3.2 2.4 l5 -7"></path><circle cx="22.5" cy="11" r="5"></circle><path d="M26 14.6 L29.5 18.2"></path></g></g>
+<text y="20" text-anchor="middle" font-size="15" font-weight="500" letter-spacing="0.2" fill="#3e342c">Analyse</text>
+</g></a>
+<a class="dlc-stage" href="5_trait_collection.html#data-documentation" aria-label="Document"><title>Document</title>
+<g transform="translate(344.00 770.20)">
+<circle class="dlc-bubble" r="52.00" fill="#fbf7f1" stroke="#7d6a5c" stroke-width="2.15" filter="url(#dlc-shadow)"></circle>
+<circle class="dlc-keyline" r="46.50" fill="none" stroke="#7d6a5c" stroke-width="0.9" pointer-events="none"></circle>
+<g transform="translate(-17.28 -31.28) scale(1.080)" pointer-events="none"><g fill="none" stroke="#4a4038" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 h9 l6 6 v16 a2 2 0 0 1 -2 2 h-13 a2 2 0 0 1 -2 -2 v-20 a2 2 0 0 1 2 -2 z"></path><path d="M18 4 v6 h6"></path><path d="M12 16 h8 M12 20 h8 M12 24 h5"></path></g></g>
+<text y="20" text-anchor="middle" font-size="15" font-weight="500" letter-spacing="0.2" fill="#3e342c">Document</text>
+</g></a>
+<a class="dlc-stage" href="8_reproducible.html" aria-label="Communicate"><title>Communicate</title>
+<g transform="translate(229.80 656.00)">
+<circle class="dlc-bubble" r="52.00" fill="#fbf7f1" stroke="#7d6a5c" stroke-width="2.15" filter="url(#dlc-shadow)"></circle>
+<circle class="dlc-keyline" r="46.50" fill="none" stroke="#7d6a5c" stroke-width="0.9" pointer-events="none"></circle>
+<g transform="translate(-17.28 -31.28) scale(1.080)" pointer-events="none"><g fill="none" stroke="#4a4038" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="16" r="3.1"></circle><circle cx="24" cy="8" r="3.1"></circle><circle cx="24" cy="24" r="3.1"></circle><path d="M10.8 14.6 L21.1 9.5"></path><path d="M10.8 17.4 L21.1 22.5"></path></g></g>
+<text y="20" text-anchor="middle" font-size="15" font-weight="500" letter-spacing="0.2" fill="#3e342c">Communicate</text>
+</g></a>
+<a class="dlc-stage" href="6_pftc_data.html#pftc-data-repositories" aria-label="Archive"><title>Archive</title>
+<g transform="translate(188.00 500.00)">
+<circle class="dlc-bubble" r="52.00" fill="#fbf7f1" stroke="#7d6a5c" stroke-width="2.15" filter="url(#dlc-shadow)"></circle>
+<circle class="dlc-keyline" r="46.50" fill="none" stroke="#7d6a5c" stroke-width="0.9" pointer-events="none"></circle>
+<g transform="translate(-17.28 -31.28) scale(1.080)" pointer-events="none"><g fill="none" stroke="#4a4038" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13 h20 v12 a2 2 0 0 1 -2 2 h-16 a2 2 0 0 1 -2 -2 z"></path><path d="M4 8 h24 v6 h-24 z"></path><path d="M13 18 h6"></path></g></g>
+<text y="20" text-anchor="middle" font-size="15" font-weight="500" letter-spacing="0.2" fill="#3e342c">Archive</text>
+</g></a>
+<a class="dlc-stage" href="6_pftc_data.html" aria-label="Find &amp; Reuse"><title>Find &amp; Reuse</title>
+<g transform="translate(229.80 344.00)">
+<circle class="dlc-bubble" r="52.00" fill="#fbf7f1" stroke="#7d6a5c" stroke-width="2.15" filter="url(#dlc-shadow)"></circle>
+<circle class="dlc-keyline" r="46.50" fill="none" stroke="#7d6a5c" stroke-width="0.9" pointer-events="none"></circle>
+<g transform="translate(-17.28 -31.28) scale(1.080)" pointer-events="none"><g fill="none" stroke="#4a4038" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="16" r="5.6"></circle><path d="M17.6 20.1 L22 24.6"></path><path d="M23.5 8.5 A10 10 0 0 0 10.5 6.2"></path><path d="M10.2 3.2 v4.2 h4"></path></g></g>
+<text y="14.0" text-anchor="middle" font-size="13.5" font-weight="500" letter-spacing="0.15" fill="#3e342c">Find &amp;</text><text y="30.0" text-anchor="middle" font-size="13.5" font-weight="500" letter-spacing="0.15" fill="#3e342c">Reuse</text>
+</g></a>
+<circle cx="500.00" cy="500.00" r="166.00" fill="#efe6d8" pointer-events="none"></circle>
+<circle cx="500.00" cy="500.00" r="150.00" fill="none" stroke="#6a594c" stroke-width="3.4" stroke-linecap="round" stroke-dasharray="0.2 11" pointer-events="none"></circle>
+<g text-anchor="middle" fill="#3c2e38" font-family="Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif" font-weight="500" pointer-events="none">
+<text x="500.00" y="486.00" font-size="38" letter-spacing="7">DATA</text>
+<line x1="466.00" y1="504.00" x2="534.00" y2="504.00" stroke="#3c2e38" stroke-width="0.8"></line>
+<text x="500.00" y="526.00" font-size="13" letter-spacing="4.4">LIFE CYCLE</text>
+</g>
+<rect width="1000" height="1000" filter="url(#dlc-grain)" pointer-events="none"></rect>
+</svg>
+
+</div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-field" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="images/field.JPG" class="img-fluid figure-img" alt="Studens collecting trait data during PFTC4 on Svalbard." width="1136"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: Trait data collection during PFTC4 on Svalbard.</figcaption></figure>
+<div id="fig-field" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Studens collecting trait data during PFTC4 on Svalbard.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-field-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/field.JPG" class="img-fluid figure-img" alt="Studens collecting trait data during PFTC4 on Svalbard.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-field-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Trait data collection during PFTC4 on Svalbard.
+</figcaption>
+</figure>
 </div>
 </div>
 </div>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
       }
+      return false;
     }
-    return false;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
@@ -301,197 +639,351 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
       return codeEl.innerText;
     }
-  });
-  clipboard.on('success', function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  });
-  function tippyHover(el, contentFn) {
-    const config = {
-      allowHTML: true,
-      content: contentFn,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start'
-    };
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      return note.innerHTML;
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
     });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
     }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
           }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
       });
     }
-  }
-});
-</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./1_courses.html" class="pagination-link">
+      <a href="./1_courses.html" class="pagination-link" aria-label="PFTC Course information">
         <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">PFTC Course information</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -500,4 +992,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Plant-Functional-Trait-Course/PFTC_teaching_material/blob/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>

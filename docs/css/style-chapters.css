@@ -1,6 +1,6 @@
 /* bioSTATS and R */
 
-@import url('https://fonts.googleapis.com/css?family=Lora:400,400i&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&display=swap');
 
 /*--NavBar--*/
 
@@ -107,20 +107,24 @@
 }
 
 body {
-  background-color: #f6f6f6;
-  color: #363538;
+  background-color: #f3eee6;
+  color: #3e342c;
   padding: 0;
-  font-size: 16px;
+  font-size: 16.5px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #408697;
+  color: #3c2e38;
+  font-family: Lora, "Iowan Old Style", Palatino, "Palatino Linotype", Georgia, serif;
+  font-weight: 500;
 }
 
 blockquote {
-  font-size: 14px;
-  background-color: #e5e5e5;
-  border-radius: 10px;
+  font-size: 15px;
+  background-color: #efe6d8;
+  border-left: 3px solid #865E27;
+  border-radius: 2px;
+  color: #3e342c;
 }
 
 .section.level1, .section.level2, .section.level3, section.level4 {
@@ -138,19 +142,20 @@ blockquote {
 /*exercise box*/
 
 .exercise {
-  background-color: #6ADBD2;
-  padding: 10px;
-  border-radius: 5px;
+  background-color: #efe6d8;
+  padding: 10px 14px;
+  border-radius: 2px;
+  border-left: 4px solid #45816D;
   margin-bottom: 15px;
 }
 
 .exercise p{
-  color: #fafafa;
+  color: #3e342c;
   padding: 5px 15px 0 0;
 }
 
 .exercise h1, .exercise h2, .exercise h3, .exercise h4, .exercise h5, .exercise h6{
-  color:#14686a;
+  color:#2C5A4C;
 }
 
 .exercise code{
@@ -162,14 +167,15 @@ blockquote {
 /*facta box*/
 
 .facta {
-  background-color: #bbb;
-  padding: 10px;
-  border-radius: 5px;
+  background-color: #e7efe8;
+  padding: 10px 14px;
+  border-radius: 2px;
+  border-left: 4px solid #2C5A4C;
   margin-bottom: 15px;
 }
 
 .facta p{
-  color: #fafafa;
+  color: #3e342c;
   padding: 5px 15px 0 0;
 }
 
@@ -184,9 +190,9 @@ blockquote {
 /*contributors box*/
 
 .contributors {
-  background-color: #21a5a8;
-  padding: 10px;
-  border-radius: 5px;
+  background-color: #2C5A4C;
+  padding: 10px 14px;
+  border-radius: 2px;
   margin-bottom: 15px;
 }
 
@@ -323,6 +329,118 @@ div.tocify {
 /*--Page--*/
 
 /*--Table-of-Content--*/
+}
+
+
+/* Signac-inspired book chrome. Matches the data life cycle figure. */
+
+a {
+  color: #3F677D;
+  text-decoration-color: rgba(63, 103, 125, 0.35);
+}
+
+a:hover {
+  color: #2C5A4C;
+}
+
+#quarto-header .quarto-secondary-nav {
+  background-color: #f3eee6;
+  border-bottom: 1px solid #e0d6c8;
+}
+
+.quarto-secondary-nav .breadcrumb,
+.quarto-secondary-nav .breadcrumb a,
+.quarto-secondary-nav .quarto-btn-toggle,
+.quarto-secondary-nav .quarto-search-button {
+  color: #3e342c;
+}
+
+#quarto-sidebar {
+  background-color: #f7f3ec;
+  border-right: 1px solid #e0d6c8;
+}
+
+.sidebar-title a {
+  font-family: Lora, "Iowan Old Style", Palatino, Georgia, serif;
+  color: #3c2e38 !important;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+.sidebar-item-section > .sidebar-item-container > .sidebar-item-text {
+  font-family: Lora, Palatino, Georgia, serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: #7d6a5c !important;
+}
+
+#quarto-sidebar .sidebar-link {
+  color: #3e342c;
+}
+
+#quarto-sidebar .sidebar-link:hover {
+  color: #2C5A4C;
+}
+
+#quarto-sidebar .sidebar-link.active {
+  color: #2C5A4C;
+  font-weight: 600;
+  box-shadow: inset 2px 0 0 #865E27;
+}
+
+.chapter-number {
+  color: #865E27;
+}
+
+.quarto-title .title {
+  font-family: Lora, "Iowan Old Style", Palatino, Georgia, serif;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: #3c2e38;
+}
+
+.quarto-title-meta-heading {
+  color: #7d6a5c;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+#TOC .nav-link {
+  color: #6a594c;
+}
+
+#TOC .nav-link.active {
+  color: #2C5A4C;
+  border-left-color: #865E27;
+}
+
+div.sourceCode,
+pre.sourceCode {
+  background-color: #f7f3ec !important;
+  border: 1px solid #e0d6c8;
+  border-radius: 4px;
+}
+
+.lifecycle {
+  margin: 0.5rem auto 1.75rem;
+  max-width: 740px;
+}
+
+.lifecycle .dlc {
+  display: block;
+  margin: 0 auto;
+}
+
+figcaption,
+.figure-caption {
+  color: #6a594c;
+  font-family: Lora, Palatino, Georgia, serif;
+}
+
+h2 {
+  color: #2C5A4C;
 }
 
 

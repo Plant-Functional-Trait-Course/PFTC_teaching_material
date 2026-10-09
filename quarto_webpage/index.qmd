@@ -14,6 +14,15 @@ Here we provide teaching material for data collection, curation, analysis, docum
 In addition, we show reproducible and transparent workflows to make research more open and available.
 We cover these topics within the fields of plant functional trait ecology, ecosystem ecology, plant physiology and remote sensing.
 
+The wheel follows that path.
+Choose a step, a part of the cycle, or a course band to open the matching chapter.
+
+::: {.lifecycle}
+```{=html}
+{{< include images/data_lifecycle.svg >}}
+```
+:::
+
 
 ```{r, echo=FALSE}
 #| label: fig-field
