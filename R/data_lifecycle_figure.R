@@ -40,12 +40,15 @@ stages <- data.frame(
     "clipboard", "pencil", "notebook", "scanner", "folder-in", "broom",
     "gears", "analyse", "document", "share", "archive", "reuse"
   ),
-  # Band colour at this stage. Neighbouring stages are blended together.
+  # Signac, from the Met palettes (palettes::met_palettes / MetBrewer),
+  # mixed toward a warm umber so the pigments sit quieter than the
+  # screen primaries. A phase shares one family of colours; the wash
+  # shifts slowly along the block instead of changing at every circle.
   color = c(
-    "#14a3c4", "#129eb8", "#1aa8c0",
-    "#4fb56a", "#8fbf55", "#e6c15a", "#f5a024",
-    "#f26b32", "#e94580", "#c43d96",
-    "#6d4c96", "#3d6296"
+    "#3D7463", "#45816D", "#5E8A61",
+    "#819751", "#979843", "#AA9836", "#BA992B",
+    "#C08122", "#B36F72", "#A06574",
+    "#895977", "#3F677D"
   ),
   href = c(
     "#plan", "#design", "#collect", "#digitize", "#import", "#clean",
@@ -75,8 +78,11 @@ courses <- data.frame(
   label = c("Ecology & Field Courses", "Stats Courses", "Reports, Stats"),
   mid = c(15, 180, 240),
   span = c(60, 30, 30),
-  color = c("#0c8caf", "#f57c00", "#d81b60"),
-  text_color = c("#ffffff", "#ffffff", "#ffffff"),
+  # Same family as the step band behind each course, taken darker so the label still reads.
+  # Ecology over the teal of Design and Collect, Stats over the ochre of Analyse,
+  # Reports over the rose of Communicate.
+  color = c("#2C5A4C", "#865E27", "#7E545B"),
+  text_color = c("#f6f1e6", "#f6f1e6", "#f6f1e6"),
   href = c("#ecology-field-courses", "#stats-courses", "#reports-stats"),
   stringsAsFactors = FALSE
 )
@@ -100,11 +106,16 @@ layout <- list(
   stage_font = 15,
   phase_font = 22,
   course_font = 16,
-  highlight_stroke = "#f57c00",
-  icon_highlight = "#e53935",
-  center_fill = "#3a3a3a",
-  track_fill = "#b3b3b3",
-  bubble_fill = "#ffffff"
+  # Warm grey-brown keyline on every step circle.
+  ring = "#7d6a5c",
+  icon_ink = "#4a4038",
+  label_ink = "#3e342c",
+  paper = "#f3eee6",
+  well = "#efe6d8",
+  arrow = "#f6f1e6",
+  center_fill = "#3c2e38",
+  track_fill = "#d4cdc2",
+  bubble_fill = "#fbf7f1"
 )
 
 # --- geometry and SVG helpers -------------------------------------------------
@@ -226,12 +237,13 @@ flow_arrow <- function(a_from, a_to, r, bubble_r, fill, cx, cy) {
   }
   pad <- min(1.7, free * 0.14)
   usable <- free - 2 * pad
-  head_deg <- min(4.2, usable * 0.62)
+  head_deg <- min(3.5, usable * 0.52)
   start_deg <- a_from + half + pad
   tip_deg <- a_from + span - half - pad
   base_deg <- tip_deg - head_deg
-  head_half_w <- 13
-  shaft_w <- 7.5
+  head_half_w <- 9.2
+  shaft_w <- 3.6
+  edge <- mix_hex(fill, "#3e342c", 0.62)
 
   shaft <- text_arc_d(start_deg, base_deg, r, FALSE, cx, cy)
   tip <- polar(tip_deg, r, cx, cy)
@@ -248,12 +260,14 @@ flow_arrow <- function(a_from, a_to, r, bubble_r, fill, cx, cy) {
   sprintf(
     paste0(
       '<g pointer-events="none">',
+      '<path d="%s" fill="none" stroke="%s" stroke-width="%.1f" stroke-linecap="round" stroke-opacity="0.35"/>',
       '<path d="%s" fill="none" stroke="%s" stroke-width="%.1f" stroke-linecap="round"/>',
-      '<path d="%s" fill="%s" stroke="%s" stroke-width="1" stroke-linejoin="round"/>',
+      '<path d="%s" fill="%s" stroke="%s" stroke-width="0.7" stroke-linejoin="round"/>',
       "</g>"
     ),
+    shaft, edge, shaft_w + 2.4,
     shaft, fill, shaft_w,
-    head, fill, fill
+    head, fill, edge
   )
 }
 
@@ -335,7 +349,7 @@ band_slices <- function(a0, span, r_in, r_out, stages, cx, cy, bleed = 0) {
     right <- if (k == n_slice) d1 + bleed else d1 + 0.55
     col <- color_at(a0 + (d0 + d1) / 2, stages)
     sprintf(
-      '<path d="%s" fill="%s" stroke="%s" stroke-width="1.3" stroke-linejoin="round" pointer-events="none"/>',
+      '<path d="%s" fill="%s" stroke="%s" stroke-width="0.8" stroke-linejoin="round" pointer-events="none"/>',
       annulus_d(a0 + left, a0 + right, r_in, r_out, cx, cy),
       col, col
     )
@@ -364,7 +378,7 @@ gear_markup <- function(cx, cy, r, col) {
 
 icon_markup <- function(name, col) {
   stroke <- sprintf(
-    'fill="none" stroke="%s" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"',
+    'fill="none" stroke="%s" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"',
     col
   )
   switch(name,
@@ -427,7 +441,7 @@ stage_label_svg <- function(label, font_size, fill) {
   n <- length(lines)
   if (n == 1) {
     return(sprintf(
-      '<text y="20" text-anchor="middle" font-size="%s" font-weight="600" fill="%s">%s</text>',
+      '<text y="20" text-anchor="middle" font-size="%s" font-weight="500" letter-spacing="0.2" fill="%s">%s</text>',
       font_size, fill, xml_esc(lines)
     ))
   }
@@ -435,7 +449,7 @@ stage_label_svg <- function(label, font_size, fill) {
   y0 <- 14
   paste(vapply(seq_len(n), function(i) {
     sprintf(
-      '<text y="%.1f" text-anchor="middle" font-size="%.1f" font-weight="600" fill="%s">%s</text>',
+      '<text y="%.1f" text-anchor="middle" font-size="%.1f" font-weight="500" letter-spacing="0.15" fill="%s">%s</text>',
       y0 + (i - 1) * gap, font_size - 1.5, fill, xml_esc(lines[i])
     )
   }, character(1)), collapse = "")
@@ -445,7 +459,7 @@ curved_text <- function(path_id, path_d, text, font_size, fill, tracking) {
   paste0(
     sprintf('<path id="%s" d="%s" fill="none" stroke="none"/>', path_id, path_d),
     sprintf(
-      '<text font-size="%s" font-weight="700" fill="%s" letter-spacing="%s" text-anchor="middle">',
+      '<text font-size="%s" font-weight="600" fill="%s" letter-spacing="%s" text-anchor="middle">',
       font_size, fill, tracking
     ),
     sprintf(
@@ -506,31 +520,50 @@ build_svg <- function(stages, phases, courses, layout) {
     ".dlc-stage:focus,.dlc-phase:focus,.dlc-course:focus{text-decoration:none;outline:none;}",
     ".dlc-hit{fill:transparent;}",
     ".dlc-phase:hover .dlc-hit,.dlc-phase:focus .dlc-hit,",
-    ".dlc-course:hover .dlc-hit,.dlc-course:focus .dlc-hit{fill:rgba(255,255,255,0.28);}",
-    ".dlc-stage:hover .dlc-bubble,.dlc-stage:focus .dlc-bubble{stroke:#222;stroke-width:3px;}",
+    ".dlc-course:hover .dlc-hit,.dlc-course:focus .dlc-hit{fill:rgba(255,248,236,0.22);}",
+    ".dlc-stage:hover .dlc-bubble,.dlc-stage:focus .dlc-bubble,",
+    ".dlc-stage:hover .dlc-keyline,.dlc-stage:focus .dlc-keyline{stroke:#3e342c;}",
     "</style>",
+    sep = ""
+  )
+
+  defs <- paste(
+    "<defs>",
+    '<filter id="dlc-shadow" x="-55%" y="-55%" width="210%" height="210%" color-interpolation-filters="sRGB">',
+    '<feDropShadow dx="0" dy="1.5" stdDeviation="2.1" flood-color="#3a3028" flood-opacity="0.22"/>',
+    "</filter>",
+    '<filter id="dlc-grain" x="0" y="0" width="100%" height="100%">',
+    '<feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="4" stitchTiles="stitch"/>',
+    '<feColorMatrix type="matrix" values="0 0 0 0 0.30  0 0 0 0 0.26  0 0 0 0 0.20  0.16 0.16 0.16 0 -0.03"/>',
+    "</filter>",
+    "</defs>",
     sep = ""
   )
 
   parts <- c(
     '<?xml version="1.0" encoding="UTF-8"?>',
     sprintf(
-      '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="dlc" viewBox="0 0 %d %d" width="860" height="860" style="max-width:100%%;height:auto" role="group" aria-label="Data life cycle" font-family="Avenir Next, Segoe UI, Helvetica Neue, Arial, sans-serif">',
+      '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="dlc" viewBox="0 0 %d %d" width="860" height="860" style="max-width:100%%;height:auto" role="group" aria-label="Data life cycle" font-family="Avenir Next, Gill Sans, Gill Sans MT, Helvetica Neue, Arial, sans-serif">',
       L$canvas, L$canvas
     ),
     "<!-- Generated by R/data_lifecycle_figure.R. Edit that script and re-run. -->",
     css,
+    defs,
     sprintf(
-      '<circle cx="%.2f" cy="%.2f" r="%.2f" fill="#ffffff"/>',
-      cx, cy, L$outer_r
+      '<circle cx="%.2f" cy="%.2f" r="%.2f" fill="%s"/>',
+      cx, cy, L$outer_r, L$paper
     ),
     sprintf(
       '<path d="%s" fill="%s" fill-rule="evenodd"/>',
       donut_d(L$track_inner, L$outer_r, cx, cy), L$track_fill
     ),
     sprintf(
-      '<circle cx="%.2f" cy="%.2f" r="%.2f" fill="none" stroke="#a6a6a6" stroke-width="1.5"/>',
+      '<circle cx="%.2f" cy="%.2f" r="%.2f" fill="none" stroke="#b7ad9f" stroke-width="1.15"/>',
       cx, cy, L$outer_r
+    ),
+    sprintf(
+      '<circle cx="%.2f" cy="%.2f" r="%.2f" fill="none" stroke="%s" stroke-width="2.2"/>',
+      cx, cy, L$track_inner, L$paper
     )
   )
 
@@ -556,7 +589,7 @@ build_svg <- function(stages, phases, courses, layout) {
       curved_text(
         paste0("dlc-course-path-", course$id),
         text_arc_d(s$a0, s$a0 + s$span, baseline, flip, cx, cy),
-        course$label, L$course_font, course$text_color, "0.4"
+        course$label, L$course_font, course$text_color, "0.6"
       ),
       "</a>"
     )
@@ -569,20 +602,21 @@ build_svg <- function(stages, phases, courses, layout) {
     phase <- phases[match(run$phase, phases$id), ]
     inner_a0 <- run$a0 + L$block_gap
     inner_span <- run$span - 2 * L$block_gap
+    mid <- (run$a0 + run$span / 2) %% 360
     outer_slices <- band_slices(
       run$a0, run$span, L$step_band_inner, L$phase_outer,
       stages, cx, cy, bleed = 0.4
     )
-    inner_slices <- band_slices(
-      inner_a0, inner_span, L$block_inner, L$block_outer,
-      stages, cx, cy, bleed = 0
+    inner_col <- color_at(mid, stages)
+    inner_edge <- mix_hex(inner_col, L$label_ink, 0.28)
+    inner_d <- annulus_d(
+      inner_a0, inner_a0 + inner_span, L$block_inner, L$block_outer, cx, cy
     )
-    mid <- (run$a0 + run$span / 2) %% 360
     flip <- should_flip(mid)
     label_size <- if (inner_span < 45) L$phase_font - 4 else L$phase_font
-    tracking <- if (inner_span < 45) "0.4" else "1.6"
+    tracking <- if (inner_span < 45) "0.5" else "2.2"
     baseline <- label_baseline_r(L$phase_label_r, label_size, flip)
-    label_col <- if (rel_lum(color_at(mid, stages)) > 0.4) "#1c3140" else "#ffffff"
+    label_col <- if (rel_lum(inner_col) > 0.42) L$label_ink else "#f6f1e6"
     parts <- c(
       parts,
       sprintf(
@@ -590,7 +624,10 @@ build_svg <- function(stages, phases, courses, layout) {
         xml_esc(phase$href), xml_esc(phase$label), xml_esc(phase$label)
       ),
       outer_slices,
-      inner_slices,
+      sprintf(
+        '<path d="%s" fill="%s" stroke="%s" stroke-width="1.15" stroke-linejoin="round" pointer-events="none"/>',
+        inner_d, inner_col, inner_edge
+      ),
       sprintf(
         '<path class="dlc-hit" d="%s"/>',
         annulus_d(run$a0, run$a0 + run$span, L$step_band_inner, L$phase_outer, cx, cy)
@@ -615,7 +652,7 @@ build_svg <- function(stages, phases, courses, layout) {
     j <- if (i == length(angs)) 1 else i + 1
     parts <- c(
       parts,
-      flow_arrow(angs[i], angs[j], L$bubble_orbit, L$bubble_r, "#ffffff", cx, cy)
+      flow_arrow(angs[i], angs[j], L$bubble_orbit, L$bubble_r, L$arrow, cx, cy)
     )
   }
 
@@ -624,13 +661,11 @@ build_svg <- function(stages, phases, courses, layout) {
   for (i in seq_len(nrow(stages))) {
     st <- stages[i, ]
     p <- polar(st$angle, L$bubble_orbit, cx, cy)
-    rim <- if (isTRUE(st$highlight)) L$highlight_stroke else "#e6e6e6"
-    rim_w <- if (isTRUE(st$highlight)) 3.6 else 1.5
-    icon_col <- if (isTRUE(st$highlight)) {
-      L$icon_highlight
-    } else {
-      mix_hex(st$color, "#142830", 0.22)
-    }
+    icon_col <- L$icon_ink
+    keyline <- sprintf(
+      '<circle class="dlc-keyline" r="%.2f" fill="none" stroke="%s" stroke-width="0.9" pointer-events="none"/>',
+      L$bubble_r - 5.5, L$ring
+    )
     tip <- gsub("\n", " ", st$label, fixed = TRUE)
     parts <- c(
       parts,
@@ -640,33 +675,45 @@ build_svg <- function(stages, phases, courses, layout) {
       ),
       sprintf('<g transform="translate(%.2f %.2f)">', p[1], p[2]),
       sprintf(
-        '<circle cx="0" cy="2" r="%.2f" fill="rgba(20,30,40,0.12)" pointer-events="none"/>',
-        L$bubble_r
+        '<circle class="dlc-bubble" r="%.2f" fill="%s" stroke="%s" stroke-width="2.15" filter="url(#dlc-shadow)"/>',
+        L$bubble_r, L$bubble_fill, L$ring
       ),
-      sprintf(
-        '<circle class="dlc-bubble" r="%.2f" fill="%s" stroke="%s" stroke-width="%.2f"/>',
-        L$bubble_r, L$bubble_fill, rim, rim_w
-      ),
+      keyline,
       sprintf(
         '<g transform="translate(%.2f %.2f) scale(%.3f)" pointer-events="none">%s</g>',
         -16 * icon_scale, -16 * icon_scale - 14, icon_scale, icon_markup(st$icon, icon_col)
       ),
-      stage_label_svg(st$label, L$stage_font, "#2c2c2c"),
+      stage_label_svg(st$label, L$stage_font, L$label_ink),
       "</g></a>"
     )
   }
 
-  # Dotted ring around the title. The step arrows stay on the outer band.
+  # Title well. A fine broken rule stands in for the old dotted circle.
   parts <- c(
     parts,
     sprintf(
-      '<circle cx="%.2f" cy="%.2f" r="%.2f" fill="none" stroke="#cfcfcf" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="0.5 8.5" pointer-events="none"/>',
+      '<circle cx="%.2f" cy="%.2f" r="%.2f" fill="%s" pointer-events="none"/>',
+      cx, cy, L$block_inner - 8, L$well
+    ),
+    sprintf(
+      '<circle cx="%.2f" cy="%.2f" r="%.2f" fill="none" stroke="#6a594c" stroke-width="3.4" stroke-linecap="round" stroke-dasharray="0.2 11" pointer-events="none"/>',
       cx, cy, L$dotted_r
     ),
-    '<text text-anchor="middle" font-weight="800" fill="#3a3a3a" pointer-events="none">',
-    sprintf('<tspan x="%.2f" y="%.2f" font-size="46" letter-spacing="4">DATA</tspan>', cx, cy - 6),
-    sprintf('<tspan x="%.2f" y="%.2f" font-size="28" letter-spacing="1.2">LIFE CYCLE</tspan>', cx, cy + 32),
-    "</text>",
+    sprintf(
+      '<g text-anchor="middle" fill="%s" font-family="Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif" font-weight="500" pointer-events="none">',
+      L$center_fill
+    ),
+    sprintf('<text x="%.2f" y="%.2f" font-size="38" letter-spacing="7">DATA</text>', cx, cy - 14),
+    sprintf(
+      '<line x1="%.2f" y1="%.2f" x2="%.2f" y2="%.2f" stroke="%s" stroke-width="0.8"/>',
+      cx - 34, cy + 4, cx + 34, cy + 4, L$center_fill
+    ),
+    sprintf('<text x="%.2f" y="%.2f" font-size="13" letter-spacing="4.4">LIFE CYCLE</text>', cx, cy + 26),
+    "</g>",
+    sprintf(
+      '<rect width="%d" height="%d" filter="url(#dlc-grain)" pointer-events="none"/>',
+      L$canvas, L$canvas
+    ),
     "</svg>"
   )
 
