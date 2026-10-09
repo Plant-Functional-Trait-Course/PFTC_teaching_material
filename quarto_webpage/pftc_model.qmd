@@ -12,3 +12,14 @@ Choose a step, a part of the cycle, or a course band to open the matching chapte
 {{< include images/data_lifecycle.svg >}}
 ```
 :::
+
+The same four parts carry the wider model.
+The inner ring is the scientific process.
+Around it, from the centre outward, are the documents, the methods, and the community.
+Choose a wedge to open that part of the toolbox.
+
+::: {.lifecycle}
+```{=html}
+{{< include images/pftc_model.svg >}}
+```
+:::
