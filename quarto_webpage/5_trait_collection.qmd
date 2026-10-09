@@ -110,7 +110,7 @@ knitr::include_graphics("images/trait_wheel/height.png")
 ```
 
 
-Record this measurement using legibly numbers (@fig-numbers) on the zip-loc bag (@fig-zip-loc).
+Record this measurement using legibly numbers (@fig-numbers) on the zip-loc bag.
 Place the leaf/leaves for each individual in a bag with wet paper towels for transfer to lab.
 
 ```{r}
@@ -126,6 +126,8 @@ knitr::include_graphics("images/trait_wheel/numbers.png")
 #| label: fig-zip-loc
 #| fig-cap: "Sticker for Zip-loc bag"
 #| fig-alt: "Sticker for Zip-loc bag"
+#| eval: false
+#| echo: false
 
 knitr::include_graphics("images/trait_wheel/ziploc_label.png")
 

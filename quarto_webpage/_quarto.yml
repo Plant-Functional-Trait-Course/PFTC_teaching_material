@@ -13,28 +13,28 @@ book:
   sharing: [twitter, facebook]
   chapters:
     - index.qmd
-    - part: "PFTC courses"
+    - part: "The PFTC model"
       chapters:
-      - 1_courses.qmd
-    # - part: "The study system"
-    #   chapters:
-    #   - 2_study_system.qmd
-    #   - 3_three_d.qmd
-    #   - 4_incline.qmd
-    - part: "Trait data collection"
+        - pftc_model.qmd
+    - part: "Create"
       chapters:
-      - 5_trait_collection.qmd
-    - part: "PFTC data"
+        - create.qmd
+        - 5_trait_collection.qmd
+    - part: "Process"
       chapters:
-      - 6_pftc_data.qmd
-    - part: "Data science"
+        - process.qmd
+        - 7_biostats.qmd
+        - 9_data_curation.qmd
+        - 10_community.qmd
+        - 12_traits.qmd
+    - part: "Share"
       chapters:
-      - 7_biostats.qmd
-      - 8_reproducible.qmd
-      - 9_data_curation.qmd
-      - 10_community.qmd
-      #- 11_bootstrap.qmd
-      - 12_traits.qmd
+        - share.qmd
+        - 8_reproducible.qmd
+    - part: "Re-use"
+      chapters:
+        - reuse.qmd
+        - 6_pftc_data.qmd
 
 bibliography: bibliography.bib
 #suppress-bibliography: true

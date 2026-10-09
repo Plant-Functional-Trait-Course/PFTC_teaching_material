@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.8.25">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>PFTC Teaching Material - 2&nbsp; The trait wheel</title>
+
+
+<title>3&nbsp; The trait wheel – PFTC Teaching Material</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -18,6 +21,7 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -55,6 +59,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -72,6 +77,7 @@ div.csl-indent {
   margin-left: 2em;
 }</style>
 
+
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -79,23 +85,32 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./6_pftc_data.html" rel="next">
-<link href="./1_courses.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<link href="./process.html" rel="next">
+<link href="./create.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-27c261d06b905028a18691de25d09dde.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -104,50 +119,63 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><link rel="stylesheet" href="css/style-chapters.css">
+}</script>
+
+
+<link rel="stylesheet" href="css/style-chapters.css">
 </head>
-<body class="nav-sidebar floating">
+
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./5_trait_collection.html">Trait data collection</a></li><li class="breadcrumb-item"><a href="./5_trait_collection.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The trait wheel</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./create.html">Create</a></li><li class="breadcrumb-item"><a href="./5_trait_collection.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The trait wheel</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">PFTC Teaching Material</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/Plant-Functional-Trait-Course/PFTC_teaching_material/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/Plant-Functional-Trait-Course/PFTC_teaching_material/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
-      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-<li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=%7Curl%7C">
-              <i class="bi bi-bi-twitter pe-1"></i>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-twitter pe-1"></i>
             Twitter
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=%7Curl%7C">
-              <i class="bi bi-bi-facebook pe-1"></i>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-facebook pe-1"></i>
             Facebook
             </a>
           </li>
       </ul>
-</div>
+    </div>
 </div>
     </div>
       </div>
@@ -158,82 +186,71 @@ div.csl-indent {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction</span></a>
+ <span class="menu-text">PFTC Teaching Material</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">PFTC courses</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">The PFTC model</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1_courses.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">PFTC Course information</span></span></a>
-  </div>
-</li>
-      </ul>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Trait data collection</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./5_trait_collection.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The trait wheel</span></span></a>
+  <a href="./pftc_model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The PFTC model</span></span></a>
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
- <span class="menu-text">PFTC data</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Create</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./6_pftc_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Working with PFTC data</span></span></a>
-  </div>
-</li>
-      </ul>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text">Data science</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./7_biostats.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction to R, RStudio and GitHub</span></span></a>
+  <a href="./create.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Create</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./8_reproducible.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reproducible workflows</span></span></a>
+  <a href="./5_trait_collection.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The trait wheel</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Process</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./process.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Process</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./7_biostats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Introduction to R, RStudio and GitHub</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -255,32 +272,82 @@ div.csl-indent {
   </div>
 </li>
       </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Share</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./share.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Share</span></span></a>
+  </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./8_reproducible.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Reproducible workflows</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Re-use</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reuse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Re-use</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6_pftc_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Working with PFTC data</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
-</div>
-</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#collecting-leaves-in-the-field" id="toc-collecting-leaves-in-the-field" class="nav-link active" data-scroll-target="#collecting-leaves-in-the-field"><span class="header-section-number">2.1</span> Collecting leaves in the field</a></li>
-  <li><a href="#preparing-leaves-for-measuring-traits-in-lab" id="toc-preparing-leaves-for-measuring-traits-in-lab" class="nav-link" data-scroll-target="#preparing-leaves-for-measuring-traits-in-lab"><span class="header-section-number">2.2</span> Preparing leaves for measuring traits in lab</a></li>
-  <li><a href="#wet-mass" id="toc-wet-mass" class="nav-link" data-scroll-target="#wet-mass"><span class="header-section-number">2.3</span> Wet mass</a></li>
-  <li><a href="#measure-leaf-area-using-a-scanner" id="toc-measure-leaf-area-using-a-scanner" class="nav-link" data-scroll-target="#measure-leaf-area-using-a-scanner"><span class="header-section-number">2.4</span> Measure leaf area using a scanner</a></li>
-  <li><a href="#leaf-thickness" id="toc-leaf-thickness" class="nav-link" data-scroll-target="#leaf-thickness"><span class="header-section-number">2.5</span> Leaf thickness</a></li>
-  <li><a href="#data-entry" id="toc-data-entry" class="nav-link" data-scroll-target="#data-entry"><span class="header-section-number">2.6</span> Data entry</a></li>
-  <li><a href="#dry-mass" id="toc-dry-mass" class="nav-link" data-scroll-target="#dry-mass"><span class="header-section-number">2.7</span> Dry mass</a></li>
-  <li><a href="#data-checking" id="toc-data-checking" class="nav-link" data-scroll-target="#data-checking"><span class="header-section-number">2.8</span> Data checking</a></li>
-  <li><a href="#data-documentation" id="toc-data-documentation" class="nav-link" data-scroll-target="#data-documentation"><span class="header-section-number">2.9</span> Data documentation</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">2.10</span> References</a></li>
-  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Plant-Functional-Trait-Course/PFTC_teaching_material/blob/main/5_trait_collection.qmd" class="toc-action">View source</a></p></div></div></nav>
+  <li><a href="#collecting-leaves-in-the-field" id="toc-collecting-leaves-in-the-field" class="nav-link active" data-scroll-target="#collecting-leaves-in-the-field"><span class="header-section-number">3.1</span> Collecting leaves in the field</a></li>
+  <li><a href="#preparing-leaves-for-measuring-traits-in-lab" id="toc-preparing-leaves-for-measuring-traits-in-lab" class="nav-link" data-scroll-target="#preparing-leaves-for-measuring-traits-in-lab"><span class="header-section-number">3.2</span> Preparing leaves for measuring traits in lab</a></li>
+  <li><a href="#wet-mass" id="toc-wet-mass" class="nav-link" data-scroll-target="#wet-mass"><span class="header-section-number">3.3</span> Wet mass</a></li>
+  <li><a href="#measure-leaf-area-using-a-scanner" id="toc-measure-leaf-area-using-a-scanner" class="nav-link" data-scroll-target="#measure-leaf-area-using-a-scanner"><span class="header-section-number">3.4</span> Measure leaf area using a scanner</a></li>
+  <li><a href="#leaf-thickness" id="toc-leaf-thickness" class="nav-link" data-scroll-target="#leaf-thickness"><span class="header-section-number">3.5</span> Leaf thickness</a></li>
+  <li><a href="#data-entry" id="toc-data-entry" class="nav-link" data-scroll-target="#data-entry"><span class="header-section-number">3.6</span> Data entry</a></li>
+  <li><a href="#dry-mass" id="toc-dry-mass" class="nav-link" data-scroll-target="#dry-mass"><span class="header-section-number">3.7</span> Dry mass</a></li>
+  <li><a href="#data-checking" id="toc-data-checking" class="nav-link" data-scroll-target="#data-checking"><span class="header-section-number">3.8</span> Data checking</a></li>
+  <li><a href="#data-documentation" id="toc-data-documentation" class="nav-link" data-scroll-target="#data-documentation"><span class="header-section-number">3.9</span> Data documentation</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">3.10</span> References</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/Plant-Functional-Trait-Course/PFTC_teaching_material/blob/main/5_trait_collection.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">
-<span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The trait wheel</span>
-</h1>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./create.html">Create</a></li><li class="breadcrumb-item"><a href="./5_trait_collection.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The trait wheel</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The trait wheel</span></h1>
 </div>
 
 
@@ -293,22 +360,36 @@ div.csl-indent {
   </div>
   
 
-</header><p>This protocol shows how to collect, measure, check and document leaf functional traits for vascular plants using the trait wheel<sup>TW</sup> (<a href="#fig-trait-wheel">Figure&nbsp;<span>2.1</span></a>). The protocol is based on the trait handbook from Perez-Harguindeguy et al. <span class="citation" data-cites="Perez-Harguindeguy2013-nv">(<a href="#ref-Perez-Harguindeguy2013-nv" role="doc-biblioref">2013</a>)</span>.</p>
+
+</header>
+
+
+<p>This protocol shows how to collect, measure, check and document leaf functional traits for vascular plants using the trait wheel<sup>TW</sup> (<a href="#fig-trait-wheel" class="quarto-xref">Figure&nbsp;<span>3.1</span></a>). The protocol is based on the trait handbook from Perez-Harguindeguy et al. <span class="citation" data-cites="Perez-Harguindeguy2013-nv">(<a href="#ref-Perez-Harguindeguy2013-nv" role="doc-biblioref">2013</a>)</span>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-trait-wheel" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="images/trait_wheel/TraitWheel_small.png" class="img-fluid figure-img" alt="Conceptual figure showing the different steps from collecting, processing and curating data in the trait wheel." width="1946"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.1: The different steps from collecting, processing and curating data in the trait wheel.</figcaption></figure>
+<div id="fig-trait-wheel" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Conceptual figure showing the different steps from collecting, processing and curating data in the trait wheel.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-trait-wheel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/trait_wheel/TraitWheel_small.png" class="img-fluid figure-img" alt="Conceptual figure showing the different steps from collecting, processing and curating data in the trait wheel." width="1946">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-trait-wheel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: The different steps from collecting, processing and curating data in the trait wheel.
+</figcaption>
+</figure>
 </div>
 </div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="images/trait_wheel/Collect.png" class="img-fluid" style="width:10.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="images/trait_wheel/Collect.png" class="img-fluid figure-img" style="width:10.0%"></p>
+</figure>
 </div>
 </div>
-<section id="collecting-leaves-in-the-field" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="collecting-leaves-in-the-field">
-<span class="header-section-number">2.1</span> Collecting leaves in the field</h2>
+</div>
+<section id="collecting-leaves-in-the-field" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="collecting-leaves-in-the-field"><span class="header-section-number">3.1</span> Collecting leaves in the field</h2>
 <p>Be careful at all time when working in the experiment and avoid stepping on the experimental plots. Make yourself familiar with the experimental design (check the site maps), and how plot, blocks and sites are marked.</p>
 <p>To collect plants, go to your plot and use a sitting mat to sit next to the plot. Collect the leaves and minimize disturbing the surroundings as much as possible.</p>
 <p>We will collect traits in three different locations/experiments:</p>
@@ -322,90 +403,129 @@ div.csl-indent {
 <p>We aim to collect leaves from the species that make up 80% of the cover in each plot. For each plot we will generate a species list.</p>
 <p>Below is an example code to generate such a species list:</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">threshold</span> <span class="op">&lt;-</span>  <span class="fl">80</span></span>
-<span></span>
-<span><span class="va">cover</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu">select</span><span class="op">(</span><span class="va">turfID</span>, <span class="va">species</span>, <span class="va">cover</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">turfID</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu">arrange</span><span class="op">(</span><span class="va">turfID</span>, <span class="op">-</span><span class="va">cover</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu">mutate</span><span class="op">(</span>cumsum <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span><span class="op">(</span><span class="va">cover</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">cumsum</span> <span class="op">&lt;=</span> <span class="va">threshold</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>threshold <span class="ot">&lt;-</span>  <span class="dv">80</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>cover <span class="sc">|&gt;</span> </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(turfID, species, cover) <span class="sc">|&gt;</span> </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(turfID) <span class="sc">|&gt;</span> </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(turfID, <span class="sc">-</span>cover) <span class="sc">|&gt;</span> </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cumsum =</span> <span class="fu">cumsum</span>(cover)) <span class="sc">|&gt;</span> </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(cumsum <span class="sc">&lt;=</span> threshold)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>For each plot and species find 3 individuals that are spread across the plot to avoid sampling clones. Choose reproductively mature adults with fully expanded leaves (i.e.&nbsp;not seedlings) and healthy-looking leaves (i.e.&nbsp;not grazed, no signs of pathogen or herbivore attack, no discoloration).</p>
 <p>Measure the height of each individual plant and note down the height on the zip-loc bag (see below).</p>
-<p>Collect 1 leaf from the individual, making sure to include the petiole (<a href="#fig-leaf-anatomy">Figure&nbsp;<span>2.2 (a)</span></a>). If you are uncertain whether something is a leaf vs.&nbsp;leaflet (<a href="#fig-leaflets">Figure&nbsp;<span>2.2 (b)</span></a>), ask your group leader.</p>
+<p>Collect 1 leaf from the individual, making sure to include the petiole (<a href="#fig-leaf-anatomy" class="quarto-xref">Figure&nbsp;<span>3.2 (a)</span></a>). If you are uncertain whether something is a leaf vs.&nbsp;leaflet (<a href="#fig-leaflets" class="quarto-xref">Figure&nbsp;<span>3.2 (b)</span></a>), ask your group leader.</p>
 <p>If you cannot find 3 individuals of each species, that is ok. After a reasonable search, move on to the next species or plot.</p>
 <div id="fig-grasslands" class="quarto-layout-panel">
-<figure class="figure"><div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-leaf-anatomy" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="images/trait_wheel/leaf_anatomy_1.png" class="img-fluid figure-img" data-ref-parent="fig-grasslands"></p>
-<figcaption class="figure-caption">(a) Leaf atanomy of a single leaf</figcaption></figure>
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-grasslands-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-grasslands" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-leaf-anatomy" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-leaf-anatomy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/trait_wheel/leaf_anatomy_1.png" class="img-fluid figure-img" data-ref-parent="fig-grasslands">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-leaf-anatomy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Leaf atanomy of a single leaf
+</figcaption>
+</figure>
 </div>
 </div>
-<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-leaflets" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="images/trait_wheel/leaf_anatomy_2.png" class="img-fluid figure-img" data-ref-parent="fig-grasslands"></p>
-<figcaption class="figure-caption">(b) A leaf with leaflets</figcaption></figure>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-grasslands" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-leaflets" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-leaflets-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/trait_wheel/leaf_anatomy_2.png" class="img-fluid figure-img" data-ref-parent="fig-grasslands">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-leaflets-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) A leaf with leaflets
+</figcaption>
+</figure>
 </div>
 </div>
 </div>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2.2: Leaf atanomy</figcaption><p></p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-grasslands-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.2: Leaf atanomy
+</figcaption>
 </figure>
 </div>
 <p><strong>Measuring vegetative height of individual plants in the field</strong></p>
-<p>Measure the vegetative height of the individual plant in the field (<a href="#fig-height">Figure&nbsp;<span>2.3</span></a>). Vegetative height is the shortest distance between the main photosynthetic tissue on the plant and the ground, excluding any reproductive structure (e.g.&nbsp;buds, flowers or fruits). Leave the plant in it’s natural form and do not stretch the plant if it bends.</p>
-<p>Different plants will require different measures of height. <a href="#fig-height">Figure&nbsp;<span>2.3</span></a> shows a couple of typical examples. For cushion plants (A), stick a the ruler into the cusion all the way to the ground. For forbs and graminoids (B, D, E) measure the main stem leaves, and do not stretch the leaves (D, F, G ).</p>
+<p>Measure the vegetative height of the individual plant in the field (<a href="#fig-height" class="quarto-xref">Figure&nbsp;<span>3.3</span></a>). Vegetative height is the shortest distance between the main photosynthetic tissue on the plant and the ground, excluding any reproductive structure (e.g.&nbsp;buds, flowers or fruits). Leave the plant in it’s natural form and do not stretch the plant if it bends.</p>
+<p>Different plants will require different measures of height. <a href="#fig-height" class="quarto-xref">Figure&nbsp;<span>3.3</span></a> shows a couple of typical examples. For cushion plants (A), stick a the ruler into the cusion all the way to the ground. For forbs and graminoids (B, D, E) measure the main stem leaves, and do not stretch the leaves (D, F, G ).</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-height" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="images/trait_wheel/height.png" class="img-fluid figure-img" alt="Different plant types and how to measure height." width="1000"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.3: Different plant types and how to measure height.</figcaption></figure>
+<div id="fig-height" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Different plant types and how to measure height.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-height-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/trait_wheel/height.png" class="img-fluid figure-img" alt="Different plant types and how to measure height." width="1000">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-height-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.3: Different plant types and how to measure height.
+</figcaption>
+</figure>
 </div>
 </div>
 </div>
-<p>Record this measurement using legibly numbers (<a href="#fig-numbers">Figure&nbsp;<span>2.4</span></a>) on the zip-loc bag (<a href="#fig-zip-loc">Figure&nbsp;<span>2.5</span></a>). Place the leaf/leaves for each individual in a bag with wet paper towels for transfer to lab.</p>
+<p>Record this measurement using legibly numbers (<a href="#fig-numbers" class="quarto-xref">Figure&nbsp;<span>3.4</span></a>) on the zip-loc bag. Place the leaf/leaves for each individual in a bag with wet paper towels for transfer to lab.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-numbers" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="images/trait_wheel/numbers.png" class="img-fluid figure-img" alt="Illustrations for the one and only approved way to write numbers!" width="582"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.4: The one and only approved way to write numbers!</figcaption></figure>
+<div id="fig-numbers" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Illustrations for the one and only approved way to write numbers!">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-numbers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/trait_wheel/numbers.png" class="img-fluid figure-img" alt="Illustrations for the one and only approved way to write numbers!" width="582">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-numbers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.4: The one and only approved way to write numbers!
+</figcaption>
+</figure>
 </div>
 </div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-zip-loc" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="images/trait_wheel/ziploc_label.png" class="img-fluid figure-img" alt="Sticker for Zip-loc bag" width="288"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.5: Sticker for Zip-loc bag</figcaption></figure>
+<div>
+<figure class="figure">
+<p><img src="images/trait_wheel/Process.png" class="img-fluid figure-img" style="width:20.0%"></p>
+</figure>
 </div>
 </div>
 </div>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="images/trait_wheel/Process.png" class="img-fluid" style="width:20.0%"></p>
-</div>
-</div>
-</section><section id="preparing-leaves-for-measuring-traits-in-lab" class="level2" data-number="2.2"><h2 data-number="2.2" class="anchored" data-anchor-id="preparing-leaves-for-measuring-traits-in-lab">
-<span class="header-section-number">2.2</span> Preparing leaves for measuring traits in lab</h2>
+</section>
+<section id="preparing-leaves-for-measuring-traits-in-lab" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="preparing-leaves-for-measuring-traits-in-lab"><span class="header-section-number">3.2</span> Preparing leaves for measuring traits in lab</h2>
 <p>Select one leaf per individual. For analysing chemical traits such as percent P, C, N and isotopes, a certain amount of dry biomass is needed. Make sure that we are collecting 0.03 g (30 mg) dried leaf material. Otherwise select several leaves until there is enough dry weight. This is called a bulk sample and should be indicated on the envelope (e.g.&nbsp;count the nr of leaves).</p>
-<p>When collecting the leaf, include petiole and rachis (<a href="#fig-leaflets">Figure&nbsp;<span>2.2 (b)</span></a>). Pat the leaf dry with a tissue if there is visible water on the surface. Add a sticker to enter the information and a barcode sticker to the envelope (<a href="#fig-label">Figure&nbsp;<span>2.6</span></a> and <a href="#fig-barcode">Figure&nbsp;<span>2.6 (a)</span></a>). Attach the sticker with a stapler.</p>
+<p>When collecting the leaf, include petiole and rachis (<a href="#fig-leaflets" class="quarto-xref">Figure&nbsp;<span>3.2 (b)</span></a>). Pat the leaf dry with a tissue if there is visible water on the surface. Add a sticker to enter the information and a barcode sticker to the envelope (<a href="#fig-label" class="quarto-xref">Figure&nbsp;<span>3.5</span></a> and <a href="#fig-barcode" class="quarto-xref">Figure&nbsp;<span>3.5 (a)</span></a>). Attach the sticker with a stapler.</p>
 <div id="fig-label" class="quarto-layout-panel">
-<figure class="figure"><div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-label-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="images/trait_wheel/envelope_label.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Label with information</figcaption></figure>
+<figure class="figure">
+<p><img src="images/trait_wheel/envelope_label.png" class="img-fluid figure-img"></p>
+<figcaption>Label with information</figcaption>
+</figure>
 </div>
 </div>
-<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-barcode" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="images/trait_wheel/barcode.gif" class="img-fluid figure-img" data-ref-parent="fig-label"></p>
-<figcaption class="figure-caption">(a) Barcode with unique leaf ID</figcaption></figure>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-label" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-barcode" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-barcode-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/trait_wheel/barcode.gif" class="img-fluid figure-img" data-ref-parent="fig-label">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-barcode-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Barcode with unique leaf ID
+</figcaption>
+</figure>
 </div>
 </div>
 </div>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2.6: Sticker and barcode example.</figcaption><p></p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-label-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.5: Sticker and barcode example.
+</figcaption>
 </figure>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -414,28 +534,34 @@ div.csl-indent {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-How IDs and barcodes are generated
+<span class="screen-reader-only">Note</span>How IDs and barcodes are generated
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>For more information on how the unique leaf IDs and barcode stickers are generated, see the readme file in this <a href="https://github.com/Plant-Functional-Trait-Course/PFTCFunctions">GitHub repo</a>.</p>
 </div>
 </div>
-<p>Fill in all information between ‘collection day’ and ‘Bulk nr/length’. Carefully, check <a href="#tbl-info">Table&nbsp;<span>2.1</span></a> for the different options for the information on the label.</p>
+<p>Fill in all information between ‘collection day’ and ‘Bulk nr/length’. Carefully, check <a href="#tbl-info" class="quarto-xref">Table&nbsp;<span>3.1</span></a> for the different options for the information on the label.</p>
 <p>Place the leaf inside the envelope and put the envelope in a box for the next step. Make sure the envelopes are kept wet at all times.</p>
-<div id="tbl-info" class="anchored">
-<table class="table">
-<caption>Table&nbsp;2.1: Information to write on the envelope.</caption>
+<div id="tbl-info" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-info-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.1: Information to write on the envelope.
+</figcaption>
+<div aria-describedby="tbl-info-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 23%">
 <col style="width: 52%">
 <col style="width: 23%">
 </colgroup>
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th style="text-align: left;">Variable</th>
 <th style="text-align: left;">What to fill in</th>
 <th style="text-align: left;"></th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"></td>
@@ -525,9 +651,15 @@ How IDs and barcodes are generated
 </tbody>
 </table>
 </div>
+</figure>
+</div>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="images/trait_wheel/Wet.png" class="img-fluid" style="width:15.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="images/trait_wheel/Wet.png" class="img-fluid figure-img" style="width:15.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -536,29 +668,33 @@ How IDs and barcodes are generated
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Warning for special cases.
+<span class="screen-reader-only">Warning</span>Warning for special cases.
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Carefully check the rules for how to measure special plant species plants.</p>
 <ul>
-<li>
-<em>xx sp</em> have tightly rolled leaves and they should not be unfolded for the scanning.</li>
-<li>
-<em>xx sp</em> have tiny leaves. Choose a 10 cm piece of stem and scrape of all the leaves from this part for scanning. Make sure the leaves do not overlap</li>
+<li><em>xx sp</em> have tightly rolled leaves and they should not be unfolded for the scanning.</li>
+<li><em>xx sp</em> have tiny leaves. Choose a 10 cm piece of stem and scrape of all the leaves from this part for scanning. Make sure the leaves do not overlap</li>
 </ul>
 </div>
 </div>
-</section><section id="wet-mass" class="level2" data-number="2.3"><h2 data-number="2.3" class="anchored" data-anchor-id="wet-mass">
-<span class="header-section-number">2.3</span> Wet mass</h2>
+</section>
+<section id="wet-mass" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="wet-mass"><span class="header-section-number">3.3</span> Wet mass</h2>
 <p>Make sure the envelopes are still kept wet. Weigh each leaf and write the weight on the envelope, including all digits.</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="images/trait_wheel/Scan.png" class="img-fluid" style="width:15.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="images/trait_wheel/Scan.png" class="img-fluid figure-img" style="width:15.0%"></p>
+</figure>
 </div>
 </div>
-</section><section id="measure-leaf-area-using-a-scanner" class="level2" data-number="2.4"><h2 data-number="2.4" class="anchored" data-anchor-id="measure-leaf-area-using-a-scanner">
-<span class="header-section-number">2.4</span> Measure leaf area using a scanner</h2>
+</div>
+</section>
+<section id="measure-leaf-area-using-a-scanner" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="measure-leaf-area-using-a-scanner"><span class="header-section-number">3.4</span> Measure leaf area using a scanner</h2>
 <p>For scanning the leaves we are using a Rasperry Pi setup. The Pis control the scanners, ensuring consistency, and validate file names.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -566,7 +702,7 @@ Warning for special cases.
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Raspberry Pi setup
+<span class="screen-reader-only">Note</span>Raspberry Pi setup
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -576,14 +712,20 @@ Raspberry Pi setup
 <p><em>Start setup</em></p>
 <p>Connect your Laptop to the Raspberry PI. Connect the PI with an ethernet cable to your laptop. Connect the scanner to the PI. Connect the barcode scanner to the PI. Connect the power cable to the PI.</p>
 <p>Wait for one minute.</p>
-<p>Open VNC Viewer and type in the IP address corresponding to your PI (<a href="#tbl-pi-ip">Table&nbsp;<span>2.2</span></a>).</p>
-<div id="tbl-pi-ip" class="anchored">
-<table class="table">
-<caption>Table&nbsp;2.2: IP addresses of the PIs.</caption>
-<thead><tr class="header">
+<p>Open VNC Viewer and type in the IP address corresponding to your PI (<a href="#tbl-pi-ip" class="quarto-xref">Table&nbsp;<span>3.2</span></a>).</p>
+<div id="tbl-pi-ip" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-pi-ip-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.2: IP addresses of the PIs.
+</figcaption>
+<div aria-describedby="tbl-pi-ip-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
 <th style="text-align: left;">PI</th>
 <th style="text-align: left;">IP address</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">obi wan</td>
@@ -644,6 +786,8 @@ Raspberry Pi setup
 </tbody>
 </table>
 </div>
+</figure>
+</div>
 <p>The spare SD card has the same IP address as the pi it is in!</p>
 <p>You will be asked to type in a username and password:</p>
 <p>Username: pi</p>
@@ -652,12 +796,18 @@ Raspberry Pi setup
 <p>If the pi goes in terminal mode, then type xstart + enter to run the desktop.</p>
 <p><em>Scan leaves</em></p>
 <p>Make sure the envelopes are still kept wet. Check that the scanner is clean and free of debris. Clean if needed. Place wet leaf face-down on the scanner. Make sure the leaf is not folded and that leaflets do not overlap. The leaf should not go all the way to the edge of the scanner, because each picture will be cropped. You can cut the leaf into several pieces if needed, but please make a remark if you do so (e.g.&nbsp;cut 3). You can tape the leaf to the scanner using transparent tape if it folds (e.g.&nbsp;grasses).</p>
-<p>For <strong>graminoids</strong> (grasses, sedges, rushes): Spread graminoid blades flat and tape to scanner if necessary to hold them in place. Exclude the leaf sheath (<a href="#fig-leaf">Figure&nbsp;<span>2.7</span></a>).</p>
+<p>For <strong>graminoids</strong> (grasses, sedges, rushes): Spread graminoid blades flat and tape to scanner if necessary to hold them in place. Exclude the leaf sheath (<a href="#fig-leaf" class="quarto-xref">Figure&nbsp;<span>3.6</span></a>).</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-leaf" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="images/trait_wheel/leaf.jpeg" class="img-fluid figure-img" style="width:50.0%" alt="Illustrations of a leaf blade and sheet from a graminoid."></p>
-<figcaption class="figure-caption">Figure&nbsp;2.7: Leaf blade and sheats for a graminoid</figcaption></figure>
+<div id="fig-leaf" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Illustrations of a leaf blade and sheet from a graminoid.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-leaf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/trait_wheel/leaf.jpeg" class="img-fluid figure-img" style="width:50.0%" alt="Illustrations of a leaf blade and sheet from a graminoid.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-leaf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.6: Leaf blade and sheats for a graminoid
+</figcaption>
+</figure>
 </div>
 </div>
 </div>
@@ -667,14 +817,13 @@ Raspberry Pi setup
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Special cases for scanning
+<span class="screen-reader-only">Warning</span>Special cases for scanning
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Carefully check the rules for how to scan special plant species plants.</p>
 <ul>
-<li>
-<em>Festuca sp</em> have tightly rolled leaves and they should not be unfolded for the scanning.</li>
+<li><em>Festuca sp</em> have tightly rolled leaves and they should not be unfolded for the scanning.</li>
 </ul>
 </div>
 </div>
@@ -690,12 +839,18 @@ Special cases for scanning
 </ul>
 <p>From here, do this for each leaf:</p>
 <p>Press scan (at the bottom of the window) and wait a couple of seconds until the scanning process is done. A new window will pop up. Adjust the zoom to see the full picture (about 25%). Check the quality of the scan (has the whole leaf been scanned, is the leaf not upside down, dirt on the scan, etc.). If the scan is not ok, adjust the leaf and repeat the scan.</p>
-<p>When the scan is ok, click on the green save button to save the scan. Make sure the cursor marks the filename (should be default). Scan the barcode on the envelope of the leaf that has been scanned with the barcode reader. The filename should be something like: AAA4667 (3 letters and 4 digits). When the scan is saved, the PI will check that the LeafID and that the scanning settings (dpi, etc.) are correct. If anything is wrong, it will open a window with an error message (<a href="#fig-error">Figure&nbsp;<span>2.8</span></a>). Please read it!</p>
+<p>When the scan is ok, click on the green save button to save the scan. Make sure the cursor marks the filename (should be default). Scan the barcode on the envelope of the leaf that has been scanned with the barcode reader. The filename should be something like: AAA4667 (3 letters and 4 digits). When the scan is saved, the PI will check that the LeafID and that the scanning settings (dpi, etc.) are correct. If anything is wrong, it will open a window with an error message (<a href="#fig-error" class="quarto-xref">Figure&nbsp;<span>3.7</span></a>). Please read it!</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-error" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="images/trait_wheel/error.png" class="img-fluid figure-img" alt="Screenshot of an error message on the PI." width="467"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.8: Error message on the PI.</figcaption></figure>
+<div id="fig-error" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Screenshot of an error message on the PI.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-error-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/trait_wheel/error.png" class="img-fluid figure-img" alt="Screenshot of an error message on the PI." width="467">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-error-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.7: Error message on the PI.
+</figcaption>
+</figure>
 </div>
 </div>
 </div>
@@ -706,44 +861,70 @@ Special cases for scanning
 <p>Copy all the scans onto a stick and deposit them on the PFTC6 hard drive. Shut down the pi. Wait 1 min to disconnect it from the power.</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="images/trait_wheel/Thickness.png" class="img-fluid" style="width:18.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="images/trait_wheel/Thickness.png" class="img-fluid figure-img" style="width:18.0%"></p>
+</figure>
 </div>
 </div>
-</section><section id="leaf-thickness" class="level2" data-number="2.5"><h2 data-number="2.5" class="anchored" data-anchor-id="leaf-thickness">
-<span class="header-section-number">2.5</span> Leaf thickness</h2>
-<p>Make sure the envelopes are still kept wet. Thickness varies over the surface of the leaf; generally, the leaf is thickest at the midrib, primary veins, margins, and leaf base. Avoid the midrib when measuring leaf thickness, unless the leaf is too small (<a href="#fig-vein">Figure&nbsp;<span>2.9</span></a>). Take three thickness measurements at several points on the lamina and note them on the envelope. From this, we will later calculate the average thickness. If the leaf is small, it may not be possible to take three unique measurements.</p>
+</div>
+</section>
+<section id="leaf-thickness" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="leaf-thickness"><span class="header-section-number">3.5</span> Leaf thickness</h2>
+<p>Make sure the envelopes are still kept wet. Thickness varies over the surface of the leaf; generally, the leaf is thickest at the midrib, primary veins, margins, and leaf base. Avoid the midrib when measuring leaf thickness, unless the leaf is too small (<a href="#fig-vein" class="quarto-xref">Figure&nbsp;<span>3.8</span></a>). Take three thickness measurements at several points on the lamina and note them on the envelope. From this, we will later calculate the average thickness. If the leaf is small, it may not be possible to take three unique measurements.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-vein" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="images/trait_wheel/veins.jpg" class="img-fluid figure-img" alt="A photo of a leaf showing valind an not valid points such as the midrib to measure leaf thickness." width="960"></p>
-<figcaption class="figure-caption">Figure&nbsp;2.9: Showing where leaf thickness can be measured and where not, e.g.&nbsp;the midrib.</figcaption></figure>
+<div id="fig-vein" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A photo of a leaf showing valind an not valid points such as the midrib to measure leaf thickness.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-vein-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/trait_wheel/veins.jpg" class="img-fluid figure-img" alt="A photo of a leaf showing valind an not valid points such as the midrib to measure leaf thickness.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vein-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.8: Showing where leaf thickness can be measured and where not, e.g.&nbsp;the midrib.
+</figcaption>
+</figure>
 </div>
 </div>
 </div>
 <p><strong>Ferns</strong> Make sure you do not measure thickness on the spore-producing sori on the backside of ferns.</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="images/trait_wheel/Data.png" class="img-fluid" style="width:15.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="images/trait_wheel/Data.png" class="img-fluid figure-img" style="width:15.0%"></p>
+</figure>
 </div>
 </div>
-</section><section id="data-entry" class="level2" data-number="2.6"><h2 data-number="2.6" class="anchored" data-anchor-id="data-entry">
-<span class="header-section-number">2.6</span> Data entry</h2>
-<p>Ideally the envelope should still be kept wet until this point in case any information is missing. Go to this <a href="https://docs.google.com/spreadsheets/d/1utlnABtyry2wPjrPM01LOayVz8dRxOI1ViCETlQGCoA/edit?usp=sharing">google sheet</a>. Connect a barcode scanner to your computer. Scan the barcode of an envelope. Make sure that your cursor is in the right cell (ID). Enter all the data that is on the envelope (for details see <a href="#tbl-info">Table&nbsp;<span>2.1</span></a>). If any of the information is missing, check if it has been forgotten. Has the leaf been scanned, one thickness measurement is missing, etc. If anything is missing bring the leaf back to the according station in the trait wheel. When finished, check the box on the envelope that the data has been entered. Take a picture of the envelope. Bring the envelop to the drying station.</p>
+</div>
+</section>
+<section id="data-entry" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="data-entry"><span class="header-section-number">3.6</span> Data entry</h2>
+<p>Ideally the envelope should still be kept wet until this point in case any information is missing. Go to this <a href="https://docs.google.com/spreadsheets/d/1utlnABtyry2wPjrPM01LOayVz8dRxOI1ViCETlQGCoA/edit?usp=sharing">google sheet</a>. Connect a barcode scanner to your computer. Scan the barcode of an envelope. Make sure that your cursor is in the right cell (ID). Enter all the data that is on the envelope (for details see <a href="#tbl-info" class="quarto-xref">Table&nbsp;<span>3.1</span></a>). If any of the information is missing, check if it has been forgotten. Has the leaf been scanned, one thickness measurement is missing, etc. If anything is missing bring the leaf back to the according station in the trait wheel. When finished, check the box on the envelope that the data has been entered. Take a picture of the envelope. Bring the envelop to the drying station.</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="images/trait_wheel/Dry.png" class="img-fluid" style="width:10.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="images/trait_wheel/Dry.png" class="img-fluid figure-img" style="width:10.0%"></p>
+</figure>
 </div>
 </div>
-</section><section id="dry-mass" class="level2" data-number="2.7"><h2 data-number="2.7" class="anchored" data-anchor-id="dry-mass">
-<span class="header-section-number">2.7</span> Dry mass</h2>
+</div>
+</section>
+<section id="dry-mass" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="dry-mass"><span class="header-section-number">3.7</span> Dry mass</h2>
 <p>The leaves will be dried in the oven for 72 hours at 65°C.</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="images/trait_wheel/Check.png" class="img-fluid" style="width:15.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="images/trait_wheel/Check.png" class="img-fluid figure-img" style="width:15.0%"></p>
+</figure>
 </div>
 </div>
-</section><section id="data-checking" class="level2" data-number="2.8"><h2 data-number="2.8" class="anchored" data-anchor-id="data-checking">
-<span class="header-section-number">2.8</span> Data checking</h2>
+</div>
+</section>
+<section id="data-checking" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="data-checking"><span class="header-section-number">3.8</span> Data checking</h2>
 <p><em>Check scans</em> Find the folder with the leave scans on google drive: link Open each scan and check the follwing criterias:</p>
 <ul>
 <li>Is the whole leaf on the scan?</li>
@@ -755,61 +936,86 @@ Special cases for scanning
 <p><em>Check data</em> Open RStudio project and the R script (…). Download the trait data from google sheet. Check if the leafID is valid. Check if the variables have valid entries. E.g. correct day, site name, elevations, etc. Check if missing values can be found on the envelope or retrieved from the data. Plot the data to check if traits have unrealistic values. For more details see section data curation.</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="images/trait_wheel/DataDoc.png" class="img-fluid" style="width:8.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="images/trait_wheel/DataDoc.png" class="img-fluid figure-img" style="width:8.0%"></p>
+</figure>
 </div>
 </div>
-</section><section id="data-documentation" class="level2" data-number="2.9"><h2 data-number="2.9" class="anchored" data-anchor-id="data-documentation">
-<span class="header-section-number">2.9</span> Data documentation</h2>
+</div>
+</section>
+<section id="data-documentation" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="data-documentation"><span class="header-section-number">3.9</span> Data documentation</h2>
 <ul>
 <li>description of the method of data collection</li>
 <li>data dictionary for each data set</li>
-</ul></section><section id="references" class="level2" data-number="2.10"><h2 data-number="2.10" class="anchored" data-anchor-id="references">
-<span class="header-section-number">2.10</span> References</h2>
+</ul>
+</section>
+<section id="references" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="references"><span class="header-section-number">3.10</span> References</h2>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-Perez-Harguindeguy2013-nv" class="csl-entry" role="listitem">
 Pérez-Harguindeguy, N, S Dı́az, E Garnier, S Lavorel, H Poorter, P Jaureguiberry, M S Bret-Harte, et al. 2013. <span>“New Handbook for Standardised Measurement of Plant Functional Traits Worldwide.”</span> <em>Australian Journal of Botany</em>.
 </div>
 </div>
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
       }
+      return false;
     }
-    return false;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
@@ -817,201 +1023,355 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
       return codeEl.innerText;
     }
-  });
-  clipboard.on('success', function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  });
-  function tippyHover(el, contentFn) {
-    const config = {
-      allowHTML: true,
-      content: contentFn,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start'
-    };
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      return note.innerHTML;
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
     });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
     }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
           }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
       });
     }
-  }
-});
-</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./1_courses.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">PFTC Course information</span></span>
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./create.html" class="pagination-link" aria-label="Create">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Create</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./6_pftc_data.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Working with PFTC data</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./process.html" class="pagination-link" aria-label="Process">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Process</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1019,4 +1379,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Plant-Functional-Trait-Course/PFTC_teaching_material/blob/main/5_trait_collection.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>

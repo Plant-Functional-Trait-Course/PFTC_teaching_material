@@ -443,5 +443,62 @@ h2 {
   color: #2C5A4C;
 }
 
+/* Toolbox phases, in the same inks as the wheel.
+   The menu list is: home, model, create, process, share, re-use. */
+#quarto-sidebar .sidebar-menu-container > ul > li.sidebar-item-section:nth-child(3) > .sidebar-item-container > .sidebar-item-text {
+  color: #2C5A4C !important;
+}
+
+#quarto-sidebar .sidebar-menu-container > ul > li.sidebar-item-section:nth-child(4) > .sidebar-item-container > .sidebar-item-text {
+  color: #865E27 !important;
+}
+
+#quarto-sidebar .sidebar-menu-container > ul > li.sidebar-item-section:nth-child(5) > .sidebar-item-container > .sidebar-item-text {
+  color: #7E545B !important;
+}
+
+#quarto-sidebar .sidebar-menu-container > ul > li.sidebar-item-section:nth-child(6) > .sidebar-item-container > .sidebar-item-text {
+  color: #3F677D !important;
+}
+
+.phase-rule {
+  height: 4px;
+  width: 4.5rem;
+  border-radius: 2px;
+  margin: 0.15rem 0 1.1rem;
+}
+
+.phase-rule.phase-create { background: #45816D; }
+.phase-rule.phase-process { background: #C08122; }
+.phase-rule.phase-share { background: #A06574; }
+.phase-rule.phase-reuse { background: #3F677D; }
+
+h1.phase-create {
+  color: #2C5A4C;
+  box-shadow: inset 0 -3px 0 #45816D;
+}
+
+h1.phase-process {
+  color: #865E27;
+  box-shadow: inset 0 -3px 0 #C08122;
+}
+
+h1.phase-share {
+  color: #7E545B;
+  box-shadow: inset 0 -3px 0 #A06574;
+}
+
+h1.phase-reuse {
+  color: #3F677D;
+  box-shadow: inset 0 -3px 0 #5588A3;
+}
+
+h1.phase-create,
+h1.phase-process,
+h1.phase-share,
+h1.phase-reuse {
+  padding-bottom: 0.15em;
+}
+
 
 

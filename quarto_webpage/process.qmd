@@ -1,0 +1,20 @@
+# Process {.phase-process}
+
+```{=html}
+<div class="phase-rule phase-process"></div>
+```
+
+Process is the second block of the PFTC toolbox.
+It has five steps.
+
+- **Digitize.** Enter the field and lab sheets. The trait wheel has the [data entry](5_trait_collection.qmd#data-entry) notes.
+- **Import.** Read the tables into R.
+- **Clean.** Find and correct errors.
+- **Process.** Reshape the data for analysis.
+- **Analyse.** Fit the models and draw the figures.
+
+Import and cleaning are in [Data curation](9_data_curation.qmd).
+The two analysis tutorials are [Plant community composition data](10_community.qmd) and [Plant functional trait data](12_traits.qmd).
+
+R, statistics, and GitHub are taught in the [BioSTATS books](https://biostats-r.github.io/biostats/index.html).
+The short guide in this book is [Introduction to R, RStudio and GitHub](7_biostats.qmd).

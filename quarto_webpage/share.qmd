@@ -1,0 +1,12 @@
+# Share {.phase-share}
+
+```{=html}
+<div class="phase-rule phase-share"></div>
+```
+
+Share is the third block of the PFTC toolbox.
+It has three steps.
+
+- **Document.** Write the methods and the data dictionary. The trait wheel includes [data documentation](5_trait_collection.qmd#data-documentation).
+- **Communicate.** Report the work so someone else can follow it. See [Reproducible workflows](8_reproducible.qmd).
+- **Archive.** Store the finished data where it can be cited. The locations are the [PFTC data repositories](6_pftc_data.qmd#pftc-data-repositories).

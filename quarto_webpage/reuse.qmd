@@ -1,0 +1,11 @@
+# Re-use {.phase-reuse}
+
+```{=html}
+<div class="phase-rule phase-reuse"></div>
+```
+
+Re-use is the last block of the PFTC toolbox.
+It has one step: **Find & reuse**.
+That means locating a published PFTC dataset and using it again, with the citation the data paper asks for.
+
+The datasets, papers, and download notes are in [Working with PFTC data](6_pftc_data.qmd).

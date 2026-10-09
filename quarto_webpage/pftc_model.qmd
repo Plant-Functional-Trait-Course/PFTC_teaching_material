@@ -1,0 +1,14 @@
+# The PFTC model
+
+The courses teach data collection, curation, analysis, documentation, storage, and reuse.
+They also show reproducible workflows, so the research can be checked and used again.
+The topics sit in plant functional trait ecology, ecosystem ecology, plant physiology, and remote sensing.
+
+The wheel is that path.
+Choose a step, a part of the cycle, or a course band to open the matching chapter.
+
+::: {.lifecycle}
+```{=html}
+{{< include images/data_lifecycle.svg >}}
+```
+:::

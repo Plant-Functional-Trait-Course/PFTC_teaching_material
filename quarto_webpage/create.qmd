@@ -1,0 +1,14 @@
+# Create {.phase-create}
+
+```{=html}
+<div class="phase-rule phase-create"></div>
+```
+
+Create is the first block of the PFTC toolbox.
+It has three steps.
+
+- **Plan.** Set the course and the field plan.
+- **Design.** Decide what to measure, and how plots and leaves are chosen.
+- **Collect.** Take the leaves and record the traits in the field.
+
+Design and collection are written up as [the trait wheel](5_trait_collection.qmd).

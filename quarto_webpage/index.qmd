@@ -1,34 +1,12 @@
-```{r setup, include=FALSE}
-library(tidyverse)
-```
+# PFTC Teaching Material {.unnumbered}
 
+This book is the teaching material for the Plant Functional Trait Courses (PFTC).
+The courses are hands-on training in trait-based ecology.
+More about the courses themselves is on the course [webpage](https://plantfunctionaltraitscourses.w.uib.no/).
 
-# Introduction {-}
+The book has two parts.
 
-This book provides the teaching material for the Plant Functional Trait Courses (PFTC).
+- **The PFTC model** covers the courses and the data life cycle they follow.
+- **The PFTC toolbox** is the teaching for each step on the wheel: Create, Process, Share, and Re-use.
 
-The PFTC courses are an international course with hands-on training in trait-based ecology.
-For more information about the courses see our course [webpage](https://plantfunctionaltraitscourses.w.uib.no/).
-
-Here we provide teaching material for data collection, curation, analysis, documentation, storage, and reuse.
-In addition, we show reproducible and transparent workflows to make research more open and available.
-We cover these topics within the fields of plant functional trait ecology, ecosystem ecology, plant physiology and remote sensing.
-
-The wheel follows that path.
-Choose a step, a part of the cycle, or a course band to open the matching chapter.
-
-::: {.lifecycle}
-```{=html}
-{{< include images/data_lifecycle.svg >}}
-```
-:::
-
-
-```{r, echo=FALSE}
-#| label: fig-field
-#| fig-cap: "Trait data collection during PFTC4 on Svalbard."
-#| fig-alt: "Studens collecting trait data during PFTC4 on Svalbard."
-
-knitr::include_graphics("images/field.JPG")
-
-```
+Start with [the PFTC model](pftc_model.qmd), or open a step in the toolbox.
