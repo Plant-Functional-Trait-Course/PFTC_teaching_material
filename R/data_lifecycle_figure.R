@@ -68,11 +68,13 @@ phases <- data.frame(
 
 # Course bands sit on the outer grey track.
 # mid is the centre of the band (0 = top, clockwise). span is its width in degrees.
+# Each band runs from the gap before its first step to the gap after its last step:
+# Design 0° and Collect 30°; Analyse 180°; Communicate 240°.
 courses <- data.frame(
   id = c("ecology", "stats", "reports"),
   label = c("Ecology & Field Courses", "Stats Courses", "Reports, Stats"),
-  mid = c(8, 166, 230),
-  span = c(112, 50, 50),
+  mid = c(15, 180, 240),
+  span = c(60, 30, 30),
   color = c("#0c8caf", "#f57c00", "#d81b60"),
   text_color = c("#ffffff", "#ffffff", "#ffffff"),
   href = c("#ecology-field-courses", "#stats-courses", "#reports-stats"),
