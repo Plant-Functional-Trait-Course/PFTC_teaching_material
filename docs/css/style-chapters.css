@@ -514,6 +514,146 @@ h2 {
   padding-left: 0.85rem;
 }
 
+/* Reading lists: one shared set, then a course at a time. */
+.reading-shared {
+  background: #f7f3ec;
+  border: 1px solid #e0d6c8;
+  border-left: 4px solid #2C5A4C;
+  border-radius: 12px;
+  padding: 0.95rem 1.15rem 0.35rem;
+  margin: 1.25rem 0 1rem;
+}
+.reading-shared p:first-child {
+  font-family: Lora, Palatino, Georgia, serif;
+  letter-spacing: 0.04em;
+  color: #2C5A4C;
+  margin-bottom: 0.35rem;
+}
+.reading-shared .citation,
+.reading-course .citation {
+  font-size: 0;
+  white-space: normal;
+}
+.reading-shared .citation a,
+.reading-course .citation a {
+  display: inline-block;
+  font-size: 0.86rem;
+  line-height: 1.35;
+  margin: 0.18rem 0.28rem 0.18rem 0;
+  padding: 0.14rem 0.55rem;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #2C5A4C;
+  background: #fffdf9;
+  border: 1px solid #e0d6c8;
+}
+.reading-course .citation a {
+  background: #f7f3ec;
+  border-color: transparent;
+}
+.reading-shared .citation a:hover,
+.reading-course .citation a:hover {
+  background: #2C5A4C;
+  color: #f6f1e6;
+}
+details.reading-course > summary .reading-place::before {
+  content: "·";
+  margin-right: 0.75rem;
+  color: #c4b8aa;
+}
+
+details.reading-course {
+  border: 1px solid #e0d6c8;
+  border-radius: 12px;
+  margin: 0.65rem 0;
+  background: #fffdf9;
+  overflow: hidden;
+}
+details.reading-course > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.8rem 2.4rem 0.8rem 1rem;
+  position: relative;
+  background: #f7f3ec;
+}
+details.reading-course > summary::-webkit-details-marker {
+  display: none;
+}
+details.reading-course > summary::after {
+  content: "";
+  position: absolute;
+  right: 1.1rem;
+  top: 50%;
+  width: 0.45rem;
+  height: 0.45rem;
+  margin-top: -0.35rem;
+  border-right: 2px solid #2C5A4C;
+  border-bottom: 2px solid #2C5A4C;
+  transform: rotate(45deg);
+}
+details.reading-course[open] > summary::after {
+  margin-top: -0.1rem;
+  transform: rotate(-135deg);
+}
+details.reading-course > summary .reading-course-name {
+  font-family: Lora, Palatino, Georgia, serif;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #2C5A4C;
+}
+details.reading-course > summary .reading-place {
+  color: #7d6a5c;
+  font-size: 0.92rem;
+}
+details.reading-course > summary:hover {
+  background: #f1ebe2;
+}
+details.reading-course .table {
+  margin: 0;
+  border: none;
+}
+details.reading-course thead th {
+  background: #2C5A4C;
+  color: #f6f1e6;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  padding: 0.55rem 0.95rem;
+}
+details.reading-course tbody td {
+  border: none;
+  border-bottom: 1px solid #e7dfd4;
+  padding: 0.75rem 0.95rem;
+  vertical-align: top;
+  background: #fffdf9;
+}
+details.reading-course tbody tr:last-child td {
+  border-bottom: none;
+}
+details.reading-course tbody td:first-child {
+  width: 32%;
+  font-weight: 600;
+  color: #3e342c;
+  background: #f7f3ec;
+}
+details.reading-course colgroup col:first-child {
+  width: 32% !important;
+}
+details.reading-course colgroup col:last-child {
+  width: 68% !important;
+}
+details.reading-course tbody tr:hover td {
+  background: #f3eee6;
+}
+details.reading-course tbody tr:hover td:first-child {
+  background: #efe7dc;
+}
+
 .sign-create { background: #2C5A4C; color: #f6f1e6; }
 .sign-process { background: #865E27; color: #f6f1e6; }
 .sign-share { background: #7E545B; color: #f6f1e6; }
