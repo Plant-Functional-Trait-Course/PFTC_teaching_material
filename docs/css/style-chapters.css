@@ -407,6 +407,11 @@ a:hover {
   font-size: 0.72rem;
 }
 
+.quarto-title-meta-contents .author,
+.quarto-title-meta-heading:has(+ .quarto-title-meta-contents .author) {
+  display: none;
+}
+
 #TOC .nav-link {
   color: #6a594c;
 }
@@ -443,23 +448,75 @@ h2 {
   color: #2C5A4C;
 }
 
-/* Toolbox phases, in the same inks as the wheel.
-   The menu list is: home, model, create, process, share, re-use. */
-#quarto-sidebar .sidebar-menu-container > ul > li.sidebar-item-section:nth-child(3) > .sidebar-item-container > .sidebar-item-text {
+/* Signs for the life-cycle wedges and the three outer rings.
+   Colours are the inks used on the wheels. */
+.model-signs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+  margin: 0.15rem 0 1.35rem;
+}
+
+.sign {
+  display: inline-block;
+  padding: 0.18rem 0.72rem;
+  border-radius: 999px;
+  font-family: "Avenir Next", "Gill Sans", "Gill Sans MT", "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+}
+
+/* Life-cycle steps sit under pre-course, field course, and post-course. */
+.sidebar-section.depth1 > .sidebar-item:has(a[href*="step_"]) {
+  margin-top: 0.9rem;
+}
+
+.sidebar-section.depth1 > .sidebar-item:has(a[href*="step_"]) .menu-text {
+  font-family: Lora, Palatino, Georgia, serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.sidebar-section.depth1 > .sidebar-item:has(a[href*="step_plan"]) .sidebar-link,
+.sidebar-section.depth1 > .sidebar-item:has(a[href*="step_design"]) .sidebar-link,
+.sidebar-section.depth1 > .sidebar-item:has(a[href*="step_collect"]) .sidebar-link {
   color: #2C5A4C !important;
 }
 
-#quarto-sidebar .sidebar-menu-container > ul > li.sidebar-item-section:nth-child(4) > .sidebar-item-container > .sidebar-item-text {
+.sidebar-section.depth1 > .sidebar-item:has(a[href*="step_digitize"]) .sidebar-link,
+.sidebar-section.depth1 > .sidebar-item:has(a[href*="step_import"]) .sidebar-link,
+.sidebar-section.depth1 > .sidebar-item:has(a[href*="step_clean"]) .sidebar-link,
+.sidebar-section.depth1 > .sidebar-item:has(a[href*="step_process"]) .sidebar-link,
+.sidebar-section.depth1 > .sidebar-item:has(a[href*="step_analyse"]) .sidebar-link {
   color: #865E27 !important;
 }
 
-#quarto-sidebar .sidebar-menu-container > ul > li.sidebar-item-section:nth-child(5) > .sidebar-item-container > .sidebar-item-text {
+.sidebar-section.depth1 > .sidebar-item:has(a[href*="step_document"]) .sidebar-link,
+.sidebar-section.depth1 > .sidebar-item:has(a[href*="step_communicate"]) .sidebar-link,
+.sidebar-section.depth1 > .sidebar-item:has(a[href*="step_archive"]) .sidebar-link {
   color: #7E545B !important;
 }
 
-#quarto-sidebar .sidebar-menu-container > ul > li.sidebar-item-section:nth-child(6) > .sidebar-item-container > .sidebar-item-text {
+.sidebar-section.depth1 > .sidebar-item:has(a[href*="step_find"]) .sidebar-link {
   color: #3F677D !important;
 }
+
+.sidebar-section.depth1 > .sidebar-item:not(:has(a[href*="step_"])) > .sidebar-item-container {
+  padding-left: 0.85rem;
+}
+
+.sign-create { background: #2C5A4C; color: #f6f1e6; }
+.sign-process { background: #865E27; color: #f6f1e6; }
+.sign-share { background: #7E545B; color: #f6f1e6; }
+.sign-reuse { background: #3F677D; color: #f6f1e6; }
+.sign-data { background: #BC9D8A; color: #3e342c; }
+.sign-methods { background: #99AC8F; color: #3e342c; }
+.sign-community { background: #8CABAE; color: #3e342c; }
 
 .phase-rule {
   height: 4px;

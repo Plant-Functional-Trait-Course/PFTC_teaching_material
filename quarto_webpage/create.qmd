@@ -1,6 +1,9 @@
 # Create {.phase-create}
 
 ```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-create">Create</span>
+</div>
 <div class="phase-rule phase-create"></div>
 ```
 

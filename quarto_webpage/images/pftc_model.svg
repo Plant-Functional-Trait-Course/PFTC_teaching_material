@@ -7,7 +7,7 @@
 <path d="M 676.00 296.00 A 380.00 380.00 0 1 1 676.00 1056.00 A 380.00 380.00 0 1 1 676.00 296.00 L 676.00 420.00 A 256.00 256.00 0 1 0 676.00 932.00 A 256.00 256.00 0 1 0 676.00 420.00 Z" fill="#BC9D8A" stroke="#BC9D8A" stroke-width="0.6"/>
 <path d="M 676.00 164.00 A 512.00 512.00 0 1 1 676.00 1188.00 A 512.00 512.00 0 1 1 676.00 164.00 L 676.00 288.00 A 388.00 388.00 0 1 0 676.00 1064.00 A 388.00 388.00 0 1 0 676.00 288.00 Z" fill="#99AC8F" stroke="#99AC8F" stroke-width="0.6"/>
 <path d="M 676.00 32.00 A 644.00 644.00 0 1 1 676.00 1320.00 A 644.00 644.00 0 1 1 676.00 32.00 L 676.00 156.00 A 520.00 520.00 0 1 0 676.00 1196.00 A 520.00 520.00 0 1 0 676.00 156.00 Z" fill="#8CABAE" stroke="#8CABAE" stroke-width="0.6"/>
-<a class="pm-sector" href="create.html" aria-label="CREATE"><title>CREATE</title>
+<a class="pm-sector" href="step_plan.html" aria-label="CREATE"><title>CREATE</title>
 <path d="M 504.04 497.30 A 248.00 248.00 0 0 1 847.96 497.30 L 755.05 593.86 A 114.00 114.00 0 0 0 596.95 593.86 Z" fill="#AFBCB2"/>
 <path class="pm-hit" d="M 504.04 497.30 A 248.00 248.00 0 0 1 847.96 497.30 L 755.05 593.86 A 114.00 114.00 0 0 0 596.95 593.86 Z"/>
 </a>
@@ -15,7 +15,7 @@
 <text x="572.00" y="513.87" text-anchor="middle" font-size="18.0" font-weight="600" fill="#3e342c">Plan</text>
 <text x="676.00" y="486.00" text-anchor="middle" font-size="18.0" font-weight="600" fill="#3e342c">Design</text>
 <text x="780.00" y="513.87" text-anchor="middle" font-size="18.0" font-weight="600" fill="#3e342c">Collect</text>
-<a class="pm-sector" href="process.html" aria-label="PROCESS"><title>PROCESS</title>
+<a class="pm-sector" href="step_digitize.html" aria-label="PROCESS"><title>PROCESS</title>
 <path d="M 854.70 504.04 A 248.00 248.00 0 0 1 616.42 916.74 L 648.61 786.66 A 114.00 114.00 0 0 0 758.14 596.95 Z" fill="#CEBDA5"/>
 <path class="pm-hit" d="M 854.70 504.04 A 248.00 248.00 0 0 1 616.42 916.74 L 648.61 786.66 A 114.00 114.00 0 0 0 758.14 596.95 Z"/>
 </a>
@@ -25,7 +25,7 @@
 <text x="856.13" y="784.00" text-anchor="middle" font-size="18.0" font-weight="600" fill="#3e342c">Clean</text>
 <text x="780.00" y="860.13" text-anchor="middle" font-size="18.0" font-weight="600" fill="#3e342c">Process</text>
 <text x="676.00" y="888.00" text-anchor="middle" font-size="18.0" font-weight="600" fill="#3e342c">Analyse</text>
-<a class="pm-sector" href="share.html" aria-label="SHARE"><title>SHARE</title>
+<a class="pm-sector" href="step_document.html" aria-label="SHARE"><title>SHARE</title>
 <path d="M 607.23 914.27 A 248.00 248.00 0 0 1 435.26 616.42 L 565.34 648.61 A 114.00 114.00 0 0 0 644.39 785.53 Z" fill="#CBBAB7"/>
 <path class="pm-hit" d="M 607.23 914.27 A 248.00 248.00 0 0 1 435.26 616.42 L 565.34 648.61 A 114.00 114.00 0 0 0 644.39 785.53 Z"/>
 </a>

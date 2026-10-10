@@ -1,0 +1,3 @@
+# Design {.unnumbered}
+
+Decide what to measure, and how plots and leaves are chosen.

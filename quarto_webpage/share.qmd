@@ -1,6 +1,9 @@
 # Share {.phase-share}
 
 ```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-share">Share</span>
+</div>
 <div class="phase-rule phase-share"></div>
 ```
 

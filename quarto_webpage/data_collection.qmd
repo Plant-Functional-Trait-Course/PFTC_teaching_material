@@ -1,0 +1,24 @@
+# The data collection
+
+```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-create">Create</span>
+<span class="sign sign-data">Data documentation</span>
+<span class="sign sign-methods">Methods and technology</span>
+<span class="sign sign-community">Community of practice</span>
+</div>
+```
+
+During the data collection each group works on a separate schedule according to their needs. The data collection/processing takes place in the field and lab. Often the field sites are far apart, so the groups have to be coordinated (who goes where). Each evening, there is a daily update by each group on the progress, success and challenges. Sometimes, groups or students do a show and tell about results or their own research. In addition, the schedule is daily adapted according to the progress of each group. The students rotate between field and lab to get experience and training in all tasks (except Brain). We also rotate the students between the groups so they can get cross-group training. However, we limit this, because there is a trade-off between efficient data collection and training new students in the tasks.
+
+We generally have the following set up: we have 4–6 sites along an elevational gradient with ca. 5 plots per site. In each plot we record the species composition (done by experience botanists or with their help), plant functional traits often including multiple individuals per species and plot (ITV), ecosystem CO2 fluxes (sometimes H2O fluxes as well). In addition, we have more destructive sampling, which happens at the site level including leaf ecophysiology (leaf temperature, etc.), leaf hyperspectral reflectance, remote sensing, and belowground traits. For details on the data collection see (Halbritter et al., 2024; Halbritter, Vandvik, et al., 2025; Vandvik et al., 2023, 2025; Vandvik, Halbritter, et al., 2020).
+
+The plant leaf traits are then processed in the lab, where we measure traits like leaf wet and dry mass, leaf area, and leaf thickness, following the standardized protocol by Pérez-Harguindeguy et al. (2013). To process and measure the traits, we have developed the trait wheel, an approach where the leaves move efficiently from one station to the next. The name trait wheel originated from the first course in China, where we were sitting on a round table measuring traits. The trait wheel includes a large part of the data lifecycle including preparing the leaf, measuring traits, data entry, validation, and documentation. The approach also includes several checks to make sure the data is collected in a reproducible way and errors are mitigated (see [Ensure reproducibility](ensure_reproducibility.qmd)).
+
+The full protocol and the trait-wheel figure are in [The trait wheel](5_trait_collection.qmd).
+
+We use a peer learning and certification approach in the trait wheel. Peer learning is a widely accepted method in higher education where the students learn from each other (Refs). What is the benefit… Students put more effort in learning outcomes if they are assessed (Biggs). In addition, the learning outcome of students can increase when students are involved in the assessment, e.g. peer-reviews (Refs). Receiving a badge, a certificate, and gamification can increase the students motivation and learning outcome (Eidesen et al., 2023; Hennah & Seery, 2017). The students learn from the instructors how to measure the leaf traits. Once they master the task, their knowledge is tested by the instructors and if successful get a sticker for this task and the certification for instructor status to teach peers.
+
+Other data collection in the lab? Wet lab for physiology… data documentation, cleaning, analysis…
+
+Pictures from the data collection and the trait wheel are the figures referred to in the source notes as Figure 2. The protocol figures are on [The trait wheel](5_trait_collection.qmd).

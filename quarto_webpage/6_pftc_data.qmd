@@ -6,6 +6,14 @@ editor_options:
 
 # Working with PFTC data {#sec-pftc-data}
 
+```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-share">Share</span>
+<span class="sign sign-reuse">Re-use</span>
+<span class="sign sign-data">Data documentation</span>
+</div>
+```
+
 
 ## PFTC data repositories
 

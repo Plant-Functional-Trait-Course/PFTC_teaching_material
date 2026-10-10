@@ -1,0 +1,45 @@
+# Course output
+
+```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-share">Share</span>
+<span class="sign sign-data">Data documentation</span>
+<span class="sign sign-community">Community of practice</span>
+</div>
+```
+
+## Stats
+
+- Number of students.
+- Number of countries, continents, institutions, etc.
+- Number of leaders.
+- Transition information (examples or count data): to PhD, to postdoc, to faculty.
+- Course marriages and babies? n = 1 baby?
+- Statistics from Sehoya?
+
+## Publications
+
+Papers are divided into data, method, research, and educational publications.
+The records are in `course_papers.bib`. To add a paper, add an entry there and a row in this table.
+
+| Theme | Course | Paper |
+| --- | --- | --- |
+| Data paper | PFTC 1 & 2, China | @vandvik2020china |
+| Data paper | PFTC 3 & 5, Peru | @halbritter2024peru |
+| Data paper | PFTC 4, Svalbard | @vandvik2023svalbard |
+| Data paper | PFTC 6, Norway | @vandvik2025norway |
+| Data paper | PFTC 7, South Africa | @halbritter2025drakensberg |
+| Methods paper | Cross courses | @maitner2023bootstrap |
+| Methods paper | Cross courses | @telford2023traitstrap |
+| Methods paper | Cross courses | @gaudard2025fluxible |
+| Research paper | PFTC 1 & 2, China | @henn2018itv |
+| Research paper | PFTC 1 & 2, China | @Yang2018-uq |
+| Research paper | PFTC 1 & 2, China | @enquistInPrep |
+| Research paper | PFTC 4, Svalbard | @thomson2021svalbard |
+| Research paper | PFTC 4, Svalbard | @jonsdottir2022svalbard |
+| Research paper | PFTC 4, Svalbard | @roos2025svalbard |
+| Research paper | PFTC 6, Norway | @erkelenz2025norway |
+| Research paper | PFTC 6, Norway | @halbritter2025norway |
+| Educational paper | PFTC 3 & 5, Peru | @cotner2020 |
+| Educational paper | PFTC 3 & 5, Peru | @geange2021 |
+| Educational paper | PFTC 3 & 5, Peru | @chaconlabella2020 |

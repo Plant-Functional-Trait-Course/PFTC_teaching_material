@@ -1,6 +1,9 @@
 # Re-use {.phase-reuse}
 
 ```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-reuse">Re-use</span>
+</div>
 <div class="phase-rule phase-reuse"></div>
 ```
 

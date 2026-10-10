@@ -1,0 +1,14 @@
+# Additional activities
+
+```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-share">Share</span>
+<span class="sign sign-community">Community of practice</span>
+</div>
+```
+
+In some courses we added a science communication module. Why this is useful… In China and South Africa, we organized a conference to share our knowledge with the local host university, and also learn about their research. On Svalbard and in Peru the students conducted interviews with the local communities. In Norway, we organized an Open Science Day for the local community to show our research and engage with locals.
+
+To broaden the scope of covered material, as well as to facilitate connections among participants, we incorporated less-structured material where time allowed, including lectures, tutorials, and film screenings when time allowed. Students could sign up to give presentations of research or ideas. Instructors can give informal talks on ideas that arise during the course or where requested by students. Groups could present methods they’re using to the rest of the course. Cross-cultural exchanges of media were also very successful, with highlights including Norway’s Trollhunter and The Rocky Horror Picture Show from the US.
+
+In the middle of the course we had a day off. In particular, on long courses this is important for the students to get some time off. In some courses, we organized a trip, in other courses we let the students organize their day off by themselves. Examples: Monastery in China and glacier, boat trip to Pyramiden on Svalbard, South Africa national park and hikes.

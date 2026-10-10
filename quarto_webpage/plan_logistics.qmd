@@ -1,0 +1,16 @@
+# Plan initial logistics
+
+```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-create">Create</span>
+<span class="sign sign-community">Community of practice</span>
+</div>
+```
+
+When selecting local collaborators we try to find a researcher that works in a relevant study system, grasslands along elevational gradients, in an interesting area (e.g. underrepresented region, high biodiversity, large climate change impact) and/or has short/long-term field experiments. The hosts provide extensive knowledge about the study system, and often have useful baseline data about the plants, soil, environment. This approach allows the reuse of existing infrastructure. The local collaborators also have knowledge and resources that are essential for the course logistics (accommodation, research facilities, local suppliers for material, how to get research permits, etc.).
+
+In return, the PFTC course provides an extensive data collection campaign in the study system and potentially in the experiments. This setup provides a win-win situation for both sides.
+
+The pre-course preparation includes logistics like accommodation, transport, research permits. The local hosts are very valuable for helping organize these tasks. Once the basic logistics are planned, we advertise the course on multiple channels (social media, ecological societies, among colleagues, targeted groups). Additionally, we prepare a list of materials to bring and purchase. We buy consumables locally if possible. Finally, we prepare data sheets, Raspberry Pi’s, code for cleaning, sharing, and analysing data. And we make a detailed fieldwork plan, which group will be collecting what data when. Parts of the fieldwork has to happen sequentially, in particular if it includes destructive harvest (e.g. carbon flux measurements happen before leaf traits and root traits collection).
+
+The study systems used on the courses are [Alpine ecosystems](2_study_system.qmd), the [Three-D project](3_three_d.qmd), and the [INCLINE project](4_incline.qmd).

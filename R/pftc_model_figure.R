@@ -284,7 +284,7 @@ sectors <- data.frame(
   label = c("CREATE", "PROCESS", "SHARE", "RE-USE"),
   a0 = c(315, 45, 195, 285),
   span = c(90, 150, 90, 30),
-  href = c("create.html", "process.html", "share.html", "reuse.html"),
+  href = c("step_plan.html", "step_digitize.html", "step_document.html", "reuse.html"),
   stringsAsFactors = FALSE
 )
 

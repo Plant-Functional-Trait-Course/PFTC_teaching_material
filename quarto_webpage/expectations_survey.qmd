@@ -1,0 +1,10 @@
+# Pre-course expectations survey
+
+```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-community">Community of practice</span>
+</div>
+```
+
+- Helps us gauge success of course.
+- Helps us understand where the students are initially.

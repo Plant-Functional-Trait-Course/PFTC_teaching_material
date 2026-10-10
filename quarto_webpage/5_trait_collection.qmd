@@ -13,6 +13,17 @@ library(kableExtra)
 
 # The trait wheel
 
+```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-create">Create</span>
+<span class="sign sign-process">Process</span>
+<span class="sign sign-share">Share</span>
+<span class="sign sign-data">Data documentation</span>
+<span class="sign sign-methods">Methods and technology</span>
+<span class="sign sign-community">Community of practice</span>
+</div>
+```
+
 This protocol shows how to collect, measure, check and document leaf functional traits for vascular plants using the trait wheel^TW^ (@fig-trait-wheel).
 The protocol is based on the trait handbook from Perez-Harguindeguy et al. [-@Perez-Harguindeguy2013-nv].
 

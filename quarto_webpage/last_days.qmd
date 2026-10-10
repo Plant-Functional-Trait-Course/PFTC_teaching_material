@@ -1,0 +1,15 @@
+# Last days of the course
+
+```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-process">Process</span>
+<span class="sign sign-share">Share</span>
+<span class="sign sign-community">Community of practice</span>
+</div>
+```
+
+During the last days of the course the data is cleaned, validated, analysed and the students present their findings. We provide targeted lectures and help on data handling, coding, version control. Also the data documentation is finalized as much as possible. Here, we divide the groups into sub-groups to work on different tasks. We combine more and less experienced students so they can learn from each other.
+
+For some courses, we have relocated for the final part of the course to be able to focus on the computational part. There are advantages and disadvantages for relocating. If moving the analytical part to a new location means reserving enough time for working with the data. On the other hand, it means that groups that are slower in data collection (e.g. complex methods, bad weather) lose time to finish the data collection.
+
+The analysis tutorials are [Plant community composition data](10_community.qmd), [Plant functional trait data](12_traits.qmd), and [Bootstrapping trait data](11_bootstrap.qmd).

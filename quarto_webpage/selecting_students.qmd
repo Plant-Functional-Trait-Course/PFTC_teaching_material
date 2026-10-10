@@ -1,0 +1,9 @@
+# Selecting students
+
+```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-community">Community of practice</span>
+</div>
+```
+
+When selecting students for the PFTCs, we attempt to balance 1) prioritizing students from the region, 2) maximizing diversity among participants, and 3) prioritizing students that are a good fit for the course. Favoring (relatively) local students allows us to recruit students who have taxonomic expertise in the area and often allows us to train those from regions that are under-represented in global analyses. Maximizing diversity among participants increases the likelihood that distinct and complementary ideas and skills are present in the group, increasing our likelihood of success. We’ve found that strong student engagement requires considering how students “fit” into the class. That is, identifying which students could benefit the most from the course in the short-term. For example, graduate students with a background in botany who are interested in integrating plant traits into their thesis work would be strong candidates. This typically involves excluding overly-qualified students as well as those who may be lacking some of the prerequisite knowledge to participate. Student applications are reviewed and ranked by three or more team members. We’ve found it useful to include reviewers from diverse backgrounds (i.e., different continents, countries, languages), as application material styles vary widely (e.g., American applications tend to be more boastful than those from other regions (e.g. Norway 🙂).

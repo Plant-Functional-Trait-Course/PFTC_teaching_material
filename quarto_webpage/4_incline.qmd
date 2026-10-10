@@ -10,6 +10,12 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # INCLINE project
 
+```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-create">Create</span>
+</div>
+```
+
 The aim of the INCLINE project is to disentangle the indirect and direct effects of climate change on alpine plant communities within an ecologically realistic field setting. To achieve this INCLINE combines warming, vegetation removal, and transplant treatments. For the PFTC we will focus on the impact of warming upon alpine grassland communities.
 
 

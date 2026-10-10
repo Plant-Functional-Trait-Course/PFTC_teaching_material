@@ -1,0 +1,9 @@
+# Seminar series
+
+```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-community">Community of practice</span>
+</div>
+```
+
+A seminar series is listed with the other post-course activities.

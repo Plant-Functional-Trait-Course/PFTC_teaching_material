@@ -20,6 +20,14 @@ library(validate)
 
 # Data curation {#sec-data-cutation}
 
+```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-process">Process</span>
+<span class="sign sign-data">Data documentation</span>
+<span class="sign sign-methods">Methods and technology</span>
+</div>
+```
+
 
 Data curation, transformation and cleaning are the first steps after digitizing the data.
 Each dataset has to be checked for several types of errors and corrected if possible.

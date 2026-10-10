@@ -1,12 +1,49 @@
-# PFTC Teaching Material {.unnumbered}
+# The PFTC model {.unnumbered}
 
 This book is the teaching material for the Plant Functional Trait Courses (PFTC).
 The courses are hands-on training in trait-based ecology.
 More about the courses themselves is on the course [webpage](https://plantfunctionaltraitscourses.w.uib.no/).
 
-The book has two parts.
+The courses teach data collection, curation, analysis, documentation, storage, and reuse.
+They also show reproducible workflows, so the research can be checked and used again.
+The topics sit in plant functional trait ecology, ecosystem ecology, plant physiology, and remote sensing.
 
-- **The PFTC model** covers the courses and the data life cycle they follow.
-- **The PFTC toolbox** is the teaching for each step on the wheel: Create, Process, Share, and Re-use.
+The chapters follow the course: [pre-course](plan_logistics.qmd), the [field course](first_days.qmd), and [post-course](course_evaluation.qmd).
+Under each of those, the chapters are grouped by step: Plan, Design, Collect, and the steps that follow.
+The four larger groups on the wheel — Create, Process, Share, and Re-use — overlap those times, so they are not the sidebar groups.
+The PFTC model sits underneath that timeline.
+The inner ring is the scientific process, in four parts: Create, Process, Share, and Re-use.
+Around it, from the centre outward, are the documents, the methods, and the community.
 
-Start with [the PFTC model](pftc_model.qmd), or open a step in the toolbox.
+A page that belongs to one of these carries a sign in the colour from the wheels.
+Some pages are not part of a category, and those have no sign.
+
+```{=html}
+<div class="model-signs" aria-label="Colours used on the PFTC model">
+<span class="sign sign-create">Create</span>
+<span class="sign sign-process">Process</span>
+<span class="sign sign-share">Share</span>
+<span class="sign sign-reuse">Re-use</span>
+<span class="sign sign-data">Data documentation</span>
+<span class="sign sign-methods">Methods and technology</span>
+<span class="sign sign-community">Community of practice</span>
+</div>
+```
+
+The first wheel is the data life cycle.
+Choose a step, a part of the cycle, or a course band to open the matching chapter.
+
+::: {.lifecycle}
+```{=html}
+{{< include images/data_lifecycle.svg >}}
+```
+:::
+
+The same four parts carry the wider model.
+Choose a wedge to open that part of the book.
+
+::: {.lifecycle}
+```{=html}
+{{< include images/pftc_model.svg >}}
+```
+:::

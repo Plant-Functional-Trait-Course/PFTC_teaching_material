@@ -5,7 +5,6 @@ project:
 
 book:
   title: "PFTC Teaching Material"
-  author: "Aud Halbritter"
   date: today
   search: true
   repo-url: https://github.com/Plant-Functional-Trait-Course/PFTC_teaching_material/
@@ -13,30 +12,59 @@ book:
   sharing: [twitter, facebook]
   chapters:
     - index.qmd
-    - part: "The PFTC model"
+    - part: "Pre-course"
       chapters:
-        - pftc_model.qmd
-    - part: "Create"
+        - step_plan.qmd
+        - plan_logistics.qmd
+        - selecting_students.qmd
+        - invite_students.qmd
+        - expectations_survey.qmd
+        - step_design.qmd
+        - student_preparation.qmd
+        - 2_study_system.qmd
+        - 3_three_d.qmd
+        - 4_incline.qmd
+        - data_sharing.qmd
+    - part: "Field course"
       chapters:
-        - create.qmd
+        - step_collect.qmd
+        - first_days.qmd
+        - data_collection.qmd
         - 5_trait_collection.qmd
-    - part: "Process"
-      chapters:
-        - process.qmd
+        - step_digitize.qmd
+        - ensure_reproducibility.qmd
+        - step_import.qmd
+        - 8_reproducible.qmd
         - 7_biostats.qmd
+        - step_clean.qmd
         - 9_data_curation.qmd
+        - step_process.qmd
+        - step_analyse.qmd
         - 10_community.qmd
         - 12_traits.qmd
-    - part: "Share"
+        - 11_bootstrap.qmd
+        - step_document.qmd
+        - additional_activities.qmd
+        - last_days.qmd
+    - part: "Post-course"
       chapters:
-        - share.qmd
-        - 8_reproducible.qmd
-    - part: "Re-use"
-      chapters:
-        - reuse.qmd
+        - step_communicate.qmd
+        - course_evaluation.qmd
+        - papers.qmd
+        - step_archive.qmd
+        - open_data.qmd
         - 6_pftc_data.qmd
+        - step_find.qmd
+        - reuse.qmd
+        - networking.qmd
+        - seminar_series.qmd
+    - part: "Course output"
+      chapters:
+        - results.qmd
 
-bibliography: bibliography.bib
+bibliography:
+  - bibliography.bib
+  - course_papers.bib
 #suppress-bibliography: true
 
 format:
@@ -44,3 +72,6 @@ format:
     theme: cosmo
     code-link: true
     css: "css/style-chapters.css"
+    include-in-header:
+      text: '<meta http-equiv="Cache-Control" content="no-cache">'
+    include-after-body: includes/step-crumb.html

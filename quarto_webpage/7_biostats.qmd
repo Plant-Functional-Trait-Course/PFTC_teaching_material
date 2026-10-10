@@ -10,6 +10,13 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Introduction to R, RStudio and GitHub
 
+```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-process">Process</span>
+<span class="sign sign-methods">Methods and technology</span>
+</div>
+```
+
 The [BioSTATS books](https://biostats-r.github.io/biostats/index.html) are an extensive resource for getting started with R and RStudio, working in R, coding, using Rmarkdown, git and GitHub and creating an R package.
 
 ```{r icons, out.width='100%'}

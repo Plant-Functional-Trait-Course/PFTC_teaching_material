@@ -10,6 +10,12 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Alpine ecosystems
 
+```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-create">Create</span>
+</div>
+```
+
 The PFTC courses study trait-based approaches in alpine grassland ecosystems around the world. 
 We have chosen this ecosystem because they are impacted more strongly by climate change which cause important issues of great societal consequence, and because we have research backgrounds in this general field and system.
 By focusing on the same ecosystem in all courses, enables comparative approaches by combining data from the different PFTC courses.

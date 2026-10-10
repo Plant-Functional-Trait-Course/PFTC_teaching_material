@@ -1,0 +1,16 @@
+# Papers
+
+```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-share">Share</span>
+<span class="sign sign-data">Data documentation</span>
+<span class="sign sign-community">Community of practice</span>
+</div>
+```
+
+- Collaboration skills.
+- Students encouraged to work on data after the course.
+- Mechanism to propose papers.
+- Also to take over “dead” papers.
+
+The rules for proposing a paper are in the [data sharing agreement](data_sharing.qmd). The papers that have come out of the courses are listed on [Course output](results.qmd).

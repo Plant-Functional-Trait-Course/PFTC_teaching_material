@@ -1,0 +1,16 @@
+# Data sharing agreement
+
+```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-share">Share</span>
+<span class="sign sign-reuse">Re-use</span>
+<span class="sign sign-data">Data documentation</span>
+<span class="sign sign-community">Community of practice</span>
+</div>
+```
+
+We established a Data Sharing, Usage, and Authorship Agreement for the PFTC courses that outlines the rights and obligations for all data contributors. It serves as a comprehensive framework to govern the collection, management, and collaborative use of ecological and environmental field data collected during the course. It outlines an inclusive "opt-out" authorship policy based on the Contributor Roles Taxonomy (CRediT - Contributor Roles Taxonomy, 2019), ensuring all participants who meet two or more criteria receive co-authorship on resulting publications. Additionally, it defines a centralized process for proposing and tracking manuscripts to prevent research overlap among participants and ensure inactive 'dead' manuscripts are managed effectively. Finally, the agreement sets a three-year embargo period, after which all curated datasets are scheduled to transition to an open-access CC-BY license. The students are asked to sign the data sharing agreement.
+
+Our data sharing agreement is available here: [PFTC authorship and data sharing agreement](https://plantfunctionaltraitscourses.w.uib.no/files/2025/01/PFTC_Authorship_Data_sharing_General.pdf).
+
+How papers are proposed after the course is on [Papers](papers.qmd). The published datasets are in [Working with PFTC data](6_pftc_data.qmd).

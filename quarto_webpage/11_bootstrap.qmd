@@ -17,6 +17,13 @@ theme_set(theme_minimal(base_size = 12))
 
 # Bootstrapping trait data {#sec-bootstrap}
 
+```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-process">Process</span>
+<span class="sign sign-methods">Methods and technology</span>
+</div>
+```
+
 <!-- fig.align = 'right',  -->
 ```{r, echo=FALSE, out.extra='style="float:right; padding:8px"'}
 #| label: fig-hex

@@ -1,0 +1,16 @@
+# Open data
+
+```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-share">Share</span>
+<span class="sign sign-reuse">Re-use</span>
+<span class="sign sign-data">Data documentation</span>
+<span class="sign sign-methods">Methods and technology</span>
+</div>
+```
+
+- Code sharing via Github.
+- Data via OSF.
+- Data publication.
+
+Where the datasets live, and how to cite them, is in [Working with PFTC data](6_pftc_data.qmd). Finding a published dataset and using it again is [Re-use](reuse.qmd).

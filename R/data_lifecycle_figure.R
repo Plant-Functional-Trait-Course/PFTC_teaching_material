@@ -51,14 +51,14 @@ stages <- data.frame(
     "#895977", "#3F677D"
   ),
   href = c(
-    "create.html",
+    "plan_logistics.html",
     "5_trait_collection.html",
     "5_trait_collection.html#collecting-leaves-in-the-field",
     "5_trait_collection.html#data-entry",
     "9_data_curation.html#import-data",
     "9_data_curation.html",
     "12_traits.html#prepare-data",
-    "process.html",
+    "10_community.html",
     "5_trait_collection.html#data-documentation",
     "8_reproducible.html",
     "6_pftc_data.html#pftc-data-repositories",
@@ -76,9 +76,9 @@ phases <- data.frame(
   id = c("create", "process", "share", "reuse"),
   label = c("CREATE", "PROCESS", "SHARE", "RE-USE"),
   href = c(
-    "create.html",
-    "process.html",
-    "share.html",
+    "step_plan.html",
+    "step_digitize.html",
+    "step_document.html",
     "reuse.html"
   ),
   stringsAsFactors = FALSE
@@ -101,7 +101,7 @@ courses <- data.frame(
   href = c(
     "5_trait_collection.html",
     "7_biostats.html",
-    "share.html"
+    "step_communicate.html"
   ),
   stringsAsFactors = FALSE
 )

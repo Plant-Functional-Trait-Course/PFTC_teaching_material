@@ -25,6 +25,13 @@ library(kableExtra)
 
 # Plant functional trait data
 
+```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-process">Process</span>
+<span class="sign sign-methods">Methods and technology</span>
+</div>
+```
+
 For this tutorial we will use the follwoing packages: *tidyverse*, *vegan*, *ggvegan* and *broom*, *traitstrap*, *patchwork* and *glue*.
 
 

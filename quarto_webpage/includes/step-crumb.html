@@ -1,0 +1,33 @@
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var active = document.querySelector("#quarto-sidebar a.sidebar-link.active");
+  if (!active) return;
+  var href = active.getAttribute("href") || "";
+  if (href.indexOf("step_") !== -1) return;
+  var item = active.closest("li.sidebar-item");
+  if (!item) return;
+  var step = null;
+  var prev = item.previousElementSibling;
+  while (prev) {
+    var link = prev.querySelector('a[href*="step_"]');
+    if (link) {
+      step = link;
+      break;
+    }
+    prev = prev.previousElementSibling;
+  }
+  if (!step) return;
+  document.querySelectorAll("nav.quarto-page-breadcrumbs ol").forEach(function (ol) {
+    if (ol.querySelector(".step-crumb")) return;
+    var crumbs = ol.querySelectorAll(":scope > .breadcrumb-item");
+    if (!crumbs.length) return;
+    var crumb = document.createElement("li");
+    crumb.className = "breadcrumb-item step-crumb";
+    var a = document.createElement("a");
+    a.href = step.getAttribute("href");
+    a.textContent = step.textContent.replace(/\s+/g, " ").trim();
+    crumb.appendChild(a);
+    ol.insertBefore(crumb, crumbs[crumbs.length - 1]);
+  });
+});
+</script>

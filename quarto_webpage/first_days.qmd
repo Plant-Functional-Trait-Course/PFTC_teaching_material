@@ -1,0 +1,15 @@
+# First days of the course
+
+```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-community">Community of practice</span>
+</div>
+```
+
+The final details of the course are often prepared by the leadership team arriving a few days early. The final schedule is planned, sometimes it includes site scouting, or even setting up plots and recording the vegetation. This often also includes the local hosts and some students familiar with the location and taxonomy. Sometimes, the time is also used to work on publications and new applications.
+
+Once the students arrived we spent some time (1–2 days) for introductions, networking, reviewing lectures, and group discussion and preparations for the field. If the field sites are in a remote place, the first phase takes place close to the airport, which allows students from delayed flights or luggage to arrive.
+
+For the introductions, all participants prepare one slide about themselves (research, affiliation, hobbies). In some cases (China and South Africa), we have organized a mini conference to give lectures, and have local researchers show their research. This is to integrate the local research community in our course and to learn about the local research.
+
+In later iterations of the course, we have let the students select an “ombudsperson”, a student representative. The goal was to give the students a way to voice concerns.
