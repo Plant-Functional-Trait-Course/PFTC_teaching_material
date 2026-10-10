@@ -1,12 +1,27 @@
 # The PFTC model {.unnumbered}
 
 This book is the teaching material for the Plant Functional Trait Courses (PFTC).
-The courses are hands-on training in trait-based ecology.
+The courses is a hands-on end-to-end data life cylcle training in trait-based ecology.
 More about the courses themselves is on the course [webpage](https://plantfunctionaltraitscourses.w.uib.no/).
 
-The courses teach data collection, curation, analysis, documentation, storage, and reuse.
-They also show reproducible workflows, so the research can be checked and used again.
-The topics sit in plant functional trait ecology, ecosystem ecology, plant physiology, and remote sensing.
+Most ecology and field biology courses only cover part of the data life cycle (@data_lifecycle).
+
+::: {.lifecycle}
+```{=html}
+{{< include images/data_lifecycle.svg >}}
+```
+:::
+
+The PFTC model is teaches all parts of the data life cycle, from planning to data re-use (@pftc_model).
+It adds three layers to the data life cycle: documentation, methods and technology, and community of practice.
+
+::: {.lifecycle}
+```{=html}
+{{< include images/pftc_model.svg >}}
+```
+:::
+
+### How to use the book
 
 The chapters follow the course: [pre-course](plan_logistics.qmd), the [field course](first_days.qmd), and [post-course](course_evaluation.qmd).
 Under each of those, the chapters are grouped by step: Plan, Design, Collect, and the steps that follow.
@@ -30,20 +45,21 @@ Some pages are not part of a category, and those have no sign.
 </div>
 ```
 
-The first wheel is the data life cycle.
-Choose a step, a part of the cycle, or a course band to open the matching chapter.
 
-::: {.lifecycle}
-```{=html}
-{{< include images/data_lifecycle.svg >}}
-```
-:::
+### Funding
 
-The same four parts carry the wider model.
-Choose a wedge to open that part of the book.
+The Plant Functional Traits Courses acknowledge funding from the following sources:
 
-::: {.lifecycle}
-```{=html}
-{{< include images/pftc_model.svg >}}
-```
-:::
+**The Norwegian Research Council**
+*ExperTS* - Experiments, Traits, Synthesis: Using knowledge from global ecological experiments to validate, assess, and improve trait-based theory. INTPART project 287784 2019 – 2023.
+PI: Vigdis Vandvik and Brian Enquist
+
+*RECITE* -Research and Education Partnership in Climate Change Impacts on Terrestrial Ecosystems. INTPART project 274831 2018 – 2022.
+PI: Vigdis Vandvik
+
+**Senter for internasjonalisering av utdanning**
+*TraitTrain* - Comparing climate change impacts on High North vs. Alpine ecosystems through research and training in trait-based approaches. SIU project HNP-2015/10037 2016 – 2018
+PI: Vigdis Vandvik
+
+*TransPlant* - Research-based traning in experimental climate change plant ecology. UTF-2013/10074 2014 – 2016.
+PI: Vigdis Vandvik
