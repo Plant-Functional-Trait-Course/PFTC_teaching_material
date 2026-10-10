@@ -12,7 +12,7 @@
 <path class="dlc-hit" d="M 383.01 63.40 A 452.00 452.00 0 0 1 819.61 180.39 L 785.67 214.33 A 404.00 404.00 0 0 0 395.44 109.77 Z"/>
 <path id="dlc-course-path-ecology" d="M 390.72 92.15 A 422.24 422.24 0 0 1 798.57 201.43" fill="none" stroke="none"/><text font-size="16" font-weight="600" fill="#f6f1e6" letter-spacing="0.6" text-anchor="middle"><textPath xlink:href="#dlc-course-path-ecology" href="#dlc-course-path-ecology" startOffset="50%">Ecology &amp; Field Courses</textPath></text>
 </a>
-<a class="dlc-course" href="7_biostats.html" aria-label="Stats Courses"><title>Stats Courses</title>
+<a class="dlc-course" href="8_reproducible.html" aria-label="Stats Courses"><title>Stats Courses</title>
 <path d="M 616.99 936.60 A 452.00 452.00 0 0 1 383.01 936.60 L 395.44 890.23 A 404.00 404.00 0 0 0 604.56 890.23 Z" fill="#865E27" pointer-events="none"/>
 <path class="dlc-hit" d="M 616.99 936.60 A 452.00 452.00 0 0 1 383.01 936.60 L 395.44 890.23 A 404.00 404.00 0 0 0 604.56 890.23 Z"/>
 <path id="dlc-course-path-stats" d="M 387.73 918.98 A 433.76 433.76 0 0 0 612.27 918.98" fill="none" stroke="none"/><text font-size="16" font-weight="600" fill="#f6f1e6" letter-spacing="0.6" text-anchor="middle"><textPath xlink:href="#dlc-course-path-stats" href="#dlc-course-path-stats" startOffset="50%">Stats Courses</textPath></text>

@@ -1,0 +1,11 @@
+# Learning outcomes
+
+```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-community">Community of practice</span>
+</div>
+```
+
+Students leave able to collect trait and community data, check it, and write down what they did. They have worked on real data, from the field sheets through a script to a data paper.
+
+The practical pieces are [Collect real data](collect_real_data.qmd), [Peer learning and certification](peer_learning.qmd), [Data curation](9_data_curation.qmd), and [Data documentation](data_documentation.qmd).

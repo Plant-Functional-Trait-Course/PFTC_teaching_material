@@ -1,0 +1,12 @@
+# Herbarium vouchers
+
+```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-create">Create</span>
+<span class="sign sign-data">Data documentation</span>
+</div>
+```
+
+A voucher is a pressed specimen of a species from the campaign. It is the record that lets someone check the name later, when the plants in the plots are gone.
+
+Collect a voucher for each species that is used in the community and trait data, from the sites where that species is recorded. The label carries the same site, date, and name as the tables. The vouchers stay with the local hosts and a herbarium that can keep them, and the data paper says where the collection is.

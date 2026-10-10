@@ -100,7 +100,7 @@ courses <- data.frame(
   text_color = c("#f6f1e6", "#f6f1e6", "#f6f1e6"),
   href = c(
     "5_trait_collection.html",
-    "7_biostats.html",
+    "8_reproducible.html",
     "step_communicate.html"
   ),
   stringsAsFactors = FALSE

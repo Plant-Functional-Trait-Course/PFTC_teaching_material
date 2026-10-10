@@ -1,0 +1,12 @@
+# Data documentation
+
+```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-share">Share</span>
+<span class="sign sign-data">Data documentation</span>
+</div>
+```
+
+An important part of transparency and reproducibility is documentation of the whole workflow. The documentation should include the data collection (protocols), code, dataset (data dictionary), and metadata. We publish the data documentation as data papers, which is a course output/delivery. The students get a publication and take part in the whole publishing process. The data paper always follows a similar structure, which we already prepare before the course. The students start to work on this documentation already before the course. The methods on data collection can be filled in beforehand (protocols), and can be adjusted after the collection if necessary. Once the data is cleaned we produce a data dictionary for each dataset. The code is documented when writing the code. The data paper contains a lot of metadata description. To keep track of changes that happened during data collection and decisions that have been made, we make a list of rules.
+
+Trait-wheel documentation notes are in [The trait wheel](5_trait_collection.qmd#data-documentation). How comments sit next to the script is in [Well commented code](well_commented_code.qmd). Sharing and archiving the finished data is on [Open data](open_data.qmd) and [Working with PFTC data](6_pftc_data.qmd).

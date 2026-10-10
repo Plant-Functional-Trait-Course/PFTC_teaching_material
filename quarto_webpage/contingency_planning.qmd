@@ -1,0 +1,19 @@
+# Contingency planning
+
+```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-create">Create</span>
+<span class="sign sign-methods">Methods and technology</span>
+<span class="sign sign-community">Community of practice</span>
+</div>
+```
+
+Contingency planning is the plan for all eventualities during a field course. Weather, travel, equipment, and people will change the written schedule. Decide the alternatives before the course, and agree who can change the plan once the group is in the field. The day itself is adjusted at the evening update described in [Systematic data collection](data_collection.qmd).
+
+- **Bad weather.** A wet, windy, or unsafe day needs an alternative that still moves the course forward: lab work on leaves already collected, data entry, a lower or more sheltered site, or a lecture. Do not leave the only attempt at a measurement for a day that can be lost.
+- **Replications.** Collect more than the minimum. Extra leaves, and a plot that can be dropped or replaced, mean a damaged sample, a missed species, or a site that cannot be reached still leaves a comparison across the gradient.
+- **Order of work.** Non-destructive measurements come first. Carbon flux is taken before leaves and roots are harvested, because the harvest cannot be undone. If a day is cut short, the measurement that cannot be repeated later is the one that happens.
+- **Travel and access.** Flights, luggage, roads, and permits slip. Keep the opening days near the place people arrive, and have a second way to reach each site if the first road or the first vehicle fails.
+- **Equipment.** Balances, scanners, and the Raspberry Pi setup fail. Carry spares, including a spare card for each Pi, and a paper sheet that can record the same measurement if the digital setup stops.
+- **People.** Someone will be delayed, ill, or injured. Each task needs more than one person who can do it, including the taxonomy, so the day does not depend on a single expert.
+- **Time.** Groups finish at different speeds, and a slow method or a lost weather day should not consume the days set aside for analysis. Name in advance which measurements can be reduced, and which ones the course will not leave without.

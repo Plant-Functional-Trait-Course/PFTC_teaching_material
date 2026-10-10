@@ -1,0 +1,13 @@
+# Well commented code
+
+```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-process">Process</span>
+<span class="sign sign-data">Data documentation</span>
+<span class="sign sign-methods">Methods and technology</span>
+</div>
+```
+
+A script is reusable only if the decisions are written next to the code. Why a row was dropped, which unit was converted, and which name was corrected should be in the script, not only in someone's memory.
+
+Those comments, together with the data dictionary, are how the next person checks the work. The documentation of the whole workflow is in [Reproducible workflows, version control](8_reproducible.qmd).

@@ -1,0 +1,11 @@
+# Collaboration skills
+
+```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-community">Community of practice</span>
+</div>
+```
+
+The data are collected by groups, with local hosts, and across field and lab. Students rotate so that more than one person can do each task, and so that a group does not depend on a single expert.
+
+How that rotation works is in [Systematic data collection](data_collection.qmd). How a student becomes the person who teaches the next one is in [Peer learning and certification](peer_learning.qmd).

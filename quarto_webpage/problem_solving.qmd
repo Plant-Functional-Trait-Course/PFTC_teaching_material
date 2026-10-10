@@ -1,0 +1,13 @@
+# Problem solving
+
+```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-create">Create</span>
+<span class="sign sign-methods">Methods and technology</span>
+<span class="sign sign-community">Community of practice</span>
+</div>
+```
+
+Something in the field will not go to plan. A scanner fails, a species cannot be named, a site cannot be reached, or a group falls behind. Solving that is part of the course, not a break in it.
+
+Each evening every group reports what was finished, what worked, and what did not. The next day is set from that report. A decision that changes the protocol or the design is written down, so the data paper can say what was actually done. The alternatives agreed before the course are in [Contingency planning](contingency_planning.qmd). The evening report itself sits in [Systematic data collection](data_collection.qmd).

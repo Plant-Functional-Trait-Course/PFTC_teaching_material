@@ -1,0 +1,14 @@
+# Collect real data
+
+```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-create">Create</span>
+<span class="sign sign-community">Community of practice</span>
+</div>
+```
+
+The course collects real data for real science. The leaves, the plots, and the fluxes are not a classroom exercise that is thrown away afterwards. They are the observations in the data papers, and other people will use them.
+
+That is the responsibility. A wrong species name, a skipped check, or a plot that was never recorded stays in the published dataset. Students work on the same gradients and experiments as the research, with the local hosts, and the campaign is larger than one research group could run alone. In return, the students leave with data they can analyse and publish.
+
+How the days are organised is in [Systematic data collection](data_collection.qmd). What happens when the plan breaks is in [Contingency planning](contingency_planning.qmd).

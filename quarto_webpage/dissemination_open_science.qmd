@@ -1,0 +1,12 @@
+# Dissemination of open science
+
+```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-share">Share</span>
+<span class="sign sign-community">Community of practice</span>
+</div>
+```
+
+The course shares how the work was done, not only the dataset. Hosts, local communities, and the next cohort should be able to see the protocols, the code, and the decisions.
+
+Some of that happens during the course: a conference with the host university, interviews, or an open science day. Those examples are in [Additional activities](additional_activities.qmd). The published record is the data paper, listed on [Course output](results.qmd).

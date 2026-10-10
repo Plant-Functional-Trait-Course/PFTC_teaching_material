@@ -17,34 +17,33 @@ book:
         - step_plan.qmd
         - plan_logistics.qmd
         - selecting_students.qmd
-        - invite_students.qmd
+        - contingency_planning.qmd
         - expectations_survey.qmd
         - step_design.qmd
         - student_preparation.qmd
-        - 2_study_system.qmd
-        - 3_three_d.qmd
-        - 4_incline.qmd
         - data_sharing.qmd
     - part: "Field course"
       chapters:
         - step_collect.qmd
+        - collect_real_data.qmd
         - first_days.qmd
         - data_collection.qmd
+        - problem_solving.qmd
+        - herbarium_vouchers.qmd
+        - peer_learning.qmd
         - 5_trait_collection.qmd
         - step_digitize.qmd
-        - ensure_reproducibility.qmd
-        - step_import.qmd
         - 8_reproducible.qmd
-        - 7_biostats.qmd
-        - step_clean.qmd
+        - code_based_scripts.qmd
+        - quality_control.qmd
         - 9_data_curation.qmd
-        - step_process.qmd
         - step_analyse.qmd
         - 10_community.qmd
         - 12_traits.qmd
         - 11_bootstrap.qmd
         - step_document.qmd
-        - additional_activities.qmd
+        - data_documentation.qmd
+        - well_commented_code.qmd
         - last_days.qmd
     - part: "Post-course"
       chapters:
@@ -56,11 +55,21 @@ book:
         - 6_pftc_data.qmd
         - step_find.qmd
         - reuse.qmd
+        - step_other.qmd
+        - additional_activities.qmd
         - networking.qmd
         - seminar_series.qmd
+        - dissemination_open_science.qmd
+        - learning_outcomes.qmd
+        - collaboration_skills.qmd
     - part: "Course output"
       chapters:
         - results.qmd
+    - part: "Study systems"
+      chapters:
+        - 2_study_system.qmd
+        - 3_three_d.qmd
+        - 4_incline.qmd
 
 bibliography:
   - bibliography.bib

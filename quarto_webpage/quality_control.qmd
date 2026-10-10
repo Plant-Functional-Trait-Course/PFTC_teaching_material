@@ -1,0 +1,13 @@
+# Quality control
+
+```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-process">Process</span>
+<span class="sign sign-data">Data documentation</span>
+<span class="sign sign-methods">Methods and technology</span>
+</div>
+```
+
+Checks happen twice. In the sheets, drop-down menus and allowed ranges catch a typo while the leaf is still on the bench. After the file is imported, the checks look for duplicates, missing values, impossible numbers, and names that do not match across tables.
+
+The sheet checks are described in [Reproducible workflows, version control](8_reproducible.qmd). The tutorial that runs the checks in R is [Data curation](9_data_curation.qmd).

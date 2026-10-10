@@ -506,6 +506,10 @@ h2 {
   color: #3F677D !important;
 }
 
+.sidebar-section.depth1 > .sidebar-item:has(a[href*="step_other"]) .sidebar-link {
+  color: #7d6a5c !important;
+}
+
 .sidebar-section.depth1 > .sidebar-item:not(:has(a[href*="step_"])) > .sidebar-item-container {
   padding-left: 0.85rem;
 }

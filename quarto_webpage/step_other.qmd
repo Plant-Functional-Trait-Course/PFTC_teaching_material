@@ -1,0 +1,3 @@
+# Other {.unnumbered}
+
+Activities that sit alongside the data life cycle: the course community, and what students take with them.

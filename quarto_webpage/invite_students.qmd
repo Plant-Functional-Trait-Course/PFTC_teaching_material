@@ -1,9 +1,0 @@
-# Invite students
-
-```{=html}
-<div class="model-signs" aria-label="Where this sits in the PFTC model">
-<span class="sign sign-community">Community of practice</span>
-</div>
-```
-
-Not sure if there is much to say here? Perhaps not worth mentioning?

@@ -1,0 +1,12 @@
+# Code based scripts
+
+```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-process">Process</span>
+<span class="sign sign-methods">Methods and technology</span>
+</div>
+```
+
+Cleaning and analysis are scripts. Once the field and lab sheets are digitized, the raw file is stored and is not edited by hand. A script reads that file, cleans it, and writes the table that is analysed. The same script is what another person runs.
+
+How that sits in the workflow is in [Reproducible workflows, version control](8_reproducible.qmd). The worked example, from import through the checks, is [Data curation](9_data_curation.qmd).

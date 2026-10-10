@@ -1,0 +1,12 @@
+# Peer learning and certification
+
+```{=html}
+<div class="model-signs" aria-label="Where this sits in the PFTC model">
+<span class="sign sign-methods">Methods and technology</span>
+<span class="sign sign-community">Community of practice</span>
+</div>
+```
+
+We use a peer learning and certification approach in the trait wheel. Peer learning is a widely accepted method in higher education where the students learn from each other (Refs). What is the benefit… Students put more effort in learning outcomes if they are assessed (Biggs). In addition, the learning outcome of students can increase when students are involved in the assessment, e.g. peer-reviews (Refs). Receiving a badge, a certificate, and gamification can increase the students motivation and learning outcome (Eidesen et al., 2023; Hennah & Seery, 2017). The students learn from the instructors how to measure the leaf traits. Once they master the task, their knowledge is tested by the instructors and if successful get a sticker for this task and the certification for instructor status to teach peers.
+
+The stations themselves are in [The trait wheel](5_trait_collection.qmd).
