@@ -4,21 +4,25 @@ This book is the teaching material for the Plant Functional Trait Courses (PFTC)
 The courses is a hands-on end-to-end data life cylcle training in trait-based ecology.
 More about the courses themselves is on the course [webpage](https://plantfunctionaltraitscourses.w.uib.no/).
 
-Most ecology and field biology courses only cover part of the data life cycle (@data_lifecycle).
+Most ecology and field biology courses only cover part of the data life cycle (@fig-data-lifecycle).
 
-::: {.lifecycle}
+::: {#fig-data-lifecycle .lifecycle}
 ```{=html}
 {{< include images/data_lifecycle.svg >}}
 ```
+
+The data life cycle.
 :::
 
-The PFTC model is teaches all parts of the data life cycle, from planning to data re-use (@pftc_model).
+The PFTC model is teaches all parts of the data life cycle, from planning to data re-use (@fig-pftc-model).
 It adds three layers to the data life cycle: documentation, methods and technology, and community of practice.
 
-::: {.lifecycle}
+::: {#fig-pftc-model .lifecycle}
 ```{=html}
 {{< include images/pftc_model.svg >}}
 ```
+
+The PFTC model.
 :::
 
 ### How to use the book
