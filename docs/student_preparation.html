@@ -93,7 +93,7 @@ div.csl-indent {
 <meta http-equiv="Cache-Control" content="no-cache">
 
 
-<link rel="stylesheet" href="css/style-chapters.css?v=read">
+<link rel="stylesheet" href="css/style-chapters.css?v=cite1">
 </head>
 
 <body class="nav-sidebar floating quarto-light">
@@ -270,7 +270,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./5_trait_collection.html" class="sidebar-item-text sidebar-link">
+  <a href="./5_trait_collection.html?v=collect" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">The trait wheel</span></span></a>
   </div>
 </li>
@@ -512,10 +512,7 @@ div.csl-indent {
    
   <ul>
   <li><a href="#lectures" id="toc-lectures" class="nav-link active" data-scroll-target="#lectures"><span class="header-section-number">5.1</span> Lectures</a></li>
-  <li><a href="#online-lectures" id="toc-online-lectures" class="nav-link" data-scroll-target="#online-lectures"><span class="header-section-number">5.2</span> Online lectures</a>
-  <ul class="collapse">
-  <li><a href="#table-2.-topics-for-the-course-lectures-for-each-course" id="toc-table-2.-topics-for-the-course-lectures-for-each-course" class="nav-link" data-scroll-target="#table-2.-topics-for-the-course-lectures-for-each-course"><span class="header-section-number">5.2.1</span> Table 2. Topics for the course lectures for each course</a></li>
-  </ul></li>
+  <li><a href="#online-lectures" id="toc-online-lectures" class="nav-link" data-scroll-target="#online-lectures"><span class="header-section-number">5.2</span> Online lectures</a></li>
   <li><a href="#pre-course-discussions" id="toc-pre-course-discussions" class="nav-link" data-scroll-target="#pre-course-discussions"><span class="header-section-number">5.3</span> Pre-course discussions</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/Plant-Functional-Trait-Course/PFTC_teaching_material/blob/main/student_preparation.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
@@ -547,6 +544,58 @@ div.csl-indent {
 <span class="sign sign-methods">Methods and technology</span>
 <span class="sign sign-community">Community of practice</span>
 </div>
+<style>
+/* This page cites every assigned paper, so Quarto prints the full list at the bottom.
+   The chips already show author and year, and most records have no title yet.
+   Keep the entries in the page so a chip can still open its record, but do not show the list. */
+#refs.references {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  window.setTimeout(function () {
+    if (!window.tippy) return;
+    var scope = ".reading-shared a[role='doc-biblioref'], .reading-course a[role='doc-biblioref']";
+    document.querySelectorAll(".reading-shared .citation, .reading-course .citation").forEach(function (group) {
+      if (group._tippy) group._tippy.destroy();
+    });
+    document.querySelectorAll(scope).forEach(function (link) {
+      var href = link.getAttribute("href") || "";
+      var id = href.split("#ref-").pop();
+      var entry = document.getElementById("ref-" + id);
+      if (!entry) return;
+      if (link._tippy) link._tippy.destroy();
+      window.tippy(link, {
+        allowHTML: true,
+        maxWidth: 440,
+        delay: 80,
+        arrow: false,
+        appendTo: document.body,
+        interactive: true,
+        interactiveBorder: 8,
+        theme: "quarto",
+        placement: "bottom-start",
+        content: entry.innerHTML
+      });
+      var doi = entry.querySelector("a[href*='doi.org']");
+      if (doi) {
+        link.href = doi.getAttribute("href");
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+      }
+    });
+  }, 50);
+});
+</script>
 <section id="lectures" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="lectures"><span class="header-section-number">5.1</span> Lectures</h2>
 <p>To ensure students have the required background in plant functional and climate change ecology and the methodologies, students are assigned readings before the course. During earlier iterations, readings were merely assigned, but as the course evolved we shifted to a more active model where students read papers and then discuss them within their groups. Readings include foundational papers for trait-based ecology, background on the study region, and at least one paper that helps understand the work going on in each group. In addition to these general readings, students are assigned several papers focused on their particular group.</p>
@@ -825,312 +874,371 @@ div.csl-indent {
 </section>
 <section id="online-lectures" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="online-lectures"><span class="header-section-number">5.2</span> Online lectures</h2>
-<p>We include lectures on core subjects as part of each course (Table 2). During our earlier courses, these were included in the beginning of each course. However, we found that this was a sub-optimal approach, as it cut into time available for field work and analysis, and participants were often suffering from severe jet lag. In response, we now hold the background lectures online in the months before the course, increasing time in the field and giving the students the necessary background information sooner (Geange et al., 2021).</p>
-<section id="table-2.-topics-for-the-course-lectures-for-each-course" class="level3" data-number="5.2.1">
-<h3 data-number="5.2.1" class="anchored" data-anchor-id="table-2.-topics-for-the-course-lectures-for-each-course"><span class="header-section-number">5.2.1</span> Table 2. Topics for the course lectures for each course</h3>
-<p>The * indicates content that was added due to a COVID lockdown in Peru. (P) is pre-course and (D) is during the course.</p>
+<p>We include lectures on core subjects as part of each course. During our earlier courses, these were included in the beginning of each course. However, we found that this was a sub-optimal approach, as it cut into time available for field work and analysis, and participants were often suffering from severe jet lag. In response, we now hold the background lectures online in the months before the course, increasing time in the field and giving the students the necessary background information sooner (Geange et al., 2021).</p>
+<p>Open a course to see the lectures. <strong>P</strong> is pre-course and <strong>D</strong> is during the course. A star marks a lecture added because of the COVID lockdown in Peru. No lecture topics were recorded for PFTC 1.</p>
+<p>To let people watch a lecture or open the slides, add a link in the Materials column: <code>[Video](https://...)</code> or <code>[Slides](https://...)</code>. Leave the cell empty when there is nothing to link yet.</p>
+<details class="reading-course lecture-course">
+<summary>
+<span class="reading-course-name">PFTC 1</span><span class="reading-place">China</span>
+</summary>
+<p>No lecture topics were recorded for this course.</p>
+</details>
+<details class="reading-course lecture-course">
+<summary>
+<span class="reading-course-name">PFTC 2</span><span class="reading-place">China</span>
+</summary>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Course</th>
 <th>Topic</th>
-<th>Presenter</th>
 <th>When</th>
+<th>Materials</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>PFTC 2</td>
 <td>Welcome — introducing the themes of PFTC2 2016, with background, goals and expectations, and the sponsors</td>
-<td>Vigdis Vandvik</td>
-<td>D</td>
+<td><span class="when">D</span></td>
+<td></td>
 </tr>
 <tr class="even">
-<td>PFTC 2</td>
 <td>Intro to trait based ecology</td>
-<td>Brian Enquist</td>
-<td>D</td>
+<td><span class="when">D</span></td>
+<td></td>
 </tr>
 <tr class="odd">
-<td>PFTC 2</td>
 <td>Approaches to studying climate change impacts on plants and ecosystems</td>
-<td>Vigdis Vandvik</td>
-<td>D</td>
+<td><span class="when">D</span></td>
+<td></td>
 </tr>
 <tr class="even">
-<td>PFTC 2</td>
 <td>Plant energy budgets and homeothermy: energetics, trait-environment interactions, and carbon economics</td>
-<td>Sean Michaletz</td>
-<td>D</td>
+<td><span class="when">D</span></td>
+<td></td>
 </tr>
 <tr class="odd">
-<td>PFTC 2</td>
 <td>Climate change impacts on ecosystem carbon dynamics</td>
-<td>Hanna Lee</td>
-<td>D</td>
-</tr>
-<tr class="even">
-<td>PFTC 3</td>
-<td>Introduction to course</td>
-<td>Vigdis Vandvik, Brian Enquist</td>
-<td>D</td>
-</tr>
-<tr class="odd">
-<td>PFTC 3</td>
-<td>Climate change ecology in alpine regions, ecology along gradients, and how the Peru course fits in</td>
-<td>Vigdis Vandvik</td>
-<td>D</td>
-</tr>
-<tr class="even">
-<td>PFTC 3</td>
-<td>Introduction to trait based ecology; trait driver theory</td>
-<td>Brian Enquist</td>
-<td>D</td>
-</tr>
-<tr class="odd">
-<td>PFTC 3</td>
-<td>Overview of natural history, vegetation history of Peru and the research sites, Puna vegetation</td>
-<td>Miles Silman</td>
-<td>D</td>
-</tr>
-<tr class="even">
-<td>PFTC 3</td>
-<td>Introduction to tropical forests, research along (elevation) gradients in tropical forests</td>
-<td>William Farfan-Rios</td>
-<td>D</td>
-</tr>
-<tr class="odd">
-<td>PFTC 3</td>
-<td>Manu National Park, challenges, climate change, and research</td>
-<td>The Director of Manu National Park</td>
-<td>D</td>
-</tr>
-<tr class="even">
-<td>PFTC 3</td>
-<td>Introduction to carbon flux and ecosystem response to global change</td>
-<td>Casper Christiansen</td>
-<td>D</td>
-</tr>
-<tr class="odd">
-<td>PFTC 3</td>
-<td>Introduction to leaf functional traits and leaf physiology</td>
-<td>Sean Michaletz</td>
-<td>D</td>
-</tr>
-<tr class="even">
-<td>PFTC 3</td>
-<td>Introduction to fire ecology in general and why it is important; the role of fire and grazing in the Puna</td>
-<td>Imma Oliveras</td>
-<td>D</td>
-</tr>
-<tr class="odd">
-<td>PFTC 3</td>
-<td>Collecting ecological data, setting up experiments, etc.</td>
-<td>Aud Halbritter</td>
-<td>D</td>
-</tr>
-<tr class="even">
-<td>PFTC 3</td>
-<td>Sustainable and reproducible coding, tracking changes, data documentation, data management</td>
-<td>Aud Halbritter</td>
-<td>D</td>
-</tr>
-<tr class="odd">
-<td>PFTC 4</td>
-<td>Introduction to PFTC4 — aims, workflow, responsibilities, outcomes</td>
-<td>Vigdis Vandvik, Brian Enquist</td>
-<td>D</td>
-</tr>
-<tr class="even">
-<td>PFTC 4</td>
-<td>Climate change ecology in alpine regions: experiments, gradients, and how the Svalbard course fits in</td>
-<td>Vigdis Vandvik</td>
-<td>D</td>
-</tr>
-<tr class="odd">
-<td>PFTC 4</td>
-<td>Introduction to trait based ecology; trait driver theory</td>
-<td>Brian Enquist</td>
-<td>D</td>
-</tr>
-<tr class="even">
-<td>PFTC 4</td>
-<td>Introduction to Svalbard and climate change in the arctic</td>
-<td>Pernille B Eidesen, Ruben Roos, Marc Macias-Fauria</td>
-<td>D</td>
-</tr>
-<tr class="odd">
-<td>PFTC 4</td>
-<td>OTC, ITEX site</td>
-<td>Inga Svala Jónsdóttir, Kari Klanderud</td>
-<td>D</td>
-</tr>
-<tr class="even">
-<td>PFTC 4</td>
-<td>Snowfence experiment</td>
-<td>Hans Tømmervik</td>
-<td>D</td>
-</tr>
-<tr class="odd">
-<td>PFTC 4</td>
-<td>Flux course</td>
-<td>Geir Gabrielsen, Inga Svala Jónsdóttir</td>
-<td>D</td>
-</tr>
-<tr class="even">
-<td>PFTC 4</td>
-<td>Introduction to drones</td>
-<td>Yadvinder Malhi, Marc Macias-Fauria</td>
-<td>D</td>
-</tr>
-<tr class="odd">
-<td>PFTC 4</td>
-<td>Introduction to carbon flux and ecosystem response to global change</td>
-<td>Inge Althuizen</td>
-<td>D</td>
-</tr>
-<tr class="even">
-<td>PFTC 4</td>
-<td>Introduction to leaf functional traits and leaf physiology</td>
-<td>Sean Michaletz</td>
-<td>D</td>
-</tr>
-<tr class="odd">
-<td>PFTC 4</td>
-<td>How to calculate and interpret community metrics from trait and compositional data</td>
-<td>Brian Maitner</td>
-<td>D</td>
-</tr>
-<tr class="even">
-<td>PFTC 4</td>
-<td>Collecting ecological trait data, reproducible coding, how to import, clean and plot data, data checking</td>
-<td>Aud Halbritter, Richard Telford</td>
-<td>D</td>
-</tr>
-<tr class="odd">
-<td>PFTC 4</td>
-<td>Science communication</td>
-<td>Lori Patrick</td>
-<td>D</td>
-</tr>
-<tr class="even">
-<td>PFTC 5</td>
-<td>The ecology and natural history of the Puna</td>
-<td>Imma Oliveras</td>
+<td><span class="when">D</span></td>
 <td></td>
-</tr>
-<tr class="odd">
-<td>PFTC 5</td>
-<td>Theory, background, and status of trait-based ecology</td>
-<td>Brian Enquist</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>PFTC 5</td>
-<td>Trait-based approaches in experiments and observational studies</td>
-<td>Vigdis Vandvik</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>PFTC 5</td>
-<td>Trait-based approaches to leaf thermoregulation</td>
-<td>Sean Michaletz</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>PFTC 5</td>
-<td>Trait-based approaches using remote sensing</td>
-<td>Marc Macias-Fauria</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>PFTC 5</td>
-<td>Introduction to the Andes to Amazon elevational gradient and ecology and natural history of the area</td>
-<td>Miles Silman</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>PFTC 5</td>
-<td>Authorship guidelines, proposing new papers, collaboration within the group</td>
-<td>Brian Maitner</td>
-<td>D*</td>
-</tr>
-<tr class="odd">
-<td>PFTC 5</td>
-<td>Pseudocode and trait distributions</td>
-<td>Brian Maitner</td>
-<td>D*</td>
-</tr>
-<tr class="even">
-<td>PFTC 5</td>
-<td>How to download previous PFTC data and data exploration</td>
-<td>Julia Chacon-Labella</td>
-<td>D*</td>
-</tr>
-<tr class="odd">
-<td>PFTC 5</td>
-<td>Data curation and validation</td>
-<td>Aud Halbritter</td>
-<td>D*</td>
-</tr>
-<tr class="even">
-<td>PFTC 6</td>
-<td>Welcome, introductions, trait based ecology</td>
-<td>Vigdis Vandvik, Brian Enquist</td>
-<td>P</td>
-</tr>
-<tr class="odd">
-<td>PFTC 6</td>
-<td>Alpine ecosystems in Norway, overview of projects</td>
-<td>Vigdis Vandvik, Aud Halbritter</td>
-<td>P</td>
-</tr>
-<tr class="even">
-<td>PFTC 6</td>
-<td>Intraspecific trait variation; global change; science communication</td>
-<td>Sonya Geange, Julia Chacon, Sehoya Cotner</td>
-<td>P</td>
-</tr>
-<tr class="odd">
-<td>PFTC 6</td>
-<td>Leaf temperature and physiology, remote sensing, carbon fluxes</td>
-<td>Sean Michaletz, Marc Macias-Fauria, Joseph Gaudard</td>
-<td>P</td>
-</tr>
-<tr class="even">
-<td>PFTC 7</td>
-<td>Welcome, introductions, overview of PFTC 7 projects, trait based ecology, and student perspective of PFTC</td>
-<td>Vigdis Vandvik, Brian Enquist, Tanya Strydom</td>
-<td>P</td>
-</tr>
-<tr class="odd">
-<td>PFTC 7</td>
-<td>Outcomes of previous courses</td>
-<td>Julia Kemppinen, Aud Halbritter, Brian Maitner</td>
-<td>P</td>
-</tr>
-<tr class="even">
-<td>PFTC 7</td>
-<td>Alpine ecosystems in South Africa, research in the alpine grasslands</td>
-<td>Peter le Roux, et al.</td>
-<td>P</td>
-</tr>
-<tr class="odd">
-<td>PFTC 7</td>
-<td>Leaf temperature and physiology, remote sensing, carbon fluxes</td>
-<td>Sean Michaletz, Marcella Cross, Joe White, Nicole Bison, Pekka Niittynen, Jocelyn Navarro</td>
-<td>P</td>
 </tr>
 </tbody>
 </table>
-<p>PFTC 1 is listed in the lecture table without topics.</p>
-</section>
+</details>
+<details class="reading-course lecture-course">
+<summary>
+<span class="reading-course-name">PFTC 3</span><span class="reading-place">Peru</span>
+</summary>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Topic</th>
+<th>When</th>
+<th>Materials</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Introduction to course</td>
+<td><span class="when">D</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Climate change ecology in alpine regions, ecology along gradients, and how the Peru course fits in</td>
+<td><span class="when">D</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Introduction to trait based ecology; trait driver theory</td>
+<td><span class="when">D</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Overview of natural history, vegetation history of Peru and the research sites, Puna vegetation</td>
+<td><span class="when">D</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Introduction to tropical forests, research along (elevation) gradients in tropical forests</td>
+<td><span class="when">D</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Manu National Park, challenges, climate change, and research</td>
+<td><span class="when">D</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Introduction to carbon flux and ecosystem response to global change</td>
+<td><span class="when">D</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Introduction to leaf functional traits and leaf physiology</td>
+<td><span class="when">D</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Introduction to fire ecology in general and why it is important; the role of fire and grazing in the Puna</td>
+<td><span class="when">D</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Collecting ecological data, setting up experiments, etc.</td>
+<td><span class="when">D</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Sustainable and reproducible coding, tracking changes, data documentation, data management</td>
+<td><span class="when">D</span></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="reading-course lecture-course">
+<summary>
+<span class="reading-course-name">PFTC 4</span><span class="reading-place">Svalbard</span>
+</summary>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Topic</th>
+<th>When</th>
+<th>Materials</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Introduction to PFTC4 — aims, workflow, responsibilities, outcomes</td>
+<td><span class="when">D</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Climate change ecology in alpine regions: experiments, gradients, and how the Svalbard course fits in</td>
+<td><span class="when">D</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Introduction to trait based ecology; trait driver theory</td>
+<td><span class="when">D</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Introduction to Svalbard and climate change in the arctic</td>
+<td><span class="when">D</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>OTC, ITEX site</td>
+<td><span class="when">D</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Snowfence experiment</td>
+<td><span class="when">D</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Flux course</td>
+<td><span class="when">D</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Introduction to drones</td>
+<td><span class="when">D</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Introduction to carbon flux and ecosystem response to global change</td>
+<td><span class="when">D</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Introduction to leaf functional traits and leaf physiology</td>
+<td><span class="when">D</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>How to calculate and interpret community metrics from trait and compositional data</td>
+<td><span class="when">D</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Collecting ecological trait data, reproducible coding, how to import, clean and plot data, data checking</td>
+<td><span class="when">D</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Science communication</td>
+<td><span class="when">D</span></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="reading-course lecture-course">
+<summary>
+<span class="reading-course-name">PFTC 5</span><span class="reading-place">Peru</span>
+</summary>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Topic</th>
+<th>When</th>
+<th>Materials</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>The ecology and natural history of the Puna</td>
+<td></td>
+<td><a href="https://figshare.com/s/c40e69fcb3b02ef8f6ae">Slides</a></td>
+</tr>
+<tr class="even">
+<td>Theory, background, and status of trait-based ecology</td>
+<td></td>
+<td><a href="https://figshare.com/articles/An_introduction_to_trait_based_ecology/11704383">Slides</a> <a href="https://youtu.be/Ospu9BRBIfs">Video</a></td>
+</tr>
+<tr class="odd">
+<td>Trait-based approaches in experiments and observational studies</td>
+<td></td>
+<td><a href="https://figshare.com/s/7637de295ba601b76425">Slides</a> <a href="https://youtu.be/DJiP6HLiXTc">Video</a></td>
+</tr>
+<tr class="even">
+<td>Trait-based approaches to leaf thermoregulation</td>
+<td></td>
+<td><a href="https://doi.org/10.6084/m9.figshare.11771382.v1">Slides</a> <a href="https://youtu.be/ZMkXSTVxBPM">Video</a></td>
+</tr>
+<tr class="odd">
+<td>Trait-based approaches using remote sensing</td>
+<td></td>
+<td><a href="https://figshare.com/articles/MM-F_RS_Traits_pdf/11819445/1">Slides</a></td>
+</tr>
+<tr class="even">
+<td>Introduction to the Andes to Amazon elevational gradient and ecology and natural history of the area</td>
+<td></td>
+<td><a href="https://youtu.be/Y2cwMzguGFU">Video, part 1</a> <a href="https://youtu.be/5nD3p--VZQA">Video, part 2</a></td>
+</tr>
+<tr class="odd">
+<td>Authorship guidelines, proposing new papers, collaboration within the group</td>
+<td><span class="when">D*</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Pseudocode and trait distributions</td>
+<td><span class="when">D*</span></td>
+<td><a href="https://youtu.be/alOQsifo9bA">Video</a></td>
+</tr>
+<tr class="odd">
+<td>How to download previous PFTC data and data exploration</td>
+<td><span class="when">D*</span></td>
+<td><a href="https://youtu.be/7nqgp60Vmiw">Video</a></td>
+</tr>
+<tr class="even">
+<td>Data curation and validation</td>
+<td><span class="when">D*</span></td>
+<td><a href="https://figshare.com/articles/PFTC5_post-course_lecture_on_data_curation_and_validation/12015726">Slides</a> <a href="https://youtu.be/u-DPnrtXzhg">Video</a></td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="reading-course lecture-course">
+<summary>
+<span class="reading-course-name">PFTC 6</span><span class="reading-place">Norway</span>
+</summary>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Topic</th>
+<th>When</th>
+<th>Materials</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Welcome, introductions, trait based ecology</td>
+<td><span class="when">P</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Alpine ecosystems in Norway, overview of projects</td>
+<td><span class="when">P</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Intraspecific trait variation; global change; science communication</td>
+<td><span class="when">P</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Leaf temperature and physiology, remote sensing, carbon fluxes</td>
+<td><span class="when">P</span></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="reading-course lecture-course" open="">
+<summary>
+<span class="reading-course-name">PFTC 7</span><span class="reading-place">South Africa</span>
+</summary>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Topic</th>
+<th>When</th>
+<th>Materials</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Welcome, introductions, overview of PFTC 7 projects, trait based ecology, and student perspective of PFTC</td>
+<td><span class="when">P</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Outcomes of previous courses</td>
+<td><span class="when">P</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Alpine ecosystems in South Africa, research in the alpine grasslands</td>
+<td><span class="when">P</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Leaf temperature and physiology, remote sensing, carbon fluxes</td>
+<td><span class="when">P</span></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</details>
 </section>
 <section id="pre-course-discussions" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="pre-course-discussions"><span class="header-section-number">5.3</span> Pre-course discussions</h2>
@@ -1142,13 +1250,13 @@ div.csl-indent {
 Adelabu et al. 2020.
 </div>
 <div id="ref-anderson2013" class="csl-entry" role="listitem">
-Anderson, and Gaston. 2013.
+Anderson, and Gaston. 2013. <span>“Lightweight Unmanned Aerial Vehicles Will Revolutionize Spatial Ecology.”</span> <em>Frontiers in Ecology and the Environment</em> 11: 138–46. <a href="https://doi.org/10.1890/120150">https://doi.org/10.1890/120150</a>.
 </div>
 <div id="ref-arnone2003" class="csl-entry" role="listitem">
-Arnone, and Obrist. 2003.
+Arnone, and Obrist. 2003. <span>“A Large Daylight Geodesic Dome for Quantification of Whole-Ecosystem CO2 and Water Vapour Fluxes in Arid Shrublands.”</span> <em>Journal of Arid Environments</em> 55: 629–43. <a href="https://doi.org/10.1016/s0140-1963(02)00291-4">https://doi.org/10.1016/s0140-1963(02)00291-4</a>.
 </div>
 <div id="ref-asner2017" class="csl-entry" role="listitem">
-Asner et al. 2017a.
+Asner et al. 2017a. <span>“Airborne Laser-Guided Imaging Spectroscopy to Map Forest Trait Diversity and Guide Conservation.”</span> <em>Science</em> 355: 385–89. <a href="https://doi.org/10.1126/science.aaj1987">https://doi.org/10.1126/science.aaj1987</a>.
 </div>
 <div id="ref-asner20172" class="csl-entry" role="listitem">
 ——— et al. 2017b.
@@ -1157,19 +1265,19 @@ Asner et al. 2017a.
 Assmann et al. 2019.
 </div>
 <div id="ref-austrheim2001" class="csl-entry" role="listitem">
-Austrheim, and Eriksson. 2001.
+Austrheim, and Eriksson. 2001. <span>“Plant Species Diversity and Grazing in the Scandinavian Mountains ‐ Patterns and Processes at Different Spatial Scales.”</span> <em>Ecography</em> 24: 683–95. <a href="https://doi.org/10.1111/j.1600-0587.2001.tb00530.x">https://doi.org/10.1111/j.1600-0587.2001.tb00530.x</a>.
 </div>
 <div id="ref-bentley2019" class="csl-entry" role="listitem">
 Bentley et al. 2019.
 </div>
 <div id="ref-berry1980" class="csl-entry" role="listitem">
-Berry, and Bjorkman. 1980.
+Berry, and Bjorkman. 1980. <span>“Photosynthetic Response and Adaptation to Temperature in Higher Plants.”</span> <em>Annual Review of Plant Physiology</em> 31: 491–543. <a href="https://doi.org/10.1146/annurev.pp.31.060180.002423">https://doi.org/10.1146/annurev.pp.31.060180.002423</a>.
 </div>
 <div id="ref-bjorkman2018" class="csl-entry" role="listitem">
 Bjorkman et al. 2018.
 </div>
 <div id="ref-blonder20202" class="csl-entry" role="listitem">
-Blonder, Escobar, et al. 2020.
+Blonder, Escobar, et al. 2020. <span>“Low Predictability of Energy Balance Traits and Leaf Temperature Metrics in Desert, Montane and Alpine Plant Communities.”</span> <em>Functional Ecology</em> 34: 1882–97. <a href="https://doi.org/10.1111/1365-2435.13643">https://doi.org/10.1111/1365-2435.13643</a>.
 </div>
 <div id="ref-blonder2020" class="csl-entry" role="listitem">
 Blonder, Graae, et al. 2020.
@@ -1178,25 +1286,25 @@ Blonder, Graae, et al. 2020.
 Bockmühl. 2008.
 </div>
 <div id="ref-boeck2015" class="csl-entry" role="listitem">
-Boeck, De et al. 2015.
+Boeck, De et al. 2015. <span>“Global Change Experiments: Challenges and Opportunities.”</span> <em>BioScience</em> 65: 922–31. <a href="https://doi.org/10.1093/biosci/biv099">https://doi.org/10.1093/biosci/biv099</a>.
 </div>
 <div id="ref-bond2005" class="csl-entry" role="listitem">
-Bond, and Keeley. 2005.
+Bond, and Keeley. 2005. <span>“Fire as a Global <span>‘Herbivore’</span>: The Ecology and Evolution of Flammable Ecosystems.”</span> <em>Trends in Ecology &amp; Evolution</em> 20: 387–94. <a href="https://doi.org/10.1016/j.tree.2005.04.025">https://doi.org/10.1016/j.tree.2005.04.025</a>.
 </div>
 <div id="ref-bratsch2016" class="csl-entry" role="listitem">
-Bratsch et al. 2016.
+Bratsch et al. 2016. <span>“Differentiating Among Four Arctic Tundra Plant Communities at Ivotuk, Alaska Using Field Spectroscopy.”</span> <em>Remote Sensing</em> 8: 51. <a href="https://doi.org/10.3390/rs8010051">https://doi.org/10.3390/rs8010051</a>.
 </div>
 <div id="ref-calitz2015" class="csl-entry" role="listitem">
 Calitz et al. 2015.
 </div>
 <div id="ref-carbone2016" class="csl-entry" role="listitem">
-Carbone, and Aguilar. 2016.
+Carbone, and Aguilar. 2016. <span>“Contrasting Effects of Fire Frequency on Plant Traits of Three Dominant Perennial Herbs from Chaco Serrano.”</span> <em>Austral Ecology</em> 41: 778–90. <a href="https://doi.org/10.1111/aec.12364">https://doi.org/10.1111/aec.12364</a>.
 </div>
 <div id="ref-carbutt2012" class="csl-entry" role="listitem">
-Carbutt. 2012.
+Carbutt. 2012. <span>“The Emerging Invasive Alien Plants of the Drakensberg Alpine Centre, Southern Africa.”</span> <em>Bothalia</em> 42: 71–85. <a href="https://doi.org/10.4102/abc.v42i2.10">https://doi.org/10.4102/abc.v42i2.10</a>.
 </div>
 <div id="ref-carbutt2019" class="csl-entry" role="listitem">
-———. 2019.
+———. 2019. <span>“The Drakensberg Mountain Centre: A Necessary Revision of Southern Africa’s High-Elevation Centre of Plant Endemism.”</span> <em>South African Journal of Botany</em> 124: 508–29. <a href="https://doi.org/10.1016/j.sajb.2019.05.032">https://doi.org/10.1016/j.sajb.2019.05.032</a>.
 </div>
 <div id="ref-chersich2016" class="csl-entry" role="listitem">
 Chersich et al. 2016.
@@ -1211,10 +1319,10 @@ Davidson et al. 2016.
 Deus Vidal, de et al. 2021.
 </div>
 <div id="ref-diaz2001" class="csl-entry" role="listitem">
-Díaz, and Cabido. 2001.
+Díaz, and Cabido. 2001. <span>“Vive La Différence: Plant Functional Diversity Matters to Ecosystem Processes.”</span> <em>Trends in Ecology &amp; Evolution</em> 16: 646–55. <a href="https://doi.org/10.1016/s0169-5347(01)02283-2">https://doi.org/10.1016/s0169-5347(01)02283-2</a>.
 </div>
 <div id="ref-diemer1996" class="csl-entry" role="listitem">
-Diemer, and Korner. 1996.
+Diemer, and Korner. 1996. <span>“Lifetime Leaf Carbon Balances of Herbaceous Perennial Plants from Low and High Altitudes in the Central Alps.”</span> <em>Functional Ecology</em> 10: 33. <a href="https://doi.org/10.2307/2390259">https://doi.org/10.2307/2390259</a>.
 </div>
 <div id="ref-doughty2017" class="csl-entry" role="listitem">
 Doughty et al. 2017.
@@ -1241,13 +1349,13 @@ Enquist et al. 2015.
 Everwand et al. 2014.
 </div>
 <div id="ref-forrestel2014" class="csl-entry" role="listitem">
-Forrestel et al. 2014.
+Forrestel et al. 2014. <span>“Convergent Phylogenetic and Functional Responses to Altered Fire Regimes in Mesic Savanna Grasslands of North America and South Africa.”</span> <em>New Phytologist</em> 203: 1000–1011. <a href="https://doi.org/10.1111/nph.12846">https://doi.org/10.1111/nph.12846</a>.
 </div>
 <div id="ref-forrestel2017" class="csl-entry" role="listitem">
 ——— et al. 2017.
 </div>
 <div id="ref-freschet2021" class="csl-entry" role="listitem">
-Freschet et al. 2021.
+Freschet et al. 2021. <span>“Root Traits as Drivers of Plant and Ecosystem Functioning: Current Understanding, Pitfalls and Future Research Needs.”</span> <em>New Phytologist</em> 232: 1123–58. <a href="https://doi.org/10.1111/nph.17072">https://doi.org/10.1111/nph.17072</a>.
 </div>
 <div id="ref-funk2017" class="csl-entry" role="listitem">
 Funk et al. 2017.
@@ -1268,13 +1376,13 @@ Goud et al. 2017.
 Green et al. 2022.
 </div>
 <div id="ref-guittar2016" class="csl-entry" role="listitem">
-Guittar et al. 2016.
+Guittar et al. 2016. <span>“Can Trait Patterns Along Gradients Predict Plant Community Responses to Climate Change?”</span> <em>Ecology</em> 97: 2791–801. <a href="https://doi.org/10.1002/ecy.1500">https://doi.org/10.1002/ecy.1500</a>.
 </div>
 <div id="ref-hagedorn2010" class="csl-entry" role="listitem">
 Hagedorn et al. 2010.
 </div>
 <div id="ref-halbritter2019" class="csl-entry" role="listitem">
-Halbritter et al. 2019.
+Halbritter et al. 2019. <span>“The Handbook for Standardized Field and Laboratory Measurements in Terrestrial Climate Change Experiments and Observational Studies (ClimEx).”</span> <em>Methods in Ecology and Evolution</em> 11: 22–37. <a href="https://doi.org/10.1111/2041-210x.13331">https://doi.org/10.1111/2041-210x.13331</a>.
 </div>
 <div id="ref-henn2018itv" class="csl-entry" role="listitem">
 Henn et al. 2018. <span>“Intraspecific Trait Variation and Phenotypic Plasticity Mediate Alpine Plant Species Response to Climate Change.”</span> <em>Frontiers in Plant Science</em> 9. <a href="https://doi.org/10.3389/fpls.2018.01548">https://doi.org/10.3389/fpls.2018.01548</a>.
@@ -1286,46 +1394,46 @@ Hudson et al. 2011.
 Ingolfsson. 2004.
 </div>
 <div id="ref-jasoni2005" class="csl-entry" role="listitem">
-Jasoni et al. 2005.
+Jasoni et al. 2005. <span>“Net Ecosystem CO 2 Exchange in Mojave Desert Shrublands During the Eighth Year of Exposure to Elevated CO 2.”</span> <em>Global Change Biology</em> 11: 749–56. <a href="https://doi.org/10.1111/j.1365-2486.2005.00948.x">https://doi.org/10.1111/j.1365-2486.2005.00948.x</a>.
 </div>
 <div id="ref-jetz2016" class="csl-entry" role="listitem">
-Jetz et al. 2016.
+Jetz et al. 2016. <span>“Monitoring Plant Functional Diversity from Space.”</span> <em>Nature Plants</em> 2. <a href="https://doi.org/10.1038/nplants.2016.24">https://doi.org/10.1038/nplants.2016.24</a>.
 </div>
 <div id="ref-jonsdottir2005" class="csl-entry" role="listitem">
 Jónsdóttir. 2005.
 </div>
 <div id="ref-juutinen2017" class="csl-entry" role="listitem">
-Juutinen et al. 2017.
+Juutinen et al. 2017. <span>“Spatial Variation and Seasonal Dynamics of Leaf-Area Index in the Arctic Tundra-Implications for Linking Ground Observations and Satellite Images.”</span> <em>Environmental Research Letters</em> 12: 095002. <a href="https://doi.org/10.1088/1748-9326/aa7f85">https://doi.org/10.1088/1748-9326/aa7f85</a>.
 </div>
 <div id="ref-kemppinen2021" class="csl-entry" role="listitem">
 Kemppinen et al. 2021.
 </div>
 <div id="ref-kichenin2013" class="csl-entry" role="listitem">
-Kichenin et al. 2013.
+Kichenin et al. 2013. <span>“Contrasting Effects of Plant Inter‐ and Intraspecific Variation on Community‐level Trait Measures Along an Environmental Gradient.”</span> <em>Functional Ecology</em> 27: 1254–61. <a href="https://doi.org/10.1111/1365-2435.12116">https://doi.org/10.1111/1365-2435.12116</a>.
 </div>
 <div id="ref-korner1987" class="csl-entry" role="listitem">
-Korner, and Diemer. 1987.
+Korner, and Diemer. 1987. <span>“In Situ Photosynthetic Responses to Light, Temperature and Carbon Dioxide in Herbaceous Plants from Low and High Altitude.”</span> <em>Functional Ecology</em> 1: 179. <a href="https://doi.org/10.2307/2389420">https://doi.org/10.2307/2389420</a>.
 </div>
 <div id="ref-kothari2023" class="csl-entry" role="listitem">
 Kothari et al. 2023.
 </div>
 <div id="ref-kothari2022" class="csl-entry" role="listitem">
-Kothari, and Schweiger. 2022.
+Kothari, and Schweiger. 2022. <span>“Plant Spectra as Integrative Measures of Plant Phenotypes.”</span> <em>Journal of Ecology</em> 110: 2536–54. <a href="https://doi.org/10.1111/1365-2745.13972">https://doi.org/10.1111/1365-2745.13972</a>.
 </div>
 <div id="ref-kuhn2021" class="csl-entry" role="listitem">
 Kühn et al. 2021.
 </div>
 <div id="ref-lavorel2002" class="csl-entry" role="listitem">
-Lavorel, and Garnier. 2002.
+Lavorel, and Garnier. 2002. <span>“Predicting Changes in Community Composition and Ecosystem Functioning from Plant Traits: Revisiting the Holy Grail.”</span> <em>Functional Ecology</em> 16: 545–56. <a href="https://doi.org/10.1046/j.1365-2435.2002.00664.x">https://doi.org/10.1046/j.1365-2435.2002.00664.x</a>.
 </div>
 <div id="ref-leps2011" class="csl-entry" role="listitem">
-Lepš et al. 2011.
+Lepš et al. 2011. <span>“Community Trait Response to Environment: Disentangling Species Turnover Vs Intraspecific Trait Variability Effects.”</span> <em>Ecography</em> 34: 856–63. <a href="https://doi.org/10.1111/j.1600-0587.2010.06904.x">https://doi.org/10.1111/j.1600-0587.2010.06904.x</a>.
 </div>
 <div id="ref-lombardi2021" class="csl-entry" role="listitem">
 Lombardi et al. 2021.
 </div>
 <div id="ref-mahan1988" class="csl-entry" role="listitem">
-Mahan, and Upchurch. 1988.
+Mahan, and Upchurch. 1988. <span>“Maintenance of Constant Leaf Temperature by Plants—i. Hypothesis-Limited Homeothermy.”</span> <em>Environmental and Experimental Botany</em> 28: 351–57. <a href="https://doi.org/10.1016/0098-8472(88)90059-7">https://doi.org/10.1016/0098-8472(88)90059-7</a>.
 </div>
 <div id="ref-maitnernd" class="csl-entry" role="listitem">
 Maitner, B. et al. n.d.
@@ -1334,22 +1442,22 @@ Maitner, B. et al. n.d.
 Maitner, B. S. et al. 2023. <span>“Bootstrapping Outperforms Community-Weighted Approaches for Estimating the Shapes of Phenotypic Distributions.”</span>
 </div>
 <div id="ref-mcgill2006" class="csl-entry" role="listitem">
-McGill et al. 2006.
+McGill et al. 2006. <span>“Rebuilding Community Ecology from Functional Traits.”</span> <em>Trends in Ecology &amp; Evolution</em> 21: 178–85. <a href="https://doi.org/10.1016/j.tree.2006.02.002">https://doi.org/10.1016/j.tree.2006.02.002</a>.
 </div>
 <div id="ref-metcalfe2011" class="csl-entry" role="listitem">
 Metcalfe et al. 2011.
 </div>
 <div id="ref-michaletz2015" class="csl-entry" role="listitem">
-Michaletz et al. 2015.
+Michaletz et al. 2015. <span>“Plant Thermoregulation: Energetics, Trait–Environment Interactions, and Carbon Economics.”</span> <em>Trends in Ecology &amp; Evolution</em> 30: 714–24. <a href="https://doi.org/10.1016/j.tree.2015.09.006">https://doi.org/10.1016/j.tree.2015.09.006</a>.
 </div>
 <div id="ref-michaletz2016" class="csl-entry" role="listitem">
-——— et al. 2016.
+——— et al. 2016. <span>“The Energetic and Carbon Economic Origins of Leaf Thermoregulation.”</span> <em>Nature Plants</em> 2. <a href="https://doi.org/10.1038/nplants.2016.129">https://doi.org/10.1038/nplants.2016.129</a>.
 </div>
 <div id="ref-michaletz2018" class="csl-entry" role="listitem">
 Michaletz. 2018.
 </div>
 <div id="ref-midolo2019" class="csl-entry" role="listitem">
-Midolo et al. 2019.
+Midolo et al. 2019. <span>“Global Patterns of Intraspecific Leaf Trait Responses to Elevation.”</span> <em>Global Change Biology</em> 25: 2485–98. <a href="https://doi.org/10.1111/gcb.14646">https://doi.org/10.1111/gcb.14646</a>.
 </div>
 <div id="ref-mucina2006" class="csl-entry" role="listitem">
 Mucina et al. 2006.
@@ -1367,31 +1475,31 @@ Ottaviani et al. 2020.
 Pajares. 2015.
 </div>
 <div id="ref-pausas2009" class="csl-entry" role="listitem">
-Pausas, and Keeley. 2009.
+Pausas, and Keeley. 2009. <span>“A Burning Story: The Role of Fire in the History of Life.”</span> <em>BioScience</em> 59: 593–601. <a href="https://doi.org/10.1525/bio.2009.59.7.10">https://doi.org/10.1525/bio.2009.59.7.10</a>.
 </div>
 <div id="ref-Perez-Harguindeguy2013-nv" class="csl-entry" role="listitem">
-Pérez-Harguindeguy, N, S Dı́az, E Garnier, S Lavorel, H Poorter, P Jaureguiberry, M S Bret-Harte, et al. 2013. <span>“New Handbook for Standardised Measurement of Plant Functional Traits Worldwide.”</span> <em>Australian Journal of Botany</em>.
+Pérez-Harguindeguy, N, S Dı́az, E Garnier, S Lavorel, H Poorter, P Jaureguiberry, M S Bret-Harte, et al. 2013. <span>“New Handbook for Standardised Measurement of Plant Functional Traits Worldwide.”</span> <em>Australian Journal of Botany</em>. <a href="https://doi.org/10.1071/BT12225">https://doi.org/10.1071/BT12225</a>.
 </div>
 <div id="ref-potts2012" class="csl-entry" role="listitem">
 Potts et al. 2012.
 </div>
 <div id="ref-powers2019" class="csl-entry" role="listitem">
-Powers, and Hampton. 2019.
+Powers, and Hampton. 2019. <span>“Open Science, Reproducibility, and Transparency in Ecology.”</span> <em>Ecological Applications</em> 29. <a href="https://doi.org/10.1002/eap.1822">https://doi.org/10.1002/eap.1822</a>.
 </div>
 <div id="ref-reich2014" class="csl-entry" role="listitem">
-Reich. 2014.
+Reich. 2014. <span>“The World‐wide <span>‘Fast–Slow’</span> Plant Economics Spectrum: A Traits Manifesto.”</span> <em>Journal of Ecology</em> 102: 275–301. <a href="https://doi.org/10.1111/1365-2745.12211">https://doi.org/10.1111/1365-2745.12211</a>.
 </div>
 <div id="ref-rogers2017" class="csl-entry" role="listitem">
 Rogers et al. 2017.
 </div>
 <div id="ref-romancuesta2014" class="csl-entry" role="listitem">
-Román‐Cuesta, and Carmona‐Moreno. 2014.
+Román‐Cuesta, and Carmona‐Moreno. 2014. <span>“Synchronous Fire Activity in the Tropical High Andes: An Indication of Regional Climate Forcing.”</span> <em>Global Change Biology</em> 20: 1929–42. <a href="https://doi.org/10.1111/gcb.12538">https://doi.org/10.1111/gcb.12538</a>.
 </div>
 <div id="ref-saleska1999" class="csl-entry" role="listitem">
-Saleska et al. 1999.
+Saleska et al. 1999. <span>“The Effect of Experimental Ecosystem Warming on CO2 Fluxes in a Montane Meadow.”</span> <em>Global Change Biology</em> 5: 125–41. <a href="https://doi.org/10.1046/j.1365-2486.1999.00216.x">https://doi.org/10.1046/j.1365-2486.1999.00216.x</a>.
 </div>
 <div id="ref-saleska2002" class="csl-entry" role="listitem">
-——— et al. 2002.
+——— et al. 2002. <span>“Plant Community Composition Mediates Both Large Transient Decline and Predicted Long‐term Recovery of Soil Carbon Under Climate Warming.”</span> <em>Global Biogeochemical Cycles</em> 16. <a href="https://doi.org/10.1029/2001gb001573">https://doi.org/10.1029/2001gb001573</a>.
 </div>
 <div id="ref-schneider2017" class="csl-entry" role="listitem">
 Schneider et al. 2017.
@@ -1400,7 +1508,7 @@ Schneider et al. 2017.
 Schweiger et al. 2018.
 </div>
 <div id="ref-schwilk2011" class="csl-entry" role="listitem">
-Schwilk, and Caprio. 2011.
+Schwilk, and Caprio. 2011. <span>“Scaling from Leaf Traits to Fire Behaviour: Community Composition Predicts Fire Severity in a Temperate Forest.”</span> <em>Journal of Ecology</em> 99: 970–80. <a href="https://doi.org/10.1111/j.1365-2745.2011.01828.x">https://doi.org/10.1111/j.1365-2745.2011.01828.x</a>.
 </div>
 <div id="ref-scott2013" class="csl-entry" role="listitem">
 Scott et al. 2013.
@@ -1409,13 +1517,13 @@ Scott et al. 2013.
 Serbin et al. 2012.
 </div>
 <div id="ref-serbin2019" class="csl-entry" role="listitem">
-Serbin, and Townsend. 2019.
+Serbin, and Townsend. 2019. <span>“From the Arctic to the Tropics: Multibiome Prediction of Leaf Mass Per Area Using Leaf Reflectance.”</span> <em>New Phytologist</em> 224: 1557–68. <a href="https://doi.org/10.1111/nph.16123">https://doi.org/10.1111/nph.16123</a>.
 </div>
 <div id="ref-siefert2015" class="csl-entry" role="listitem">
 Siefert et al. 2015.
 </div>
 <div id="ref-sloat2015" class="csl-entry" role="listitem">
-Sloat et al. 2015.
+Sloat et al. 2015. <span>“The Effect of the Foresummer Drought on Carbon Exchange in Subalpine Meadows.”</span> <em>Ecosystems</em> 18: 533–45. <a href="https://doi.org/10.1007/s10021-015-9845-1">https://doi.org/10.1007/s10021-015-9845-1</a>.
 </div>
 <div id="ref-srensen2018" class="csl-entry" role="listitem">
 Sørensen et al. 2018.
@@ -1427,7 +1535,7 @@ Sørensen et al. 2018.
 Spasojevic et al. 2010.
 </div>
 <div id="ref-strimbeck2019" class="csl-entry" role="listitem">
-Strimbeck et al. 2019.
+Strimbeck et al. 2019. <span>“Functional Group Contributions to Carbon Fluxes in Arctic-Alpine Ecosystems.”</span> <em>Arctic, Antarctic, and Alpine Research</em> 51: 58–68. <a href="https://doi.org/10.1080/15230430.2019.1578163">https://doi.org/10.1080/15230430.2019.1578163</a>.
 </div>
 <div id="ref-thomson2018" class="csl-entry" role="listitem">
 Thomson et al. 2018.
@@ -1436,10 +1544,10 @@ Thomson et al. 2018.
 ——— et al. 2021. <span>“Multiscale Mapping of Plant Functional Groups and Plant Traits in the High Arctic Using Field Spectroscopy, UAV Imagery and Sentinel-2A Data.”</span> <em>Environmental Research Letters</em> 16 (5): 055006. <a href="https://doi.org/10.1088/1748-9326/abf464">https://doi.org/10.1088/1748-9326/abf464</a>.
 </div>
 <div id="ref-treurnicht2019" class="csl-entry" role="listitem">
-Treurnicht et al. 2019.
+Treurnicht et al. 2019. <span>“Functional Traits Explain the Hutchinsonian Niches of Plant Species.”</span> <em>Global Ecology and Biogeography</em> 29: 534–45. <a href="https://doi.org/10.1111/geb.13048">https://doi.org/10.1111/geb.13048</a>.
 </div>
 <div id="ref-urrego2011" class="csl-entry" role="listitem">
-Urrego et al. 2011.
+Urrego et al. 2011. <span>“Pollen-Vegetation Relationships Along Steep Climatic Gradients in Western Amazonia.”</span> <em>Journal of Vegetation Science</em> 22: 795–806. <a href="https://doi.org/10.1111/j.1654-1103.2011.01289.x">https://doi.org/10.1111/j.1654-1103.2011.01289.x</a>.
 </div>
 <div id="ref-vandvik2023svalbard" class="csl-entry" role="listitem">
 Vandvik et al. 2023. <span>“Plant Traits and Associated Data from a Warming Experiment, a Seabird Colony, and Along Elevation in Svalbard.”</span> <em>Scientific Data</em> 10 (1). <a href="https://doi.org/10.1038/s41597-023-02467-7">https://doi.org/10.1038/s41597-023-02467-7</a>.
@@ -1448,7 +1556,7 @@ Vandvik et al. 2023. <span>“Plant Traits and Associated Data from a Warming Ex
 Vandvik, Vigdis, Olav Skarpaas, Kari Klanderud, Richard J Telford, Aud H Halbritter, and Deborah E Goldberg. 2020. <span>“Biotic Rescaling Reveals Importance of Species Interactions for Variation in Biodiversity Responses to Climate Change.”</span> <em>Proc. Natl. Acad. Sci. U. S. A.</em> 117 (37): 22858–65.
 </div>
 <div id="ref-violle2012" class="csl-entry" role="listitem">
-Violle et al. 2012.
+Violle et al. 2012. <span>“The Return of the Variance: Intraspecific Variability in Community Ecology.”</span> <em>Trends in Ecology &amp; Evolution</em> 27: 244–52. <a href="https://doi.org/10.1016/j.tree.2011.11.014">https://doi.org/10.1016/j.tree.2011.11.014</a>.
 </div>
 <div id="ref-virkkala2018" class="csl-entry" role="listitem">
 Virkkala et al. 2018.
@@ -1466,10 +1574,10 @@ Weigelt et al. 2021.
 Yamori et al. 2014.
 </div>
 <div id="ref-zagajewski2017" class="csl-entry" role="listitem">
-Zagajewski et al. 2017.
+Zagajewski et al. 2017. <span>“Intraspecific Differences in Spectral Reflectance Curves as Indicators of Reduced Vitality in High-Arctic Plants.”</span> <em>Remote Sensing</em> 9: 1289. <a href="https://doi.org/10.3390/rs9121289">https://doi.org/10.3390/rs9121289</a>.
 </div>
 <div id="ref-zaloumis2016" class="csl-entry" role="listitem">
-Zaloumis, and Bond. 2016.
+Zaloumis, and Bond. 2016. <span>“Reforestation or Conservation? The Attributes of Old Growth Grasslands in South Africa.”</span> <em>Philosophical Transactions of the Royal Society B: Biological Sciences</em> 371: 20150310. <a href="https://doi.org/10.1098/rstb.2015.0310">https://doi.org/10.1098/rstb.2015.0310</a>.
 </div>
 <div id="ref-zhu2015" class="csl-entry" role="listitem">
 Zhu et al. 2015.

@@ -654,6 +654,55 @@ details.reading-course tbody tr:hover td:first-child {
   background: #efe7dc;
 }
 
+details.lecture-course colgroup col:nth-child(1) { width: 74% !important; }
+details.lecture-course colgroup col:nth-child(2) { width: 10% !important; }
+details.lecture-course colgroup col:nth-child(3) { width: 16% !important; }
+details.lecture-course tbody td:first-child {
+  width: 74%;
+  font-weight: 500;
+}
+details.lecture-course tbody td:nth-child(2) {
+  text-align: center;
+  white-space: nowrap;
+  background: #fffdf9;
+}
+details.lecture-course tbody tr:hover td:nth-child(2) {
+  background: #f3eee6;
+}
+details.lecture-course .when {
+  display: inline-block;
+  min-width: 1.7rem;
+  padding: 0.08rem 0.42rem;
+  border-radius: 999px;
+  background: #efe7dc;
+  color: #2C5A4C;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+details.lecture-course tbody td:last-child a {
+  display: inline-block;
+  font-size: 0.86rem;
+  line-height: 1.35;
+  margin: 0.12rem 0.28rem 0.12rem 0;
+  padding: 0.14rem 0.55rem;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #2C5A4C;
+  background: #f7f3ec;
+  border: 1px solid transparent;
+}
+details.lecture-course tbody td:last-child a:hover {
+  background: #2C5A4C;
+  color: #f6f1e6;
+}
+details.reading-course > p {
+  margin: 0;
+  padding: 0.9rem 1.05rem 1rem;
+  color: #3e342c;
+}
+
 .sign-create { background: #2C5A4C; color: #f6f1e6; }
 .sign-process { background: #865E27; color: #f6f1e6; }
 .sign-share { background: #7E545B; color: #f6f1e6; }

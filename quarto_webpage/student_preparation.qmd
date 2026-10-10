@@ -6,6 +6,58 @@
 <span class="sign sign-methods">Methods and technology</span>
 <span class="sign sign-community">Community of practice</span>
 </div>
+<style>
+/* This page cites every assigned paper, so Quarto prints the full list at the bottom.
+   The chips already show author and year, and most records have no title yet.
+   Keep the entries in the page so a chip can still open its record, but do not show the list. */
+#refs.references {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  window.setTimeout(function () {
+    if (!window.tippy) return;
+    var scope = ".reading-shared a[role='doc-biblioref'], .reading-course a[role='doc-biblioref']";
+    document.querySelectorAll(".reading-shared .citation, .reading-course .citation").forEach(function (group) {
+      if (group._tippy) group._tippy.destroy();
+    });
+    document.querySelectorAll(scope).forEach(function (link) {
+      var href = link.getAttribute("href") || "";
+      var id = href.split("#ref-").pop();
+      var entry = document.getElementById("ref-" + id);
+      if (!entry) return;
+      if (link._tippy) link._tippy.destroy();
+      window.tippy(link, {
+        allowHTML: true,
+        maxWidth: 440,
+        delay: 80,
+        arrow: false,
+        appendTo: document.body,
+        interactive: true,
+        interactiveBorder: 8,
+        theme: "quarto",
+        placement: "bottom-start",
+        content: entry.innerHTML
+      });
+      var doi = entry.querySelector("a[href*='doi.org']");
+      if (doi) {
+        link.href = doi.getAttribute("href");
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+      }
+    });
+  }, 50);
+});
+</script>
 ```
 
 ## Lectures
@@ -117,63 +169,113 @@ Pérez-Harguindeguy et al. (2013) was not on the PFTC 6 general list. Reich (201
 
 ## Online lectures
 
-We include lectures on core subjects as part of each course (Table 2). During our earlier courses, these were included in the beginning of each course. However, we found that this was a sub-optimal approach, as it cut into time available for field work and analysis, and participants were often suffering from severe jet lag. In response, we now hold the background lectures online in the months before the course, increasing time in the field and giving the students the necessary background information sooner (Geange et al., 2021).
+We include lectures on core subjects as part of each course. During our earlier courses, these were included in the beginning of each course. However, we found that this was a sub-optimal approach, as it cut into time available for field work and analysis, and participants were often suffering from severe jet lag. In response, we now hold the background lectures online in the months before the course, increasing time in the field and giving the students the necessary background information sooner (Geange et al., 2021).
 
-### Table 2. Topics for the course lectures for each course
+Open a course to see the lectures. **P** is pre-course and **D** is during the course. A star marks a lecture added because of the COVID lockdown in Peru. No lecture topics were recorded for PFTC 1.
 
-The \* indicates content that was added due to a COVID lockdown in Peru. (P) is pre-course and (D) is during the course.
+To let people watch a lecture or open the slides, add a link in the Materials column: `[Video](https://...)` or `[Slides](https://...)`. Leave the cell empty when there is nothing to link yet.
 
-| Course | Topic | Presenter | When |
-| --- | --- | --- | --- |
-| PFTC 2 | Welcome — introducing the themes of PFTC2 2016, with background, goals and expectations, and the sponsors | Vigdis Vandvik | D |
-| PFTC 2 | Intro to trait based ecology | Brian Enquist | D |
-| PFTC 2 | Approaches to studying climate change impacts on plants and ecosystems | Vigdis Vandvik | D |
-| PFTC 2 | Plant energy budgets and homeothermy: energetics, trait-environment interactions, and carbon economics | Sean Michaletz | D |
-| PFTC 2 | Climate change impacts on ecosystem carbon dynamics | Hanna Lee | D |
-| PFTC 3 | Introduction to course | Vigdis Vandvik, Brian Enquist | D |
-| PFTC 3 | Climate change ecology in alpine regions, ecology along gradients, and how the Peru course fits in | Vigdis Vandvik | D |
-| PFTC 3 | Introduction to trait based ecology; trait driver theory | Brian Enquist | D |
-| PFTC 3 | Overview of natural history, vegetation history of Peru and the research sites, Puna vegetation | Miles Silman | D |
-| PFTC 3 | Introduction to tropical forests, research along (elevation) gradients in tropical forests | William Farfan-Rios | D |
-| PFTC 3 | Manu National Park, challenges, climate change, and research | The Director of Manu National Park | D |
-| PFTC 3 | Introduction to carbon flux and ecosystem response to global change | Casper Christiansen | D |
-| PFTC 3 | Introduction to leaf functional traits and leaf physiology | Sean Michaletz | D |
-| PFTC 3 | Introduction to fire ecology in general and why it is important; the role of fire and grazing in the Puna | Imma Oliveras | D |
-| PFTC 3 | Collecting ecological data, setting up experiments, etc. | Aud Halbritter | D |
-| PFTC 3 | Sustainable and reproducible coding, tracking changes, data documentation, data management | Aud Halbritter | D |
-| PFTC 4 | Introduction to PFTC4 — aims, workflow, responsibilities, outcomes | Vigdis Vandvik, Brian Enquist | D |
-| PFTC 4 | Climate change ecology in alpine regions: experiments, gradients, and how the Svalbard course fits in | Vigdis Vandvik | D |
-| PFTC 4 | Introduction to trait based ecology; trait driver theory | Brian Enquist | D |
-| PFTC 4 | Introduction to Svalbard and climate change in the arctic | Pernille B Eidesen, Ruben Roos, Marc Macias-Fauria | D |
-| PFTC 4 | OTC, ITEX site | Inga Svala Jónsdóttir, Kari Klanderud | D |
-| PFTC 4 | Snowfence experiment | Hans Tømmervik | D |
-| PFTC 4 | Flux course | Geir Gabrielsen, Inga Svala Jónsdóttir | D |
-| PFTC 4 | Introduction to drones | Yadvinder Malhi, Marc Macias-Fauria | D |
-| PFTC 4 | Introduction to carbon flux and ecosystem response to global change | Inge Althuizen | D |
-| PFTC 4 | Introduction to leaf functional traits and leaf physiology | Sean Michaletz | D |
-| PFTC 4 | How to calculate and interpret community metrics from trait and compositional data | Brian Maitner | D |
-| PFTC 4 | Collecting ecological trait data, reproducible coding, how to import, clean and plot data, data checking | Aud Halbritter, Richard Telford | D |
-| PFTC 4 | Science communication | Lori Patrick | D |
-| PFTC 5 | The ecology and natural history of the Puna | Imma Oliveras | |
-| PFTC 5 | Theory, background, and status of trait-based ecology | Brian Enquist | |
-| PFTC 5 | Trait-based approaches in experiments and observational studies | Vigdis Vandvik | |
-| PFTC 5 | Trait-based approaches to leaf thermoregulation | Sean Michaletz | |
-| PFTC 5 | Trait-based approaches using remote sensing | Marc Macias-Fauria | |
-| PFTC 5 | Introduction to the Andes to Amazon elevational gradient and ecology and natural history of the area | Miles Silman | |
-| PFTC 5 | Authorship guidelines, proposing new papers, collaboration within the group | Brian Maitner | D\* |
-| PFTC 5 | Pseudocode and trait distributions | Brian Maitner | D\* |
-| PFTC 5 | How to download previous PFTC data and data exploration | Julia Chacon-Labella | D\* |
-| PFTC 5 | Data curation and validation | Aud Halbritter | D\* |
-| PFTC 6 | Welcome, introductions, trait based ecology | Vigdis Vandvik, Brian Enquist | P |
-| PFTC 6 | Alpine ecosystems in Norway, overview of projects | Vigdis Vandvik, Aud Halbritter | P |
-| PFTC 6 | Intraspecific trait variation; global change; science communication | Sonya Geange, Julia Chacon, Sehoya Cotner | P |
-| PFTC 6 | Leaf temperature and physiology, remote sensing, carbon fluxes | Sean Michaletz, Marc Macias-Fauria, Joseph Gaudard | P |
-| PFTC 7 | Welcome, introductions, overview of PFTC 7 projects, trait based ecology, and student perspective of PFTC | Vigdis Vandvik, Brian Enquist, Tanya Strydom | P |
-| PFTC 7 | Outcomes of previous courses | Julia Kemppinen, Aud Halbritter, Brian Maitner | P |
-| PFTC 7 | Alpine ecosystems in South Africa, research in the alpine grasslands | Peter le Roux, et al. | P |
-| PFTC 7 | Leaf temperature and physiology, remote sensing, carbon fluxes | Sean Michaletz, Marcella Cross, Joe White, Nicole Bison, Pekka Niittynen, Jocelyn Navarro | P |
+<details class="reading-course lecture-course">
+<summary><span class="reading-course-name">PFTC 1</span><span class="reading-place">China</span></summary>
 
-PFTC 1 is listed in the lecture table without topics.
+No lecture topics were recorded for this course.
+
+</details>
+
+<details class="reading-course lecture-course">
+<summary><span class="reading-course-name">PFTC 2</span><span class="reading-place">China</span></summary>
+
+| Topic | When | Materials |
+| --- | --- | --- |
+| Welcome — introducing the themes of PFTC2 2016, with background, goals and expectations, and the sponsors | <span class="when">D</span> | |
+| Intro to trait based ecology | <span class="when">D</span> | |
+| Approaches to studying climate change impacts on plants and ecosystems | <span class="when">D</span> | |
+| Plant energy budgets and homeothermy: energetics, trait-environment interactions, and carbon economics | <span class="when">D</span> | |
+| Climate change impacts on ecosystem carbon dynamics | <span class="when">D</span> | |
+
+</details>
+
+<details class="reading-course lecture-course">
+<summary><span class="reading-course-name">PFTC 3</span><span class="reading-place">Peru</span></summary>
+
+| Topic | When | Materials |
+| --- | --- | --- |
+| Introduction to course | <span class="when">D</span> | |
+| Climate change ecology in alpine regions, ecology along gradients, and how the Peru course fits in | <span class="when">D</span> | |
+| Introduction to trait based ecology; trait driver theory | <span class="when">D</span> | |
+| Overview of natural history, vegetation history of Peru and the research sites, Puna vegetation | <span class="when">D</span> | |
+| Introduction to tropical forests, research along (elevation) gradients in tropical forests | <span class="when">D</span> | |
+| Manu National Park, challenges, climate change, and research | <span class="when">D</span> | |
+| Introduction to carbon flux and ecosystem response to global change | <span class="when">D</span> | |
+| Introduction to leaf functional traits and leaf physiology | <span class="when">D</span> | |
+| Introduction to fire ecology in general and why it is important; the role of fire and grazing in the Puna | <span class="when">D</span> | |
+| Collecting ecological data, setting up experiments, etc. | <span class="when">D</span> | |
+| Sustainable and reproducible coding, tracking changes, data documentation, data management | <span class="when">D</span> | |
+
+</details>
+
+<details class="reading-course lecture-course">
+<summary><span class="reading-course-name">PFTC 4</span><span class="reading-place">Svalbard</span></summary>
+
+| Topic | When | Materials |
+| --- | --- | --- |
+| Introduction to PFTC4 — aims, workflow, responsibilities, outcomes | <span class="when">D</span> | |
+| Climate change ecology in alpine regions: experiments, gradients, and how the Svalbard course fits in | <span class="when">D</span> | |
+| Introduction to trait based ecology; trait driver theory | <span class="when">D</span> | |
+| Introduction to Svalbard and climate change in the arctic | <span class="when">D</span> | |
+| OTC, ITEX site | <span class="when">D</span> | |
+| Snowfence experiment | <span class="when">D</span> | |
+| Flux course | <span class="when">D</span> | |
+| Introduction to drones | <span class="when">D</span> | |
+| Introduction to carbon flux and ecosystem response to global change | <span class="when">D</span> | |
+| Introduction to leaf functional traits and leaf physiology | <span class="when">D</span> | |
+| How to calculate and interpret community metrics from trait and compositional data | <span class="when">D</span> | |
+| Collecting ecological trait data, reproducible coding, how to import, clean and plot data, data checking | <span class="when">D</span> | |
+| Science communication | <span class="when">D</span> | |
+
+</details>
+
+<details class="reading-course lecture-course">
+<summary><span class="reading-course-name">PFTC 5</span><span class="reading-place">Peru</span></summary>
+
+| Topic | When | Materials |
+| --- | --- | --- |
+| The ecology and natural history of the Puna | | [Slides](https://figshare.com/s/c40e69fcb3b02ef8f6ae) |
+| Theory, background, and status of trait-based ecology | | [Slides](https://figshare.com/articles/An_introduction_to_trait_based_ecology/11704383) [Video](https://youtu.be/Ospu9BRBIfs) |
+| Trait-based approaches in experiments and observational studies | | [Slides](https://figshare.com/s/7637de295ba601b76425) [Video](https://youtu.be/DJiP6HLiXTc) |
+| Trait-based approaches to leaf thermoregulation | | [Slides](https://doi.org/10.6084/m9.figshare.11771382.v1) [Video](https://youtu.be/ZMkXSTVxBPM) |
+| Trait-based approaches using remote sensing | | [Slides](https://figshare.com/articles/MM-F_RS_Traits_pdf/11819445/1) |
+| Introduction to the Andes to Amazon elevational gradient and ecology and natural history of the area | | [Video, part 1](https://youtu.be/Y2cwMzguGFU) [Video, part 2](https://youtu.be/5nD3p--VZQA) |
+| Authorship guidelines, proposing new papers, collaboration within the group | <span class="when">D*</span> | |
+| Pseudocode and trait distributions | <span class="when">D*</span> | [Video](https://youtu.be/alOQsifo9bA) |
+| How to download previous PFTC data and data exploration | <span class="when">D*</span> | [Video](https://youtu.be/7nqgp60Vmiw) |
+| Data curation and validation | <span class="when">D*</span> | [Slides](https://figshare.com/articles/PFTC5_post-course_lecture_on_data_curation_and_validation/12015726) [Video](https://youtu.be/u-DPnrtXzhg) |
+
+</details>
+
+<details class="reading-course lecture-course">
+<summary><span class="reading-course-name">PFTC 6</span><span class="reading-place">Norway</span></summary>
+
+| Topic | When | Materials |
+| --- | --- | --- |
+| Welcome, introductions, trait based ecology | <span class="when">P</span> | |
+| Alpine ecosystems in Norway, overview of projects | <span class="when">P</span> | |
+| Intraspecific trait variation; global change; science communication | <span class="when">P</span> | |
+| Leaf temperature and physiology, remote sensing, carbon fluxes | <span class="when">P</span> | |
+
+</details>
+
+<details class="reading-course lecture-course" open>
+<summary><span class="reading-course-name">PFTC 7</span><span class="reading-place">South Africa</span></summary>
+
+| Topic | When | Materials |
+| --- | --- | --- |
+| Welcome, introductions, overview of PFTC 7 projects, trait based ecology, and student perspective of PFTC | <span class="when">P</span> | |
+| Outcomes of previous courses | <span class="when">P</span> | |
+| Alpine ecosystems in South Africa, research in the alpine grasslands | <span class="when">P</span> | |
+| Leaf temperature and physiology, remote sensing, carbon fluxes | <span class="when">P</span> | |
+
+</details>
 
 ## Pre-course discussions
 
