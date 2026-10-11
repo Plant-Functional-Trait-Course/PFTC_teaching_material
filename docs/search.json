@@ -1227,5 +1227,148 @@
       "Post-course",
       "<span class='chapter-number'>34</span>  <span class='chapter-title'>Collaboration skills</span>"
     ]
+  },
+  {
+    "objectID": "5_trait_collection.html",
+    "href": "5_trait_collection.html",
+    "title": "13  The trait wheel",
+    "section": "",
+    "text": "13.1 Pre-field preparation\nThis protocol shows how to collect, measure, check and document leaf functional traits for vascular plants using the trait wheelTW (Figure 13.1). The protocol is based on the trait handbook from Perez-Harguindeguy et al. (2013).\nThings that should be figured out before going to the field: - sampling design (how many species, plants per plot, how many leaves per plant) - how much biomass is needed for chemical traits - how to write numbers - equipment to bring to the field - define how traits are measured on different species, discuss special casses beforehand. Make a list of rulse. - create barcode stickers and labels for the envelopes\nSampling design\nPlants and leaves are collected from permanently marked plots. The plot size will depend on the vegetation type and can vary between 25 x 25cm2 to 100 x 100cm2.\nWe aim to collect leaves from species that make up ca. 80% of the cover in each plot. If we have species cover data from each plot, then we can generate a species list per plot before going to the field.\nBelow is an example code to generate such a species list with a threshold of 80%. The dataset should contain the following columns: turfID, species, and cover, where turfID is a unique plot identifier and cover is the cover of each species per plot.\nthreshold &lt;-  80\n\ncover |&gt; \n  select(turfID, species, cover) |&gt; \n  group_by(turfID) |&gt; \n  arrange(turfID, -cover) |&gt; \n  mutate(cumsum = cumsum(cover)) |&gt; \n  filter(cumsum &lt;= threshold)\nCreate a species list per plot that can be ticked off to bring to the field to make the sampling more efficient.\nDecide if the plants can be collected inside the plot (destructuve sampling) or outside the plot (non-destructive sampling).\nLegit numbers\nDeside on how to write numbers, so that everybody is using the same system. In the PFTC course, the only approved way is shown in (Figure 13.2).\nFigure 13.2: The one and only approved way to write numbers!\nWhat to bring to the field: - Species list - Measuring stick - Zip-loc bag - Water proof pen - Map of experimental site and design\nField rules\nWhen in the field, be careful at all time when working in the experiment and avoid stepping on the experimental plots, markers, and measuring devices. Make yourself familiar with the experimental design (check the site maps), and how plot, blocks and sites are marked before entering the site.\nTo collect plants, go to one plot and use a sitting mat to sit next to the plot to avoid disturbing the vegetation surrounding the plot.\nSelect individuals\nFor each plot and species find 3 individuals that are spread across the plot to avoid sampling clones.\nChoose reproductively mature adults with fully expanded leaves (i.e. not seedlings) and healthy-looking leaves (i.e. not grazed, no signs of pathogen or herbivore attack, no discoloration).\nMeasure the height of each individual plant and note down the height on the zip-loc bag (see below).",
+    "crumbs": [
+      "Field course",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The trait wheel</span>"
+    ]
+  },
+  {
+    "objectID": "5_trait_collection.html#collecting-leaves-in-the-field",
+    "href": "5_trait_collection.html#collecting-leaves-in-the-field",
+    "title": "13  The trait wheel",
+    "section": "13.3 Collect",
+    "text": "13.3 Collect\nCollect 1 leaf from each individual plant per plot. Collect the leaf including the petiole and leaflets (Figure 36.3 (a), Figure 36.3 (b)). Make sure that all data collectors understand the anatomy of each plant species and know what to collect.\nIf the leaves for a species are very small, make a rule for how many leaves should be collected per indiviudal.\nIf you cannot find 3 individuals of each species, that is ok. After a reasonable search, move on to the next species or plot.\n\n\n\n\n\n\n\n\n\n\n\n(a) Leaf atanomy of a single leaf\n\n\n\n\n\n\n\n\n\n\n\n(b) A leaf with leaflets\n\n\n\n\n\n\n\nFigure 13.4: Leaf atanomy\n\n\n\nPlace the leaf/leaves for each individual in a bag with wet paper towels for transfer to lab.",
+    "crumbs": [
+      "Field course",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The trait wheel</span>"
+    ]
+  },
+  {
+    "objectID": "5_trait_collection.html#preparing-leaves-for-measuring-traits-in-lab",
+    "href": "5_trait_collection.html#preparing-leaves-for-measuring-traits-in-lab",
+    "title": "13  The trait wheel",
+    "section": "13.4 Prepare",
+    "text": "13.4 Prepare\nSelect one leaf per individual. For analysing chemical traits such as percent P, C, N and isotopes, a certain amount of dry biomass is needed. Make sure that we are collecting 0.03 g (30 mg) dried leaf material. Otherwise select several leaves until there is enough dry weight. This is called a bulk sample and should be indicated on the envelope (e.g. count the nr of leaves).\nWhen collecting the leaf, include petiole and rachis (Figure 36.3 (b)). Pat the leaf dry with a tissue if there is visible water on the surface. Add a sticker to enter the information and a barcode sticker to the envelope (Figure 13.5 and Figure 13.5 (a)). Attach the sticker with a stapler.\n\n\n\n\n\n\n\n\nLabel with information\n\n\n\n\n\n\n\n\n\n\n(a) Barcode with unique leaf ID\n\n\n\n\n\n\n\nFigure 13.5: Sticker and barcode example.\n\n\n\n\n\n\n\n\n\nNoteHow IDs and barcodes are generated\n\n\n\nFor more information on how the unique leaf IDs and barcode stickers are generated, see the readme file in this GitHub repo.\n\n\nFill in all information between ‘collection day’ and ‘Bulk nr/length’. Carefully, check Table 13.1 for the different options for the information on the label.\nPlace the leaf inside the envelope and put the envelope in a box for the next step. Make sure the envelopes are kept wet at all times.\n\n\n\nTable 13.1: Information to write on the envelope.\n\n\n\n  Dateadd day, e.g. 6\n  siteIDNumber 1-5\n  AspectEast / West (circle)\n  Species (genus and species)Bistorta vivipara\n  ProjectT = trait, S = spectroscophy, R = roots, P = photosynthesis\n  PlotIDNumber 1-5\n  PlantIDNumber 1-3\n  Height cmNumber\n  Bulk nrNumber if multiple leaves were samples\n\n\n\n\n\n\n\n\n\n\nWarningWarning for special cases.\n\n\n\nCarefully check the rules for how to measure special plant species plants.\n\nxx sp have tightly rolled leaves and they should not be unfolded for the scanning.\nxx sp have tiny leaves. Choose a 10 cm piece of stem and scrape of all the leaves from this part for scanning. Make sure the leaves do not overlap",
+    "crumbs": [
+      "Field course",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The trait wheel</span>"
+    ]
+  },
+  {
+    "objectID": "5_trait_collection.html#wet-mass",
+    "href": "5_trait_collection.html#wet-mass",
+    "title": "13  The trait wheel",
+    "section": "13.5 Wet mass",
+    "text": "13.5 Wet mass\nMake sure the envelopes are still kept wet. Weigh each leaf and write the weight on the envelope, including all digits.",
+    "crumbs": [
+      "Field course",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The trait wheel</span>"
+    ]
+  },
+  {
+    "objectID": "5_trait_collection.html#measure-leaf-area-using-a-scanner",
+    "href": "5_trait_collection.html#measure-leaf-area-using-a-scanner",
+    "title": "13  The trait wheel",
+    "section": "13.6 Leaf area",
+    "text": "13.6 Leaf area\nFor scanning the leaves we are using a Rasperry Pi setup. The Pis control the scanners, ensuring consistency, and validate file names.\n\n\n\n\n\n\nNoteRaspberry Pi setup\n\n\n\nFor more information on the Raspberry Pi setup, see the readme file in this GitHub repo.\n\n\nStart setup\nConnect your Laptop to the Raspberry PI. Connect the PI with an ethernet cable to your laptop. Connect the scanner to the PI. Connect the barcode scanner to the PI. Connect the power cable to the PI.\nWait for one minute.\nOpen VNC Viewer and type in the IP address corresponding to your PI (Table 13.2).\n\n\nIP addresses of the PIs\n\n\n\n\nTable 13.2: IP addresses of the PIs.\n\n\n\n\n\nPI\nIP address\n\n\n\n\nobi wan\n169.254.109.180\n\n\nyoda\n169.254.160.193\n\n\nbb-8\n169.254.54.188\n\n\nc-3po\n169.254.247.22\n\n\ndarth vader\n169.254.178.187\n\n\nr2-d2\n169.254.231.2\n\n\ndeathstar\n169.254.152.80\n\n\nmr. spock\n169.254.204.207\n\n\nGrogu\n169.254.169.194\n\n\nPrincess Leia\n169.254.128.185\n\n\nRey\n169.254.217.147\n\n\nKylo Ren\n169.254.77.108\n\n\n\n\n\n\nconnect with phone\n192.168.42.42\n\n\n\n\n\n\n\n\nThe spare SD card has the same IP address as the pi it is in!\nYou will be asked to type in a username and password:\nUsername: pi\nPassword: pftc\nResize the screen for convenience.\nIf the pi goes in terminal mode, then type xstart + enter to run the desktop.\nScan leaves\nMake sure the envelopes are still kept wet. Check that the scanner is clean and free of debris. Clean if needed. Place wet leaf face-down on the scanner. Make sure the leaf is not folded and that leaflets do not overlap. The leaf should not go all the way to the edge of the scanner, because each picture will be cropped. You can cut the leaf into several pieces if needed, but please make a remark if you do so (e.g. cut 3). You can tape the leaf to the scanner using transparent tape if it folds (e.g. grasses).\nFor graminoids (grasses, sedges, rushes): Spread graminoid blades flat and tape to scanner if necessary to hold them in place. Exclude the leaf sheath (Figure 13.6).\n\n\n\n\n\n\n\n\nFigure 13.6: Leaf blade and sheats for a graminoid\n\n\n\n\n\n\n\n\n\n\n\nWarningSpecial cases for scanning\n\n\n\nCarefully check the rules for how to scan special plant species plants.\n\nFestuca sp have tightly rolled leaves and they should not be unfolded for the scanning.\n\n\n\nScan, save and check the leaf\nClick on the leaf icon (only needs to be done the first time). This will start the scanning program. If the scanner cannot be found, wait for a bit and try again. A window might pop up and you have to select the scanner. Choose the first option. Check the settings of the scanner. These should be set as standard, so please do not touch them if not needed.\n\n\n\n\n\n\nNoteThe scanner settings should be:\n\n\n\n\nsaved in Desktop/leaf_scans/\nType: JPEG\nColour\nFull colour range\n300dpi\n\n\n\nFrom here, do this for each leaf:\nPress scan (at the bottom of the window) and wait a couple of seconds until the scanning process is done. A new window will pop up. Adjust the zoom to see the full picture (about 25%). Check the quality of the scan (has the whole leaf been scanned, is the leaf not upside down, dirt on the scan, etc.). If the scan is not ok, adjust the leaf and repeat the scan.\nWhen the scan is ok, click on the green save button to save the scan. Make sure the cursor marks the filename (should be default). Scan the barcode on the envelope of the leaf that has been scanned with the barcode reader. The filename should be something like: AAA4667 (3 letters and 4 digits). When the scan is saved, the PI will check that the LeafID and that the scanning settings (dpi, etc.) are correct. If anything is wrong, it will open a window with an error message (Figure 13.7). Please read it!\n\n\n\n\n\n\n\n\nFigure 13.7: Error message on the PI.\n\n\n\n\n\nClick anywhere in the window and it will disappear. Save the scan with the correct name or scan the leaf again if the settings are wrong. MAKE SURE TO DELETE THE SCAN WITH THE WRONG NAME OR SETTING. Tick the box on the envelope that the leaf has been scanned. Make sure the scanned leaves are kept wet and move them to the next station.\nFrom time to time:\nWhen you are finished with scanning click on the yoda icon. This will check the leafIDs. If anything is wrong it will open a window and indicate which scans are wrong. Make sure to fix all the wrong leafIDs and not to have duplicate scans before leaving the station.\nBefore leaving the station:\nCopy all the scans onto a stick and deposit them on the PFTC6 hard drive. Shut down the pi. Wait 1 min to disconnect it from the power.",
+    "crumbs": [
+      "Field course",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The trait wheel</span>"
+    ]
+  },
+  {
+    "objectID": "5_trait_collection.html#leaf-thickness",
+    "href": "5_trait_collection.html#leaf-thickness",
+    "title": "13  The trait wheel",
+    "section": "13.7 Thickness",
+    "text": "13.7 Thickness\nMake sure the envelopes are still kept wet. Thickness varies over the surface of the leaf; generally, the leaf is thickest at the midrib, primary veins, margins, and leaf base. Avoid the midrib when measuring leaf thickness, unless the leaf is too small (Figure 13.8). Take three thickness measurements at several points on the lamina and note them on the envelope. From this, we will later calculate the average thickness. If the leaf is small, it may not be possible to take three unique measurements.\n\n\n\n\n\n\n\n\nFigure 13.8: Showing where leaf thickness can be measured and where not, e.g. the midrib.\n\n\n\n\n\nFerns Make sure you do not measure thickness on the spore-producing sori on the backside of ferns.",
+    "crumbs": [
+      "Field course",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The trait wheel</span>"
+    ]
+  },
+  {
+    "objectID": "5_trait_collection.html#data-entry",
+    "href": "5_trait_collection.html#data-entry",
+    "title": "13  The trait wheel",
+    "section": "13.8 Data entry",
+    "text": "13.8 Data entry\nIdeally the envelope should still be kept wet until this point in case any information is missing. Go to this google sheet. Connect a barcode scanner to your computer. Scan the barcode of an envelope. Make sure that your cursor is in the right cell (ID). Enter all the data that is on the envelope (for details see Table 13.1). If any of the information is missing, check if it has been forgotten. Has the leaf been scanned, one thickness measurement is missing, etc. If anything is missing bring the leaf back to the according station in the trait wheel. When finished, check the box on the envelope that the data has been entered. Take a picture of the envelope. Bring the envelop to the drying station.",
+    "crumbs": [
+      "Field course",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The trait wheel</span>"
+    ]
+  },
+  {
+    "objectID": "5_trait_collection.html#dry-mass",
+    "href": "5_trait_collection.html#dry-mass",
+    "title": "13  The trait wheel",
+    "section": "13.9 Dry mass",
+    "text": "13.9 Dry mass\nThe leaves will be dried in the oven for 72 hours at 65°C.",
+    "crumbs": [
+      "Field course",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The trait wheel</span>"
+    ]
+  },
+  {
+    "objectID": "5_trait_collection.html#data-checking",
+    "href": "5_trait_collection.html#data-checking",
+    "title": "13  The trait wheel",
+    "section": "13.10 Data check",
+    "text": "13.10 Data check\nCheck scans Find the folder with the leave scans on google drive: link Open each scan and check the follwing criterias:\n\nIs the whole leaf on the scan?\nHas nothing else been scanned (cable, paper,…)?\nIs there dirty the scan?\nHas the leaf been cut? If yes, is it indicated on the envelope?\nHow many leaves are on the scan? If &gt; 1 is there a remark on the envelope?\n\nCheck data Open RStudio project and the R script (…). Download the trait data from google sheet. Check if the leafID is valid. Check if the variables have valid entries. E.g. correct day, site name, elevations, etc. Check if missing values can be found on the envelope or retrieved from the data. Plot the data to check if traits have unrealistic values. For more details see section data curation.",
+    "crumbs": [
+      "Field course",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The trait wheel</span>"
+    ]
+  },
+  {
+    "objectID": "5_trait_collection.html#data-documentation",
+    "href": "5_trait_collection.html#data-documentation",
+    "title": "13  The trait wheel",
+    "section": "13.11 Data doc",
+    "text": "13.11 Data doc\n\ndescription of the method of data collection\ndata dictionary for each data set",
+    "crumbs": [
+      "Field course",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The trait wheel</span>"
+    ]
+  },
+  {
+    "objectID": "5_trait_collection.html#references",
+    "href": "5_trait_collection.html#references",
+    "title": "13  The trait wheel",
+    "section": "13.13 References",
+    "text": "13.13 References\n\n\n\n\nPérez-Harguindeguy, N, S Dı́az, E Garnier, S Lavorel, H Poorter, P Jaureguiberry, M S Bret-Harte, et al. 2013. “New Handbook for Standardised Measurement of Plant Functional Traits Worldwide.” Australian Journal of Botany. https://doi.org/10.1071/BT12225.",
+    "crumbs": [
+      "Field course",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The trait wheel</span>"
+    ]
+  },
+  {
+    "objectID": "5_trait_collection.html#chemical-traits",
+    "href": "5_trait_collection.html#chemical-traits",
+    "title": "13  The trait wheel",
+    "section": "13.12 Chemical traits",
+    "text": "13.12 Chemical traits",
+    "crumbs": [
+      "Field course",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The trait wheel</span>"
+    ]
+  },
+  {
+    "objectID": "5_trait_collection.html#plant-height",
+    "href": "5_trait_collection.html#plant-height",
+    "title": "13  The trait wheel",
+    "section": "13.2 Plant height",
+    "text": "13.2 Plant height\nMeasure the vegetative height of the plants in the field (Figure 13.3). Vegetative height is the shortest distance between the main photosynthetic tissue on the plant and the ground, excluding any reproductive structure (e.g. buds, flowers or fruits). Leave the plant in it’s natural form and do not stretch the plant if it bends.\nPlant have different structures and plant height is not alwyays the same. Figure 13.3 shows some typical plant structures and how to measure height. For cushion plants (A), stick a the ruler into the cusion all the way to the ground. For forbs and graminoids (B, D, E) measure the main stem leaves, and do not stretch the leaves if they bend(D, F, G).\n\n\n\n\n\n\n\n\nFigure 13.3: Different plant types and how to measure height.\n\n\n\n\n\nNote down the height on the zip-loc bag using.",
+    "crumbs": [
+      "Field course",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>The trait wheel</span>"
+    ]
   }
 ]

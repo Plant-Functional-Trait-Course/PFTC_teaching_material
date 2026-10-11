@@ -1,6 +1,6 @@
 /* bioSTATS and R */
 
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Lora:ital,wght@0,500;0,600;1,500&display=swap');
 
 /*--NavBar--*/
 
@@ -421,6 +421,18 @@ a:hover {
   border-left-color: #865E27;
 }
 
+/* Quarto paints the active contents link blue, and that rule uses !important. */
+.sidebar nav[role="doc-toc"] ul > li > a.active,
+.sidebar nav[role="doc-toc"] ul > li > ul > li > a.active {
+  color: #2C5A4C !important;
+  border-left-color: #865E27 !important;
+}
+
+.sidebar nav[role="doc-toc"] ul > li > a:hover,
+.sidebar nav[role="doc-toc"] ul > li > ul > li > a:hover {
+  color: #2C5A4C !important;
+}
+
 div.sourceCode,
 pre.sourceCode {
   background-color: #f7f3ec !important;
@@ -437,6 +449,16 @@ pre.sourceCode {
   max-width: 980px;
 }
 
+#fig-trait-wheel svg.trait-wheel {
+  width: 100%;
+  height: auto;
+}
+
+#fig-trait-wheel figcaption {
+  width: min(42rem, 100%);
+  margin-inline: auto;
+}
+
 .lifecycle .dlc {
   display: block;
   margin: 0 auto;
@@ -451,6 +473,55 @@ figcaption,
 h2 {
   color: #2C5A4C;
 }
+
+h2[class*="step-"]::before {
+  content: "";
+  display: inline-block;
+  width: 2.05rem;
+  height: 2.05rem;
+  margin-right: 0.55rem;
+  vertical-align: -0.42rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+h2.phase-wet::after,
+h2.phase-dry::after {
+  display: inline-block;
+  margin-left: 0.6rem;
+  padding: 0.12rem 0.55rem;
+  border-radius: 999px;
+  font-family: "Avenir Next", "Gill Sans", "Gill Sans MT", "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  vertical-align: 0.28rem;
+}
+
+h2.phase-wet::after {
+  content: "Wet";
+  background: #C5D8E6;
+  color: #3d6070;
+}
+
+h2.phase-dry::after {
+  content: "Dry";
+  background: #E7D3B4;
+  color: #7a5a32;
+}
+
+h2.step-leaf::before { background-image: url("../images/trait_wheel/icons/leaf.svg"); }
+h2.step-envelope::before { background-image: url("../images/trait_wheel/icons/envelope.svg"); }
+h2.step-balance::before { background-image: url("../images/trait_wheel/icons/balance.svg"); }
+h2.step-scanner::before { background-image: url("../images/trait_wheel/icons/scanner.svg"); }
+h2.step-caliper::before { background-image: url("../images/trait_wheel/icons/caliper.svg"); }
+h2.step-laptop::before { background-image: url("../images/trait_wheel/icons/laptop.svg"); }
+h2.step-dry::before { background-image: url("../images/trait_wheel/icons/leaf-dry.svg"); }
+h2.step-scatter::before { background-image: url("../images/trait_wheel/icons/scatter.svg"); }
+h2.step-document::before { background-image: url("../images/trait_wheel/icons/document.svg"); }
+h2.step-height::before { background-image: url("../images/trait_wheel/icons/height.svg"); }
+h2.step-flask::before { background-image: url("../images/trait_wheel/icons/flask.svg"); }
 
 /* Signs for the life-cycle wedges and the three outer rings.
    Colours are the inks used on the wheels. */
@@ -752,6 +823,115 @@ h1.phase-process,
 h1.phase-share,
 h1.phase-reuse {
   padding-bottom: 0.15em;
+}
+
+div.callout-note.callout-style-default {
+  border-left-color: #2C5A4C;
+  background-color: #f4f1ea;
+}
+div.callout-note.callout-style-default > .callout-header {
+  background-color: #e3ebe6;
+  color: #2C5A4C;
+}
+div.callout-note.callout-titled .callout-icon::before,
+div.callout-note:not(.callout-titled) .callout-icon::before {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%232C5A4C' viewBox='0 0 16 16'><path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'/><path d='m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z'/></svg>");
+}
+
+div.callout-warning.callout-style-default {
+  border-left-color: #865E27;
+  background-color: #f6f1e8;
+}
+div.callout-warning.callout-style-default > .callout-header {
+  background-color: #f0e4d0;
+  color: #865E27;
+}
+div.callout-warning.callout-titled .callout-icon::before,
+div.callout-warning:not(.callout-titled) .callout-icon::before {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23865E27' viewBox='0 0 16 16'><path d='M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5m.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2'/></svg>");
+}
+
+details.pi-ips {
+  border: 1px solid #e0d6c8;
+  border-radius: 12px;
+  margin: 0.85rem 0 1.2rem;
+  background: #fffdf9;
+  overflow: hidden;
+}
+details.pi-ips > summary {
+  list-style: none;
+  cursor: pointer;
+  position: relative;
+  padding: 0.75rem 2.4rem 0.75rem 1rem;
+  background: #f7f3ec;
+  color: #2C5A4C;
+  font-weight: 600;
+}
+details.pi-ips > summary::-webkit-details-marker {
+  display: none;
+}
+details.pi-ips > summary::after {
+  content: "";
+  position: absolute;
+  right: 1.1rem;
+  top: 50%;
+  width: 0.45rem;
+  height: 0.45rem;
+  margin-top: -0.35rem;
+  border-right: 2px solid #2C5A4C;
+  border-bottom: 2px solid #2C5A4C;
+  transform: rotate(45deg);
+}
+details.pi-ips[open] > summary::after {
+  margin-top: -0.1rem;
+  transform: rotate(-135deg);
+}
+details.pi-ips > summary:hover {
+  background: #f1ebe2;
+}
+details.pi-ips .quarto-float-caption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+details.pi-ips .quarto-float {
+  margin: 0.15rem 0.75rem 0.85rem;
+}
+
+.envelope-label {
+  max-width: 34rem;
+  margin: 0.2rem 0 0.4rem;
+  padding: 0.85rem 1rem 0.7rem;
+  background: #f6f1e6;
+  border: 1.5px solid #3e342c;
+  box-shadow: 3px 3px 0 rgba(134, 94, 39, 0.18);
+}
+.el-line {
+  display: grid;
+  grid-template-columns: minmax(7.5rem, 38%) 1fr;
+  gap: 0.35rem 0.75rem;
+  align-items: baseline;
+  padding: 0.18rem 0;
+}
+.el-key {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #3e342c;
+}
+.el-fill {
+  border-bottom: 1px dotted #b7aa9a;
+  font-family: "Caveat", "Bradley Hand", "Segoe Print", cursive;
+  font-size: 1.45rem;
+  font-weight: 500;
+  line-height: 1.15;
+  color: #2f5570;
 }
 
 
