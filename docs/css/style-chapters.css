@@ -433,6 +433,10 @@ pre.sourceCode {
   max-width: 740px;
 }
 
+.lifecycle-wide {
+  max-width: 980px;
+}
+
 .lifecycle .dlc {
   display: block;
   margin: 0 auto;
