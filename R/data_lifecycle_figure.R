@@ -24,21 +24,24 @@ start_angle <- 330
 stages <- data.frame(
   id = c(
     "design", "plan", "collect", "digitize",
-    "processing", "analyse", "document", "disseminate", "archive", "find-reuse"
+    "processing", "analyse", "visualise", "document", "disseminate", "archive",
+    "find-reuse"
   ),
   label = c(
     "Design", "Plan", "Collect", "Digitize",
-    "Process", "Analyse", "Document", "Disseminate", "Archive", "Find &\nReuse"
+    "Process", "Analyse", "Visualise", "Document", "Disseminate", "Archive",
+    "Find &\nReuse"
   ),
   phase = c(
     "create", "create", "create",
-    "process", "process", "process",
+    "process", "process", "process", "process",
     "share", "share", "share",
     "reuse"
   ),
   icon = c(
     "pencil", "clipboard", "notebook", "scanner",
-    "gears", "analyse", "document", "share", "archive", "reuse"
+    "gears", "analyse", "visualise", "document", "share", "archive",
+    "reuse"
   ),
   # Signac, from the Met palettes (palettes::met_palettes / MetBrewer),
   # mixed toward a warm umber so the pigments sit quieter than the
@@ -46,7 +49,7 @@ stages <- data.frame(
   # shifts slowly along the block instead of changing at every circle.
   color = c(
     "#3D7463", "#45816D", "#5E8A61",
-    "#819751", "#BA992B", "#C08122",
+    "#819751", "#BA992B", "#C08122", "#C48A4A",
     "#B36F72", "#A06574", "#895977",
     "#3F677D"
   ),
@@ -57,6 +60,7 @@ stages <- data.frame(
     "5_trait_collection.html#data-entry",
     "12_traits.html#prepare-data",
     "10_community.html",
+    "8_reproducible.html",
     "5_trait_collection.html#data-documentation",
     "8_reproducible.html",
     "6_pftc_data.html#pftc-data-repositories",
@@ -65,7 +69,8 @@ stages <- data.frame(
   angle = NA_real_,
   highlight = c(
     FALSE, FALSE, FALSE, FALSE,
-    FALSE, TRUE, FALSE, FALSE, FALSE, FALSE
+    FALSE, TRUE, FALSE, FALSE, FALSE, FALSE,
+    FALSE
   ),
   stringsAsFactors = FALSE
 )
@@ -82,24 +87,29 @@ phases <- data.frame(
   stringsAsFactors = FALSE
 )
 
-# Course bands sit on the outer grey track.
-# mid is the centre of the band (0 = top, clockwise). span is its width in degrees.
-# Each band runs from the gap before its first step to the gap after its last step:
-# Design–Collect (~6°); Analyse 150°; Disseminate 222°.
-courses <- data.frame(
-  id = c("ecology", "stats", "reports"),
-  label = c("Ecology & Field Courses", "Stats Courses", "Reports, Stats"),
-  mid = c(6, 150, 222),
-  span = c(108, 36, 36),
-  # Same family as the step band behind each course, taken darker so the label still reads.
-  # Ecology over the teal of Design–Collect, Stats over the ochre of Analyse,
-  # Reports over the rose of Disseminate.
-  color = c("#2C5A4C", "#865E27", "#7E545B"),
-  text_color = c("#f6f1e6", "#f6f1e6", "#f6f1e6"),
+# Learning-outcome skills on the outer grey track.
+# near = stage id whose angle centres the chip; span is chip width in degrees.
+# Only some lifecycle steps have a matching skill, so the outer ring stays gappy.
+skills <- data.frame(
+  id = c("formulate", "observe", "test", "illustrate", "write"),
+  label = c(
+    "Formulate questions",
+    "Observe & use equipment",
+    "Test hypotheses",
+    "Illustrate",
+    "Write & interpret"
+  ),
+  near = c("design", "collect", "analyse", "visualise", "disseminate"),
+  span = c(36, 48, 34, 28, 36),
+  # Darker cousins of the nearby phase wash so labels stay readable.
+  color = c("#2C5A4C", "#355F48", "#865E27", "#8A6428", "#7E545B"),
+  text_color = c("#f6f1e6", "#f6f1e6", "#f6f1e6", "#f6f1e6", "#f6f1e6"),
   href = c(
     "5_trait_collection.html",
+    "5_trait_collection.html#collecting-leaves-in-the-field",
+    "10_community.html",
     "8_reproducible.html",
-    "step_communicate.html"
+    "8_reproducible.html"
   ),
   stringsAsFactors = FALSE
 )
@@ -118,11 +128,10 @@ layout <- list(
   bubble_orbit = 312,
   bubble_r = 52,
   phase_label_r = 194,
-  course_label_r = 428,
-  dotted_r = 150,
+  skill_label_r = 428,
   stage_font = 15,
   phase_font = 22,
-  course_font = 16,
+  skill_font = 13,
   # Warm grey-brown keyline on every step circle.
   ring = "#7d6a5c",
   icon_ink = "#4a4038",
@@ -250,16 +259,16 @@ flow_arrow <- function(a_from, a_to, r, bubble_r, fill, cx, cy) {
   half <- acos(max(-1, min(1, 1 - (bubble_r^2) / (2 * r^2)))) * 180 / pi
   free <- span - 2 * half
   if (free < 4) {
-    return(arrow_path(a_from + span / 2, r, 16, fill, cx, cy))
+    return(arrow_path(a_from + span / 2, r, 9, fill, cx, cy))
   }
   pad <- min(1.7, free * 0.14)
   usable <- free - 2 * pad
-  head_deg <- min(3.5, usable * 0.52)
+  head_deg <- min(2.6, usable * 0.48)
   start_deg <- a_from + half + pad
   tip_deg <- a_from + span - half - pad
   base_deg <- tip_deg - head_deg
-  head_half_w <- 9.2
-  shaft_w <- 3.6
+  head_half_w <- 5.2
+  shaft_w <- 1.8
   edge <- mix_hex(fill, "#3e342c", 0.62)
 
   shaft <- text_arc_d(start_deg, base_deg, r, FALSE, cx, cy)
@@ -277,12 +286,12 @@ flow_arrow <- function(a_from, a_to, r, bubble_r, fill, cx, cy) {
   sprintf(
     paste0(
       '<g pointer-events="none">',
-      '<path d="%s" fill="none" stroke="%s" stroke-width="%.1f" stroke-linecap="round" stroke-opacity="0.35"/>',
+      '<path d="%s" fill="none" stroke="%s" stroke-width="%.1f" stroke-linecap="round" stroke-opacity="0.3"/>',
       '<path d="%s" fill="none" stroke="%s" stroke-width="%.1f" stroke-linecap="round"/>',
-      '<path d="%s" fill="%s" stroke="%s" stroke-width="0.7" stroke-linejoin="round"/>',
+      '<path d="%s" fill="%s" stroke="%s" stroke-width="0.45" stroke-linejoin="round"/>',
       "</g>"
     ),
-    shaft, edge, shaft_w + 2.4,
+    shaft, edge, shaft_w + 1.2,
     shaft, fill, shaft_w,
     head, fill, edge
   )
@@ -433,6 +442,10 @@ icon_markup <- function(name, col) {
       '<g %s><path d="M5 26 V13"/><path d="M5 26 H18"/><path d="M8 22 l4 -6 l3.2 2.4 l5 -7"/><circle cx="22.5" cy="11" r="5"/><path d="M26 14.6 L29.5 18.2"/></g>',
       stroke
     ),
+    visualise = sprintf(
+      '<g %s><path d="M5 26 V7"/><path d="M5 26 H27"/><path d="M9 22 v-7"/><path d="M14 22 v-12"/><path d="M19 22 v-9"/><path d="M24 22 v-14"/></g>',
+      stroke
+    ),
     document = sprintf(
       '<g %s><path d="M9 4 h9 l6 6 v16 a2 2 0 0 1 -2 2 h-13 a2 2 0 0 1 -2 -2 v-20 a2 2 0 0 1 2 -2 z"/><path d="M18 4 v6 h6"/><path d="M12 16 h8 M12 20 h8 M12 24 h5"/></g>',
       stroke
@@ -503,28 +516,32 @@ assign_angles <- function(stages, start_angle) {
   stages
 }
 
-validate_inputs <- function(stages, phases, courses) {
+validate_inputs <- function(stages, phases, skills) {
   if (!all(stages$phase %in% phases$id)) {
     stop("Every stage phase must match a phases$id.", call. = FALSE)
   }
-  if (anyDuplicated(stages$id) || anyDuplicated(phases$id) || anyDuplicated(courses$id)) {
+  if (!all(skills$near %in% stages$id)) {
+    stop("Every skills$near must match a stages$id.", call. = FALSE)
+  }
+  if (anyDuplicated(stages$id) || anyDuplicated(phases$id) || anyDuplicated(skills$id)) {
     stop("ids must be unique within each table.", call. = FALSE)
   }
-  if (any(!nzchar(c(stages$href, phases$href, courses$href)))) {
+  if (any(!nzchar(c(stages$href, phases$href, skills$href)))) {
     stop("Every href must be filled in.", call. = FALSE)
   }
   known <- c(
     "clipboard", "pencil", "notebook", "scanner", "folder-in", "broom",
-    "gears", "analyse", "document", "share", "archive", "reuse"
+    "gears", "analyse", "visualise", "document", "share", "archive", "reuse"
   )
   if (!all(stages$icon %in% known)) {
     stop("Unknown icon name in stages$icon.", call. = FALSE)
   }
 }
 
-build_svg <- function(stages, phases, courses, layout) {
+build_svg <- function(stages, phases, skills, layout) {
   stages <- assign_angles(stages, start_angle)
-  validate_inputs(stages, phases, courses)
+  validate_inputs(stages, phases, skills)
+  skills$angle <- stages$angle[match(skills$near, stages$id)]
   L <- layout
   cx <- L$canvas / 2
   cy <- L$canvas / 2
@@ -532,12 +549,12 @@ build_svg <- function(stages, phases, courses, layout) {
 
   css <- paste(
     "<style>",
-    ".dlc-stage,.dlc-phase,.dlc-course{cursor:pointer;text-decoration:none;}",
-    ".dlc-stage:hover,.dlc-phase:hover,.dlc-course:hover,",
-    ".dlc-stage:focus,.dlc-phase:focus,.dlc-course:focus{text-decoration:none;outline:none;}",
+    ".dlc-stage,.dlc-phase,.dlc-skill{cursor:pointer;text-decoration:none;}",
+    ".dlc-stage:hover,.dlc-phase:hover,.dlc-skill:hover,",
+    ".dlc-stage:focus,.dlc-phase:focus,.dlc-skill:focus{text-decoration:none;outline:none;}",
     ".dlc-hit{fill:transparent;}",
     ".dlc-phase:hover .dlc-hit,.dlc-phase:focus .dlc-hit,",
-    ".dlc-course:hover .dlc-hit,.dlc-course:focus .dlc-hit{fill:rgba(255,248,236,0.22);}",
+    ".dlc-skill:hover .dlc-hit,.dlc-skill:focus .dlc-hit{fill:rgba(255,248,236,0.22);}",
     ".dlc-stage:hover .dlc-bubble,.dlc-stage:focus .dlc-bubble,",
     ".dlc-stage:hover .dlc-keyline,.dlc-stage:focus .dlc-keyline{stroke:#3e342c;}",
     "</style>",
@@ -560,7 +577,7 @@ build_svg <- function(stages, phases, courses, layout) {
   parts <- c(
     '<?xml version="1.0" encoding="UTF-8"?>',
     sprintf(
-      '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="dlc" viewBox="0 0 %d %d" width="860" height="860" style="max-width:100%%;height:auto" role="group" aria-label="Data life cycle" font-family="Avenir Next, Gill Sans, Gill Sans MT, Helvetica Neue, Arial, sans-serif">',
+      '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="dlc" viewBox="0 0 %d %d" width="860" height="860" style="max-width:100%%;height:auto" role="group" aria-label="Reproducible science" font-family="Avenir Next, Gill Sans, Gill Sans MT, Helvetica Neue, Arial, sans-serif">',
       L$canvas, L$canvas
     ),
     "<!-- Generated by R/data_lifecycle_figure.R. Edit that script and re-run. -->",
@@ -584,29 +601,29 @@ build_svg <- function(stages, phases, courses, layout) {
     )
   )
 
-  # Course bands
-  for (i in seq_len(nrow(courses))) {
-    course <- courses[i, ]
-    half <- course$span / 2
-    a0 <- course$mid - half
-    a1 <- course$mid + half
+  # Discrete skill chips on the outer track (gaps show incomplete overlap).
+  for (i in seq_len(nrow(skills))) {
+    skill <- skills[i, ]
+    half <- skill$span / 2
+    a0 <- skill$angle - half
+    a1 <- skill$angle + half
     s <- norm_span(a0, a1)
     mid <- (s$a0 + s$span / 2) %% 360
     flip <- should_flip(mid)
-    baseline <- label_baseline_r(L$course_label_r, L$course_font, flip)
-    band <- annulus_d(s$a0, s$a0 + s$span, L$track_inner, L$outer_r, cx, cy)
+    baseline <- label_baseline_r(L$skill_label_r, L$skill_font, flip)
+    chip <- annulus_d(s$a0, s$a0 + s$span, L$track_inner, L$outer_r, cx, cy)
     parts <- c(
       parts,
       sprintf(
-        '<a class="dlc-course" href="%s" aria-label="%s"><title>%s</title>',
-        xml_esc(course$href), xml_esc(course$label), xml_esc(course$label)
+        '<a class="dlc-skill" href="%s" aria-label="%s"><title>%s</title>',
+        xml_esc(skill$href), xml_esc(skill$label), xml_esc(skill$label)
       ),
-      sprintf('<path d="%s" fill="%s" pointer-events="none"/>', band, course$color),
-      sprintf('<path class="dlc-hit" d="%s"/>', band),
+      sprintf('<path d="%s" fill="%s" pointer-events="none"/>', chip, skill$color),
+      sprintf('<path class="dlc-hit" d="%s"/>', chip),
       curved_text(
-        paste0("dlc-course-path-", course$id),
+        paste0("dlc-skill-path-", skill$id),
         text_arc_d(s$a0, s$a0 + s$span, baseline, flip, cx, cy),
-        course$label, L$course_font, course$text_color, "0.6"
+        skill$label, L$skill_font, skill$text_color, "0.4"
       ),
       "</a>"
     )
@@ -705,7 +722,7 @@ build_svg <- function(stages, phases, courses, layout) {
     )
   }
 
-  # Title well. A fine broken rule stands in for the old dotted circle.
+  # Title well in the centre.
   parts <- c(
     parts,
     sprintf(
@@ -713,19 +730,11 @@ build_svg <- function(stages, phases, courses, layout) {
       cx, cy, L$block_inner - 8, L$well
     ),
     sprintf(
-      '<circle cx="%.2f" cy="%.2f" r="%.2f" fill="none" stroke="#6a594c" stroke-width="3.4" stroke-linecap="round" stroke-dasharray="0.2 11" pointer-events="none"/>',
-      cx, cy, L$dotted_r
-    ),
-    sprintf(
       '<g text-anchor="middle" fill="%s" font-family="Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif" font-weight="500" pointer-events="none">',
       L$center_fill
     ),
-    sprintf('<text x="%.2f" y="%.2f" font-size="38" letter-spacing="7">DATA</text>', cx, cy - 14),
-    sprintf(
-      '<line x1="%.2f" y1="%.2f" x2="%.2f" y2="%.2f" stroke="%s" stroke-width="0.8"/>',
-      cx - 34, cy + 4, cx + 34, cy + 4, L$center_fill
-    ),
-    sprintf('<text x="%.2f" y="%.2f" font-size="13" letter-spacing="4.4">LIFE CYCLE</text>', cx, cy + 26),
+    sprintf('<text x="%.2f" y="%.2f" font-size="24" letter-spacing="2.4">REPRODUCIBLE</text>', cx, cy - 10),
+    sprintf('<text x="%.2f" y="%.2f" font-size="24" letter-spacing="2.4">SCIENCE</text>', cx, cy + 20),
     "</g>",
     sprintf(
       '<rect width="%d" height="%d" filter="url(#dlc-grain)" pointer-events="none"/>',
@@ -748,7 +757,7 @@ project_root <- function() {
   normalizePath(".")
 }
 
-figure <- build_svg(stages, phases, courses, layout)
+figure <- build_svg(stages, phases, skills, layout)
 root <- project_root()
 out_dir <- file.path(root, "quarto_webpage", "images")
 dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
@@ -766,7 +775,7 @@ message("\nCycle links:")
 for (i in seq_len(nrow(phases))) {
   message(sprintf("  %-8s  %s", phases$label[i], phases$href[i]))
 }
-message("\nCourse links:")
-for (i in seq_len(nrow(courses))) {
-  message(sprintf("  %-28s  %s", courses$label[i], courses$href[i]))
+message("\nSkill links:")
+for (i in seq_len(nrow(skills))) {
+  message(sprintf("  %-28s  near %-12s  %s", skills$label[i], skills$near[i], skills$href[i]))
 }
