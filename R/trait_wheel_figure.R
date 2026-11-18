@@ -59,14 +59,24 @@ icon_markup <- function(name) {
       '<g %s><path d="M16 4 v6"/><path d="M7 10 h18"/><path d="M7 10 l-4 8 h8 z"/><path d="M25 10 l-4 8 h8 z"/><path d="M16 10 v13"/><path d="M10 26 h12"/><path d="M8 29 h16"/></g>',
       stroke
     ),
-    scanner = sprintf(
-      '<g %s><rect x="2.5" y="2.5" width="27" height="27" rx="2.2"/><path d="M4.5 10.5 H27.5" stroke="#5d7f90" stroke-width="1.7"/></g><path fill="#7D9A72" d="M16 13 C21.2 14 24.6 18.2 23.6 23 C22.8 26.6 19.4 28.6 16 28.6 C12.6 28.6 9.2 26.6 8.4 23 C7.4 18.2 10.8 14 16 13 Z"/><path fill="none" stroke="#3e342c" stroke-width="0.9" stroke-linecap="round" d="M16 27.6 V16.2"/>',
-      stroke
+    scanner = paste0(
+      '<path fill="none" stroke="#3e342c" stroke-width="1.55" stroke-linejoin="round" stroke-linecap="round" d="M24.5 16.5 L6.5 3.2 L3.2 7.2 L21.2 20.5"/>',
+      '<rect x="2" y="16.5" width="28" height="14" rx="2.2" fill="#f6f1e6" stroke="#3e342c" stroke-width="1.55"/>',
+      '<rect x="4.4" y="18.8" width="23.2" height="9.4" rx="0.7" fill="#d5e4ee" stroke="#3e342c" stroke-width="0.85"/>',
+      '<path fill="#7D9A72" d="M16 19.4 C20.6 20.1 23.4 22.4 22.7 25.4 C22 27.8 19 29.2 16 29.2 C13 29.2 10 27.8 9.3 25.4 C8.6 22.4 11.4 20.1 16 19.4 Z"/>',
+      '<path fill="none" stroke="#3e342c" stroke-width="0.85" stroke-linecap="round" d="M16 28.4 V21"/>'
     ),
     caliper = paste0(
-      '<path fill="#7D9A72" d="M3.5 16 C8 9.5 24 9.5 28.5 16 C24 22.5 8 22.5 3.5 16 Z"/>',
-      '<path fill="none" stroke="#3e342c" stroke-width="1.35" stroke-linecap="round" d="M16 4.5 V9.2 M16 22.8 V27.5"/>',
-      '<path fill="none" stroke="#3e342c" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" d="M16 4.5 L13.1 8 M16 4.5 L18.9 8 M16 27.5 L13.1 24 M16 27.5 L18.9 24"/>'
+      '<path fill="#7D9A72" d="M16 15.4 C21.2 16.2 24 20.4 23.2 25.6 C22.4 30 18.8 32.6 16 32.6 C13.2 32.6 9.6 30 8.8 25.6 C8 20.4 10.8 16.2 16 15.4 Z"/>',
+      '<path fill="none" stroke="#3e342c" stroke-width="0.85" stroke-linecap="round" d="M16 30.8 V18.6"/>',
+      '<path fill="none" stroke="#3e342c" stroke-width="0.95" stroke-linecap="round" d="M16 32 V35"/>',
+      '<g fill="none" stroke="#3e342c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">',
+      '<path d="M3.5 8 H29.5"/>',
+      '<path d="M6.5 8 V14.2 H11.2 V27"/>',
+      '<path d="M27.2 8 V14.2 H22.5 V27"/>',
+      '<rect x="19.4" y="4.1" width="9.4" height="7.6" rx="1.2"/>',
+      '<path d="M12.5 8 V9.8 M16 8 V9.8 M19.5 8 V9.6" stroke-width="1.05"/>',
+      "</g>"
     ),
     flask = sprintf(
       '<path d="M10 22 h12 v5 a2.4 2.4 0 0 1 -2.4 2.4 H12.4 A2.4 2.4 0 0 1 10 27 z" fill="#C4B3D4"/>%s',
