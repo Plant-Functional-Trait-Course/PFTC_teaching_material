@@ -25,6 +25,7 @@ quarto_webpage/images/data_lifecycle.svg
 *.jpeg
 *.md
 *.ai
+*.svg
 
 # Mac
 *.DS_Store
