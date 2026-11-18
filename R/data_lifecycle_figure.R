@@ -23,21 +23,21 @@ start_angle <- 330
 
 stages <- data.frame(
   id = c(
-    "plan", "design", "collect", "digitize", "import", "clean",
-    "processing", "analyse", "document", "communicate", "archive", "find-reuse"
+    "design", "plan", "collect", "digitize",
+    "processing", "analyse", "document", "disseminate", "archive", "find-reuse"
   ),
   label = c(
-    "Plan", "Design", "Collect", "Digitize", "Import", "Clean",
-    "Process", "Analyse", "Document", "Communicate", "Archive", "Find &\nReuse"
+    "Design", "Plan", "Collect", "Digitize",
+    "Process", "Analyse", "Document", "Disseminate", "Archive", "Find &\nReuse"
   ),
   phase = c(
     "create", "create", "create",
-    "process", "process", "process", "process", "process",
+    "process", "process", "process",
     "share", "share", "share",
     "reuse"
   ),
   icon = c(
-    "clipboard", "pencil", "notebook", "scanner", "folder-in", "broom",
+    "pencil", "clipboard", "notebook", "scanner",
     "gears", "analyse", "document", "share", "archive", "reuse"
   ),
   # Signac, from the Met palettes (palettes::met_palettes / MetBrewer),
@@ -46,17 +46,15 @@ stages <- data.frame(
   # shifts slowly along the block instead of changing at every circle.
   color = c(
     "#3D7463", "#45816D", "#5E8A61",
-    "#819751", "#979843", "#AA9836", "#BA992B",
-    "#C08122", "#B36F72", "#A06574",
-    "#895977", "#3F677D"
+    "#819751", "#BA992B", "#C08122",
+    "#B36F72", "#A06574", "#895977",
+    "#3F677D"
   ),
   href = c(
-    "plan_logistics.html",
     "5_trait_collection.html",
+    "plan_logistics.html",
     "5_trait_collection.html#collecting-leaves-in-the-field",
     "5_trait_collection.html#data-entry",
-    "9_data_curation.html#import-data",
-    "9_data_curation.html",
     "12_traits.html#prepare-data",
     "10_community.html",
     "5_trait_collection.html#data-documentation",
@@ -66,7 +64,7 @@ stages <- data.frame(
   ),
   angle = NA_real_,
   highlight = c(
-    FALSE, FALSE, FALSE, FALSE, FALSE, FALSE,
+    FALSE, FALSE, FALSE, FALSE,
     FALSE, TRUE, FALSE, FALSE, FALSE, FALSE
   ),
   stringsAsFactors = FALSE
@@ -87,15 +85,15 @@ phases <- data.frame(
 # Course bands sit on the outer grey track.
 # mid is the centre of the band (0 = top, clockwise). span is its width in degrees.
 # Each band runs from the gap before its first step to the gap after its last step:
-# Design 0° and Collect 30°; Analyse 180°; Communicate 240°.
+# Design–Collect (~6°); Analyse 150°; Disseminate 222°.
 courses <- data.frame(
   id = c("ecology", "stats", "reports"),
   label = c("Ecology & Field Courses", "Stats Courses", "Reports, Stats"),
-  mid = c(15, 180, 240),
-  span = c(60, 30, 30),
+  mid = c(6, 150, 222),
+  span = c(108, 36, 36),
   # Same family as the step band behind each course, taken darker so the label still reads.
-  # Ecology over the teal of Design and Collect, Stats over the ochre of Analyse,
-  # Reports over the rose of Communicate.
+  # Ecology over the teal of Design–Collect, Stats over the ochre of Analyse,
+  # Reports over the rose of Disseminate.
   color = c("#2C5A4C", "#865E27", "#7E545B"),
   text_color = c("#f6f1e6", "#f6f1e6", "#f6f1e6"),
   href = c(
